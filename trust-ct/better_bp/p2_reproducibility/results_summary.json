@@ -1,0 +1,77 @@
+{
+  "att6m_adj_or": 1.8654,
+  "att6m_adj_or_lo": 1.0472,
+  "att6m_adj_or_hi": 3.3227,
+  "att6m_adj_p": 0.034302,
+  "att6m": {
+    "intervention_pct": 88.3,
+    "control_pct": 80.1,
+    "rd_pct": 8.2,
+    "rd_ci_lo": 0.46,
+    "rd_ci_hi": 15.94,
+    "chi2": 4.258,
+    "p": 0.039065
+  },
+  "att12m": {
+    "intervention_pct": 77.8,
+    "control_pct": 77.9,
+    "rd_pct": -0.1
+  },
+  "sbp_change_6m": {
+    "diff": -0.13,
+    "ci_lo": -4.35,
+    "ci_hi": 4.09,
+    "t": -0.06,
+    "p": 0.95189
+  },
+  "sbp_change_12m": {
+    "diff": -2.79,
+    "ci_lo": -7.19,
+    "ci_hi": 1.6,
+    "t": -1.247,
+    "p": 0.213481
+  },
+  "dbp_change_6m": {
+    "diff": -1.0,
+    "ci_lo": -3.35,
+    "ci_hi": 1.34,
+    "t": -0.839,
+    "p": 0.402155
+  },
+  "dbp_change_12m": {
+    "diff": -2.67,
+    "ci_lo": -5.2,
+    "ci_hi": -0.15,
+    "t": -2.074,
+    "p": 0.039168
+  },
+  "sbp_change_6m_adj": {
+    "coef": -1.002,
+    "ci_lo": -4.526,
+    "ci_hi": 2.523,
+    "p": 0.576571
+  },
+  "mases_change_6m": {
+    "diff": 0.04,
+    "ci_lo": -0.1,
+    "ci_hi": 0.17,
+    "t": 0.569,
+    "p": 0.570221
+  },
+  "mases_change_12m": {
+    "diff": 0.0,
+    "ci_lo": -0.15,
+    "ci_hi": 0.15,
+    "t": 0.006,
+    "p": 0.995107
+  },
+  "completion": {
+    "total": 402,
+    "completed": 312,
+    "completed_pct": 77.6,
+    "discontinued": 65,
+    "discontinued_pct": 16.2,
+    "missing_eos": 25,
+    "missing_eos_pct": 6.2
+  }
+}

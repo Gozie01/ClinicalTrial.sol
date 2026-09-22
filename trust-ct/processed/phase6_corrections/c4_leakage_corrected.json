@@ -1,0 +1,48 @@
+{
+  "sign_recovery": {
+    "alpha_0_value": 0.8031,
+    "alpha_001_value": 0.6793,
+    "absolute_difference_pp": 12.38,
+    "relative_difference_pct": 15.42,
+    "corrected_label": "12.4 percentage points (15.4% relative)",
+    "previous_error": "Incorrectly stated as 15.4 percentage points"
+  },
+  "cosine_similarity": {
+    "alpha_0_value": 0.5337,
+    "alpha_001_value": 0.4642,
+    "relative_reduction_pct": 13.02
+  },
+  "auroc_change_pp": -0.092,
+  "corrected_sentence": "At alpha=0.01, reconstruction cosine similarity decreased by 13.0% relative (0.534 to 0.464) and feature-sign recovery decreased by 12.4 percentage points (80.3% to 67.9%; 15.4% relative), while AUROC decreased by 0.1 percentage points.",
+  "mia_bootstrap": {
+    "eicu": {
+      "seeds": 5,
+      "values": [
+        0.49593,
+        0.49548,
+        0.49586,
+        0.49861,
+        0.4965
+      ],
+      "mean": 0.49648,
+      "ci95_lo": 0.49572,
+      "ci95_hi": 0.49756,
+      "ci_contains_0.5": false
+    },
+    "cimas": {
+      "seeds": 5,
+      "values": [
+        0.5069,
+        0.5062,
+        0.50665,
+        0.50697,
+        0.50704
+      ],
+      "mean": 0.50675,
+      "ci95_lo": 0.50644,
+      "ci95_hi": 0.50698,
+      "ci_contains_0.5": false
+    }
+  },
+  "mia_statement": "MIA AUROC was 0.496 (eICU; 95% CI [0.496, 0.498]) and 0.507 (Cimas; 95% CI [0.506, 0.507]). Point estimates are near 0.5; confidence intervals are narrow given N=5 seeds. No substantial membership-inference advantage was detected under the evaluated attack."
+}

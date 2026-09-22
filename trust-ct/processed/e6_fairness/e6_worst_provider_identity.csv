@@ -1,0 +1,16 @@
+contrast,seed,worst_provider,worst_delta
+cold_fed - cold_local,7,MEDICINE CHEST,-0.102344
+cold_fed - cold_local,11,MEDICINE CHEST,-0.090625
+cold_fed - cold_local,19,SOMMERDRIFT INV T/A KENLINK THE BRIDGE,-0.080769
+cold_fed - cold_local,23,BALLANTYNE PARK PHARMACY,-0.157143
+cold_fed - cold_local,37,MEDICINE CHEST,-0.141406
+warm_local - cold_local,7,BALLANTYNE PARK PHARMACY,-0.025893
+warm_local - cold_local,11,KENLINK KENSINGTON PHARMACY,-0.019658
+warm_local - cold_local,19,MEDICINE CHEST,-0.021875
+warm_local - cold_local,23,BALLANTYNE PARK PHARMACY,-0.058036
+warm_local - cold_local,37,MEDICINE CHEST,-0.028125
+warm_local - warm_fed,7,WATERSHED PHARMACY,-0.064583
+warm_local - warm_fed,11,ASHBRITTLE   PHARMACY,-0.197321
+warm_local - warm_fed,19,ASHBRITTLE   PHARMACY,-0.100893
+warm_local - warm_fed,23,TRINITY PHARMACY -AVENUES,-0.042769
+warm_local - warm_fed,37,FAREPLAN ENTERPRISE P/L T/A CHINHOYI TOWN PHARMACY,-0.027885

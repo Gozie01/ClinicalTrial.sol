@@ -1,0 +1,202 @@
+========================================================================
+E6 CONDITION-LEVEL DISPARITY STATISTICS
+Provider-level AUROC disparity (NOT demographic/individual fairness)
+Late-round window: rounds 51-60, K=23 providers, S=5 seeds
+========================================================================
+
+  Metric      | cold_fed       | cold_local     | warm_fed       | warm_local    
+  ------------------------------------------------------------------------
+  mean        |        0.76050 |        0.75768 |        0.76050 |        0.76287
+  min         |        0.51839 |        0.50938 |        0.51839 |        0.52522
+  p10         |        0.64125 |        0.64442 |        0.64125 |        0.64108
+  max         |        0.89975 |        0.90537 |        0.89975 |        0.90594
+  iqr         |        0.09154 |        0.09415 |        0.09154 |        0.09113
+  range       |        0.38135 |        0.39598 |        0.38135 |        0.38072
+  cv          |        0.12519 |        0.12969 |        0.12519 |        0.12287
+  gini        |        0.06525 |        0.06699 |        0.06525 |        0.06431
+
+  95% CIs (seed-level bootstrap) for IQR (disparity):
+    cold_fed      : 0.09154 [0.07251, 0.10901]
+    cold_local    : 0.09415 [0.07330, 0.11560]
+    warm_fed      : 0.09154 [0.07364, 0.11006]
+    warm_local    : 0.09113 [0.07511, 0.10471]
+
+========================================================================
+PROVIDER-LEVEL FIXED EFFECTS (CONTRAST HETEROGENEITY)
+Mean delta across S=5 seeds per provider; SD measures consistency.
+sign_consistency = fraction of seeds with positive delta.
+A |mean|/SD ratio > 2 suggests a systematic directional effect.
+========================================================================
+
+  Contrast: cold_fed - cold_local
+  Provider                               mean_delta  sd_delta  sign_cons  n_test  systematic?
+  ----------------------------------------------------------------------------------------
+  ASHBRITTLE   PHARMACY                    +0.11411   0.13575       1.00      22            —
+  BALLANTYNE PARK PHARMACY                 -0.03071   0.07988       0.20      23            —
+  CIMAS BORROWDALE OFFICE PARK PHARMACY    +0.01026   0.03998       0.60      58            —
+  CIMAS BULAWAYO PHARMACY                  +0.00281   0.00239       1.00     215            —
+  CIMAS CLINIC -MASVINGO PHARMACY          +0.01135   0.03273       0.60      60            —
+  CIMAS FIFE AVENUE PHARMACY               +0.01014   0.00992       0.80      97            —
+  CIMAS FOURTH STREET PHARMACY             -0.00044   0.00176       0.60     454            —
+  CIMAS HCC  MUTARE PHARMACY               -0.00105   0.01038       0.20     163            —
+  CIMAS HCC CHINHOYI ST. PHARM             +0.00573   0.00570       1.00     270            —
+  CIMAS HCC CHITUNGWIZA PHARMACY           -0.01182   0.00969       0.20     124            —
+  CIMAS HCC GWERU PHARMACY                 -0.00124   0.00796       0.60      82            —
+  CIMAS HIGH GLEN PHARMACY                 +0.00819   0.00587       1.00     168            —
+  CIMAS KWEKWE CLINIC- PHARMACY            +0.00627   0.01747       0.60      76            —
+  CIMAS MANRESA - PHARRMACY                +0.00416   0.01079       0.80      88            —
+  CLIQUE PHARMACY                          +0.00943   0.01100       0.80      24            —
+  FAREPLAN ENTERPRISE P/L T/A CHINHOYI TOWN PHARMACY   -0.02250   0.01885       0.20      21            —
+  HEALTHLINK PHARMACY                      +0.01402   0.01468       1.00      55            —
+  KENLINK KENSINGTON PHARMACY              +0.01709   0.06680       0.40      31            —
+  MEDICINE CHEST                           -0.08078   0.04681       0.00      24            —
+  ROWLAND SQUARE PHARMACY                  -0.00065   0.00243       0.60     397            —
+  SOMMERDRIFT INV T/A KENLINK THE BRIDGE   -0.02269   0.03460       0.40      25            —
+  TRINITY PHARMACY -AVENUES                +0.00271   0.04572       0.60      38            —
+  WATERSHED PHARMACY                       +0.02056   0.05583       0.60      25            —
+
+  -> Systematic (|mean|/SD > 2): 0/23 providers
+     Mean delta < -0.01 AUROC:   5/23 providers
+     Mean delta > +0.01 AUROC:   7/23 providers
+
+  Contrast: warm_local - cold_local
+  Provider                               mean_delta  sd_delta  sign_cons  n_test  systematic?
+  ----------------------------------------------------------------------------------------
+  ASHBRITTLE   PHARMACY                    +0.05071   0.05387       1.00      22            —
+  BALLANTYNE PARK PHARMACY                 -0.00518   0.03560       0.60      23            —
+  CIMAS BORROWDALE OFFICE PARK PHARMACY    +0.00514   0.01430       0.60      58            —
+  CIMAS BULAWAYO PHARMACY                  +0.00126   0.00146       0.80     215            —
+  CIMAS CLINIC -MASVINGO PHARMACY          +0.00085   0.01126       0.60      60            —
+  CIMAS FIFE AVENUE PHARMACY               +0.00292   0.00653       0.60      97            —
+  CIMAS FOURTH STREET PHARMACY             +0.00004   0.00126       0.60     454            —
+  CIMAS HCC  MUTARE PHARMACY               -0.00033   0.00509       0.40     163            —
+  CIMAS HCC CHINHOYI ST. PHARM             +0.00305   0.00214       1.00     270            —
+  CIMAS HCC CHITUNGWIZA PHARMACY           -0.00242   0.00375       0.20     124            —
+  CIMAS HCC GWERU PHARMACY                 +0.00221   0.00201       1.00      82            —
+  CIMAS HIGH GLEN PHARMACY                 +0.00411   0.00287       1.00     168            —
+  CIMAS KWEKWE CLINIC- PHARMACY            +0.00411   0.00445       0.60      76            —
+  CIMAS MANRESA - PHARRMACY                +0.00564   0.00330       1.00      88            —
+  CLIQUE PHARMACY                          +0.00714   0.01478       0.80      24            —
+  FAREPLAN ENTERPRISE P/L T/A CHINHOYI TOWN PHARMACY   -0.00365   0.01595       0.60      21            —
+  HEALTHLINK PHARMACY                      +0.00611   0.00505       0.80      55            —
+  KENLINK KENSINGTON PHARMACY              +0.00581   0.03242       0.40      31            —
+  MEDICINE CHEST                           -0.00906   0.01500       0.40      24            —
+  ROWLAND SQUARE PHARMACY                  +0.00031   0.00110       0.60     397            —
+  SOMMERDRIFT INV T/A KENLINK THE BRIDGE   +0.01321   0.02541       0.60      25            —
+  TRINITY PHARMACY -AVENUES                +0.01175   0.01824       0.80      38            —
+  WATERSHED PHARMACY                       +0.01556   0.02270       0.80      25            —
+
+  -> Systematic (|mean|/SD > 2): 0/23 providers
+     Mean delta < -0.01 AUROC:   0/23 providers
+     Mean delta > +0.01 AUROC:   4/23 providers
+
+  Contrast: warm_local - warm_fed
+  Provider                               mean_delta  sd_delta  sign_cons  n_test  systematic?
+  ----------------------------------------------------------------------------------------
+  ASHBRITTLE   PHARMACY                    -0.06339   0.08807       0.40      22            —
+  BALLANTYNE PARK PHARMACY                 +0.02554   0.05212       0.80      23            —
+  CIMAS BORROWDALE OFFICE PARK PHARMACY    -0.00512   0.02733       0.20      58            —
+  CIMAS BULAWAYO PHARMACY                  -0.00156   0.00279       0.40     215            —
+  CIMAS CLINIC -MASVINGO PHARMACY          -0.01050   0.02187       0.40      60            —
+  CIMAS FIFE AVENUE PHARMACY               -0.00722   0.00549       0.20      97            —
+  CIMAS FOURTH STREET PHARMACY             +0.00048   0.00062       0.60     454            —
+  CIMAS HCC  MUTARE PHARMACY               +0.00072   0.00616       0.80     163            —
+  CIMAS HCC CHINHOYI ST. PHARM             -0.00268   0.00361       0.40     270            —
+  CIMAS HCC CHITUNGWIZA PHARMACY           +0.00940   0.00637       1.00     124            —
+  CIMAS HCC GWERU PHARMACY                 +0.00346   0.00660       0.60      82            —
+  CIMAS HIGH GLEN PHARMACY                 -0.00408   0.00383       0.00     168            —
+  CIMAS KWEKWE CLINIC- PHARMACY            -0.00216   0.01320       0.40      76            —
+  CIMAS MANRESA - PHARRMACY                +0.00148   0.00754       0.80      88            —
+  CLIQUE PHARMACY                          -0.00229   0.01504       0.20      24            —
+  FAREPLAN ENTERPRISE P/L T/A CHINHOYI TOWN PHARMACY   +0.01885   0.03340       0.60      21            —
+  HEALTHLINK PHARMACY                      -0.00791   0.01088       0.20      55            —
+  KENLINK KENSINGTON PHARMACY              -0.01128   0.03862       0.60      31            —
+  MEDICINE CHEST                           +0.07172   0.04815       1.00      24            —
+  ROWLAND SQUARE PHARMACY                  +0.00096   0.00142       0.80     397            —
+  SOMMERDRIFT INV T/A KENLINK THE BRIDGE   +0.03590   0.02674       1.00      25            —
+  TRINITY PHARMACY -AVENUES                +0.00905   0.03137       0.80      38            —
+  WATERSHED PHARMACY                       -0.00500   0.03388       0.60      25            —
+
+  -> Systematic (|mean|/SD > 2): 0/23 providers
+     Mean delta < -0.01 AUROC:   3/23 providers
+     Mean delta > +0.01 AUROC:   4/23 providers
+
+========================================================================
+WORST-PROVIDER IDENTITY STABILITY
+Does the same provider consistently appear as worst-affected?
+========================================================================
+
+  Contrast: cold_fed - cold_local
+  Most frequently worst-affected provider: MEDICINE CHEST
+  Appeared as worst in 3/5 seeds
+  -> PARTIAL: appears in majority of seeds
+  Seed-by-seed:
+    seed=7: MEDICINE CHEST (delta=-0.1023)
+    seed=11: MEDICINE CHEST (delta=-0.0906)
+    seed=19: SOMMERDRIFT INV T/A KENLINK THE BRIDGE (delta=-0.0808)
+    seed=23: BALLANTYNE PARK PHARMACY (delta=-0.1571)
+    seed=37: MEDICINE CHEST (delta=-0.1414)
+
+  Contrast: warm_local - cold_local
+  Most frequently worst-affected provider: BALLANTYNE PARK PHARMACY
+  Appeared as worst in 2/5 seeds
+  -> PARTIAL: appears in majority of seeds
+  Seed-by-seed:
+    seed=7: BALLANTYNE PARK PHARMACY (delta=-0.0259)
+    seed=11: KENLINK KENSINGTON PHARMACY (delta=-0.0197)
+    seed=19: MEDICINE CHEST (delta=-0.0219)
+    seed=23: BALLANTYNE PARK PHARMACY (delta=-0.0580)
+    seed=37: MEDICINE CHEST (delta=-0.0281)
+
+  Contrast: warm_local - warm_fed
+  Most frequently worst-affected provider: ASHBRITTLE   PHARMACY
+  Appeared as worst in 2/5 seeds
+  -> PARTIAL: appears in majority of seeds
+  Seed-by-seed:
+    seed=7: WATERSHED PHARMACY (delta=-0.0646)
+    seed=11: ASHBRITTLE   PHARMACY (delta=-0.1973)
+    seed=19: ASHBRITTLE   PHARMACY (delta=-0.1009)
+    seed=23: TRINITY PHARMACY -AVENUES (delta=-0.0428)
+    seed=37: FAREPLAN ENTERPRISE P/L T/A CHINHOYI TOWN PHARMACY (delta=-0.0279)
+
+========================================================================
+DISPARITY CHANGE vs CONTRAST HETEROGENEITY
+========================================================================
+  Disparity CHANGE measures whether a condition produces a more or less
+  spread distribution of AUROC across providers (e.g., cold_fed IQR vs
+  cold_local IQR). Contrast HETEROGENEITY measures whether the per-
+  provider delta is uniform or variable across providers (e.g., SD of
+  the delta distribution). These are distinct. A condition can have
+  lower IQR than a comparator (narrower distribution) while still
+  showing high contrast heterogeneity (some providers gain a lot, others
+  lose a lot, but they happen to cancel out). Both are reported below.
+
+  Disparity change (condition-level IQR comparison):
+    cold_fed   IQR: 0.09154 [0.07251, 0.10901]
+    cold_local IQR: 0.09415 [0.07330, 0.11560]
+    cold_fed - cold_local IQR: -0.00261 (narrower under FedAvg)
+    warm_local IQR: 0.09113 [0.07511, 0.10471]
+    warm_fed   IQR: 0.09154 [0.07364, 0.11006]
+    warm_local - warm_fed IQR: -0.00041 (narrower under warm_local)
+
+  Worst-provider absolute AUROC (condition-level, not contrast):
+    cold_fed   min: 0.51839 [0.44419, 0.57804]
+    cold_local min: 0.50938 [0.46573, 0.56554]
+    warm_local min: 0.52522 [0.48659, 0.56532]
+    Note: warm_local has the highest absolute worst-provider AUROC,
+    yet warm_local vs warm_fed contrast WORST DELTA is -0.087.
+    These are consistent: the WORST PROVIDER UNDER WARM_LOCAL
+    is a DIFFERENT provider than the worst provider under warm_fed.
+
+  Contrast heterogeneity (SD of per-provider deltas across seeds):
+    cold_fed - cold_local: SD of provider mean_deltas = 0.03232; systematic providers = 0/23
+    warm_local - cold_local: SD of provider mean_deltas = 0.01143; systematic providers = 0/23
+    warm_local - warm_fed: SD of provider mean_deltas = 0.02331; systematic providers = 0/23
+
+========================================================================
+OUTPUTS
+  C:\Users\Gozie\Desktop\Blockchain in Clinical Trial\Fedlearn\trust-ct\processed\e6_fairness\e6_disparity_stats.csv
+  C:\Users\Gozie\Desktop\Blockchain in Clinical Trial\Fedlearn\trust-ct\processed\e6_fairness\e6_provider_fixed_effects.csv
+  C:\Users\Gozie\Desktop\Blockchain in Clinical Trial\Fedlearn\trust-ct\processed\e6_fairness\e6_worst_provider_identity.csv
+  C:\Users\Gozie\Desktop\Blockchain in Clinical Trial\Fedlearn\trust-ct\processed\e6_fairness\e6_disparity_report.txt
+========================================================================

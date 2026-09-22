@@ -1,0 +1,205 @@
+{
+  "phase": "5",
+  "status": "LOCKED",
+  "config_hash": "590b83a4d4c3dbe7",
+  "gate_checks": {
+    "population_separation": {
+      "pass": true,
+      "betterbp_n": 402,
+      "cimas_n": 12649,
+      "mixed_features": false,
+      "note": "BETTER-BP individual CATE scores used only in BETTER-BP experiment. Cimas uses BETTER-BP aggregate ATE (+8.2pp) for calibration only. C3 for Cimas uses risk-based proxy for uplift (noted explicitly in output)."
+    },
+    "crn_applied": {
+      "pass": true,
+      "crn_seed_betterbp": 7,
+      "crn_seed_cimas": 8,
+      "crn_shape_betterbp": [
+        20,
+        402
+      ],
+      "crn_shape_cimas": [
+        20,
+        12649
+      ],
+      "note": "Same U[t,i] matrix used for all C0-C3 within each experiment."
+    },
+    "identical_init": {
+      "pass": true,
+      "init_hash_betterbp": "e068ef78ae5fb295",
+      "init_hash_cimas": "83d80675270b46e2",
+      "note": "All scenarios start from the same pre-trained FL weights."
+    },
+    "governance_log_complete": {
+      "pass": true,
+      "expected_per_experiment": 80,
+      "betterbp_rows": 80,
+      "cimas_rows": 80
+    },
+    "hash_chain_integrity": {
+      "pass": true,
+      "betterbp_chains_ok": true,
+      "cimas_chains_ok": true
+    },
+    "null_c3_conclusion_prespecified": {
+      "pass": true,
+      "betterbp_c3_vs_c2_auroc": 0.01037,
+      "note": "A null difference C3-C2 would mean DR uplift targeting offered no AUROC advantage over risk targeting in the closed loop. Phase 5 evaluates engineering consequences of the four allocation rules regardless of outcome."
+    },
+    "semi_synthetic_noted": {
+      "pass": true,
+      "betterbp_label": "BETTER-BP-native causal replay using Phase 4 RCT-derived nuisance scores",
+      "cimas_label": "trial-calibrated semi-synthetic systems experiment"
+    },
+    "all_outputs_present": {
+      "pass": true,
+      "file_hashes": {
+        "round_log.parquet": "77fe4a71c5ad5595f2d68a9aaed17e71e35623ca454115f70341d101f97ee6ec",
+        "round_log.csv": "db029ab6f8abb94ab4e7c11145b30ba4bd726d4b723b8b0d8ae31f4da08b0716",
+        "governance_log.csv": "7c21bb08d799b0ef80bb73e1e5085d1094d2a89eb44451b43fecbfde424fc2d9",
+        "summary_statistics.csv": "33246b6c8c3d954d313f6939168ab38dada1d697d2ff784e4dc04fa61c4ed92d",
+        "worst_provider.csv": "ab10bd4e64ec2a94963626f4fd7967229616a1a48b787be415e849b4dc22f9c2",
+        "learning_curves.csv": "05431628d995305f6f07594381955b93910e06818759a5e073d8e21997b39099",
+        "round_hashes.json": "d214bbcbaf485d1751a8e29bf4eef74964f9fa498757bcbfae56eec2c583461e"
+      }
+    }
+  },
+  "summary": [
+    {
+      "experiment": "betterbp",
+      "scenario": "C0",
+      "scenario_label": "No incentive",
+      "final_auroc": 0.55197,
+      "final_pr_auc": 0.21545,
+      "final_ece": 0.35543,
+      "final_participation": 0.5498,
+      "auc_learning_curve": 0.54567,
+      "rounds_to_target": NaN,
+      "target_auroc": 0.65,
+      "mean_participation": 0.5563,
+      "mean_incentive_util": 0.0,
+      "total_comm_cost_params": 480,
+      "n_governance_events": 0
+    },
+    {
+      "experiment": "betterbp",
+      "scenario": "C1",
+      "scenario_label": "Random allocation",
+      "final_auroc": 0.53814,
+      "final_pr_auc": 0.23261,
+      "final_ece": 0.35535,
+      "final_participation": 0.5249,
+      "auc_learning_curve": 0.54312,
+      "rounds_to_target": NaN,
+      "target_auroc": 0.65,
+      "mean_participation": 0.5327,
+      "mean_incentive_util": 1.0,
+      "total_comm_cost_params": 480,
+      "n_governance_events": 0
+    },
+    {
+      "experiment": "betterbp",
+      "scenario": "C2",
+      "scenario_label": "FL nonattendance-risk ranking",
+      "final_auroc": 0.53544,
+      "final_pr_auc": 0.23268,
+      "final_ece": 0.35525,
+      "final_participation": 0.5597,
+      "auc_learning_curve": 0.54507,
+      "rounds_to_target": NaN,
+      "target_auroc": 0.65,
+      "mean_participation": 0.5481,
+      "mean_incentive_util": 1.0,
+      "total_comm_cost_params": 480,
+      "n_governance_events": 0
+    },
+    {
+      "experiment": "betterbp",
+      "scenario": "C3",
+      "scenario_label": "DR uplift ranking",
+      "final_auroc": 0.54581,
+      "final_pr_auc": 0.22508,
+      "final_ece": 0.35539,
+      "final_participation": 0.5821,
+      "auc_learning_curve": 0.54804,
+      "rounds_to_target": NaN,
+      "target_auroc": 0.65,
+      "mean_participation": 0.5903,
+      "mean_incentive_util": 1.0,
+      "total_comm_cost_params": 480,
+      "n_governance_events": 0
+    },
+    {
+      "experiment": "cimas",
+      "scenario": "C0",
+      "scenario_label": "No incentive",
+      "final_auroc": 0.78496,
+      "final_pr_auc": 0.83884,
+      "final_ece": 0.11569,
+      "final_participation": 0.4541,
+      "auc_learning_curve": 0.78484,
+      "rounds_to_target": 1.0,
+      "target_auroc": 0.78,
+      "mean_participation": 0.4534,
+      "mean_incentive_util": 0.0,
+      "total_comm_cost_params": 9660,
+      "n_governance_events": 0
+    },
+    {
+      "experiment": "cimas",
+      "scenario": "C1",
+      "scenario_label": "Random allocation",
+      "final_auroc": 0.78517,
+      "final_pr_auc": 0.83911,
+      "final_ece": 0.11688,
+      "final_participation": 0.5386,
+      "auc_learning_curve": 0.78492,
+      "rounds_to_target": 1.0,
+      "target_auroc": 0.78,
+      "mean_participation": 0.5363,
+      "mean_incentive_util": 1.0,
+      "total_comm_cost_params": 9660,
+      "n_governance_events": 0
+    },
+    {
+      "experiment": "cimas",
+      "scenario": "C2",
+      "scenario_label": "FL nonattendance-risk ranking",
+      "final_auroc": 0.78492,
+      "final_pr_auc": 0.83908,
+      "final_ece": 0.11558,
+      "final_participation": 0.5106,
+      "auc_learning_curve": 0.78476,
+      "rounds_to_target": 1.0,
+      "target_auroc": 0.78,
+      "mean_participation": 0.5087,
+      "mean_incentive_util": 1.0,
+      "total_comm_cost_params": 9660,
+      "n_governance_events": 0
+    },
+    {
+      "experiment": "cimas",
+      "scenario": "C3",
+      "scenario_label": "DR uplift ranking",
+      "final_auroc": 0.78492,
+      "final_pr_auc": 0.83908,
+      "final_ece": 0.11558,
+      "final_participation": 0.5106,
+      "auc_learning_curve": 0.78476,
+      "rounds_to_target": 1.0,
+      "target_auroc": 0.78,
+      "mean_participation": 0.5087,
+      "mean_incentive_util": 1.0,
+      "total_comm_cost_params": 9660,
+      "n_governance_events": 0
+    }
+  ],
+  "reviewer2_note": "Phase 5 directly evaluates the FL training loop, incentive policy, and governance (hash chain) components in a single integrated closed-loop experiment. All four allocation rules (C0-C3) use common random numbers so that differences arise from policy decisions, not random participation draws.",
+  "manuscript_constraints": {
+    "not_prospective": true,
+    "not_cross_population_cate": true,
+    "betterbp_label": "BETTER-BP-native causal replay",
+    "cimas_label": "trial-calibrated semi-synthetic systems experiment",
+    "c3_cimas_note": "C3 uses FL risk-ranking as a proxy for uplift in Cimas (individual DR CATE estimates are unavailable across populations)."
+  }
+}

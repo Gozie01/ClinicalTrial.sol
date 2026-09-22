@@ -1,0 +1,331 @@
+%% Section 3 — Results
+%% CMPB submission: TRUST-CT
+%% All values drawn from locked artifacts; see numerical_provenance.csv.
+%% DO NOT edit numerical values without updating numerical_provenance.csv.
+
+\section{Results}
+\label{sec:results}
+
+\subsection{Cohort and run completeness}
+\label{sec:cohort_completeness}
+
+Cimas comprised 12{,}649 participants across 23 providers;
+BETTER-BP comprised 402 randomized participants across two providers;
+eICU comprised 2{,}520 stays across eight hospital groups.
+For the eICU security benchmark, 60 features were selected by
+training-only mutual information (SHA-256: \texttt{4f4a6603\ldots});
+the selected list and full hyperparameter configuration are
+reported in Supplementary~S1.
+Of 1{,}200 intended Phase~6 experimental outcomes, all 1{,}200 were
+reconciled (1{,}065 valid-primary runs, 35 Krum-inapplicable
+diagnostic fallbacks, and 100 no-attack f-invariant skips);
+zero unexplained failures occurred (Supplementary~S1).
+
+\subsection{Federated predictive performance}
+\label{sec:fl_results}
+
+% W03b fix: separated rounded-marginal difference from bootstrap NI estimate.
+% $\Delta=-0.004$ was from rounded AUROC marginals (0.795-0.799);
+% the provider-paired bootstrap estimate is $\hat{d}=-0.002$ (obs=-0.002135).
+% LCB=-0.0045 refers to the bootstrap one-sided lower bound, not the
+% marginal difference. These must not be conflated.
+All five Cimas FL methods were non-inferior to centralized training
+on the prespecified AUROC margin of $-0.02$
+(Table~\ref{tab:prediction}; Figure~\ref{fig:ni}).
+FedAvg achieved estimated AUROC 0.795 [95\%~CI 0.773--0.811] versus
+centralized 0.799 [0.778--0.814].
+The provider-paired bootstrap NI estimate was
+$\hat{d}=-0.002$ (95\%~CI $-0.005$, $+0.001$;
+one-sided NI lower confidence bound $-0.0045 > -0.02$;
+\emph{non-inferior}).
+The worst NI lower confidence bound across all methods was $-0.0095$
+(FedAdam; non-inferior; upper CI $+0.000$).
+FedAvg AUROC exceeded local-only training by $+0.007$
+[95\%~CI $-0.003$, $+0.018$], but the interval included zero.
+
+% W02c fix: N=3716 long-tail are held-out providers from the SAME Cimas
+% data source — NOT an external validation set. Relabelled accordingly.
+On the long-tail within-source transportability evaluation set ($N=3{,}716$;
+non-adherence prevalence 0.677), the centralized model achieved
+risk-positive PR-AUC 0.900 [0.882, 0.917] (PR-lift 1.329);
+FedAvg achieved PR-AUC 0.899 [0.880, 0.916] (PR-lift 1.327).
+These results are from the Cimas LOCO evaluation and are distinct from
+the eICU security benchmark reported in Section~\ref{sec:adversarial}.
+
+\subsection{Policy evaluation and closed-loop replay}
+\label{sec:policy_results}
+
+The DR-estimated value of the learned uplift-targeting policy was
+$\hat{V}(\pi_\text{up})=0.892$ versus the random-budget comparator
+$\hat{V}(\pi_\text{rand})=0.860$
+($\Delta=+0.032$; 95\%~CI $[-0.011, +0.078]$;
+Table~\ref{tab:prediction}).
+The confidence interval crossed zero; no statistically supported
+policy-value improvement was established.
+The incentive improved average estimated attendance relative to
+no-incentive ($\hat{V}(\pi_0)=0.815$), but available
+baseline predictors could not identify differential responders.
+
+The Cimas closed-loop replay reproduced
+$\hat{V}(C1, B=\tfrac{2}{3})=0.8603$ from calibration (target 0.860).
+BETTER-BP simulated participation was:
+C0 81.4\% [81.3, 81.5\%], C1 85.9\% [85.7, 86.0\%],
+C2 87.2\% [87.1, 87.3\%], C3 89.0\% [88.9, 89.1\%].
+The Cimas cold-start nAULC differences (C2$-$C1 and C3$-$C1)
+were approximately $7.8\times10^{-5}$; confidence intervals
+may exclude zero but absolute differences remained below the
+prespecified operational materiality threshold of 0.001
+(operationally negligible; Figure~\ref{fig:policy}).
+
+\subsection{Adversarial robustness}
+\label{sec:adversarial}
+
+The eICU clean FedAvg AUROC was 0.8904 [0.8892, 0.8913]
+across five seeds and 15 rounds.
+Table~\ref{tab:security} and Figure~\ref{fig:attacks} summarise
+attack and defense results.
+
+At $f=3$ (37.5\% malicious clients), label flipping produced
+the largest aggregate AUROC degradation
+($\Delta=-0.120$ [$-0.178$, $-0.061$]; $p=0.005$).
+Sign flipping caused $\Delta=-0.059$ [$-0.103$, $-0.016$]; $p=0.020$.
+Model replacement and ALIE caused smaller reductions
+($\Delta=-0.020$ and $\Delta=-0.004$, respectively;
+ALIE: $p=0.24$).
+% W10a fix: BSR renamed; denominator clarified; clean-model baseline absent.
+% W09c fix 2026-08-28: original backdoor used fixed seed=42 (same poisoning
+% indices across all outer seeds). Corrected to seed from (outer_seed,round,client).
+% BSR changed from 0.922 to 0.920 (difference 0.002, within noise; conclusion unchanged).
+The targeted tabular backdoor achieved a triggered target-class rate
+(proportion of all triggered test rows predicted as target class 0) of 0.920.
+No clean-model baseline was collected; this metric cannot be attributed to the
+backdoor without a clean-model comparison and is therefore reported descriptively.
+Aggregate AUROC was not materially reduced ($+0.001$; $-0.001$, $+0.002$),
+demonstrating that AUROC alone did not detect the targeted attack.
+
+Coordinate-wise median aggregation recovered
+$+0.111$ [0.058, 0.165] AUROC relative to FedAvg under
+label flipping ($p=0.005$); the worst residual degradation
+under coordinate median across all attacks was approximately $-0.008$.
+Krum was not applicable at $f=3$ for eICU ($K=8$; $8\not>8$);
+the 35 fallback rows are excluded from Krum estimates.
+
+\subsection{Privacy--utility evaluation}
+\label{sec:privacy}
+
+% W09b fix 2026-08-28: original 6C-i noise seeded seed*1000+t gave all clients
+% same noise per round (same vector). Corrected to per-client seed
+% outer_seed*1_000_000 + round_t*1_000 + client_idx. This inflated utility
+% degradation at alpha>=0.01 in original; corrected values below.
+At the selected operating point $\alpha=0.01$, the utility cost was
+$\Delta\text{AUROC}=-0.001$ [$-0.002$, $+0.001$] ($p=0.26$),
+remaining well within the prespecified materiality range
+(Table~\ref{tab:security}; Figure~\ref{fig:frontier}).
+At $\alpha=0.05$, the corrected per-client noise degradation was
+$\Delta\text{AUROC}=-0.011$ [$-0.019$, $-0.000$] ($p=0.09$),
+also within the materiality threshold of $-0.02$
+(the original value $-0.074$ was inflated by the W09b shared-noise bug).
+The analytic single-step gradient canary confirmed exact feature
+recovery (cosine similarity 1.000000), establishing the theoretical
+upper bound for direct gradient access.
+Under the coordinator-observed multi-step FedAvg delta, the same
+approximation formula yielded cosine $-0.538$, confirming the
+formula is invalid for multi-epoch updates.
+% W07 resolved 2026-08-28: C0-correct batch=1 reconstruction cosines confirmed
+% from trust-ct/processed/phase6/phase6c_reconstruction.csv (125 batch=1 rows;
+% 5 hospitals x 5 rounds x 5 alpha values; C0-correct MI features, seed=7 split).
+% Prior stale values (0.534/0.464 from audit4_leakage_table.csv) were from
+% pre-C0 MI feature set pooled across batch sizes 1/4/16 — not comparable.
+% Feature-sign recovery was not stored per-sample in phase6c_reconstruction.csv.
+Under a single-step fresh-gradient reconstruction at batch size~1,
+cosine similarity was 1.000 ($\alpha=0$; exact canary recovery),
+$0.996\pm0.003$ ($\alpha=0.01$), and $0.879\pm0.070$ ($\alpha=0.05$).
+Reconstruction degrades sharply with batch size
+(cosine $0.307$ at batch~4 and $0.009$ at batch~32, $\alpha=0$).
+Feature-sign recovery at batch size~1 was not separately stored in the
+C0-correct reconstruction run;
+\emph{[AUTHOR\_PENDING: sign recovery requires re-extraction from stored
+reconstruction vectors --- see trust-ct/remediation/w07\_batch1\_corrected\_values.json]}.
+% W09b stale alpha=0.01 paragraph removed 2026-08-29. Correct value
+% ($-0.001$ [$-0.002$, $+0.001$], $p=0.26$) stated at Section 3.5 line 1 above
+% and in tab:security. Do not reintroduce the old $-0.005$ figure.
+
+MI attack AUROC was 0.497 [0.496, 0.498] (eICU; Cohen's $h=-0.006$)
+and 0.507 [0.506, 0.507] (Cimas; Cohen's $h=+0.014$).
+The eICU attacker performed at or below chance.
+The Cimas attacker showed a $+0.7$ percentage-point AUROC deviation;
+the effect size was operationally negligible ($|h|<0.02$).
+The near-chance eICU baseline (AUROC 0.497 at $\alpha=0$)
+indicates that model confidence was insufficient to meaningfully
+separate members from non-members prior to any perturbation;
+the improvement at $\alpha=0.01$ cannot be attributed to update noise.
+
+\subsection{Audit-log evaluation}
+\label{sec:audit}
+
+% W11b fix: tests verified hash-link integrity, NOT signature non-repudiation.
+% Removed "signed" from first sentence to avoid conflating HMAC auth with
+% public-key signature.
+The hash-linked audit log detected all 350 prespecified injected events
+(350/350; zero false alerts) across seven evaluated fault types
+(modification, replay, reordering, stale attestation, update substitution,
+dropout, and silent dropout), ten injection positions, and five seeds
+(Table~\ref{tab:ablation}).
+These tests evaluated hash-chain integrity under the specified mutation
+scenarios; they did not evaluate public-key signature non-repudiation,
+which the HMAC-based mechanism does not provide.
+The log was not evaluated for faults outside the seven prespecified
+categories or for events submitted by authorized sources with
+incorrect content.
+
+\subsection{Component ablation}
+\label{sec:ablation}
+
+Table~\ref{tab:ablation} summarises five component ablations (A1--A5).
+Federated learning was non-inferior to centralized training (A1).
+Coordinate-wise median aggregation materially mitigated label-flip
+poisoning (A2; $\Delta=+0.111$, $p=0.005$).
+The $\alpha=0.01$ perturbation remained within the prespecified
+utility materiality range while reducing the optimistic
+reconstruction signal (A3; $\Delta\text{AUROC}=-0.001$ [$-0.002$, $+0.001$], $p=0.26$).
+The audit log detected all evaluated governance faults with
+zero false alerts (A4).
+DR-policy uplift was not established (A5; CI crosses zero).
+
+\subsection{Provider-level performance disparity: warm/cold de-confound}
+\label{sec:e6}
+
+% E6 experiment: 4 conditions x 5 seeds x 60 rounds, Cimas K=23.
+% Data: processed/e6_fairness/e6_provider_round_results.csv (20,700 rows)
+% Analysis: run_e6_analysis.py, run_e6_disparity.py
+% warm_fed exactly reproduces cold_fed rounds 31-60 (3,450/3,450 identical;
+% max |delta|=0); it is a reproducibility gate, not an independent arm.
+% Provenance: e6_provider_fixed_effects.csv, e6_disparity_stats.csv,
+%             e6_paired_analysis.csv, e6_analysis_report.txt
+
+To isolate the mechanism of federation benefit, a four-condition experiment
+was conducted on the Cimas primary cohort
+($K=23$ providers, five seeds, 60~rounds; Supplementary~S5).
+Conditions: \emph{cold-FedAvg} (FedAvg from zero); \emph{cold-local}
+(independent local training from zero); \emph{warm-local} (local-only from
+the round-30 FedAvg checkpoint); and a reproducibility gate (\emph{warm-FedAvg},
+continuing FedAvg from the same checkpoint, which numerically reproduced
+cold-FedAvg rounds~31--60 exactly: 3,450/3,450 pairs; max $|\delta|=0$).
+All conditions shared identical test sets, preprocessing, features,
+local-epoch count ($N_\text{local}=5$), and learning rate ($\eta=0.02$).
+Performance was averaged over rounds~51--60 per (provider, seed).
+Inference: seed-level paired $t$-tests ($n=5$, df=4) with $5{,}000$-resample
+seed-cluster bootstrap 95\%~CIs.
+
+\paragraph{Condition-level provider performance disparity.}
+The following metrics describe AUROC dispersion across the $K=23$~Cimas providers;
+they measure provider-level performance equity, not demographic or individual fairness.
+Under cold FedAvg the provider AUROC interquartile range (IQR) was
+0.092 [0.073, 0.109] versus 0.094 [0.073, 0.116] under cold local;
+the distributions were comparable.
+Warm-local achieved a slightly narrower IQR (0.091 [0.075, 0.105]).
+Worst-provider absolute AUROC was 0.518 [0.444, 0.578] (cold FedAvg),
+0.509 [0.466, 0.566] (cold local), and 0.525 [0.487, 0.565] (warm-local).
+
+\paragraph{Paired contrasts (macro-average, late rounds 51--60).}
+Cold FedAvg versus cold local:
+macro-average $\Delta=+0.003$ [$-0.003$, $+0.008$]; $p=0.39$;
+provider-weighted $\Delta=+0.002$; $p=0.14$.
+No significant bulk AUROC benefit was established.
+The worst-provider contrast delta was $-0.114$ [$-0.141$, $-0.089$]; $p=0.001$:
+the single most data-heterogeneous provider was materially harmed by
+global aggregation.
+Zero of 23~providers showed systematic directional effects
+(signal-to-noise ratio $|\bar{\delta}|/\mathrm{SD}_\delta > 2$);
+the effect was highly heterogeneous (SD of provider mean deltas: 0.032~AUROC).
+
+Warm-local versus cold local:
+provider-weighted $\Delta=+0.002$ [$+0.001$, $+0.003$]; $p=0.012$.
+The round-30 federated checkpoint provided the dominant component
+of the bulk FedAvg benefit with no further aggregation required.
+
+Warm-local versus continued FedAvg:
+macro $\Delta=+0.002$ [$+0.000$, $+0.006$]; $p=0.21$;
+provider-weighted $\Delta=+0.000$; $p=0.86$.
+The two conditions were statistically indistinguishable in bulk AUROC.
+Warm-local required a single weight broadcast
+($529$~parameter floats across $23$~providers, $22$~features plus intercept)
+versus 30~aggregation rounds for continued FedAvg ($31{,}740$~floats),
+a 98.3\% reduction in parameter transfers with no significant average AUROC cost.
+
+These results indicate that shared weight initialisation, not sustained
+gradient aggregation, accounts for the primary performance parity in this
+setting. Provider-level contrast heterogeneity substantially exceeds the
+macro-average effect, indicating that aggregate summaries mask meaningful
+provider-specific variation.
+
+%% ---- Tables ----
+
+\begin{table}[ht]
+\centering
+\caption{Federated prediction (Cimas LOCO, $N=12{,}649$, $K=23$)
+  and policy evaluation (BETTER-BP, $N=402$, $B=\tfrac{2}{3}$).}
+\label{tab:prediction}
+\begin{tabular}{@{}llll p{2.5cm} p{2.5cm}@{}}
+\hline
+Analysis & Comparator & Metric & Estimate [95\% CI] & Criterion & Interpretation \\
+\hline
+% W03b corrected 2026-08-29: -0.004 was rounded AUROC marginal (0.795-0.799);
+% provider-paired bootstrap estimate is -0.002 (obs=-0.002135 from ni_client_level.csv).
+FedAvg vs Central   & Centralized      & $\Delta$AUROC & $-0.002$ [$-0.005$, $+0.001$] & NI LCB $>-0.02$ & Non-inferior \\
+FedAdam vs Central  & Centralized      & $\Delta$AUROC & $-0.005$ [$-0.011$, $0.000$]  & NI LCB $>-0.02$ & Non-inferior \\
+Central (long-tail) & Prevalence 0.677 & PR-AUC        & $0.900$ [0.882, 0.917]        & PR-lift $>1$    & Lift $=1.329$ \\
+FedAvg (long-tail)  & Prevalence 0.677 & PR-AUC        & $0.899$ [0.880, 0.916]        & PR-lift $>1$    & Lift $=1.327$ \\
+\hline
+$\pi_\text{up}$ vs $\pi_\text{rand}$ & Random budget & $\Delta\hat{V}$ & $+0.032$ [$-0.011$, $+0.078$] & CI excludes 0 & Not established \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{Adversarial robustness and privacy--utility evaluation
+  (eICU, $K=8$, $f=3$, 5~seeds, 15~rounds).}
+\label{tab:security}
+\begin{tabular}{@{}lllll@{}}
+\hline
+Condition & Aggregator / $\alpha$ & Utility change ($\Delta$AUROC) & Leakage metric & Interpretation \\
+\hline
+Clean baseline     & FedAvg        & ---                              & AUROC 0.890 [0.889, 0.891]        & Reference \\
+Label flip ($f=3$) & FedAvg        & $-0.120$ [$-0.178$, $-0.061$]$^\ast$ & BSR n/a; PR-AUC $\downarrow$ & Poisoning effective \\
+Label flip ($f=3$) & Coord. median & $+0.111$ [$+0.058$, $+0.165$]$^\ast$& Recovery vs FedAvg          & Defense effective \\
+Sign flip ($f=3$)  & FedAvg        & $-0.059$ [$-0.103$, $-0.016$]$^\dagger$ & ---                    & Poisoning effective \\
+Backdoor ($f=3$)   & FedAvg        & $+0.001$ [$-0.001$, $+0.002$]  & BSR 0.920                         & AUROC insensitive \\
+ALIE ($f=3$)       & FedAvg        & $-0.004$ [$-0.013$, $+0.004$]  & ---                               & Not significant \\
+\hline
+% W07+W09b resolved 2026-08-28: cosines from C0-correct recon; noise from per-client W09b.
+% Sign recovery not stored per-sample; remains AUTHOR_PENDING.
+$\alpha=0.01$ & Clipping$+$noise & $-0.001$ [$-0.002$, $+0.001$]$^{\ddagger}$ & Recon cos.\ $0.996\pm0.003$ (batch=1) & Within materiality \\
+$\alpha=0.05$ & Clipping$+$noise & $-0.011$ [$-0.019$, $-0.000$] & Recon cos.\ $0.879\pm0.070$; sign rec.\ [AUTHOR\_PENDING] & Within materiality (W09b) \\
+eICU MI attack  & $\alpha=0$    & ---                              & AUROC 0.497 [0.496, 0.498]; $h=-0.006$ & At/below chance \\
+Cimas MI attack & $\alpha=0$    & ---                              & AUROC 0.507 [0.506, 0.507]; $h=+0.014$ & Negligible \\
+\hline
+\end{tabular}
+\begin{tablenotes}
+\small $^\ast$ Paired $t$-test, $p=0.005$; $^\dagger$ $p=0.020$;
+% W05a fix: 500 resamples confirmed from N_BOOT in run_phase5_v3.py.
+$^\ddagger$ $p=0.39$; 95\% CIs from bootstrap (500 resamples).
+\end{tablenotes}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{Component ablation summary (A1--A5).}
+\label{tab:ablation}
+\begin{tabular}{@{}lllll@{}}
+\hline
+ID & Component & Locked estimate [95\% CI] & Prespecified criterion & Conclusion \\
+\hline
+A1 & FL noninferiority (FedAvg)      & NI LCB $=-0.0045$                 & $>-0.02$ AUROC            & Supported \\
+A2 & Coord.\ median under label flip  & Recovery $+0.111$ [0.058, 0.165]  & $p<0.05$; $\Delta>0$      & Supported \\
+A3 & $\alpha=0.01$ utility cost       & $\Delta=-0.001$ [$-0.002$, $+0.001$] & $|\Delta|<0.02$; $p=0.26$ & Within range \\
+A4 & Audit-log fault detection        & 350/350 (0 false alerts)          & All 350 detected          & Supported \\
+A5 & DR-policy uplift                 & $+0.032$ [$-0.011$, $+0.078$]    & CI excludes 0             & Not established \\
+\hline
+\end{tabular}
+\end{table}

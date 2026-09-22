@@ -1,0 +1,44 @@
+{
+  "phase": "4",
+  "config_hash": "4800f078781c735c",
+  "config_path": "C:\\Users\\Gozie\\Desktop\\Blockchain in Clinical Trial\\trust-ct\\configs\\betterbp_policy.yaml",
+  "outcome_col": "visit_6m_attended",
+  "outcome_label": "six-month visit attendance (Y=1 = attended)",
+  "treatment_col": "treatment_arm",
+  "propensity": 0.6667,
+  "n_analysis": 402,
+  "n_features": 11,
+  "features": [
+    "age",
+    "race_white",
+    "race_black_or_african_american",
+    "race_asian",
+    "race_american_indian_or_alaska_native",
+    "race_native_hawaiian_or_other_pacific_islander",
+    "race_other_specify",
+    "sbp_baseline",
+    "dbp_baseline",
+    "mases_baseline",
+    "site_A"
+  ],
+  "rejected_null_features": [],
+  "all_features_pretreatment": true,
+  "seeds": [
+    7,
+    11,
+    19,
+    23,
+    37
+  ],
+  "n_folds": 5,
+  "n_boot": 2000,
+  "budgets": [
+    0.25,
+    0.5,
+    0.6667
+  ],
+  "primary_budget": 0.6667,
+  "observed_ate": 0.081988,
+  "dr_ate_estimate": 0.06782,
+  "fairness_min_coverage_ratio": 0.8
+}

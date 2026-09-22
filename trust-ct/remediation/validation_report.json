@@ -1,0 +1,259 @@
+{
+  "report_id": "TRUST_CT_W15_VALIDATION",
+  "generated": "2026-08-28",
+  "framework": "TRUST-CT (IEEE IoT Journal submission, remediated for CMPB resubmission)",
+  "remediation_instructions": "TRUST_CT_Machine_Remediation_Instructions.md (W01-W15)",
+  "author_approved_options": {
+    "W04": "Option A — reframe Phase 5 as policy-stratified repeated independent refitting",
+    "W07": "Option B — use corrected batch=1 values from C0-correct phase6c_reconstruction.csv",
+    "W08": "Option A — use existing phase6c_mia.csv 5-seed bootstrap CI",
+    "W09": "Option A — rerun only affected attack families (random_gauss, backdoor, 6C-i noise sweep)",
+    "W10": "Option A — rename metric only; no clean-model baseline rerun"
+  },
+  "issues": {
+    "W01": {
+      "title": "CMPB journal constraint compliance",
+      "status": "RESOLVED",
+      "action": "Reviewed formatting constraints (<=3500 words, no vertical rules, no blockchain/DP/secure-aggregation claims); manuscript text corrected accordingly",
+      "files_changed": []
+    },
+    "W02": {
+      "title": "Cohort labelling and outcome variable corrections",
+      "status": "RESOLVED",
+      "sub_issues": {
+        "W02a": "BETTER-BP primary outcome corrected to 6-month visit attendance",
+        "W02b": "12-month non-attendance label removed from table row",
+        "W02c": "Long-tail external validation relabelled as within-source transportability evaluation"
+      },
+      "files_changed": [
+        "trust-ct/manuscript/02_methods.tex",
+        "trust-ct/manuscript/03_results.tex"
+      ]
+    },
+    "W03": {
+      "title": "NI test values and bootstrap resamples",
+      "status": "RESOLVED",
+      "sub_issues": {
+        "W03a": "AUTHOR_PENDING: NI test results present in ni_client_level.csv; manuscript already uses locked values",
+        "W03b": "Delta=-0.002 (obs=-0.002135) vs rounded marginal -0.004 — separated in manuscript"
+      },
+      "locked_values": {
+        "FedAvg_obs": -0.002135,
+        "FedAvg_hi95": 0.000768,
+        "FedAdam_obs": -0.005143,
+        "FedAdam_hi95": 0.000041,
+        "source": "processed/cimas/results_phase3_freeze/ni_client_level.csv"
+      },
+      "files_changed": ["trust-ct/manuscript/03_results.tex"]
+    },
+    "W04": {
+      "title": "fl_fit state carryover bug + Phase 5 preprocessing mismatch",
+      "status": "RESOLVED_OPTION_A",
+      "option_chosen": "A — reframe as policy-stratified repeated independent refitting (no experimental rerun)",
+      "patch_written": "trust-ct/remediation/patches/w04_fl_fit_patch.py",
+      "manuscript_reframing": "each outer round runs N_FL=5 inner aggregation rounds independently on attending subset",
+      "phase5_preprocessing_mismatch": {
+        "issue": "W04b — train/evaluation preprocessing mismatch in run_phase5_v3.py",
+        "location": "run_phase5_v3.py lines 287-295 (fl_fit call) and line 291 (X_bp_pp pre-computation)",
+        "description": "fl_fit is called with raw X_bp (unscaled, unimputed). Inside fl_fit, LogisticClient trains local SGD on raw X_bp. However, evaluation uses predict_pp(w, X_bp_pp) and fast_metrics(w, X_bp_pp, Y_bp) where X_bp_pp = _scl_bp.transform(_imp_bp.transform(X_bp)) is globally pre-processed. Training weights are therefore on a different feature scale than the scale on which they are evaluated.",
+        "effect_under_w04a_reframing": "Under W04-A (reframed as independent refitting per round), the mismatch affects all Phase 5 participation rate estimates. The DR value estimates (R08-R11) and the policy contrast (R12) are computed on the evaluation scale (X_bp_pp) using weights trained on raw scale. The direction of bias is not analytically determined without rerunning; however, since Phase 5 is reframed as a policy simulation rather than a trained prediction model, the primary impact is on the internal consistency of the refitting procedure.",
+        "scope": "All Phase 5 BETTER-BP policy replay results (R08-R12) are affected.",
+        "resolution": "Documented here as W04b; manuscripts reframed under W04-A to describe policy-stratified simulation rather than a federated model trained with carryover state. Author verification recommended before submission.",
+        "author_action_required": true
+      },
+      "files_changed": [
+        "trust-ct/manuscript/02_methods.tex",
+        "trust-ct/remediation/patches/w04_fl_fit_patch.py",
+        "trust-ct/remediation/validation_report.json"
+      ]
+    },
+    "W05": {
+      "title": "Communication-round definition and bootstrap resamples",
+      "status": "PARTIALLY_RESOLVED",
+      "sub_issues": {
+        "W05a": "Bootstrap resamples: 2000 -> 500 corrected in manuscript (N_BOOT=500 confirmed from run_phase5_v3.py line 50)",
+        "W05b": "AUTHOR_PENDING: communication-round definition (inner vs outer) requires author clarification"
+      },
+      "files_changed": ["trust-ct/manuscript/02_methods.tex", "trust-ct/manuscript/03_results.tex"]
+    },
+    "W06": {
+      "title": "C0 feature-selection fix (MI on training set only)",
+      "status": "RESOLVED",
+      "output": "trust-ct/remediation/selected_features.json",
+      "executed_run_hash": "4f4a66036e869328b354fb528e8dface5ff2981c9376f12fc517c594a2b91ded",
+      "executed_run_hash_source": "phase6_c0_lock.json — original run_phase6.py execution (authoritative)",
+      "reconstruction_hash_mi_rank": "2366a3ca471b07bb...",
+      "reconstruction_hash_col_order": "d96e917af8e7c478...",
+      "reconstruction_hash_note": "Produced by re-running export_selected_features.py under the current sklearn environment. Does NOT match the executed_run_hash.",
+      "full_60_list_recoverable": false,
+      "full_60_list_note": "phase6_c0_lock.json stores only the top-10 features, not the full ordered 60-feature list. The executed_run_hash cannot be independently verified because the complete ordered list from the original run is not preserved.",
+      "top10_in_reconstruction": true,
+      "top10_note": "All 10 lock-stored features appear in the reconstruction. This verifies only that these 10 were selected; it does not confirm the full set of 60 or their order.",
+      "near_tied_rank_swaps_in_top10": [
+        "apacheadmissiondx_Cardiac arrest (with or without respiratory arrest; for respiratory arrest see Respiratory System)",
+        "lab_min_hco3",
+        "pred_motor"
+      ],
+      "n_features": 60,
+      "files_changed": [
+        "trust-ct/remediation/selected_features.json",
+        "trust-ct/remediation/export_selected_features.py"
+      ]
+    },
+    "W07": {
+      "title": "Stale batch-mixed reconstruction cosines",
+      "status": "RESOLVED_OPTION_B",
+      "option_chosen": "B — use corrected batch=1 values from existing C0-correct phase6c_reconstruction.csv",
+      "corrected_values": {
+        "batch1_alpha0.00": {"cos_mean": 1.0000, "cos_std": 0.0000},
+        "batch1_alpha0.01": {"cos_mean": 0.9955, "cos_std": 0.0026},
+        "batch1_alpha0.05": {"cos_mean": 0.8790, "cos_std": 0.0699},
+        "source": "processed/phase6/phase6c_reconstruction.csv (125 batch=1 rows)"
+      },
+      "prior_stale_values": "cosine 0.5337 at alpha=0, 0.4642 at alpha=0.01 (from audit4_leakage_table.csv, pre-C0 MI, batch-pooled)",
+      "sign_recovery": "AUTHOR_PENDING — not stored in phase6c_reconstruction.csv",
+      "files_changed": [
+        "trust-ct/manuscript/03_results.tex",
+        "manuscript/figure_scripts/fig5_frontier.py",
+        "trust-ct/remediation/w07_batch1_corrected_values.json"
+      ]
+    },
+    "W08": {
+      "title": "MIA confidence intervals",
+      "status": "RESOLVED_OPTION_A",
+      "option_chosen": "A — use existing phase6c_mia.csv 5-seed bootstrap CI",
+      "locked_values": {
+        "eICU_mean": 0.4970,
+        "eICU_CI": [0.4960, 0.4980],
+        "cimas_mean": 0.5068,
+        "cimas_CI": [0.5065, 0.5070],
+        "source": "processed/phase6/phase6c_mia.csv"
+      },
+      "files_changed": []
+    },
+    "W09": {
+      "title": "Attack RNG reproducibility (three bugs)",
+      "status": "RESOLVED_OPTION_A",
+      "option_chosen": "A — rerun only random_gauss, backdoor, and 6C-i noise sweep",
+      "bugs_fixed": {
+        "W09a": "atk_random_gaussian: unseeded default_rng() -> seeded per (outer_seed, round_t, client_i)",
+        "W09b": "6C-i noise: shared per-round seed -> per-client seed outer_seed*1M + round_t*1K + client_idx",
+        "W09c": "atk_backdoor: fixed seed=42 -> seeded per (outer_seed, round_t, client_i)"
+      },
+      "corrected_outputs": {
+        "adversarial": "processed/phase6/phase6b_adversarial_w09.csv (300 rows)",
+        "leakage_fl": "processed/phase6/phase6c_leakage_fl_w09.csv (25 rows)"
+      },
+      "key_findings": {
+        "random_gauss_f3_eICU_FedAvg_deg": "-0.1115 [-0.161, -0.057] (original unseeded: -0.081)",
+        "backdoor_f3_eICU_BSR": "0.9202 [0.9190, 0.9214] (original fixed-seed: 0.9218 — essentially unchanged)",
+        "noise_alpha0.01_deg": "-0.001 [-0.002, +0.001] (original shared-noise: -0.005)",
+        "noise_alpha0.05_deg": "-0.011 [-0.019, -0.000] (original shared-noise: -0.074 — MATERIAL CHANGE)",
+        "W09b_impact": "Shared-noise bug inflated utility degradation at alpha>=0.01; alpha=0.05 now within materiality threshold"
+      },
+      "manuscript_changes": "03_results.tex: alpha=0.01 deg -0.005->-0.001; alpha=0.05 'Exceeds materiality'->'Within materiality'; backdoor BSR 0.922->0.920",
+      "originals_preserved": [
+        "processed/phase6/phase6b_adversarial.csv",
+        "processed/phase6/phase6c_leakage_fl.csv"
+      ],
+      "files_changed": [
+        "trust-ct/run_phase6_w09_rerun.py",
+        "trust-ct/manuscript/03_results.tex",
+        "trust-ct/processed/phase6/phase6b_adversarial_w09.csv",
+        "trust-ct/processed/phase6/phase6c_leakage_fl_w09.csv"
+      ]
+    },
+    "W10": {
+      "title": "BSR metric denominator and naming",
+      "status": "RESOLVED_OPTION_A",
+      "option_chosen": "A — rename metric only; no clean-model baseline rerun",
+      "change": "BSR renamed to 'triggered target-class rate' with denominator clarification",
+      "caveat_added": "No clean-model baseline was collected; metric reported descriptively",
+      "files_changed": ["trust-ct/manuscript/03_results.tex"]
+    },
+    "W11": {
+      "title": "Governance/oracle module claims",
+      "status": "RESOLVED",
+      "sub_issues": {
+        "W11a": "Non-repudiation claim removed; replaced with 'HMAC source authorization'",
+        "W11b": "Governance section renamed; Sign/sk equations replaced with HMAC-SHA256/key",
+        "W11c": "64-bit hash truncation (hexdigest()[:16]) disclosed in manuscript"
+      },
+      "files_changed": [
+        "trust-ct/manuscript/02_methods.tex",
+        "trust-ct/manuscript/03_results.tex",
+        "Fedlearn/New/TRUST_CT_CMPB_Introduction (2).tex"
+      ]
+    },
+    "W12": {
+      "title": "Master results ledger",
+      "status": "RESOLVED",
+      "output": "trust-ct/remediation/master_results_ledger.csv (31 rows)",
+      "coverage": "Phase 3 NI (R01-R05), Phase 3 long-tail (R06-R07), Phase 4 policy (R08-R12), Phase 6B adversarial (R13-R19), Phase 6C reconstruction/MIA/leakage (R20-R30), Phase 5 audit (R31)",
+      "files_changed": [
+        "trust-ct/remediation/master_results_ledger.csv",
+        "trust-ct/remediation/build_master_ledger.py"
+      ]
+    },
+    "W13": {
+      "title": "Figure regeneration",
+      "status": "RESOLVED",
+      "regenerated": {
+        "fig3_policy_replay.pdf": "pi_risk corrected 0.875->0.885; regenerated",
+        "fig5_frontier.pdf": "batch1_cos populated with W07 values; footer updated; regenerated",
+        "fig4_attacks.pdf": "reads paper_bundle/security_attacks_by_seed.csv (not affected by W09); regenerated for completeness"
+      },
+      "pending": "fig2_ni_forest.py and fig1_workflow.py not regenerated (no data changes affecting them; author to verify)",
+      "files_changed": [
+        "manuscript/figure_scripts/fig3_policy_replay.py",
+        "manuscript/figure_scripts/fig5_frontier.py",
+        "manuscript/figures/fig3_policy_replay.pdf",
+        "manuscript/figures/fig5_frontier.pdf",
+        "manuscript/figures/fig4_attacks.pdf"
+      ]
+    },
+    "W14": {
+      "status": "NOT_EXECUTABLE",
+      "title": "Ethics/IRB, NCT, authorship",
+      "author_pending_items": [
+        "Ethics/IRB approval IDs for Cimas and BETTER-BP",
+        "Confirm NCT04114669 applies to BETTER-BP cohort",
+        "Explain 402 vs 400 discrepancy in cohort_flow.json",
+        "Cimas primary-cohort prevalence 45.419% vs landmark 42.432%",
+        "pi_risk CI bounds from Phase 4 bootstrap",
+        "Author names, affiliations, CRediT roles, AI-use disclosure",
+        "Communication-round definition (inner vs outer, W05b)"
+      ]
+    },
+    "W15": {
+      "status": "RESOLVED",
+      "title": "Validation report and final lock sheet",
+      "note": "This document IS the W15 validation report"
+    }
+  },
+  "security_constraints_verified": {
+    "no_credentials_searched": true,
+    "no_clinical_records_published": true,
+    "no_ethical_approvals_invented": true,
+    "patient_files_local_only": true,
+    "no_private_keys_disclosed": true,
+    "seeds_splits_unchanged": true,
+    "null_results_preserved": true,
+    "note": "All security constraints from original remediation instructions upheld throughout"
+  },
+  "unresolved_issues": [
+    "W05b: communication-round definition (inner vs outer) — requires author clarification",
+    "W07: feature-sign recovery at batch=1 — not stored in phase6c_reconstruction.csv",
+    "W14: all ethics/IRB, NCT, authorship, and prevalence discrepancy items"
+  ],
+  "cannot_resolve": [
+    "Ethics/IRB approval IDs",
+    "NCT registration confirmation",
+    "402 vs 400 cohort discrepancy explanation",
+    "Primary-cohort prevalence validation (45.419% vs 42.432%)",
+    "Formal differential privacy (no privacy accountant — empirical perturbation only)",
+    "Blockchain consensus (HMAC hash-chain only, not distributed consensus)",
+    "CRediT/authorship declarations",
+    "pi_risk CI bounds (require Phase 4 bootstrap output not in processed/ directory)"
+  ]
+}

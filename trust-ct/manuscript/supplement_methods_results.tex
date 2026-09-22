@@ -1,0 +1,390 @@
+%% Supplementary Material — Methods and Results Details
+%% CMPB submission: TRUST-CT
+
+\section*{Supplementary Material}
+
+\subsection*{S1. Run manifest, artifact hashes and configuration}
+
+\paragraph{Phase 6 feature provenance.}
+The eICU feature list was selected by training-only mutual information
+after a stratified 80/20 split (random state 7).
+Sixty features were selected; the frozen feature list
+SHA-256 is \texttt{4f4a66036e869328b354fb528e8dface\allowbreak
+b354fb528e8dface\ldots} (full hash in \texttt{phase6\_c0\_lock.json}).
+The implementation script SHA-256 is \texttt{93200b7d30039a9d\ldots}.
+The ten highest-ranked features by mutual information were:
+\texttt{vital\_heartrate\_min},
+\texttt{vital\_sao2\_std},
+\texttt{vital\_sao2\_min},
+\texttt{pred\_eyes},
+\texttt{aps\_verbal},
+\texttt{lab\_mean\_bun},
+\texttt{vital\_respiration\_min},
+\texttt{apacheadmissiondx\_Cardiac arrest},
+\texttt{lab\_min\_hco3},
+\texttt{pred\_motor}.
+
+\paragraph{Phase 6 run manifest.}
+The full 1,200-outcome manifest:
+\begin{itemize}
+  \item 1,065 valid-primary runs
+    (7 attacks $\times$ $[f=1,2,3] + [f=2,5,7]$ $\times$ 5 defenses
+    $\times$ 5 seeds $\times$ 2 datasets, minus 35 fallbacks;
+    plus 50 no-attack clean baseline runs at $f=0$).
+  \item 35 Krum-inapplicable diagnostic fallbacks
+    (eICU, $f=3$, 7 adversarial attacks $\times$ 5 seeds;
+    \texttt{aggregator\_effective=fedavg},
+    \texttt{run\_status=not\_applicable\_diagnostic\_fallback}).
+  \item 100 f-invariant skips
+    (no-attack condition at $f>0$; outcome is identical to $f=0$
+    by design; 2 $f$-values $\times$ 5 defenses $\times$ 5 seeds
+    $\times$ 2 datasets).
+\end{itemize}
+Zero convergence failures were recorded.
+Full manifest: \texttt{processed/phase6/phase6b\_adversarial.csv}.
+
+\paragraph{Artifact hashes (Phase 6 C0 lock).}
+\begin{itemize}
+  \item \texttt{phase6b\_adversarial.csv}: see \texttt{phase6\_c0\_lock.json}
+  \item \texttt{phase6c\_mia.csv}: see \texttt{phase6\_c0\_lock.json}
+  \item \texttt{phase6d\_frontier.csv}: see \texttt{phase6\_c0\_lock.json}
+  \item \texttt{c4\_leakage\_corrected.json}: see \texttt{phase6\_c0\_lock.json}
+  \item Phase 3: \texttt{processed/cimas/results\_phase3\_freeze/phase3\_lock.json}
+  \item Phase 4: \texttt{processed/better\_bp/results\_phase4/phase4\_lock.json}
+  \item Phase 5: \texttt{processed/phase5/results\_v3/phase5\_v3\_lock.json}
+\end{itemize}
+
+\subsection*{S2. Full threat model}
+
+Seven adversarial roles were defined:
+(1)~\emph{Malicious clinical site}: alters local data, labels, training code,
+or model update; up to $f$ clients compromised.
+(2)~\emph{Colluding sites}: coordinate poisoning; modelled via ALIE.
+(3)~\emph{Honest-but-curious coordinator}: observes individual client updates;
+attempts reconstruction.
+(4)~\emph{Malicious coordinator}: modifies or suppresses updates;
+out of scope for this evaluation.
+(5)~\emph{Attendance oracle}: signs attendance assertions;
+signature proves origin, not clinical truth.
+(6)~\emph{Validators/auditors}: verify signatures, ordering, and hashes;
+cannot validate physical attendance.
+(7)~\emph{External attacker}: replays or tampers with recorded artifacts;
+addressed by the hash-linked audit log with HMAC authorization.
+
+\subsection*{S3. Gradient reconstruction: multi-step delta}
+
+For a single local SGD step with batch size 1, the gradient
+of logistic loss with respect to weights $\mathbf{w}$ is
+$\nabla_\mathbf{w}\ell = (p-y)\mathbf{x}$
+and the gradient with respect to bias $b$ is $\nabla_b\ell = (p-y)$.
+The ratio $\nabla_\mathbf{w}\ell / \nabla_b\ell = \mathbf{x}$ gives
+exact feature recovery, and this ratio is invariant to clipping
+(clipping scales both components equally).
+This analytic identity was confirmed by a canary experiment
+(cosine similarity 1.000000, both unclipped and clipped).
+
+After $N_\text{local}=5$ local SGD epochs, the coordinator observes the
+model delta $\boldsymbol{\Delta} = \mathbf{w}_\text{local} - \mathbf{w}_\text{global}$,
+not a single gradient.
+Applying the same ratio formula to this multi-step delta yields
+cosine similarity $-0.538$ (negative), confirming that the
+single-step approximation is invalid for multi-epoch updates.
+Phase~6 therefore measures gradient inversion from a fresh
+single-step gradient at the global model --- an optimistic attacker
+scenario that overstates leakage relative to the coordinator-observed
+multi-epoch delta.
+
+\subsection*{S4. Full FL method specifications}
+
+\paragraph{FedAvg.}
+Weighted average $\mathbf{w}_{t+1} = \sum_k \frac{n_k}{N}\mathbf{w}_k^t$.
+
+\paragraph{FedProx.}
+Local objective $F_k(\mathbf{w}) + \frac{\mu}{2}\|\mathbf{w}-\mathbf{w}^t\|^2$.
+Proximal gradient contribution was $1.3\%$ of data gradient (median;
+IQR 0.8--1.7\%), consistent with limited optimisation heterogeneity.
+
+\paragraph{FedAvg-equal.}
+Uniform weights $\mathbf{w}_{t+1} = \frac{1}{K}\sum_k \mathbf{w}_k^t$.
+
+\paragraph{SCAFFOLD.}
+Introduces client and server control variates $\mathbf{c}_k$, $\mathbf{c}$
+to correct client drift~\cite{TODO:karimireddy2020scaffold}.
+
+\paragraph{FedAdam.}
+Adaptive server update using Adam moments applied to the aggregated
+pseudo-gradient.
+
+\paragraph{All methods.}
+$N_\text{local}=5$ local epochs, learning rate $\eta=0.02$,
+balanced class weights, logistic regression model.
+Phase 3 Cimas: 30 rounds, 23 clients.
+Phase 6 eICU/Cimas: 15 rounds, $K=8$ / $K=23$ clients.
+
+\subsection*{S5. Complete NI results (all five FL methods)}
+
+\begin{tabular}{@{}llll@{}}
+\hline
+Method & $\Delta$AUROC [95\% CI] & NI LCB & Verdict \\
+\hline
+FedAvg       & $-0.002$ [$-0.005$, $+0.001$] & $-0.0045$ & Non-inferior \\
+FedProx      & $-0.002$ [$-0.005$, $+0.001$] & $-0.0047$ & Non-inferior \\
+FedAvg-equal & $-0.001$ [$-0.004$, $+0.001$] & $-0.0040$ & Non-inferior \\
+SCAFFOLD     & $-0.001$ [$-0.004$, $+0.001$] & $-0.0040$ & Non-inferior \\
+FedAdam      & $-0.005$ [$-0.011$, $0.000$]  & $-0.0095$ & Non-inferior \\
+\hline
+\end{tabular}
+
+NI margin: $\delta_0=-0.02$; provider-cluster bootstrap, 2{,}000 resamples.
+
+\subsection*{S6. Provider-level performance disparity de-confound (E6)}
+
+\paragraph{Design.}
+The Cimas primary cohort ($K=23$ providers, $N=10{,}109$ training rows,
+$N=2{,}541$ test rows across 23 provider-specific stratified 80/20 splits)
+was used for a four-condition warm/cold experiment.
+Five seeds $\in\{7,11,19,23,37\}$, 60~rounds, $N_\text{local}=5$
+inner epochs per round, $\eta=0.02$, balanced class weights, FedAvg ($\mu=0$).
+
+\noindent\textbf{Conditions:}
+\begin{enumerate}
+  \item \emph{cold-FedAvg}: FedAvg from zero-initialised weights, rounds 1--60.
+  \item \emph{cold-local}: each provider trains independently from zero,
+    rounds 1--60 (no aggregation).
+  \item \emph{warm-local}: weights initialised from the cold-FedAvg round-30
+    global checkpoint; each provider then fine-tunes independently,
+    rounds 31--60 (no aggregation).
+  \item \emph{warm-FedAvg}: weights initialised from the same round-30
+    checkpoint; FedAvg continues, rounds 31--60.
+    This condition is a \textbf{reproducibility gate}: it is mathematically
+    identical to cold-FedAvg rounds 31--60 (3,450/3,450 AUROC values
+    numerically identical; max $|\delta|=0$) and is not reported as an
+    independent experimental arm.
+\end{enumerate}
+
+\noindent\textbf{Evaluation:} per-provider AUROC at each round,
+using each provider's locally-fitted preprocessor (median imputer,
+StandardScaler) on its held-out test rows.
+Primary statistics: late-round mean AUROC (rounds 51--60) per
+(provider, seed, condition). Inference: seed-level paired $t$-test
+($n=5$, df=4); bootstrap 95\% CIs: $5{,}000$ seed-cluster resamples.
+
+\paragraph{Disparity statistics (condition-level).}
+IQR and worst-provider AUROC measure provider-level performance equity,
+not demographic or individual fairness.
+
+\begin{tabular}{@{}lllll@{}}
+\hline
+Condition & Mean AUROC & IQR [95\% CI] & Worst-provider AUROC [95\% CI] \\
+\hline
+cold-FedAvg & 0.761 & 0.092 [0.073, 0.109] & 0.518 [0.444, 0.578] \\
+cold-local  & 0.758 & 0.094 [0.073, 0.116] & 0.509 [0.466, 0.566] \\
+warm-local  & 0.763 & 0.091 [0.075, 0.105] & 0.525 [0.487, 0.565] \\
+\hline
+\end{tabular}
+
+\paragraph{Paired contrasts (late rounds 51--60).}
+
+\begin{tabular}{@{}llllll@{}}
+\hline
+Contrast & Metric & $\Delta$ & 95\% CI & $p$ (seed $t$) \\
+\hline
+cold-FedAvg vs cold-local & Macro AUROC      & $+0.003$ & [$-0.003$, $+0.008$]  & 0.39 \\
+                          & Provider-weighted & $+0.002$ & [$+0.000$, $+0.004$]  & 0.14 \\
+                          & Worst-provider    & $-0.114$ & [$-0.141$, $-0.089$]  & 0.001 \\
+                          & 10th-pctile       & $-0.028$ & [$-0.034$, $-0.023$]  & 0.001 \\
+\hline
+warm-local vs cold-local  & Macro AUROC      & $+0.005$ & [$+0.002$, $+0.009$]  & 0.07 \\
+                          & Provider-weighted & $+0.002$ & [$+0.001$, $+0.003$]  & 0.01 \\
+                          & Worst-provider    & $-0.031$ & [$-0.044$, $-0.022$]  & 0.01 \\
+                          & 10th-pctile       & $-0.009$ & [$-0.014$, $-0.003$]  & 0.05 \\
+\hline
+warm-local vs warm-FedAvg & Macro AUROC      & $+0.002$ & [$+0.000$, $+0.006$]  & 0.21 \\
+                          & Provider-weighted & $+0.000$ & [$-0.001$, $+0.002$]  & 0.86 \\
+                          & Worst-provider    & $-0.087$ & [$-0.144$, $-0.041$]  & 0.05 \\
+                          & 10th-pctile       & $-0.023$ & [$-0.033$, $-0.013$]  & 0.02 \\
+\hline
+\end{tabular}
+
+\noindent Seed-level $t$-test ($n=5$, df=4); bootstrap 95\% CIs from $5{,}000$
+seed-cluster resamples.
+Provider~$\times$~seed $t$-test ($n=115$) also computed; within-seed
+correlation inflates the effective sample size and is not primary.
+
+\paragraph{Contrast heterogeneity.}
+Zero of 23 providers showed a systematic directional effect
+($|\bar{\delta}|/\mathrm{SD}_\delta > 2$) for any contrast.
+The SD of provider mean deltas across providers was 0.032~AUROC (cold-FedAvg
+vs cold-local), indicating that the macro-average ($+0.003$) is a poor
+summary: some providers gained substantially, others lost substantially.
+The worst-provider identity was partially stable: MEDICINE CHEST
+(n\_test=24) appeared as worst-affected in 3/5 seeds for the cold-FedAvg
+vs cold-local contrast ($\bar{\delta}=-0.081$; sign consistency 0.00 ---
+always negative --- but $\mathrm{SD}_\delta=0.047$).
+
+\paragraph{Communication accounting.}
+Warm-local fine-tuning required one weight broadcast
+(529 parameter floats: 22 features $+$ 1 intercept $\times$ 23 providers)
+versus 30 aggregation rounds for continued FedAvg (31{,}740 total floats;
+30 rounds $\times$ 23 providers $\times$ 2 directions $\times$ 23 floats),
+a 98.3\% parameter-transfer reduction.
+Average AUROC cost: macro $\Delta=+0.002$ ($p=0.21$; CI $[+0.000, +0.006]$).
+
+\paragraph{Output files.}
+\begin{itemize}
+  \item \texttt{processed/e6\_fairness/e6\_provider\_round\_results.csv}:
+    20,700 rows; per-(provider, seed, condition, round) AUROC.
+  \item \texttt{processed/e6\_fairness/e6\_summary\_round\_results.csv}:
+    cross-provider summaries per (seed, condition, round).
+  \item \texttt{processed/e6\_fairness/e6\_paired\_analysis.csv}:
+    paired contrast statistics.
+  \item \texttt{processed/e6\_fairness/e6\_disparity\_stats.csv}:
+    condition-level IQR, range, CV, Gini with seed-level bootstrap CIs.
+  \item \texttt{processed/e6\_fairness/e6\_provider\_fixed\_effects.csv}:
+    per-provider mean delta, SD, sign consistency for each contrast.
+  \item \texttt{processed/e6\_fairness/e6\_worst\_provider\_identity.csv}:
+    seed-by-seed worst-provider identity.
+\end{itemize}
+
+\subsection*{S6. Complete attack--defense--f matrix (Phase 6 eICU)}
+
+Full results for all 7 attacks $\times$ 5 defenses $\times$ 3 $f$-values
+$\times$ 5 seeds are in \texttt{processed/phase6/phase6b\_adversarial.csv}.
+The 35 Krum-inapplicable rows are flagged
+\texttt{run\_status=not\_applicable\_diagnostic\_fallback}.
+
+\subsection*{S7. Reconstruction target grid}
+
+The full reconstruction grid (100 targets across 5 hospitals, 4 rounds,
+and batches of 1, 4, 16, and 32) is in
+\texttt{processed/phase6/phase6c\_reconstruction.csv}.
+
+\subsection*{S8. MIA stratification}
+
+Per-seed MI attack results for eICU and Cimas are in
+\texttt{processed/phase6/phase6c\_mia.csv}.
+
+\subsection*{S9. Governance fault injection details}
+
+All 350 injection results (attack type, seed, position, detected flag)
+are in \texttt{processed/phase5/results\_v3/fault\_injection\_results.csv}.
+
+\subsection*{S10. Communication cost}
+
+Bidirectional cost formula: $\sum_t 2K_t d$ (upload and broadcast).
+BETTER-BP warm replay: 960 FP32 parameters per run (3{,}840 bytes).
+Cimas warm: 19{,}320 parameters (77{,}280 bytes).
+Cimas cold-start ($T=30$): 28{,}980 parameters (115{,}920 bytes).
+Serialisation overhead, digital signatures, and protocol headers excluded.
+
+\subsection*{S11. Full algorithms}
+
+\subsubsection*{Algorithm 1 (full version): Leakage-safe cohort preparation
+and federated prediction}
+
+\begin{algorithm}[H]
+\caption{Leakage-safe cohort preparation and federated logistic regression}
+\label{alg:fl_full}
+\KwIn{Raw features $\mathbf{X}$, labels $\mathbf{y}$, site IDs $\mathbf{g}$;
+  $N_\text{feat}=60$, test fraction $\rho=0.20$, seed $s=7$}
+\KwOut{Test AUROC, PR-AUC; NI verdict}
+Stratified split: $(\mathcal{I}_\text{tr}, \mathcal{I}_\text{te})
+  \leftarrow \text{StratSplit}(\mathbf{y}, \rho, s)$\;
+Fit imputer $\hat{I}$ on $\mathbf{X}_\text{tr}$ only\;
+Impute: $\tilde{\mathbf{X}} \leftarrow \hat{I}(\mathbf{X})$\;
+Compute MI: $\mathbf{m} \leftarrow \text{MI}(\tilde{\mathbf{X}}_\text{tr},
+  \mathbf{y}_\text{tr})$\;
+Select features: $\mathcal{F} \leftarrow \text{top}_{N_\text{feat}}(\mathbf{m})$;
+hash and freeze $\mathcal{F}$\;
+\For{each seed $s_j$}{
+  Initialise $\mathbf{w}_0 \leftarrow \mathbf{0}$\;
+  \For{round $t = 1$ \KwTo $T$}{
+    \For{each client $k$}{
+      $\mathbf{w}_k \leftarrow \text{LocalSGD}(\mathbf{w}_{t-1},
+        \mathbf{X}_{k,\text{tr}}, \mathbf{y}_{k,\text{tr}},
+        N_\text{local}, \eta)$\;
+    }
+    $\mathbf{w}_t \leftarrow \sum_k \tfrac{n_k}{N}(\mathbf{w}_k-\mathbf{w}_{t-1})
+      + \mathbf{w}_{t-1}$ \tcp*{FedAvg}
+  }
+  Evaluate AUROC$_j$ on held-out test set\;
+}
+Return mean AUROC, CI, NI verdict\;
+\end{algorithm}
+
+\subsubsection*{Algorithm 2 (full version): Doubly robust policy evaluation
+and trial-calibrated replay}
+
+\begin{algorithm}[H]
+\caption{DR policy evaluation and trial-calibrated closed-loop replay}
+\label{alg:dr_full}
+\KwIn{Randomized trial data $(\mathbf{X}, \mathbf{A}, \mathbf{Y})$;
+  propensity $e_a$; budget $B$; policies $\Pi$; seeds, CRN draws}
+\KwOut{$\hat{V}(\pi)$ and 95\% CI for each $\pi \in \Pi$}
+\For{each fold $f$, seed $s$}{
+  Fit $\hat{\mu}_a(\cdot)$ on out-of-fold training rows\;
+  Compute nuisance predictions on held-out rows\;
+}
+\For{each policy $\pi \in \Pi$}{
+  Compute $\hat{V}(\pi)$ via Eq.~(\ref{eq:dr})\;
+  Bootstrap 95\% CI (2{,}000 resamples)\;
+}
+\tcp{Trial-calibrated replay}
+Find $\delta_a$ by bisection so $\mathbb{E}[p_{ia}^\text{cal}]$ matches target\;
+\For{each model seed $s$, CRN draw $c$}{
+  Generate attendance and allocation streams\;
+  Simulate $T$ rounds with within-provider volume matching\;
+  Record AUROC at each round\;
+}
+Compute nAULC; compare C2--C1, C3--C1 against materiality $0.001$\;
+\end{algorithm}
+
+\subsubsection*{Algorithm 3 (full version): Adversarial federated round
+with perturbation and robust aggregation}
+
+\begin{algorithm}[H]
+\caption{Adversarial federated round}
+\label{alg:adv_full}
+\KwIn{Global model $\mathbf{w}$; clients $[K]$; $f$ malicious;
+  attack $a$; defense $d$; $\alpha$, $C$}
+\KwOut{Updated global model $\mathbf{w}'$; metrics}
+\For{each honest client $k \in [K]\setminus\mathcal{M}$}{
+  $\boldsymbol{\Delta}_k \leftarrow \text{LocalSGD}(\mathbf{w}) - \mathbf{w}$\;
+  $\tilde{\boldsymbol{\Delta}}_k \leftarrow
+    \text{clip}_C(\boldsymbol{\Delta}_k) +
+    \mathcal{N}(0,(\alpha C)^2\mathbf{I})$ \tcp*{Eq.~(\ref{eq:pert})}
+}
+\For{each malicious client $k \in \mathcal{M}$}{
+  $\tilde{\boldsymbol{\Delta}}_k \leftarrow \text{Attack}(a, \mathbf{w}, k)$\;
+}
+\If{$d=\text{krum}$ \textbf{and} $K \leq 2f+2$}{
+  $d \leftarrow \text{fedavg}$; flag \texttt{not\_applicable\_diagnostic\_fallback}\;
+}
+$\mathbf{w}' \leftarrow \mathbf{w} + \text{Aggregate}(d, \{\tilde{\boldsymbol{\Delta}}_k\})$\;
+\end{algorithm}
+
+\subsubsection*{Algorithm 4 (full version): Audit-log append and
+fault injection}
+
+\begin{algorithm}[H]
+\caption{Signed audit-log append, verification and fault injection}
+\label{alg:audit_full}
+\KwIn{Event $e_t$; signing key $sk$; prior chain hash $c_{t-1}$;
+  fault type and position (for injection)}
+\KwOut{Appended record; verification result}
+$d_t \leftarrow H(\text{canonical}(e_t))$\;
+$s_t \leftarrow \text{Sign}(sk, d_t)$\;
+$c_t \leftarrow H(c_{t-1} \,\|\, d_t \,\|\, s_t)$\;
+Append $(e_t, d_t, s_t, c_t)$ to log\;
+\tcp{Verification}
+\For{each record $(e_t, d_t, s_t, c_t)$ in log}{
+  Check $\text{Verify}(pk, s_t, d_t)$\;
+  Check $d_t = H(\text{canonical}(e_t))$\;
+  Check $c_t = H(c_{t-1}\,\|\,d_t\,\|\,s_t)$\;
+}
+\tcp{Fault injection (evaluation only)}
+\For{fault class $a$, seed $s$, position $p$}{
+  Inject tampered record at position $p$\;
+  Verify; record detection flag\;
+}
+\end{algorithm}

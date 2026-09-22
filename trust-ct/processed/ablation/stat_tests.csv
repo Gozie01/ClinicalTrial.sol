@@ -1,0 +1,4 @@
+test,component,label,condition_a,condition_b,mean_diff,ci_lo,ci_hi,p
+paired_ttest,A2,attack_effect_on_fedavg,FedAvg_label_flip_f3,FedAvg_clean,-0.1195,-0.1776,-0.0614,0.0046
+paired_ttest,A2,coord_median_vs_fedavg_under_attack,coord_median_label_flip_f3,FedAvg_label_flip_f3,0.1114,0.0578,0.1651,0.0045
+paired_ttest,A3,perturbation_utility_cost,alpha=0.01,alpha=0.00,-0.0051,-0.0201,0.0098,0.3926

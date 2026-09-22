@@ -1,0 +1,119 @@
+{
+  "status": "PHASE6_AUDIT_COMPLETE",
+  "audits": {
+    "A1_auroc_reconciliation": {
+      "previous_auroc": 0.9326,
+      "previous_model": "MLP",
+      "phase6_auroc_range": [
+        0.78977,
+        0.88618
+      ],
+      "phase6_model": "Federated logistic regression",
+      "gap_pp": 0.1428,
+      "gap_explanation": "Model class (MLP vs LR) and feature set (all vs top-60)",
+      "previous_recon_cosine": 0.48,
+      "phase6_recon_cosine": 0.3482,
+      "recon_explanation": "MLP hundreds of params vs LR 61 params",
+      "verdict": "Phase 6 LR values are authoritative for security benchmark; earlier MLP values are prior-work baseline."
+    },
+    "A2_run_manifest": {
+      "N_planned_full": 1200,
+      "N_completed": 1100,
+      "N_f_invariant_skipped": 100,
+      "N_krum_na_flagged": 35,
+      "N_failed": 0,
+      "accounting": "1100+100=1200==1200"
+    },
+    "A3_attack_effectiveness": {
+      "norm_ratio_model_replace": 1.52,
+      "cos_sign_flip": -0.7523,
+      "bsr_backdoor": 0.9214,
+      "canary_f0_auroc": 0.8820876826722338,
+      "canary_f6_auroc": 0.8636325678496868,
+      "explanation": "Small global AUROC degradation at f=3/K=8 is expected for LR under 37.5% malicious fraction: honest majority dominates convex landscape. Canary (f=6) confirms attacks work at extreme fractions. Norm ratios and cosine similarities confirm attack injection."
+    },
+    "A4_leakage_table": [
+      {
+        "alpha": 0.0,
+        "recon_cos_sim": 0.5337,
+        "recon_rmse": 1.8494,
+        "nrmse": 2.63,
+        "sign_recovery": 0.8031,
+        "label_recovery": 0.0,
+        "auroc": 0.8810855949895616,
+        "mia_auroc": 0.4965698412698412,
+        "auroc_degradation": 0.0
+      },
+      {
+        "alpha": 0.01,
+        "recon_cos_sim": 0.4642,
+        "recon_rmse": 2.6192,
+        "nrmse": 4.2524,
+        "sign_recovery": 0.6793,
+        "label_recovery": 0.0533,
+        "auroc": 0.8801670146137788,
+        "mia_auroc": 0.4957357142857143,
+        "auroc_degradation": -0.0009185803757828515
+      },
+      {
+        "alpha": 0.05,
+        "recon_cos_sim": 0.4013,
+        "recon_rmse": 2.1472,
+        "nrmse": 3.4823,
+        "sign_recovery": 0.6104,
+        "label_recovery": 0.0533,
+        "auroc": 0.8695281837160751,
+        "mia_auroc": 0.4937611111111112,
+        "auroc_degradation": -0.011557411273486529
+      },
+      {
+        "alpha": 0.1,
+        "recon_cos_sim": 0.3494,
+        "recon_rmse": 2.6956,
+        "nrmse": 4.6056,
+        "sign_recovery": 0.5729,
+        "label_recovery": 0.04,
+        "auroc": 0.8235657620041754,
+        "mia_auroc": 0.49334523809523806,
+        "auroc_degradation": -0.05751983298538621
+      },
+      {
+        "alpha": 0.2,
+        "recon_cos_sim": 0.2412,
+        "recon_rmse": 4.1008,
+        "nrmse": 6.5197,
+        "sign_recovery": 0.5373,
+        "label_recovery": 0.04,
+        "auroc": 0.7639415448851773,
+        "mia_auroc": 0.49239999999999995,
+        "auroc_degradation": -0.11714405010438433
+      }
+    ],
+    "A4_operating_point": {
+      "alpha": 0.01,
+      "auroc_degradation": -0.0009185803757828515,
+      "language": "alpha=0.01 reduces reconstruction cosine from 0.534 to 0.464 while limiting AUROC degradation to -0.001. This is the best-tested utility-preserving operating point.",
+      "mia_statement": "No membership-inference advantage beyond chance was detected under the evaluated attack (MIA AUROC range 0.4924-0.4966 across alpha levels). This finding is not attributed to noise: the baseline MIA AUROC at alpha=0 is 0.4966, already near chance, indicating the model's confidence is insufficient to separate members from non-members regardless of update perturbation."
+    }
+  },
+  "governance_decision": {
+    "selected_architecture": "audit_log_only",
+    "option_selected": 2,
+    "rationale": [
+      "No working PureChain node is integrated in the codebase. blockchain_contract_runtime.py is a simulation, not a connected chain.",
+      "Phase 5 governance results (350/350 detection) are already produced by the signed hash-linked log \u2014 adding anchoring would not change the measured outcomes.",
+      "Reporting transaction hash, finality latency, and anchoring throughput requires a live deployment that does not exist; claiming these metrics from simulation would be misleading.",
+      "The CMPB scope (clinical methods and programs) does not require distributed consensus; audit-log integrity is sufficient for the paper's claims.",
+      "Removing blockchain claims is cleaner and more defensible than adding hollow anchoring claims."
+    ],
+    "manuscript_changes": [
+      "Remove 'PureChain blockchain governance' from title, abstract, architecture, conclusion.",
+      "Replace with: 'signed hash-linked audit log providing integrity, ordering, authorization, and non-repudiation of submitted records.'",
+      "Remove 'consensus enforcement' and 'smart contract' claims.",
+      "Retain: Layer 3 description as an auditable governance log (not a blockchain layer).",
+      "Figure 1: remove PureChain block; replace with 'Signed Hash-Linked Audit Log'."
+    ],
+    "retained_claim": "The signed hash-linked governance log establishes integrity, ordering, authorization, and non-repudiation of submitted records. Signatures and hash linkage authenticate the recorded source and detect subsequent alteration, but cannot establish the truth of an incorrect event submitted by an authorized source.",
+    "if_purepchain_desired_future_work": "If anchoring is desired in a future version: anchor signed batch commitments (Merkle root) to a permissioned chain, report transaction hash, block finality latency, validator configuration, replay rejection, anchoring throughput, and per-transaction cost. State: 'Blockchain anchoring establishes durable ordering and tamper evidence for signed attestations; it does not prove the truth of an event submitted by an authorized source.'"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "analytic_canary": {
+    "description": "Batch=1, single forward-pass gradient: x_hat = grad_w / grad_b. Clipping scales both components equally; ratio is exact.",
+    "cos_unclipped_mean": 1.0,
+    "cos_clipped_mean": 1.0,
+    "expected": "~1.0 (exact recovery)",
+    "result": "PASS"
+  },
+  "multistep_delta": {
+    "description": "N_local=5 SGD epochs: coordinator observes model delta, not a single gradient. Single-gradient approximation x_hat = delta_w/delta_b is invalid for multi-step deltas.",
+    "cos_multistep_mean": -0.5381,
+    "n_local_epochs": 5,
+    "finding": "cosine NEGATIVE for multi-step delta inversion, confirming the approximation breaks down. Phase 6 measured fresh-gradient inversion (optimistic attacker), NOT model-delta inversion (realistic coordinator threat).",
+    "implication": "Phase 6 leakage estimates are conservative \u2014 they reflect an optimistic attacker with direct gradient access, which overstates leakage risk relative to the actual model-delta observable."
+  },
+  "phase6_experiment_label_corrected": "Gradient inversion from fresh single-step gradient at global model (optimistic attacker scenario; batch sizes 1, 4, 16)",
+  "phase6_corrected_explanation": "Phase 6 recon_single computes the gradient of the loss at the global model w for each batch, clips and noises it, then reconstructs x. This models a threat where the attacker has direct access to the clipped gradient \u2014 an optimistic scenario. The actual FedAvg coordinator observes model deltas (w_local - w_global after 5 local epochs), for which the single-gradient inversion formula gives cosine -0.538. Single-step analytic canary confirms cosine = 1.000 for direct gradient access. The Phase 6 mixed-batch result (cosine 0.534) reflects batch-size averaging: batch=1 gives near-exact recovery; batch=4,16 dilute the signal.",
+  "mi_selection_finding": {
+    "overlap": 38,
+    "changed": 22,
+    "rerun_required": true,
+    "note": "38/60 features identical between full-data and training-only MI. 22 features changed. Re-run Phase 6 with corrected MI selection required."
+  }
+}

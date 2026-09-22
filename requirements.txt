@@ -1,0 +1,6 @@
+numpy<2
+pandas
+scikit-learn
+imbalanced-learn
+tensorflow==2.15.1
+matplotlib

@@ -1,0 +1,40 @@
+{
+  "n_public_cohort": 402,
+  "n_published_itt": 400,
+  "itt_exclusions_identifiable": false,
+  "analysis_cohort": 402,
+  "analysis_cohort_note": "Published ITT N=400 (2 exclusions: 1 duplicate, 1 post-enrollment ineligible). Exclusions cannot be identified from the public dataset. Analysis uses N=402 (full public randomized cohort).",
+  "arm_n": {
+    "Intervention": 266,
+    "Control": 136
+  },
+  "site_n": {
+    "A": 312,
+    "B": 90
+  },
+  "outcome_col": "visit_6m_attended",
+  "outcome_label": "six-month visit attendance (Y=1 = attended)",
+  "outcome_prevalence_overall": 0.8557213930348259,
+  "outcome_prevalence_by_arm": {
+    "Control": 0.8014705882352942,
+    "Intervention": 0.8834586466165414
+  },
+  "observed_ate": 0.08198805838124723,
+  "propensity_e": 0.6667,
+  "propensity_source": "known from randomization (2:1 allocation)",
+  "n_features": 11,
+  "features": [
+    "age",
+    "race_white",
+    "race_black_or_african_american",
+    "race_asian",
+    "race_american_indian_or_alaska_native",
+    "race_native_hawaiian_or_other_pacific_islander",
+    "race_other_specify",
+    "sbp_baseline",
+    "dbp_baseline",
+    "mases_baseline",
+    "site_A"
+  ],
+  "all_features_pretreatment": true
+}

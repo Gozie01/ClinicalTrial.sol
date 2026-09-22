@@ -1,0 +1,108 @@
+{
+  "status": "LOCKED",
+  "version": "v1",
+  "all_gate_checks_pass": true,
+  "gate_checks": {
+    "g1_seven_attacks_implemented": true,
+    "g2_model_replace_included": true,
+    "g3_alie_colluding_included": true,
+    "g4_krum_invalid_marked_na_eicu_f3": true,
+    "g5_backdoor_bsr_reported": true,
+    "g6_reconstruction_100_targets": true,
+    "g7_membership_inference_included": true,
+    "g8_frontier_all_alphas": true,
+    "g9_empirical_language_only": true,
+    "g10_all_seeds_complete": "True"
+  },
+  "threat_model": "processed/phase6/phase6_threat_model.json",
+  "adversarial_benchmark": {
+    "datasets": [
+      "eicu_K8",
+      "cimas_K23"
+    ],
+    "attacks": [
+      "none",
+      "random_gauss",
+      "sign_flip",
+      "scaled_poison",
+      "model_replace",
+      "label_flip",
+      "backdoor",
+      "alie"
+    ],
+    "f_eicu": {
+      "counts": [
+        1,
+        2,
+        3
+      ],
+      "pct": [
+        12.5,
+        25.0,
+        37.5
+      ]
+    },
+    "f_cimas": {
+      "counts": [
+        2,
+        5,
+        7
+      ],
+      "pct": [
+        8.7,
+        21.7,
+        30.4
+      ]
+    },
+    "defenses": [
+      "fedavg",
+      "coord_median",
+      "trimmed_mean",
+      "krum",
+      "clipping"
+    ],
+    "seeds": [
+      7,
+      11,
+      19,
+      23,
+      37
+    ],
+    "n_rounds": 15,
+    "krum_not_applicable": {
+      "eicu_K8_f3": true
+    },
+    "configs_eicu": 550,
+    "configs_cimas": 550
+  },
+  "leakage": {
+    "mechanism": "clipped_Gaussian_empirical",
+    "alpha_values": [
+      0.0,
+      0.01,
+      0.05,
+      0.1,
+      0.2
+    ],
+    "clip_norm_C": 1.0,
+    "formal_dp": false,
+    "reconstruction_targets": 500,
+    "reconstruction_batches": [
+      1,
+      4,
+      16
+    ],
+    "mia_rows": 10
+  },
+  "operating_point": {
+    "alpha": 0.01,
+    "rule": "max alpha where AUROC degradation >= -0.02",
+    "label": "utility-oriented clipped Gaussian update perturbation providing empirical leakage mitigation"
+  },
+  "secure_aggregation_implemented": false,
+  "privacy_language": "Utility-oriented clipped Gaussian update perturbation providing empirical leakage mitigation. NOT differential privacy.",
+  "data_hashes": {
+    "eicu_X_test": "330a6850a3ba3401",
+    "cimas_X_test": "d1db993db3a68b21"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "selected_architecture": "audit_log_only",
+  "option_selected": 2,
+  "rationale": [
+    "No working PureChain node is integrated in the codebase. blockchain_contract_runtime.py is a simulation, not a connected chain.",
+    "Phase 5 governance results (350/350 detection) are already produced by the signed hash-linked log \u2014 adding anchoring would not change the measured outcomes.",
+    "Reporting transaction hash, finality latency, and anchoring throughput requires a live deployment that does not exist; claiming these metrics from simulation would be misleading.",
+    "The CMPB scope (clinical methods and programs) does not require distributed consensus; audit-log integrity is sufficient for the paper's claims.",
+    "Removing blockchain claims is cleaner and more defensible than adding hollow anchoring claims."
+  ],
+  "manuscript_changes": [
+    "Remove 'PureChain blockchain governance' from title, abstract, architecture, conclusion.",
+    "Replace with: 'signed hash-linked audit log providing integrity, ordering, authorization, and non-repudiation of submitted records.'",
+    "Remove 'consensus enforcement' and 'smart contract' claims.",
+    "Retain: Layer 3 description as an auditable governance log (not a blockchain layer).",
+    "Figure 1: remove PureChain block; replace with 'Signed Hash-Linked Audit Log'."
+  ],
+  "retained_claim": "The signed hash-linked governance log establishes integrity, ordering, authorization, and non-repudiation of submitted records. Signatures and hash linkage authenticate the recorded source and detect subsequent alteration, but cannot establish the truth of an incorrect event submitted by an authorized source.",
+  "if_purepchain_desired_future_work": "If anchoring is desired in a future version: anchor signed batch commitments (Merkle root) to a permissioned chain, report transaction hash, block finality latency, validator configuration, replay rejection, anchoring throughput, and per-transaction cost. State: 'Blockchain anchoring establishes durable ordering and tamper evidence for signed attestations; it does not prove the truth of an event submitted by an authorized source.'"
+}

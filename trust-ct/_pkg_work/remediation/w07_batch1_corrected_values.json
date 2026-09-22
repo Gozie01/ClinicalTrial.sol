@@ -1,0 +1,58 @@
+{
+  "provenance": {
+    "source_csv": "trust-ct/processed/phase6/phase6c_reconstruction.csv",
+    "n_batch1_rows": 125,
+    "structure": "5 hospitals × 5 rounds × 5 alpha values = 125 batch=1 rows",
+    "feature_set": "C0-correct (MI computed on training set only, seed=7, test_frac=0.20)",
+    "resolution_date": "2026-08-28",
+    "remediation_issue": "W07",
+    "prior_stale_source": "audit4_leakage_table.csv (pre-C0 MI, batch-pooled)",
+    "prior_stale_values": {
+      "note": "cosine 0.5337 at alpha=0, 0.4642 at alpha=0.01 — from pre-C0 MI feature set, batch-pooled; NOT valid for comparison"
+    }
+  },
+  "batch1_reconstruction": {
+    "alpha_0.00": {
+      "cos_mean": 1.0000,
+      "cos_std":  0.0000,
+      "interpretation": "Exact canary reconstruction at batch=1, alpha=0 (single-step gradient)"
+    },
+    "alpha_0.01": {
+      "cos_mean": 0.9955,
+      "cos_std":  0.0026,
+      "cos_rounded": 0.996,
+      "cos_std_rounded": 0.003,
+      "manuscript_text": "cosine $0.996\\pm0.003$ (batch=1)"
+    },
+    "alpha_0.05": {
+      "cos_mean": 0.8790,
+      "cos_std":  0.0699,
+      "cos_rounded": 0.879,
+      "cos_std_rounded": 0.070,
+      "manuscript_text": "cosine $0.879\\pm0.070$ (batch=1)"
+    },
+    "alpha_0.10": {
+      "cos_mean": 0.7216,
+      "cos_std":  0.0984
+    },
+    "alpha_0.20": {
+      "cos_mean": 0.4520,
+      "cos_std":  0.1414
+    }
+  },
+  "multi_batch_at_alpha0": {
+    "note": "All batch sizes pooled together, alpha=0 only",
+    "batch_1_pooled": 0.3562,
+    "batch_4":        0.3069,
+    "batch_16":       0.1094,
+    "batch_32":       0.0086
+  },
+  "sign_recovery": {
+    "status": "AUTHOR_PENDING",
+    "reason": "Per-sample x_hat vectors not stored in phase6c_reconstruction.csv; only aggregate cosine/rmse/mae/label_recovery recorded. Sign recovery requires re-running reconstruction with x_hat saved, or using stored intermediate outputs."
+  },
+  "manuscript_table_cells": {
+    "alpha_0.01_leakage_metric": "Recon cos.\\ $0.996\\pm0.003$ (batch=1)",
+    "alpha_0.05_leakage_metric": "Recon cos.\\ $0.879\\pm0.070$ (batch=1); sign rec.\\ [AUTHOR\\_PENDING]"
+  }
+}

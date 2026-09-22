@@ -1,0 +1,5 @@
+Arm,N,Attended,Pct,CI_lo,CI_hi,Timepoint
+Intervention,266,235,88.3,83.9,91.7,6m
+Control,136,109,80.1,72.7,86.0,6m
+Intervention,266,207,77.8,72.5,82.4,12m
+Control,136,106,77.9,70.3,84.1,12m

@@ -1,0 +1,329 @@
+%% Section 2 — Methods
+%% CMPB submission: TRUST-CT
+%% Locked values drawn from phase3_lock.json, phase4_lock.json,
+%% phase5_v3_lock.json, phase6_c0_lock.json, ablation_summary.json.
+%% DO NOT edit numerical values without updating numerical_provenance.csv.
+
+\section{Methods}
+\label{sec:methods}
+
+\subsection{Study design and TRUST-CT workflow}
+\label{sec:design}
+
+This was a retrospective, multi-cohort computational evaluation of
+a closed-loop federated learning (FL) framework for budget-constrained
+medication-adherence incentive allocation with signed governance logging.
+The pipeline follows the sequence: provider-local clinical data
+$\to$ local model training $\to$ engagement-policy evaluation
+$\to$ trial-calibrated availability replay $\to$ federated aggregation
+$\to$ audit logging (Figure~\ref{fig:workflow}).
+Five roles are defined: (i)~\emph{providers} retain raw records locally;
+(ii)~a~\emph{coordinator} aggregates parameter updates;
+(iii)~a~\emph{policy module} ranks participants for incentive allocation;
+(iv)~an~\emph{attacker} may submit adversarial updates;
+(v)~an~\emph{audit verifier} checks log integrity.
+Raw clinical records were not transmitted to the coordinator.
+Secure aggregation and distributed consensus were not implemented;
+the coordinator observes individual client updates in plaintext.
+
+\subsection{Clinical cohorts and outcomes}
+\label{sec:cohorts}
+
+Three cohorts provided complementary experimental roles
+(Table~\ref{tab:cohorts}).
+
+\paragraph{Cimas (principal prediction and closed-loop cohort).}
+A retrospective hypertension medication-adherence dataset comprising
+claims from 12{,}649 participants ($K=23$ primary providers,
+each with $\geq 100$ participants) was extracted under a
+six-month landmark design (January--June 2022 observation window;
+refill-continuity outcome assessed July--December 2022).
+The binary outcome $Y_\text{adh}=1$ denoted adherence
+($\geq 5$ refill months; prevalence 42.4\%).
+For the long-tail evaluation, the risk-positive orientation
+$Y_\text{risk}=1-Y_\text{adh}$ was used, with a long-tail
+prevalence of 0.677.
+Date fields followed D/M/YYYY format (confirmed from birth-date records).
+
+\paragraph{BETTER-BP (policy evaluation and replay calibration cohort).}
+The BETTER-BP pragmatic randomized controlled trial enrolled
+participants at three safety-net clinics under a 2:1
+(intervention:control) allocation.
+Of 402 randomized participants, two FL providers (Sites A, $n=312$;
+Site B, $n=90$; Site C excluded, $n=0$) contributed to policy
+evaluation and closed-loop calibration.
+% W02a fix: outcome is visit_6m_attended (Y=1=attended), confirmed from
+%   cohort_flow.json and run_phase5_v3.py line 230. Corrected from
+%   "12-month non-attendance" to "6-month visit attendance".
+The primary outcome was six-month visit attendance ($Y=1$=attended).
+% AUTHOR_PENDING: confirm precise 6-month attendance count and ethics
+%   approval reference. Also confirm ClinicalTrials.gov NCT04114669
+%   applies to this cohort and consent procedure for secondary analysis.
+
+\paragraph{eICU (adversarial security and privacy benchmark).}
+The eICU Collaborative Research Database (demo version)
+provided a multi-centre critical-care benchmark~\cite{TODO:pollard2018eicu}.
+The cohort comprised 2{,}520 hospital stays across
+$K=8$ hospital groups; the outcome was in-hospital mortality
+(126 positives; 5.0\% prevalence).
+This cohort was used exclusively for adversarial robustness and
+privacy-leakage evaluation; it was not used for clinical effectiveness claims.
+
+\begin{table}[ht]
+\centering
+\caption{Clinical cohorts, outcomes and experimental roles.}
+\label{tab:cohorts}
+\begin{tabular}{@{}llrlll@{}}
+\hline
+Cohort & $N$ & $K$ & Primary outcome & Role & Evaluation \\
+\hline
+Cimas     & 12{,}649 & 23 & Refill adherence ($\geq$5 months) & FL prediction; closed loop & LOCO / landmark \\
+BETTER-BP & 402      & 2  & 6-month visit attendance ($Y=1$=attended)  & Policy est.; replay calib. & Trial secondary \\
+eICU      & 2{,}520  & 8  & In-hospital mortality (5.0\%)     & Security / privacy bench.  & Train/test split \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Preprocessing, splitting and feature provenance}
+\label{sec:preproc}
+
+For the eICU security benchmark, preprocessing followed a
+strictly leakage-safe order:
+(1)~construct the binary outcome and eligible cohort;
+(2)~stratified train/test split ($20\%$ held out; random state 7);
+(3)~fit a median imputer on training rows only;
+(4)~transform training and test rows using the frozen imputer;
+(5)~compute mutual information (MI) using training features and
+training labels only;
+(6)~select the top-60 features by MI rank;
+(7)~freeze and hash the selected feature list
+    (SHA-256: \texttt{4f4a66036e869328b354fb528e8dface\ldots}).
+No test labels, test rows, or full-cohort imputation contributed
+to feature selection.
+The implementation script was independently hashed
+(SHA-256: \texttt{93200b7d30039a9d\ldots}).
+
+\subsection{Centralized and federated prediction}
+\label{sec:fl}
+
+Each provider $k$ minimized the local empirical risk:
+\begin{equation}
+  F_k(\mathbf{w}) = \frac{1}{n_k}\sum_{i=1}^{n_k}
+  \ell\!\left(\mathbf{w};\, \mathbf{x}_{ki},\, y_{ki}\right),
+  \label{eq:local_obj}
+\end{equation}
+where $\ell$ is logistic loss and $n_k$ is the local sample size.
+The global objective is $F(\mathbf{w}) = \sum_k \tfrac{n_k}{N}F_k(\mathbf{w})$.
+
+Local updates used mini-batch stochastic gradient descent
+($N_\text{local}=5$ epochs, learning rate $\eta=0.02$,
+balanced class weights).
+Five aggregation strategies were evaluated:
+(i)~\emph{FedAvg} (weighted average~\cite{TODO:mcmahan2017fedavg});
+(ii)~\emph{FedProx} (proximal regularisation $\mu$);
+(iii)~\emph{FedAvg-equal} (uniform weights);
+(iv)~\emph{SCAFFOLD} (control variates~\cite{TODO:karimireddy2020scaffold});
+(v)~\emph{FedAdam} (adaptive server update).
+The Cimas experiment ran for 30 rounds with 23 provider-clients.
+Leave-one-client-out (LOCO) cross-validation was used for evaluation.
+
+The noninferiority estimand is $d = \text{AUROC}_\text{FL} -
+\text{AUROC}_\text{central}$ with prespecified margin $\delta_0 = -0.02$.
+FL was declared non-inferior when the one-sided 95\% lower
+confidence bound (LCB) of $d$ exceeded $\delta_0$.
+% W05a fix: N_BOOT=500 confirmed from run_phase5_v3.py line 50 (N_BOOT = 500).
+CIs were obtained by provider-cluster and participant bootstrap
+(500 resamples).
+
+\subsection{Engagement-policy estimation}
+\label{sec:policy}
+
+% W02a fix: outcome is six-month visit attendance, not twelve-month.
+The treatment was binary incentive eligibility; the outcome was
+six-month visit attendance ($Y=1$=attended).
+Doubly robust (DR) policy value estimation used the estimator:
+\begin{equation}
+  \hat{V}(\pi) = \frac{1}{n}\sum_{i=1}^{n}\!\left[
+    \hat{\mu}_{\pi(X_i)}(X_i)
+    + \frac{\mathbf{1}{\{A_i = \pi(X_i)\}}}{\hat{e}_{A_i}(X_i)}
+    \bigl(Y_i - \hat{\mu}_{A_i}(X_i)\bigr)
+  \right],
+  \label{eq:dr}
+\end{equation}
+where $\hat{\mu}_a(\cdot)$ is a cross-fitted outcome regression and
+$\hat{e}_a(\cdot)$ is the propensity model.
+The BETTER-BP randomization allocated participants 2:1
+(intervention:control; known propensity $e=0.667$).
+Five-fold, five-seed out-of-fold (OOF) cross-fitting was used.
+Four policies were compared at budget $B=\tfrac{2}{3}$:
+$\pi_0$ (no incentive), $\pi_\text{rand}$ (random),
+$\pi_\text{risk}$ (FL nonattendance-risk ranking), and
+$\pi_\text{up}$ (cross-fitted DR uplift ranking).
+Causal assumptions of consistency, conditional exchangeability
+(by trial randomization), and positivity were assessed.
+No prospective policy validation was performed.
+
+\subsection{Trial-calibrated closed-loop replay}
+\label{sec:replay}
+
+Four policy scenarios (C0--C3) were evaluated in a trial-calibrated
+simulation using attendance and allocation random streams generated
+independently from common random numbers (CRN) shared across policies.
+
+Simulated attendance probabilities were recalibrated on the logit scale:
+\begin{equation}
+  p_{ia}^\text{cal} = \sigma\!\left[
+    \sigma^{-1}\!\left(\hat{\mu}_a(X_i)\right) + \delta_a
+  \right],
+  \label{eq:calib}
+\end{equation}
+where $\sigma$ is the sigmoid function and $\delta_a$ is selected by
+bisection (Brent's method) so that
+$\mathbb{E}[p_{i0}^\text{cal}]=0.815$ and
+$\mathbb{E}[p_{i1}^\text{cal}]=0.883$,
+reproducing $\hat{V}(C1, B=\tfrac{2}{3})=0.8603$ from Phase~4.
+% W04 Option A reframing: the FL model is refitted independently in each
+% outer round from the round-specific attending subset. The outer rounds
+% do NOT carry model state from round to round; each refitting starts from
+% the warm-initialised weights and runs N_FL=5 inner aggregation rounds.
+% Language about "sequential" or "continuous" FL learning across outer
+% rounds has been removed; this is policy-stratified repeated refitting.
+The Cimas cold-start experiment ran for $T=30$ outer replay rounds with a
+fixed 20\% stratified holdout, $5$~model seeds, and $10$~CRN draws per seed.
+At each outer round, FL was refitted on the attending participant subset
+($N_\text{local}=5$ inner aggregation rounds); performance was measured on
+the fixed holdout.
+Provider volume was matched within-provider across scenarios.
+Performance was summarised by normalized area under the learning
+curve (nAULC) over the 30 replay rounds.
+The operational materiality threshold was $|\Delta\,\text{nAULC}| < 0.001$.
+This replay is a trial-calibrated simulation; it does not constitute
+independent causal or prospective clinical validation.
+
+\subsection{Threat model and adversarial federated learning}
+\label{sec:threat}
+
+Seven adversarial roles were defined (Supplementary~S2):
+malicious clinical site; colluding sites; honest-but-curious coordinator;
+external attacker; and three governance roles.
+The coordinator observes client updates in plaintext; secure aggregation
+was not implemented.
+Seven attack families were evaluated:
+(i)~\emph{sign flipping};
+(ii)~\emph{label flipping};
+(iii)~\emph{scaled poisoning};
+(iv)~\emph{model replacement} (scale $K/f$);
+(v)~\emph{A Little Is Enough} (ALIE; colluding gradient statistics~\cite{TODO:baruch2019alie});
+(vi)~\emph{random Gaussian perturbation};
+(vii)~\emph{targeted tabular backdoor} (trigger feature 0, value 3.0, target label 0).
+Experiments varied $f$ malicious clients: eICU $f \in \{1,2,3\}$
+(12.5\%, 25.0\%, 37.5\% of $K=8$);
+Cimas $f \in \{2,5,7\}$ (8.7\%, 21.7\%, 30.4\% of $K=23$).
+All experiments used 15 federated rounds and 5 random seeds.
+
+\subsection{Robust aggregation and feasibility}
+\label{sec:robust}
+
+Five aggregation rules were evaluated.
+\emph{Coordinate-wise median}:
+$[\text{agg}(\{\boldsymbol{\delta}_k\})]_j = \mathrm{median}_k\, \delta_{kj}$.
+\emph{Trimmed mean}: trims the $\lfloor f \rfloor$ smallest and
+largest values per coordinate before averaging.
+\emph{Krum}: selects the update minimizing the sum of distances to its
+$K-f-2$ nearest neighbours.
+Krum requires $K > 2f+2$; for eICU with $K=8$, $f=3$,
+this condition fails ($8 \not> 8$).
+The 35 Krum-inapplicable configurations (eICU, $f=3$, adversarial attacks)
+used FedAvg as a diagnostic fallback
+(\texttt{aggregator\_effective = fedavg},
+\texttt{run\_status = not\_applicable\_diagnostic\_fallback})
+and are excluded from Krum inference.
+
+\subsection{Empirical leakage evaluation}
+\label{sec:leakage}
+
+Each client update was perturbed before transmission:
+\begin{equation}
+  \tilde{\boldsymbol{\Delta}}_k =
+  \mathrm{clip}_C(\boldsymbol{\Delta}_k) +
+  \mathcal{N}\!\left(\mathbf{0},\, (\alpha C)^2 \mathbf{I}\right),
+  \label{eq:pert}
+\end{equation}
+where $C=1.0$ is the clipping norm and $\alpha \in \{0,0.01,0.05,0.10,0.20\}$
+is an empirical noise multiplier.
+No $(\varepsilon,\delta)$-differential privacy accounting was performed;
+the mechanism is described as
+\emph{utility-oriented clipped Gaussian update perturbation providing
+empirical leakage mitigation}.
+
+Three reconstruction settings were differentiated:
+(1)~\emph{analytic single-step canary}: batch size 1, one gradient step,
+logistic regression; the exact recover $\hat{\mathbf{x}} = \nabla_\mathbf{w}\ell
+/ \nabla_b\ell$ is valid and clipping-invariant;
+(2)~\emph{optimistic fresh-gradient reconstruction} (\texttt{recon\_single}):
+the coordinator observes the gradient at the global model for batches of 1,
+4, and 16 samples --- an optimistic attacker scenario;
+(3)~\emph{multi-step delta approximation}: the same formula applied to the
+coordinator-observed multi-epoch FedAvg update, which is invalid
+(Supplementary~S3).
+Leakage metrics included cosine similarity, normalised RMSE,
+feature-sign recovery rate, and membership-inference (MI) attack AUROC.
+MI attack advantage is $\text{AUROC}-0.5$; effect size is Cohen's
+$h = 2\arcsin\!\sqrt{p_1} - 2\arcsin\!\sqrt{0.5}$.
+
+% W11a/b/c fix: oracle.py uses HMAC-SHA256 (symmetric key), NOT public-key.
+% Removed: signature/non-repudiation/public-key language.
+% Removed: "Signed" from subsection title.
+% Added: explicit statement that HMAC does not provide non-repudiation.
+% Added: 64-bit truncation disclosure for chain links.
+\subsection{Hash-linked audit log with HMAC authorization}
+\label{sec:auditlog}
+
+Each governance event was serialised to a canonical record
+containing: round index, provider identifier, model hash, attendance
+assertion, action taken, and timestamp.
+Two cryptographic fields were computed per record $t$:
+\begin{align}
+  d_t &= H(\text{canonical}(e_t)), \label{eq:digest} \\
+  s_t &= \text{HMAC-SHA256}(\mathit{key},\, d_t), \label{eq:auth} \\
+  c_t &= H_{\!64}(c_{t-1} \,\|\, d_t \,\|\, s_t), \label{eq:chain}
+\end{align}
+where $H$ is SHA-256, $H_{\!64}$ denotes the first 64 bits of the
+SHA-256 digest (used for chain efficiency), and $\mathit{key}$ is a
+shared authorization key per provider.
+This mechanism provides \emph{HMAC authorization} (source authentication)
+and \emph{sequential hash-chain integrity} (tamper and reordering detection);
+it does not provide non-repudiation, which requires an asymmetric signing key
+inaccessible to the verifier.
+Verification checked HMAC consistency, event-digest validity,
+and sequential previous-hash linkage, detecting tampering,
+reordering, replay, deletion, substitution, and stale attestations.
+Seven fault classes were injected across 10 round positions
+and 5 seeds (350 injections total).
+The log authenticates the recorded source and detects subsequent
+alteration, but cannot establish the truth of an incorrect event
+submitted by an authorized source.
+
+\subsection{Statistical analysis and reproducibility}
+\label{sec:stats}
+
+Primary metrics were AUROC, PR-AUC (risk-positive orientation for Cimas),
+balanced accuracy, MCC, and DR policy value.
+% W10a fix: BSR renamed to triggered_target_class_rate_all; denominator clarified.
+% W05a fix: bootstrap resamples corrected to 500 (confirmed from N_BOOT in code).
+Security metrics included attack degradation ($\Delta$AUROC paired over seeds),
+defense recovery, triggered target-class rate
+(proportion of all triggered test rows predicted as the target class,
+\emph{not} restricted to non-target-class rows; see Section~\ref{sec:threat}),
+reconstruction cosine similarity, feature-sign recovery, and MI AUROC.
+Paired t-tests with 95\% CIs (two-sided, $\alpha=0.05$) were used for
+attack-defense comparisons ($n=5$ seeds).
+Bootstrap CIs (500 resamples, percentile method) were computed for
+AUROC, PR-AUC, and policy-value contrasts.
+MI attack CIs used 500-resample bootstrap at the per-seed level.
+The noninferiority margin was $\delta_0=-0.02$ AUROC;
+the utility materiality threshold was $|\Delta\text{AUROC}|<0.02$;
+the closed-loop operational materiality threshold was
+$|\Delta\,\text{nAULC}|<0.001$.
+All experiments used fixed random seeds ([7,11,19,23,37]);
+artifact hashes are reported in Supplementary~S1.

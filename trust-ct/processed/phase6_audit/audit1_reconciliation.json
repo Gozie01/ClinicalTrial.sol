@@ -1,0 +1,47 @@
+{
+  "auroc_table": [
+    {
+      "experiment": "Earlier eICU (real_data_summary.csv)",
+      "cohort_split": "eICU demo, cross-validated (MLP val-based stopping)",
+      "model": "Federated MLP (federated_mlp_run.py)",
+      "fl_protocol": "MLP, all features, ~7.7 rounds avg, federated mean aggregation",
+      "clean_auroc": 0.9326,
+      "manuscript_role": "SUPERSEDED \u2014 different model class and feature set",
+      "note": "Higher AUROC attributable to MLP expressivity and early-stopping on full feature set. Replaced by Phase 6 logistic-regression benchmark for adversarial analysis where computational tractability is required."
+    },
+    {
+      "experiment": "Phase 6 eICU (run_phase6.py)",
+      "cohort_split": "Same 2,520 stays; 80/20 stratified split fixed at seed=7",
+      "model": "Federated logistic regression (balanced class weights)",
+      "fl_protocol": "Top-60 MI features, 15 rounds, 5 defenses x 5 seeds, adversarial benchmark",
+      "clean_auroc_range": [
+        0.78977,
+        0.88618
+      ],
+      "clean_auroc_by_defense": {
+        "clipping": 0.881086,
+        "coord_median": 0.883958,
+        "fedavg": 0.881086,
+        "krum": 0.8770239999999999,
+        "trimmed_mean": 0.8848100000000001
+      },
+      "manuscript_role": "PRIMARY for security benchmarking",
+      "note": "LR chosen for adversarial benchmark because: (a) tractable for 1,100 configurations x 15 rounds, (b) logistic regression is the client model in Phases 3-5, ensuring consistency. AUROC gap vs MLP (0.932 - 0.885 ~ 4.7pp) is expected from model class difference alone."
+    }
+  ],
+  "reconstruction_cosine_table": [
+    {
+      "experiment": "Earlier (model_inversion_summary.csv, no_defense)",
+      "model": "MLP, all features, gradient inversion, no noise",
+      "cosine_similarity": 0.48,
+      "note": "MLP has hundreds of parameters; gradient encodes more information per sample \u2014 reconstruction is easier."
+    },
+    {
+      "experiment": "Phase 6 (alpha=0, batch=1)",
+      "model": "LR, 61 parameters (60 features + bias)",
+      "cosine_similarity": 0.3482,
+      "note": "LR gradient is a single outer-product of residuals and features divided by batch size; with 61 parameters reconstruction is ill-conditioned. Lower cosine is expected and conservative (less leakage risk than MLP baseline)."
+    }
+  ],
+  "verdict": "The two AUROC values (0.932 and 0.881-0.885) must not appear in the same table without attribution. Manuscript treatment: report the MLP result as a prior-work baseline in the related results section; Phase 6 LR result is the authoritative adversarial security benchmark. Add footnote: 'Centralized MLP achieves 0.932 AUROC (prior evaluation, all features); the FL logistic-regression adversarial benchmark reports 0.881-0.885 AUROC, consistent with the client model used in Phases 3-5.'"
+}

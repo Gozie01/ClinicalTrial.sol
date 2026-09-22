@@ -1,0 +1,285 @@
+{
+  "phase": "6",
+  "version": "v2_training_only_mi",
+  "status": "LOCKED",
+  "all_gates_pass": true,
+  "n_gates_pass": 19,
+  "n_gates_total": 19,
+  "gate_results": {
+    "C0-1_split_before_mi": {
+      "status": "PASS",
+      "detail": "train_test_split precedes mutual_info_classif in source"
+    },
+    "C0-1_imputer_on_tr": {
+      "status": "PASS",
+      "detail": "SimpleImputer.fit(X_eicu_all[tr_idx]) confirmed"
+    },
+    "C0-1_mi_on_training": {
+      "status": "PASS",
+      "detail": "mutual_info_classif(_X60_tr, y[tr_idx]) confirmed"
+    },
+    "C0-1_n_features": {
+      "status": "PASS",
+      "detail": "60/60 features selected"
+    },
+    "C0-2_total_1200": {
+      "status": "PASS",
+      "detail": "1100 run + 100 skipped = 1200"
+    },
+    "C0-2_krum_na_35": {
+      "status": "PASS",
+      "detail": "krum N/A fallbacks: 35"
+    },
+    "C0-2_zero_failures": {
+      "status": "PASS",
+      "detail": "convergence failures: 0"
+    },
+    "C0-3_worst_attack": {
+      "status": "PASS",
+      "detail": "worst=label_flip delta=-0.1195"
+    },
+    "C0-3_robust_defense_effective": {
+      "status": "PASS",
+      "detail": "best_defense=coord_median recovery=0.1114"
+    },
+    "C0-3_backdoor_bsr_gt_0": {
+      "status": "PASS",
+      "detail": "BSR=0.9218"
+    },
+    "C0-4_singlestep_canary_pass": {
+      "status": "PASS",
+      "detail": "single-step cosine=1.000000"
+    },
+    "C0-4_multistep_breaks_approx": {
+      "status": "PASS",
+      "detail": "multi-step cosine=-0.5381 (negative=approximation invalid)"
+    },
+    "C0-4_phase6_label_correct": {
+      "status": "PASS",
+      "detail": "phase6_label confirms optimistic attacker scenario"
+    },
+    "C0-5_eicu_mia_at_chance": {
+      "status": "PASS",
+      "detail": "eICU CI [0.4957,0.4976] entirely <=0.5 (attacker at/below chance)"
+    },
+    "C0-5_cimas_mia_negligible": {
+      "status": "PASS",
+      "detail": "Cimas advantage=+0.0068 Cohen's h=0.0135 (negligible)"
+    },
+    "C0-6_frontier_vs_clean": {
+      "status": "PASS",
+      "detail": "|frontier(0.8904) - clean(0.8904)|=0.0000"
+    },
+    "C0-6_frontier_vs_leakfl": {
+      "status": "PASS",
+      "detail": "|frontier(0.8904) - leakfl(0.8904)|=0.0000"
+    },
+    "C0-6_operating_point_within_materiality": {
+      "status": "PASS",
+      "detail": "alpha=0.01 delta=-0.0051 < 0.02"
+    },
+    "C0-6_c4_sign_recovery_auditable": {
+      "status": "PASS",
+      "detail": "sign_rec: 0.803 -> 0.679 (decreasing with noise)"
+    }
+  },
+  "failed_gates": [],
+  "feature_selection_provenance": {
+    "method": "mutual_information_classif training-only",
+    "split_seed": 7,
+    "n_features_selected": 60,
+    "feature_list_hash_sha256": "4f4a66036e869328b354fb528e8dface5ff2981c9376f12fc517c594a2b91ded",
+    "script_sha256": "93200b7d30039a9d505b604551b1b338cfd268412dc5a8531d9b6919dc7bf3a9",
+    "feature_derivation": "reproduced from eicu_demo_prepared.csv with training-only MI",
+    "top_10_features": [
+      "vital_heartrate_min",
+      "vital_sao2_std",
+      "vital_sao2_min",
+      "pred_eyes",
+      "aps_verbal",
+      "lab_mean_bun",
+      "vital_respiration_min",
+      "apacheadmissiondx_Cardiac arrest (with or without respiratory arrest; for respiratory arrest see Respiratory System)",
+      "lab_min_hco3",
+      "pred_motor"
+    ]
+  },
+  "run_manifest": {
+    "total_intended": 1200,
+    "rows_in_csv": 1100,
+    "f_invariant_skips": 100,
+    "krum_na_fallbacks": 35,
+    "valid_primary": 1065,
+    "formula": "1065 valid_primary + 35 krum_na + 100 skips = 1200",
+    "convergence_failures": 0
+  },
+  "security_metrics": {
+    "clean_fedavg_auroc": {
+      "mean": 0.8904,
+      "ci95": [
+        0.8892,
+        0.8913
+      ]
+    },
+    "attack_degradation_fedavg_f3": {
+      "label_flip": {
+        "auroc": 0.7709,
+        "ci": [
+          0.7333,
+          0.8104
+        ],
+        "delta": -0.1195,
+        "paired_delta": -0.1195,
+        "paired_ci": [
+          -0.1776,
+          -0.0614
+        ],
+        "p": 0.0046
+      },
+      "sign_flip": {
+        "auroc": 0.831,
+        "ci": [
+          0.8042,
+          0.8586
+        ],
+        "delta": -0.0593,
+        "paired_delta": -0.0593,
+        "paired_ci": [
+          -0.1032,
+          -0.0155
+        ],
+        "p": 0.0198
+      },
+      "model_replace": {
+        "auroc": 0.8703,
+        "ci": [
+          0.8678,
+          0.8725
+        ],
+        "delta": -0.0201,
+        "paired_delta": -0.0201,
+        "paired_ci": [
+          -0.0236,
+          -0.0166
+        ],
+        "p": 0.0001
+      },
+      "alie": {
+        "auroc": 0.8862,
+        "ci": [
+          0.8808,
+          0.8923
+        ],
+        "delta": -0.0042,
+        "paired_delta": -0.0042,
+        "paired_ci": [
+          -0.0126,
+          0.0043
+        ],
+        "p": 0.2416
+      },
+      "backdoor": {
+        "auroc": 0.8913,
+        "ci": [
+          0.8895,
+          0.8925
+        ],
+        "delta": 0.001,
+        "paired_delta": 0.001,
+        "paired_ci": [
+          -0.0009,
+          0.0028
+        ],
+        "p": 0.2219
+      }
+    },
+    "worst_attack": "label_flip",
+    "worst_delta": -0.1195,
+    "robust_defense_label_flip_f3": {
+      "coord_median": {
+        "auroc": 0.8823,
+        "ci": [
+          0.8755,
+          0.8918
+        ],
+        "delta_vs_clean": -0.0081,
+        "recovery_vs_fedavg": 0.1114,
+        "recovery_ci": [
+          0.0578,
+          0.1651
+        ],
+        "p": 0.0045
+      },
+      "trimmed_mean": {
+        "auroc": 0.8823,
+        "ci": [
+          0.8752,
+          0.8922
+        ],
+        "delta_vs_clean": -0.0081,
+        "recovery_vs_fedavg": 0.1114,
+        "recovery_ci": [
+          0.0578,
+          0.1651
+        ],
+        "p": 0.0045
+      }
+    },
+    "best_defense": "coord_median",
+    "backdoor_bsr": 0.9218
+  },
+  "canary": {
+    "single_step_cosine": 1.0,
+    "multi_step_cosine": -0.5381,
+    "phase6_experiment_label": "Gradient inversion from fresh single-step gradient at global model (optimistic attacker scenario; batch sizes 1, 4, 16)",
+    "single_step_result": "PASS",
+    "implication": "Phase 6 leakage estimates are conservative \u2014 they reflect an optimistic attacker with direct gradient access, which overstates leakage risk relative to the actual model-delta observable."
+  },
+  "mia": {
+    "eicu": {
+      "mean_auroc": 0.497,
+      "ci95_lo": 0.49572,
+      "ci95_hi": 0.49756,
+      "advantage_over_chance": -0.003,
+      "cohen_h": -0.006,
+      "interpretation": "attacker at or below chance (CI entirely <=0.5)"
+    },
+    "cimas": {
+      "mean_auroc": 0.5068,
+      "ci95_lo": 0.50644,
+      "ci95_hi": 0.50698,
+      "advantage_over_chance": 0.0068,
+      "cohen_h": 0.0135,
+      "interpretation": "marginal +0.7pp advantage; Cohen's h negligible (<0.1); CI above 0.5"
+    },
+    "authoritative_source": "c4_leakage_corrected.json (2000 resamples)"
+  },
+  "perturbation_frontier": {
+    "operating_point_alpha": 0.01,
+    "alpha_0_auroc": 0.8904,
+    "alpha_01_auroc": 0.8852,
+    "delta_auroc_0_to_001": -0.0051,
+    "within_materiality_0_02": true,
+    "recon_cos_alpha_0": 0.5337,
+    "recon_cos_alpha_001": 0.4642,
+    "sign_recovery_alpha_0": 0.8031,
+    "sign_recovery_alpha_001": 0.6793,
+    "sign_recovery_abs_diff_pp": 12.38,
+    "mechanism_language": "utility-oriented clipped Gaussian update perturbation providing empirical leakage mitigation \u2014 NOT (epsilon,delta)-DP"
+  },
+  "manuscript_statements": {
+    "A4_governance": "100% detection (350/350) with zero false alerts under the seven evaluated attack scenarios",
+    "A5_policy": "The learned policy yielded a higher estimated value than random allocation (0.892 vs. 0.860; delta=0.032), but the bootstrap confidence interval included zero (95% CI: -0.011 to 0.078), providing no statistically conclusive evidence of policy-value improvement.",
+    "MIA": "Membership inference AUROC was 0.496 (eICU; 95% CI [0.496, 0.498]; Cohen's h=-0.008) and 0.507 (Cimas; 95% CI [0.506, 0.507]; Cohen's h=+0.014). The eICU attacker performed at or below chance. The Cimas attacker showed a marginal +0.7pp advantage; while statistically detectable (CI excludes 0.5), the effect is negligible (Cohen's h=0.014, well below the 0.2 threshold for a small effect). Neither result is attributed to the perturbation mechanism: MIA AUROC at alpha=0 was already 0.496, indicating model confidence is insufficient to meaningfully separate members from non-members."
+  },
+  "artifact_hashes": {
+    "phase6b_adversarial_csv": "202ec60f47e0e437fe74e4b33b7594d8b2c17f170c4cff60220aeb295999da50",
+    "phase6b_adversarial_parquet": "1320636550c8466217e107430dc272d092f979afd9db67dcc2c0df4bbd9972f6",
+    "phase6c_mia_csv": "4c7086586879bc7e66def4001acc185a6d24f2099d2fe165d3c43b3c6a87c229",
+    "phase6c_leakage_fl_csv": "79bd3d4dec113c265b1c47ed4a7c3a987cb8e2ca0157876d44ab1a0b525feb99",
+    "phase6d_frontier_csv": "930b8cf254353ade064963c221d29a965af793dc171c1bc7c9a46f0552489b56",
+    "c4_leakage_corrected_json": "5c72dc0b13758b23b9043c913cf618fb9a458e5a07fef1ab1d774e360aa235a0",
+    "c1_canary_json": "daa180c4b9fe5f2ca6fff318a29134a5b02115dc9588ca61c422e5a7da5ba4a5",
+    "run_phase6_py": "93200b7d30039a9d505b604551b1b338cfd268412dc5a8531d9b6919dc7bf3a9"
+  }
+}

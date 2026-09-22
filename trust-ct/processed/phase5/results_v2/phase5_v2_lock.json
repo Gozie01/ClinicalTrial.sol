@@ -1,0 +1,106 @@
+{
+  "status": "LOCKED",
+  "version": "v2",
+  "all_gate_checks_pass": true,
+  "gate_checks": {
+    "g1_bp_participation_c0_in_range": true,
+    "g2_bp_c1_gt_c0": true,
+    "g3_bp_c3_ge_c2": true,
+    "g4_cimas_cold_n_seeds": true,
+    "g5_cimas_cold_holdout_fixed": true,
+    "g6_governance_detection_100pct": true,
+    "g7_false_alert_zero": true,
+    "g8_bidir_comm_gt_unidir": true,
+    "g9_vm_c1c2c3_same_attend": true,
+    "g10_cold_sensitivity_dr_vs_naive": true
+  },
+  "issues_corrected": [
+    "Issue1: BETTER-BP participation calibration (shift_0=+0.250, shift_1=+0.361)",
+    "Issue2: Cimas cold-start convergence experiment added (T=30, 5 seeds, holdout)",
+    "Issue3: Governance renamed to signed hash-linked log; 7-attack fault injection",
+    "Issue4: Bidirectional comm cost 2Kd; bootstrap CIs; 3-quantity BP participation"
+  ],
+  "governance_note": "Log establishes integrity, ordering, authorisation, and non-repudiation of submitted records; cannot independently verify clinical correctness.",
+  "framing_notes": [
+    "Semi-synthetic closed-loop replay calibrated from real randomised-trial and longitudinal-claims data. NOT prospective clinical validation.",
+    "Attendance-targeting policy, not medication-adherence policy.",
+    "Cimas C3: trial-calibrated proxy sensitivity analysis; individual BETTER-BP CATE scores NOT applied across populations.",
+    "Under the trial-calibrated replay, C3 generated the highest simulated availability. This does not independently confirm an attendance benefit because the replay is constructed using Phase 4 estimates."
+  ],
+  "betterbp_final_participation": {
+    "C0": 0.7975,
+    "C1": 0.8471,
+    "C2": 0.8626,
+    "C3": 0.8977
+  },
+  "cimas_cold_auc_lc": {
+    "C0": {
+      "mean": 0.78648,
+      "lcb95": 0.78638,
+      "ucb95": 0.78659
+    },
+    "C1": {
+      "mean": 0.7865,
+      "lcb95": 0.78644,
+      "ucb95": 0.78658
+    },
+    "C2": {
+      "mean": 0.78641,
+      "lcb95": 0.78634,
+      "ucb95": 0.7865
+    },
+    "C3": {
+      "mean": 0.78641,
+      "lcb95": 0.78634,
+      "ucb95": 0.7865
+    }
+  },
+  "governance_fault_injection": {
+    "detection_rate": 1.0,
+    "false_alert_rate": 0.0,
+    "attacks": [
+      {
+        "attack": "model_hash_tamper",
+        "n_violations_detected": 1,
+        "detected": true,
+        "detection_rate": 1.0
+      },
+      {
+        "attack": "alloc_tamper",
+        "n_violations_detected": 1,
+        "detected": true,
+        "detection_rate": 1.0
+      },
+      {
+        "attack": "replay_round",
+        "n_violations_detected": 1,
+        "detected": true,
+        "detection_rate": 1.0
+      },
+      {
+        "attack": "reorder_rounds",
+        "n_violations_detected": 3,
+        "detected": true,
+        "detection_rate": 1.0
+      },
+      {
+        "attack": "stale_attendance",
+        "n_violations_detected": 1,
+        "detected": true,
+        "detection_rate": 1.0
+      },
+      {
+        "attack": "client_substitution",
+        "n_violations_detected": 1,
+        "detected": true,
+        "detection_rate": 1.0
+      },
+      {
+        "attack": "client_dropout_inject",
+        "n_violations_detected": 1,
+        "detected": true,
+        "detection_rate": 1.0
+      }
+    ]
+  }
+}

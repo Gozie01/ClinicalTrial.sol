@@ -1,0 +1,99 @@
+{
+  "phase": "4",
+  "status": "LOCKED",
+  "config_hash": "4800f078781c735c",
+  "gate_checks": {
+    "cohort_n_immutable": {
+      "pass": true,
+      "value": 402,
+      "expected": 402
+    },
+    "all_features_pretreatment": {
+      "pass": true,
+      "post_rand_in_features": []
+    },
+    "oof_predictions": {
+      "pass": true,
+      "n_folds": 5,
+      "n_seeds": 5,
+      "note": "Each participant's mu1,mu0 predicted only from folds that did not include them"
+    },
+    "known_propensity": {
+      "pass": true,
+      "propensity": 0.6667,
+      "source": "Randomization allocation 2:1 (intervention:control)",
+      "empirical_arm_rate": 0.6617
+    },
+    "trial_effect_reproduced": {
+      "pass": true,
+      "naive_ate": 0.082,
+      "dr_ate": 0.0678,
+      "abs_diff": 0.0142,
+      "tolerance": 0.1
+    },
+    "identical_budget_comparison": {
+      "pass": true,
+      "budgets_tested": [
+        0.25,
+        0.5,
+        0.6667
+      ],
+      "primary_budget": 0.6667
+    },
+    "valid_cis": {
+      "pass": true,
+      "n_contrasts": 18,
+      "n_boot": 2000
+    },
+    "fairness_prespecified": {
+      "pass": true,
+      "protected_attributes": [
+        "race_white",
+        "site_A"
+      ],
+      "min_coverage_ratio": 0.8,
+      "prespecified_in_config": true
+    },
+    "all_outputs_hashed": {
+      "pass": true,
+      "file_hashes": {
+        "cohort_flow.json": "a0467bb6b2207096835121d3b392dfa65b2adb98ad01dd19954d0a6931ba3d41",
+        "baseline_balance.csv": "72f8ee186f7672c358a5aa93eeff0ded455ef097b67affad8c31a030205a2527",
+        "nuisance_oof_predictions.parquet": "9a6723aa08f50b082924680965314dd42facbdde156c1a95e3c834a066f9724f",
+        "dr_scores_oof.parquet": "53f8fbf0673d9dcdbda680446a1eff4fb4e6568d956dbe4964e62ea86ff51365",
+        "policy_assignments_oof.parquet": "19b0da729915d93ebc793e617c7202deff9d7b52caa5fc30f0f9b1a2fe507ae4",
+        "policy_values.csv": "d0b446b3fb1f2ccb1c6e154b7fc23b4bba7a4f67418de523e6da45a2f3b75842",
+        "policy_contrasts.csv": "d6ed3edfdbf403262772b7a9ea8a174ed59c97a60ba59ffd8494289ddf4f7de8",
+        "fairness_results.csv": "d68a0a9d2ef67c1f53d5cb3a55f7a6afb43598a50af19b4f08d894c4843449ce",
+        "sensitivity_results.csv": "f1bd6f867298efae831dc1866c028a3dce4d9f0a04c0c5d4cc858dfd335cb046",
+        "provenance.json": "ccad21ee12c7ee4dfe96261bedba30dc7b92effb729cf636888ee3c9d7f8bfbb"
+      }
+    },
+    "null_uplift_conclusion_prespecified": {
+      "pass": true,
+      "ci_includes_zero": true,
+      "conclusion": "Incentive improved average attendance (ATE>0) but available baseline predictors could not identify differential responders (null uplift).",
+      "note": "Null result does not invalidate Phase 5 engineering evaluation."
+    }
+  },
+  "primary_contrast": {
+    "policy_a": "uplift_targeting",
+    "policy_b": "random_budget",
+    "budget": 0.6667,
+    "delta_v": 0.031559,
+    "ci_95": [
+      -0.01126,
+      0.077728
+    ],
+    "ci_includes_zero": true
+  },
+  "observed_ate": 0.082,
+  "dr_ate": 0.0678,
+  "manuscript_notes": {
+    "policy_label": "attendance-targeting policy",
+    "outcome_label": "six-month visit attendance",
+    "cohort_note": "Semi-synthetic closed-loop replay calibrated from BETTER-BP RCT. NOT prospective clinical validation.",
+    "cohort_n": 402,
+    "cohort_n_note": "Published ITT N=400 (2 exclusions). Analysis N=402 (public cohort; exclusions not identifiable). Call this a sensitivity analysis relative to ITT."
+  }
+}

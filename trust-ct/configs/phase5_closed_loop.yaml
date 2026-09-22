@@ -1,0 +1,88 @@
+# Phase 5: Closed-Loop FL + Policy Experiment
+# Two linked experiments: BETTER-BP causal replay + Cimas systems experiment
+
+experiments:
+  t_rounds: 20
+  budget: 0.6667
+  n_fl_rounds_per_outer: 5   # FL communication rounds within each simulation round
+  scenarios: [C0, C1, C2, C3]
+
+betterbp:
+  # 2-site causal replay using Phase 4 cross-fitted nuisance predictions
+  sites: ["A", "B"]
+  n_participants: 402
+  mu0_source: "nuisance_oof_predictions.parquet"
+  target_auroc: 0.65
+  min_active_clients: 1
+  outcome_label: "six-month visit attendance"
+  note: "Counterfactual attendance probabilities are cross-fitted DR nuisance estimates from Phase 4 RCT data."
+
+cimas:
+  # 23-provider systems experiment; availability calibrated from BETTER-BP aggregate effect
+  n_primary_patients: 12649
+  n_providers: 23
+  target_auroc: 0.78
+  min_active_clients: 3
+  min_client_records: 5
+  ate_betterbp: 0.082          # BETTER-BP aggregate ATE (naive ITT) used for calibration
+  mu0_betterbp: 0.801          # BETTER-BP control arm attendance rate
+  base_participation_source: per_provider_Y_adh_rate
+  note: >
+    Availability is calibrated using BETTER-BP aggregate attendance effect (+8.2pp).
+    Individual CATE estimates from BETTER-BP are NOT applied to Cimas patients
+    (different populations, incompletely harmonized predictors).
+    C3 uses risk-based proxy for uplift in Cimas — individual DR uplift unavailable.
+    Label: trial-calibrated semi-synthetic systems experiment.
+
+scenarios:
+  C0:
+    label: "No incentive"
+    budget: 0.0
+    policy: no_incentive
+  C1:
+    label: "Random allocation"
+    budget: 0.6667
+    policy: random_budget
+  C2:
+    label: "FL nonattendance-risk ranking"
+    budget: 0.6667
+    policy: risk_targeting
+  C3:
+    label: "Cross-fitted DR uplift ranking"
+    budget: 0.6667
+    policy: uplift_targeting   # BETTER-BP: Phase4 tau; Cimas: risk proxy (noted)
+
+common_random_numbers:
+  seed: 7
+  note: "T_rounds × N uniform draws generated once per experiment; shared across C0-C3."
+
+metrics:
+  # Reported per round per scenario
+  - participation_rate
+  - active_clients
+  - cumulative_records
+  - auroc
+  - pr_auc
+  - ece
+  - communication_cost_params
+  - incentive_utilization
+  # Computed from full trajectory
+  - area_under_learning_curve
+  - rounds_to_target
+  - worst_provider_auroc
+  - governance_events_count
+
+governance:
+  hash_algorithm: sha256
+  log_fields:
+    - policy_model_hash
+    - budget
+    - availability_mask_hash
+    - active_clients
+    - local_sample_counts
+    - update_hashes
+    - aggregation_hash
+    - next_model_hash
+    - chain_hash
+
+output_dir: "processed/phase5/results"

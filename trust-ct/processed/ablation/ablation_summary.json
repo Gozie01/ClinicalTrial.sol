@@ -1,0 +1,104 @@
+{
+  "phase": "7_ablation_consolidation",
+  "status": "COMPLETE",
+  "components": [
+    "A1_FL_vs_Centralized",
+    "A2_Robust_Aggregation",
+    "A3_Clipped_Gaussian_Perturbation",
+    "A4_Governance_Fault_Detection",
+    "A5_DR_Policy",
+    "MIA_Membership_Inference"
+  ],
+  "verdicts": {
+    "A1_FL_vs_Centralized": {
+      "verdict": "NONINFERIOR",
+      "delta_auroc": -0.004,
+      "ni_lcb": -0.0045,
+      "interpretation": "FedAvg AUROC=0.795 vs Centralized AUROC=0.799 (delta=-0.004). NI LCB=-0.0045 > -0.02 -> NONINFERIOR. All 5 FL methods non-inferior."
+    },
+    "A2_Robust_Aggregation": {
+      "verdict": "coord_median EFFECTIVE against label_flip (worst attack)",
+      "clean_fedavg_auroc": 0.8904,
+      "attacked_fedavg_auroc": 0.7709,
+      "attack_delta": -0.1195,
+      "coord_median_auroc_under_attack": 0.8823,
+      "recovery_delta": 0.1114,
+      "recovery_p": 0.0045,
+      "interpretation": "label_flip at f=3 degraded FedAvg AUROC by -0.120 (0.771 vs clean 0.890; 95% CI [-0.178, -0.061]; p=0.0046). coord_median recovered +0.111 (0.882; 95% CI [0.058, 0.165]; p=0.0045). Worst coord_median degradation (sign_flip): -0.012 (near negligible)."
+    },
+    "A3_Clipped_Gaussian_Perturbation": {
+      "operating_point": "alpha=0.01",
+      "auroc_cost": -0.0051,
+      "auroc_cost_ci": [
+        -0.0201,
+        0.0098
+      ],
+      "within_materiality_0_02": true,
+      "recon_cosine_reduction_pct": 13.02,
+      "sign_recovery_reduction_pp": 12.38,
+      "sign_recovery_reduction_pct_relative": 15.42,
+      "analytic_canary_cosine": 1.0,
+      "analytic_canary_pass": true,
+      "corrected_sentence": "At alpha=0.01, reconstruction cosine similarity decreased by 13.0% relative (0.534 to 0.464) and feature-sign recovery decreased by 12.4 percentage points (80.3% to 67.9%; 15.4% relative), while AUROC decreased by 0.1 percentage points.",
+      "interpretation": "At alpha=0.01 (operating point), AUROC cost=-0.0051 [-0.0201, 0.0098] (within materiality |delta|<0.02; p=0.3926). Reconstruction cosine reduced 13.0% relative (0.534->0.464); feature-sign recovery reduced 12.4 pp (80.3%->67.9%; 15.4% relative). Mechanism described as 'empirical leakage mitigation' NOT differential privacy (no (epsilon,delta)-DP accountant implemented)."
+    },
+    "A4_Governance_Fault_Detection": {
+      "n_injections": 350,
+      "n_detected": 350,
+      "detection_rate": 1.0,
+      "false_alerts": 0,
+      "per_attack_detection": {
+        "alloc_tamper": 1.0,
+        "client_dropout_inject": 1.0,
+        "client_substitution": 1.0,
+        "model_hash_tamper": 1.0,
+        "reorder_rounds": 1.0,
+        "replay_round": 1.0,
+        "stale_attendance": 1.0
+      },
+      "governance_mechanism": "signed_hash_linked_audit_log",
+      "verdict": "PERFECT_DETECTION",
+      "interpretation": "Signed hash-linked audit log detected 350/350 fault injections (100%) with 0 false alerts. All 7 attack types detected at 100% across all seeds and positions. Note: the log authenticates record provenance and ordering but cannot verify clinical truth of correctly-authorized submissions."
+    },
+    "A5_DR_Policy": {
+      "budget": 0.6667,
+      "v_no_incentive": 0.815089,
+      "v_random": 0.860304,
+      "v_risk": 0.88503,
+      "v_uplift": 0.891863,
+      "primary_contrast_uplift_minus_random": 0.031559,
+      "ci_95": [
+        -0.01126,
+        0.077728
+      ],
+      "ci_includes_zero": true,
+      "verdict": "NULL_UPLIFT",
+      "interpretation": "V(uplift, B=0.67)=0.892 vs V(random)=0.860 (delta=+0.032; 95% CI [-0.011, 0.078]); CI includes zero: null uplift confirmed. Incentive improved average attendance over no-incentive (V=0.892 vs no-incentive 0.815), but available baseline predictors could not identify differential responders. Null uplift does not invalidate Phase 5 engineering evaluation."
+    },
+    "MIA_Membership_Inference": {
+      "eicu_auroc_mean": 0.49648,
+      "eicu_ci95": [
+        0.49572,
+        0.49756
+      ],
+      "eicu_interpretation": "Attacker at or below chance (CI entirely below 0.5)",
+      "cimas_auroc_mean": 0.50675,
+      "cimas_ci95": [
+        0.50644,
+        0.50698
+      ],
+      "cimas_interpretation": "Marginal +0.7 pp advantage; statistically detectable but operationally negligible",
+      "statement": "MIA AUROC was 0.496 (eICU; 95% CI [0.496, 0.498]) and 0.507 (Cimas; 95% CI [0.506, 0.507]). Point estimates are near 0.5; confidence intervals are narrow given N=5 seeds. No substantial membership-inference advantage was detected under the evaluated attack."
+    }
+  },
+  "ablation_table_rows": 5,
+  "input_hashes": {
+    "phase3_lock": "5e635f21be1080983f7cceda5e7e50f4fd49b46b90d286dfe3b6d8df7d4208be",
+    "phase4_lock": "35383a00b4ebccc33d2a8885c3c1ea9c49c07c74b4d8efd80acc2484a67b7b50",
+    "phase5_lock": "184458de667ee44c422a5321ba0ce800dd16f786aaf4b0598c5d976d0eb3dfc6",
+    "phase6_lock": "efd05eac41f271d9c1b8f0668009e901c71448a66b730b6a1924848939fef03f",
+    "phase6_bench": "acaeb047d76f1a48ce2e5aa41b5455bfd73b0bbef04e90094619467fbf888f82",
+    "phase6d_frontier": "930b8cf254353ade064963c221d29a965af793dc171c1bc7c9a46f0552489b56",
+    "c4_corrections": "5c72dc0b13758b23b9043c913cf618fb9a458e5a07fef1ab1d774e360aa235a0"
+  }
+}

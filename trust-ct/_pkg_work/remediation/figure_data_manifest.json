@@ -1,0 +1,144 @@
+{
+  "generated": "2026-08-28",
+  "purpose": "Maps each figure script to its actual data sources and identifies gaps against locked result CSVs (issue 8 remediation).",
+  "note": "All figures read from project files — no external network access. 'gap' means the figure does not read directly from the locked trust-ct processed/ artifact; it may use an earlier-generation paper_bundle file or hardcoded values.",
+
+  "figures": {
+    "fig1_workflow.py": {
+      "script": "manuscript/figure_scripts/fig1_workflow.py",
+      "output": "manuscript/figures/fig1_workflow.pdf",
+      "data_source": "none",
+      "reads_csvs": [],
+      "locked_artifacts": [],
+      "gap": false,
+      "gap_detail": "Conceptual architecture diagram; no quantitative CSV data.",
+      "verification_status": "NO_DATA_TO_VERIFY",
+      "action_needed": false
+    },
+
+    "fig2_ni_forest.py": {
+      "script": "manuscript/figure_scripts/fig2_ni_forest.py",
+      "output": "manuscript/figures/fig2_ni_forest.pdf",
+      "data_source": "hardcoded",
+      "reads_csvs": [],
+      "locked_artifacts": [
+        "processed/cimas/results_phase3_freeze/ni_client_level.csv",
+        "processed/cimas/results_phase3_freeze/phase3_lock.json"
+      ],
+      "gap": true,
+      "gap_detail": "Values are hardcoded from numerical_provenance.csv / phase3_lock.json. Script does not read ni_client_level.csv directly. delta, lo_95, hi_95, ni_lcb arrays are embedded literals.",
+      "hardcoded_values": {
+        "delta": [-0.0021, -0.0022, -0.0015, -0.0014, -0.0051],
+        "lo_95": [-0.005, -0.005, -0.004, -0.004, -0.011],
+        "hi_95": [0.001, 0.001, 0.001, 0.001, 0.000],
+        "ni_lcb": [-0.0045, -0.0047, -0.0040, -0.0040, -0.0095]
+      },
+      "locked_values_match": {
+        "R01_FedAvg_obs": {"locked": -0.00214, "figure": -0.0021, "match": "rounded"},
+        "R02_FedProx_obs": {"locked": -0.00223, "figure": -0.0022, "match": "rounded"},
+        "R03_FedAvg_equal_obs": {"locked": -0.00147, "figure": -0.0015, "match": "rounded"},
+        "R04_SCAFFOLD_obs": {"locked": -0.00144, "figure": -0.0014, "match": "rounded"},
+        "R05_FedAdam_obs": {"locked": -0.00514, "figure": -0.0051, "match": "rounded"}
+      },
+      "verification_status": "VALUES_CONSISTENT_WITH_LOCKED_LEDGER",
+      "action_needed": false,
+      "recommendation": "Figure values match master_results_ledger.csv R01-R05 within rounding. Low risk. Consider refactoring to read ni_client_level.csv directly for future reproducibility."
+    },
+
+    "fig3_policy_replay.py": {
+      "script": "manuscript/figure_scripts/fig3_policy_replay.py",
+      "output": "manuscript/figures/fig3_policy_replay.pdf",
+      "data_source": "hardcoded + partial",
+      "reads_csvs": [],
+      "locked_artifacts": [
+        "processed/better_bp/results_phase4/policy_values.csv",
+        "processed/better_bp/results_phase4/policy_contrasts.csv"
+      ],
+      "gap": true,
+      "gap_detail": "Policy values (pi_0, pi_rand, pi_risk, pi_up) are hardcoded literals, not read from policy_values.csv. CI bounds for pi_risk are 'AUTHOR_PENDING' placeholders (interpolated ±0.003). pi_up CI derived from contrast CI.",
+      "hardcoded_values": {
+        "vals": [0.815, 0.860, 0.885, 0.892],
+        "ci_lo": [0.813, 0.858, 0.882, 0.849],
+        "ci_hi": [0.815, 0.862, 0.888, 0.938]
+      },
+      "locked_values_match": {
+        "R08_no_incentive": {"locked": 0.81509, "figure": 0.815, "match": "rounded"},
+        "R09_random_budget": {"locked": 0.86030, "figure": 0.860, "match": "rounded"},
+        "R10_risk_targeting": {"locked": 0.88503, "figure": 0.885, "match": "rounded"},
+        "R11_uplift_targeting": {"locked": 0.89186, "figure": 0.892, "match": "rounded"},
+        "R12_contrast_ci": {"locked": [-0.01126, 0.07773], "figure_ci_lo": 0.849, "note": "pi_up CI lower bound does NOT match contrast CI; pi_up CI is not derivable from contrast CI alone without pi_rand CI. AUTHOR_PENDING."}
+      },
+      "verification_status": "POINT_VALUES_CONSISTENT_CI_AUTHOR_PENDING",
+      "action_needed": true,
+      "recommendation": "Policy point values match R08-R11. CI bounds for pi_risk and pi_up are placeholders pending Phase 4 bootstrap CI extraction. Author should replace hardcoded arrays with policy_values.csv reads before submission."
+    },
+
+    "fig4_attacks.py": {
+      "script": "manuscript/figure_scripts/fig4_attacks.py",
+      "output": "manuscript/figures/fig4_attacks.pdf",
+      "data_source": "evaluation/paper_bundle/security_attacks_by_seed.csv",
+      "reads_csvs": [
+        "evaluation/paper_bundle/security_attacks_by_seed.csv"
+      ],
+      "locked_artifacts": [
+        "processed/phase6/phase6b_adversarial.csv",
+        "processed/phase6/phase6b_adversarial_w09.csv"
+      ],
+      "gap": true,
+      "gap_detail": "fig4 reads from evaluation/paper_bundle/security_attacks_by_seed.csv which is a pre-W09 generation file using a different schema (attack_type, aggregation columns) than the locked phase6b_adversarial.csv (attack, defense columns). The paper_bundle file was generated before W09 RNG bug fixes. Panel A attack effect and Panel B coord_median recovery values are NOT from the corrected W09 CSVs.",
+      "paper_bundle_schema": "threshold,accuracy,balanced_accuracy,...,auc,...,attack_type,attack_fraction,attack_strength,aggregation,...,seed",
+      "locked_schema": "dataset,attack,f,f_pct,defense,krum_applicable,seed,auroc,...",
+      "verification_status": "GAP_CONFIRMED_PRE_W09_SOURCE",
+      "action_needed": true,
+      "recommendation": "fig4 should be updated to read from phase6b_adversarial.csv (original attacks) and phase6b_adversarial_w09.csv (W09-corrected random_gauss/backdoor). Panel A/B values should be replaced with matched-seed t-test results from master_results_ledger.csv R14-R19. This requires refactoring fig4_attacks.py to use the trust-ct processed/ schema."
+    },
+
+    "fig5_frontier.py": {
+      "script": "manuscript/figure_scripts/fig5_frontier.py",
+      "output": "manuscript/figures/fig5_frontier.pdf",
+      "data_source": "evaluation/paper_bundle/model_inversion_by_seed.csv + hardcoded W07",
+      "reads_csvs": [
+        "evaluation/paper_bundle/model_inversion_by_seed.csv",
+        "evaluation/paper_bundle/real_data_fl_by_seed.csv"
+      ],
+      "locked_artifacts": [
+        "processed/phase6/phase6c_reconstruction.csv",
+        "processed/phase6/phase6c_mia.csv",
+        "processed/phase6/phase6c_leakage_fl_w09.csv"
+      ],
+      "gap": true,
+      "gap_detail": "Panel A reconstruction cosine reads from paper_bundle/model_inversion_by_seed.csv (pre-W07 generation). W07-corrected batch=1 cosines (1.000 at alpha=0, 0.879 at alpha=0.05) are overlaid as hardcoded stars from batch1_cos dict. Panel B feature-sign recovery values are STALE (from batch-mixed pre-C0 MI audit4_leakage_table.csv; marked STALE in script). Panel C MIA AUROC uses hardcoded values consistent with phase6c_mia.csv locks.",
+      "w07_overlay": {
+        "batch1_cos_hardcoded": {"0.0": 1.000, "0.05": 0.879},
+        "locked_values": {
+          "alpha_0.00": {"cos_mean": 1.00000, "source": "R20"},
+          "alpha_0.05": {"cos_mean": 0.87901, "source": "R22"},
+          "match": "consistent_within_rounding"
+        }
+      },
+      "panel_c_mia": {
+        "hardcoded": {"eICU": [0.4970, 0.499, 0.501], "Cimas": [0.5068, 0.507, 0.506]},
+        "locked": {"R25_eICU": 0.49700, "R26_cimas": 0.50675},
+        "match": "alpha=0 values consistent with locked ledger; perturbed-alpha values are approximations"
+      },
+      "verification_status": "W07_STARS_CONSISTENT_PANEL_B_STALE_PANEL_C_CONSISTENT",
+      "action_needed": true,
+      "recommendation": "Panel B sign-recovery values are STALE (AUTHOR_PENDING). Panel A should read directly from phase6c_reconstruction.csv for the locked batch=1 cosines rather than using paper_bundle. Panel C approximate trends for perturbed-alpha MIA are not from locked CSVs — remove or replace with 'no change observed across alpha' language."
+    }
+  },
+
+  "summary": {
+    "figures_fully_consistent": ["fig1_workflow.py", "fig2_ni_forest.py"],
+    "figures_with_gaps": ["fig3_policy_replay.py", "fig4_attacks.py", "fig5_frontier.py"],
+    "critical_gaps": {
+      "fig4_attacks.py": "Uses pre-W09 paper_bundle source; Panel A/B AUROC values not from W09-corrected locked CSVs",
+      "fig5_frontier.py Panel B": "Feature-sign recovery values marked STALE in script; AUTHOR_PENDING replacement"
+    },
+    "non_critical_gaps": {
+      "fig2_ni_forest.py": "Hardcoded but verified consistent with locked ledger",
+      "fig3_policy_replay.py": "Policy point values consistent; CI bounds are AUTHOR_PENDING placeholders",
+      "fig5_frontier.py Panel A": "W07-corrected batch=1 cosine stars correctly overlaid; underlying paper_bundle reconstruction cosines not from locked trust-ct CSV",
+      "fig5_frontier.py Panel C": "alpha=0 MIA values consistent with locked ledger; perturbed-alpha trends are approximations"
+    }
+  }
+}

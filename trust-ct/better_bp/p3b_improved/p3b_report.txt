@@ -1,0 +1,68 @@
+
+======================================================================
+  P3b REPORT — Improved Prediction + Landmark Model
+======================================================================
+Dataset: 402 randomized participants (Site A=312, B=90)
+
+
+======================================================================
+  Landmark predictor key statistic
+======================================================================
+  P(miss 12m | miss 6m) = 0.655  (n=58 missed 6m)
+  P(miss 12m | att  6m) = 0.148  (n=344 attended 6m)
+  Odds ratio = 10.92
+  visit_6m_attended alone yields estimated AUROC ~0.68 (single binary predictor).
+  Combined with clinical change features, landmark AUROC expected 0.70-0.80.
+
+======================================================================
+  Table A — Baseline (enrollment) → 6m nonattendance
+======================================================================
+Model              PR-AUC     ±CI    AUROC     MCC   Brier
+------------------------------------------------------------
+  LR-local-A       0.1785 ±0.0142    0.517  0.0039   0.235
+  EN-compact       0.2233 ±0.0198   0.5664  0.0531  0.2384
+  EN-full          0.1868 ±0.0154   0.5289  0.0134  0.2411
+  GBM-full         0.2346 ±0.0325   0.5592  0.0583  0.1473
+  FL-FedAvg        0.2064 ±0.0223   0.5374 -0.0117  0.1412
+  FL-FedProx       0.2062 ±0.0222   0.5371 -0.0117  0.1415
+  FL-FedAvg-E      0.1817 ±0.0183   0.4693 -0.0101  0.1546
+
+======================================================================
+  Table B — Baseline (enrollment) → 12m nonattendance
+======================================================================
+Model              PR-AUC     ±CI    AUROC     MCC   Brier
+------------------------------------------------------------
+  LR-local-A       0.2956 ±0.0243   0.5484  0.0554  0.2446
+  EN-compact       0.3094 ±0.0234   0.5775  0.1175  0.2449
+  EN-full          0.2841 ±0.0223   0.5483  0.0573  0.2512
+  GBM-full         0.2746 ±0.0204   0.5245  0.0259  0.2229
+  FL-FedAvg        0.2977 ±0.0238   0.5548  0.0461  0.1839
+  FL-FedProx       0.2976 ±0.0238   0.5547  0.0461  0.1841
+  FL-FedAvg-E      0.2773 ±0.0223   0.5055  0.0515  0.1951
+
+======================================================================
+  Table C — Landmark (6m info) → 12m nonattendance  [PRIMARY TABLE]
+======================================================================
+Model              PR-AUC     ±CI    AUROC     MCC   Brier
+------------------------------------------------------------
+  LR-local-A       0.4946 ±0.0415    0.691  0.2744  0.2109
+  EN-compact       0.3094 ±0.0234   0.5775  0.1175  0.2451
+  EN-full           0.511 ±0.0414    0.698   0.322  0.2108
+  GBM-full         0.4277 ±0.0378   0.6333  0.2625  0.1925
+  FL-FedAvg        0.5031 ±0.0392     0.69  0.3466  0.1602
+  FL-FedProx       0.5036 ±0.0393   0.6902  0.3483  0.1604
+  FL-FedAvg-E      0.4823 ±0.0426   0.6791  0.3747  0.1696
+
+======================================================================
+  Integrity notes
+======================================================================
+  - All derived features (low_mases, pulse_pressure, etc.) fitted on training fold.
+  - EN and GBM hyperparameters tuned via inner 3-fold CV on training fold only.
+  - Landmark features include visit_6m_attended, sbp/dbp/mases_6m and changes.
+  - No 12m or EOS variables in any feature set.
+  - SMOTE not applied. SMOTE before split would leak information.
+  - Significance of improvement tested via paired Wilcoxon on 25 fold PR-AUC values.
+
+  Landmark vs baseline PR-AUC (EN-full): W=1.0, p=0.0000 (N=25 folds)
+  Landmark vs baseline PR-AUC (GBM-full): W=0.0, p=0.0000 (N=25 folds)
+  Landmark vs baseline PR-AUC (FL-FedAvg): W=0.0, p=0.0000 (N=25 folds)

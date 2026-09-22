@@ -1,0 +1,107 @@
+# TRUST-CT Phase 1 — Protocol Freeze: Cimas HTN Landmark Cohort
+# LOCKED — do not modify after cohort_freeze_date.
+# Changing anything here invalidates all downstream outputs.
+
+version: "1.0"
+cohort_freeze_date: "2026-08-25"
+
+# ── Raw data inputs ──────────────────────────────────────────────────────────
+data:
+  raw_csv: "New/Datasets- Diabetes and Hypertension Data/Datasets- Diabetes and Hypertension Data/Datasets Before Wrangling/HTN Adherence Data.csv"
+  additional_csv: "New/Datasets- Diabetes and Hypertension Data/Datasets- Diabetes and Hypertension Data/Additional Columns/HTN_Additional Columns.csv"
+  encoding: "latin-1"          # windows-exported CSV; try utf-8 then fallback
+
+# ── Cohort inclusion/exclusion ────────────────────────────────────────────────
+cohort:
+  study_year: 2022             # exclude 2021 claims from primary analysis
+  min_age: 16                  # age at SERVICE DATE
+  date_col: "SERVICE DATE"     # D/M/YYYY (confirmed by BIRTHDATE field)
+  date_format: "%d/%m/%Y"
+  pid_cols: ["MEMBER", "INO"]  # PID = str(MEMBER)+"|"+str(INO)
+  require_obs_claim: true      # must have ≥1 claim in obs window to enter cohort
+
+  obs_window:
+    start: "2022-01-01"
+    end:   "2022-06-30"        # landmark decision point
+
+  out_window:
+    start: "2022-07-01"
+    end:   "2022-12-31"
+
+  sensitivity:
+    include_2021: false        # 2021 claims (n=1,123) in sensitivity only
+
+# ── Outcome ──────────────────────────────────────────────────────────────────
+outcome:
+  name: "Y_adh"
+  description: >
+    Binary: 1 if patient has ≥5 months with at least one antihypertensive
+    refill claim in July–December 2022 (out_window), else 0.
+    This is 'monthly refill persistence' or 'claim-based adherence'.
+    NOT confirmed medication ingestion (no bottle-open data).
+    NOT conventional PDC (no days-supply or prescribed daily dose).
+  threshold_months: 5
+  zero_if_no_out_window_claims: true  # patients present in obs only → Y_adh=0
+
+# ── Leakage exclusions (NEVER enter feature matrix) ──────────────────────────
+leakage_exclusions:
+  columns:
+    - "ADHERENCE"               # full-year monthly adherence count — outcome proxy
+    - "PZTIQNT NZXQ"            # obfuscated patient name — identifier
+    - "PAYER NAME"              # beneficiary identifier
+  temporal: "out_window"        # no SERVICE DATEs in Jul-Dec may enter features
+
+# ── Features (computed from obs_window only) ─────────────────────────────────
+features:
+  demographic:
+    - age                       # CURRENT AGE from first obs-window record
+    - sex_female                # GENDER == "F"
+  insurance:
+    - option_name               # OPTION NAME (categorical, 10 levels)
+    - scheme_type               # SCHEMETYPE (BASIC/MEDIUM/PREMIUM → 0/1/2)
+    - cover_type                # COVERTYPE (STANDARD/COMPREHENSIVE → 0/1)
+    - annual_contrib_log        # log1p(ANNUALCONTRIBUTION)
+  refill_pattern:
+    - n_refill_months_obs       # distinct months Jan-Jun with ≥1 claim (1-6)
+    - refill_recency_days       # days from last obs claim to 2022-06-30
+    - early_months              # months Jan-Mar with ≥1 claim (0-3)
+    - late_months               # months Apr-Jun with ≥1 claim (0-3)
+    - has_2m_gap                # any ≥2 consecutive months without claim (0/1)
+    - first_claim_month         # calendar month of first obs claim (1-6)
+  utilization:
+    - n_claims                  # total claim lines in obs window
+    - n_claim_dates             # distinct SERVICE DATEs in obs window
+    - n_products                # distinct CLM CODE (drug SKUs)
+    - n_providers_vis           # distinct PROVIDER visited
+    - obs_units                 # sum(UNITS) in obs window
+    - obs_amount                # sum(TOTAL AMOUNT PAID) in obs window
+    - amount_per_claim          # obs_amount / n_claims
+    - units_per_claim           # obs_units / n_claims
+    - copay_sum                 # sum(CO-PAY) in obs window
+    - n_networks                # distinct AS AT NETWORKS (pharmacy network hops)
+
+# ── Client assignment ─────────────────────────────────────────────────────────
+clients:
+  assignment_rule: "first_dispensing_provider_obs_window"
+  primary_threshold: 100       # providers with ≥100 unique PIDs in obs window
+  sensitivity_threshold: 50
+  provider_col: "PROVIDER"
+  strip_provider_code: true    # remove leading numeric code from provider name
+
+# ── Validation / reproducibility ─────────────────────────────────────────────
+validation:
+  seeds: [7, 11, 19, 23, 37]
+  cv_folds: 5
+  primary_metric: "pr_auc"
+  secondary_metric: "auroc"
+  noninferiority_margin: -0.02  # AUROC_FL - AUROC_central must exceed -0.02
+  bootstrap_n: 2000
+  bootstrap_ci: 0.95
+
+# ── Output artefacts ──────────────────────────────────────────────────────────
+outputs:
+  processed_dir: "processed/cimas"
+  claims_clean: "cimas_htn_claims_clean.parquet"
+  landmark_features: "cimas_htn_landmark_6m.parquet"
+  provider_manifest: "cimas_provider_manifest.csv"
+  cohort_flow: "cimas_cohort_flow.json"

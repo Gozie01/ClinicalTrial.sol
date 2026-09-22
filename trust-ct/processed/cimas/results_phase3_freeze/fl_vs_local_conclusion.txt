@@ -1,0 +1,1 @@
+FL produced a numerically higher AUROC than local-only by approximately +0.0068 [95% CI -0.0031 to +0.0179], but the CI includes zero and the difference is not statistically supported at the 95% level.

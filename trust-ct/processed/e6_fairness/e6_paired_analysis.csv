@@ -1,0 +1,16 @@
+contrast,cond_a,cond_b,metric,mean_delta,ci_lo_95,ci_hi_95,t_seed,p_seed,n_providers,n_seeds,n_evaluations,late_round_lo,late_round_hi
+cold_fed vs cold_local,cold_fed,cold_local,macro_delta,0.002823,-0.00264,0.00791,0.9553,0.39353,23,5,115,51,60
+cold_fed vs cold_local,cold_fed,cold_local,weighted_delta,0.002126,4.9e-05,0.003819,1.8579,0.13674,23,5,115,51,60
+cold_fed vs cold_local,cold_fed,cold_local,worst_delta,-0.114457,-0.140692,-0.089026,-7.7186,0.00152,23,5,115,51,60
+cold_fed vs cold_local,cold_fed,cold_local,p10_delta,-0.028232,-0.034402,-0.023036,-8.2142,0.0012,23,5,115,51,60
+cold_fed vs cold_local,cold_fed,cold_local,iqr_delta,0.019423,0.015472,0.023375,,,23,5,115,51,60
+warm_local vs cold_local,warm_local,cold_local,macro_delta,0.005186,0.002058,0.008945,2.5164,0.06561,23,5,115,51,60
+warm_local vs cold_local,warm_local,cold_local,weighted_delta,0.002262,0.001372,0.003208,4.3409,0.01224,23,5,115,51,60
+warm_local vs cold_local,warm_local,cold_local,worst_delta,-0.030717,-0.044378,-0.021792,-4.3954,0.01173,23,5,115,51,60
+warm_local vs cold_local,warm_local,cold_local,p10_delta,-0.00852,-0.013796,-0.003244,-2.7966,0.04898,23,5,115,51,60
+warm_local vs cold_local,warm_local,cold_local,iqr_delta,0.01174,0.010276,0.013102,,,23,5,115,51,60
+warm_local vs warm_fed,warm_local,warm_fed,macro_delta,0.002363,0.00022,0.005641,1.4813,0.21264,23,5,115,51,60
+warm_local vs warm_fed,warm_local,warm_fed,weighted_delta,0.000136,-0.0009,0.001528,0.1912,0.8577,23,5,115,51,60
+warm_local vs warm_fed,warm_local,warm_fed,worst_delta,-0.08669,-0.144148,-0.041178,-2.8646,0.04572,23,5,115,51,60
+warm_local vs warm_fed,warm_local,warm_fed,p10_delta,-0.022806,-0.033068,-0.012545,-3.9753,0.01647,23,5,115,51,60
+warm_local vs warm_fed,warm_local,warm_fed,iqr_delta,0.016412,0.011276,0.021371,,,23,5,115,51,60

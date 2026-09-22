@@ -1,0 +1,12 @@
+feature,intervention_mean,intervention_sd,control_mean,control_sd,smd,n_missing
+age,56.2642,10.4013,54.5735,12.0902,0.1499,1
+race_white,0.0789,0.2702,0.0588,0.2362,0.0793,0
+race_black_or_african_american,0.3083,0.4626,0.25,0.4346,0.1298,0
+race_asian,0.0451,0.2079,0.0221,0.1474,0.1279,0
+race_american_indian_or_alaska_native,0.0113,0.1058,0.0,0.0,0.1508,0
+race_native_hawaiian_or_other_pacific_islander,0.0038,0.0613,0.0074,0.0857,-0.0482,0
+race_other_specify,0.6504,0.4778,0.75,0.4346,-0.2181,0
+sbp_baseline,137.9434,19.2675,140.5,18.5487,-0.1352,1
+dbp_baseline,82.0541,13.0515,83.0221,13.6325,-0.0725,1
+mases_baseline,3.016,0.6087,3.0395,0.579,-0.0396,5
+site_A,0.7782,0.4162,0.7721,0.4211,0.0147,0

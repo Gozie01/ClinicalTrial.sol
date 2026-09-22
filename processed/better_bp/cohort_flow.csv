@@ -1,0 +1,5 @@
+site,baseline_records,randomized,visit_6m_attended,visit_12m_attended,used_as_fl_client
+A,381,312,273.0,248.0,True
+B,111,90,71.0,65.0,True
+C,1,0,,,False
+TOTAL (A+B),492,402,344.0,313.0,True

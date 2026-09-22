@@ -1,0 +1,70 @@
+# Virtual environment
+.venv311/
+__pycache__/
+*.pyc
+*.pyo
+
+# Evaluation outputs (generated, not code)
+evaluation/
+
+# Matplotlib cache
+.matplotlib/
+
+# Tool / IDE directories
+.claude/
+.tools/
+
+# Large medical datasets
+MIMIC Dataset/
+eicu-collaborative-research-database-demo-2.0.1.zip
+
+# Binary documents (all PDFs and office files)
+*.pdf
+*.docx
+Clinical_Trial_ICTC_Summer_2026.pdf
+Clinical_Trial_KICS_Summer_2026.pdf
+Clinical_Trial__IEEE_.pdf
+"Clinical_Trial__IEEE_ (1).pdf"
+Clinical_Trial__IEEE_1.pdf
+Clinical_Trial__IEEE_2.pdf
+Clinical_Trial__IEEE_Main.pdf
+Clinical_Trial__IEEE_.zip
+Clinical_Trial__IEEE_Main.zip
+Clinical_Trial__IEEE_/
+Cover Letter.pdf
+Cover letter 1.pdf
+"Cover Letter for Manuscript Submission to IEEE Internet of Things Journal.docx"
+"Dear Editor.docx"
+Innovative_Blockchain-Enhanced_Clinical_Trial_Management_and_Stakeholders_Interoperability.pdf
+Manuscript.zip
+Main Manuscript.pdf
+P_BMS_Peer_J__Clean_Unmarked_source_file.pdf
+"P_BMS_Peer_J__clean unmarked source file.pdf"
+Project_1__Gozie_.pdf
+Proof-of-Authority-and-Association_Consensus_Algorithm_for_IoT_Blockchain_Networks.pdf
+"Submission PDF.pdf"
+TRUST_CT.pdf
+TRUST_CT_CMPB_revision_roadmap.pdf
+document.pdf
+"Cover Letter.pdf"
+
+# Personal/junk images
+Gemini_Generated_Image_*.png
+3d59bc35-cbfa-4f09-9831-bd23296eb983.png
+"RL closs loop.png"
+"System framework.png"
+"System framework1.png"
+"System framework2.png"
+
+# Archive files at root (datasets, not code)
+*.zip
+*.rar
+
+# New/ directory (mixed content — papers, datasets, drafts)
+New/
+
+# Foundry / Solidity build outputs
+out/
+
+# Cached intermediate data
+cache/

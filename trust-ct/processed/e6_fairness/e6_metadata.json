@@ -1,0 +1,63 @@
+{
+  "experiment": "E6_warm_cold_fairness_deconfound",
+  "data_source": "C:\\Users\\Gozie\\Desktop\\Blockchain in Clinical Trial\\Fedlearn\\trust-ct\\processed\\cimas\\cimas_htn_landmark_6m.parquet",
+  "data_sha256": "d06e7c29088b972a7e30a9af2eda9ddc7cdf5ecec64f09393002e252a17f4000",
+  "feature_cols": [
+    "age",
+    "sex_female",
+    "n_refill_months_obs",
+    "refill_recency_days",
+    "early_months",
+    "late_months",
+    "has_2m_gap",
+    "first_claim_month",
+    "n_claims",
+    "n_claim_dates",
+    "n_products",
+    "n_providers_vis",
+    "n_networks",
+    "obs_amount",
+    "obs_units",
+    "copay_sum",
+    "amount_per_claim",
+    "units_per_claim",
+    "scheme_type_ord",
+    "cover_type_bin",
+    "ANNUALCONTRIBUTION",
+    "annual_contrib_log"
+  ],
+  "n_features": 22,
+  "config": {
+    "seeds": [
+      7,
+      11,
+      19,
+      23,
+      37
+    ],
+    "T_cold": 60,
+    "T_snapshot": 30,
+    "n_local_epochs": 5,
+    "lr": 0.02,
+    "test_frac": 0.2,
+    "min_prov_size": 100,
+    "aggregator": "FedAvg (mu=0)"
+  },
+  "conditions": {
+    "cold_fed": "FedAvg from zeros, rounds 1-60",
+    "cold_local": "Local-only from zeros, rounds 1-60",
+    "warm_fed": "FedAvg from cold_fed round-30 weights, rounds 31-60",
+    "warm_local": "Local-only from cold_fed round-30 weights, rounds 31-60"
+  },
+  "fairness_metrics": [
+    "mean_auroc",
+    "min_auroc",
+    "var_auroc",
+    "iqr_auroc"
+  ],
+  "interpretation": {
+    "warm_fed_eq_cold_fed_r31_60": "Mathematical identity: same FedAvg trajectory from round 31",
+    "warm_local_gt_warm_fed": "After warm init, local fine-tuning slightly outperforms federation; suggests benefit is primarily initialisation",
+    "worst_off_provider_warm_local": "Min AUROC higher under warm_local than warm_fed"
+  }
+}

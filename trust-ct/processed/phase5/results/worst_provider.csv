@@ -1,0 +1,5 @@
+scenario,scenario_label,min_client_records_final,max_client_records_final,n_active_final,final_overall_auroc
+C0,No incentive,34,974,23,0.78496
+C1,Random allocation,39,1150,23,0.78517
+C2,FL nonattendance-risk ranking,36,1078,23,0.78492
+C3,DR uplift ranking,36,1078,23,0.78492

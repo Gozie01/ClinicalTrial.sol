@@ -1,0 +1,601 @@
+experiment,seed,scenario,scenario_label,round,n_attend,participation_rate,active_clients,auroc_holdout,pr_auc_holdout,ece_holdout,comm_cost_bidir,calibration
+cimas_cold,7,C0,No incentive,1,4599,0.4545,23,0.78684,0.84329,0.11514,966,DR_primary
+cimas_cold,7,C0,No incentive,2,4560,0.4506,23,0.78633,0.84327,0.11327,966,DR_primary
+cimas_cold,7,C0,No incentive,3,4549,0.4496,23,0.78628,0.84273,0.11429,966,DR_primary
+cimas_cold,7,C0,No incentive,4,4585,0.4531,23,0.78589,0.84251,0.11441,966,DR_primary
+cimas_cold,7,C0,No incentive,5,4657,0.4602,23,0.78643,0.84306,0.1125,966,DR_primary
+cimas_cold,7,C0,No incentive,6,4654,0.4599,23,0.78782,0.84387,0.11715,966,DR_primary
+cimas_cold,7,C0,No incentive,7,4638,0.4583,23,0.78587,0.8426,0.11354,966,DR_primary
+cimas_cold,7,C0,No incentive,8,4527,0.4474,23,0.78633,0.84289,0.1157,966,DR_primary
+cimas_cold,7,C0,No incentive,9,4525,0.4472,23,0.78655,0.84245,0.11647,966,DR_primary
+cimas_cold,7,C0,No incentive,10,4541,0.4488,23,0.78586,0.8423,0.11323,966,DR_primary
+cimas_cold,7,C0,No incentive,11,4626,0.4572,23,0.78615,0.84239,0.1128,966,DR_primary
+cimas_cold,7,C0,No incentive,12,4560,0.4506,23,0.78597,0.84247,0.11179,966,DR_primary
+cimas_cold,7,C0,No incentive,13,4628,0.4574,23,0.7868,0.84322,0.11668,966,DR_primary
+cimas_cold,7,C0,No incentive,14,4615,0.4561,23,0.78651,0.84289,0.11712,966,DR_primary
+cimas_cold,7,C0,No incentive,15,4492,0.4439,23,0.78647,0.84276,0.11295,966,DR_primary
+cimas_cold,7,C0,No incentive,16,4606,0.4552,23,0.78683,0.84294,0.11412,966,DR_primary
+cimas_cold,7,C0,No incentive,17,4651,0.4596,23,0.78618,0.8429,0.11268,966,DR_primary
+cimas_cold,7,C0,No incentive,18,4618,0.4564,23,0.78651,0.84281,0.11512,966,DR_primary
+cimas_cold,7,C0,No incentive,19,4464,0.4412,23,0.78662,0.84298,0.11479,966,DR_primary
+cimas_cold,7,C0,No incentive,20,4502,0.4449,23,0.78626,0.84258,0.11471,966,DR_primary
+cimas_cold,7,C0,No incentive,21,4574,0.452,23,0.78661,0.84319,0.11436,966,DR_primary
+cimas_cold,7,C0,No incentive,22,4641,0.4586,23,0.78668,0.84328,0.11636,966,DR_primary
+cimas_cold,7,C0,No incentive,23,4562,0.4508,23,0.7867,0.84303,0.11334,966,DR_primary
+cimas_cold,7,C0,No incentive,24,4538,0.4485,23,0.78685,0.84303,0.11691,966,DR_primary
+cimas_cold,7,C0,No incentive,25,4586,0.4532,23,0.786,0.84294,0.1117,966,DR_primary
+cimas_cold,7,C0,No incentive,26,4609,0.4555,23,0.78665,0.84308,0.11741,966,DR_primary
+cimas_cold,7,C0,No incentive,27,4626,0.4572,23,0.78589,0.84252,0.11118,966,DR_primary
+cimas_cold,7,C0,No incentive,28,4568,0.4514,23,0.7864,0.84291,0.11439,966,DR_primary
+cimas_cold,7,C0,No incentive,29,4593,0.4539,23,0.78633,0.843,0.11386,966,DR_primary
+cimas_cold,7,C0,No incentive,30,4631,0.4577,23,0.78591,0.84223,0.11302,966,DR_primary
+cimas_cold,7,C1,Random allocation,1,5040,0.4981,23,0.78701,0.84351,0.11574,966,DR_primary
+cimas_cold,7,C1,Random allocation,2,5021,0.4962,23,0.78626,0.84325,0.11236,966,DR_primary
+cimas_cold,7,C1,Random allocation,3,5002,0.4943,23,0.78653,0.84283,0.1147,966,DR_primary
+cimas_cold,7,C1,Random allocation,4,5040,0.4981,23,0.78583,0.84236,0.11293,966,DR_primary
+cimas_cold,7,C1,Random allocation,5,5100,0.504,23,0.78648,0.84304,0.11414,966,DR_primary
+cimas_cold,7,C1,Random allocation,6,5093,0.5033,23,0.78771,0.84375,0.11809,966,DR_primary
+cimas_cold,7,C1,Random allocation,7,5095,0.5035,23,0.78609,0.84284,0.11261,966,DR_primary
+cimas_cold,7,C1,Random allocation,8,5026,0.4967,23,0.78664,0.84307,0.1149,966,DR_primary
+cimas_cold,7,C1,Random allocation,9,4991,0.4932,23,0.78639,0.84261,0.11655,966,DR_primary
+cimas_cold,7,C1,Random allocation,10,5043,0.4984,23,0.78592,0.84241,0.11166,966,DR_primary
+cimas_cold,7,C1,Random allocation,11,5077,0.5017,23,0.78613,0.84243,0.11408,966,DR_primary
+cimas_cold,7,C1,Random allocation,12,4996,0.4937,23,0.78612,0.84254,0.11314,966,DR_primary
+cimas_cold,7,C1,Random allocation,13,5098,0.5038,23,0.78701,0.84329,0.11661,966,DR_primary
+cimas_cold,7,C1,Random allocation,14,5033,0.4974,23,0.78626,0.84276,0.11713,966,DR_primary
+cimas_cold,7,C1,Random allocation,15,4955,0.4897,23,0.78656,0.84289,0.11311,966,DR_primary
+cimas_cold,7,C1,Random allocation,16,5034,0.4975,23,0.78656,0.84274,0.11444,966,DR_primary
+cimas_cold,7,C1,Random allocation,17,5054,0.4995,23,0.78627,0.84297,0.11339,966,DR_primary
+cimas_cold,7,C1,Random allocation,18,5088,0.5028,23,0.7865,0.84285,0.11473,966,DR_primary
+cimas_cold,7,C1,Random allocation,19,4923,0.4865,23,0.78655,0.84286,0.11407,966,DR_primary
+cimas_cold,7,C1,Random allocation,20,4977,0.4918,23,0.78639,0.84274,0.11547,966,DR_primary
+cimas_cold,7,C1,Random allocation,21,5027,0.4968,23,0.78654,0.84308,0.11366,966,DR_primary
+cimas_cold,7,C1,Random allocation,22,5083,0.5023,23,0.78671,0.84313,0.1161,966,DR_primary
+cimas_cold,7,C1,Random allocation,23,5031,0.4972,23,0.78665,0.84285,0.11327,966,DR_primary
+cimas_cold,7,C1,Random allocation,24,4995,0.4936,23,0.78682,0.84294,0.11691,966,DR_primary
+cimas_cold,7,C1,Random allocation,25,5019,0.496,23,0.78613,0.84285,0.11389,966,DR_primary
+cimas_cold,7,C1,Random allocation,26,5050,0.4991,23,0.78659,0.8431,0.11554,966,DR_primary
+cimas_cold,7,C1,Random allocation,27,5122,0.5062,23,0.78594,0.84255,0.11377,966,DR_primary
+cimas_cold,7,C1,Random allocation,28,5021,0.4962,23,0.78655,0.84298,0.11444,966,DR_primary
+cimas_cold,7,C1,Random allocation,29,5047,0.4988,23,0.78637,0.84278,0.11333,966,DR_primary
+cimas_cold,7,C1,Random allocation,30,5091,0.5031,23,0.78619,0.84234,0.11369,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,1,5017,0.4958,23,0.78726,0.84355,0.11845,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,2,5010,0.4951,23,0.7861,0.84302,0.11187,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,3,5017,0.4958,23,0.78618,0.84273,0.11313,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,4,5036,0.4977,23,0.78577,0.84235,0.11294,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,5,5110,0.505,23,0.78617,0.84304,0.11369,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,6,5099,0.5039,23,0.78744,0.84356,0.11866,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,7,5098,0.5038,23,0.78608,0.84287,0.11241,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,8,4994,0.4935,23,0.78637,0.84291,0.11521,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,9,4988,0.4929,23,0.78627,0.84261,0.11578,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,10,5040,0.4981,23,0.78596,0.84273,0.11054,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,11,5047,0.4988,23,0.78605,0.84255,0.11282,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,12,5000,0.4941,23,0.78599,0.84252,0.11237,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,13,5090,0.503,23,0.78668,0.84327,0.1142,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,14,5049,0.499,23,0.78617,0.84272,0.11624,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,15,4959,0.4901,23,0.78669,0.84307,0.11261,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,16,5037,0.4978,23,0.78667,0.84299,0.11442,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,17,5056,0.4997,23,0.78586,0.84273,0.1124,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,18,5080,0.502,23,0.78643,0.84284,0.11378,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,19,4892,0.4834,23,0.78657,0.84303,0.11411,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,20,4997,0.4938,23,0.78654,0.84281,0.11492,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,21,5032,0.4973,23,0.78642,0.84304,0.11364,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,22,5099,0.5039,23,0.7866,0.8431,0.11505,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,23,5061,0.5001,23,0.78643,0.84283,0.11182,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,24,5009,0.495,23,0.78679,0.843,0.11651,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,25,5024,0.4965,23,0.78572,0.84267,0.11218,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,26,5068,0.5008,23,0.78657,0.84301,0.11523,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,27,5120,0.506,23,0.78571,0.8424,0.11053,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,28,5029,0.497,23,0.78663,0.84302,0.11372,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,29,5068,0.5008,23,0.78619,0.84282,0.11283,966,DR_primary
+cimas_cold,7,C2,FL nonattendance-risk ranking,30,5113,0.5053,23,0.78602,0.84247,0.11394,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,1,5017,0.4958,23,0.78726,0.84355,0.11845,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,2,5010,0.4951,23,0.7861,0.84302,0.11187,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,3,5017,0.4958,23,0.78618,0.84273,0.11313,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,4,5036,0.4977,23,0.78577,0.84235,0.11294,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,5,5110,0.505,23,0.78617,0.84304,0.11369,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,6,5099,0.5039,23,0.78744,0.84356,0.11866,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,7,5098,0.5038,23,0.78608,0.84287,0.11241,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,8,4994,0.4935,23,0.78637,0.84291,0.11521,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,9,4988,0.4929,23,0.78627,0.84261,0.11578,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,10,5040,0.4981,23,0.78596,0.84273,0.11054,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,11,5047,0.4988,23,0.78605,0.84255,0.11282,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,12,5000,0.4941,23,0.78599,0.84252,0.11237,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,13,5090,0.503,23,0.78668,0.84327,0.1142,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,14,5049,0.499,23,0.78617,0.84272,0.11624,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,15,4959,0.4901,23,0.78669,0.84307,0.11261,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,16,5037,0.4978,23,0.78667,0.84299,0.11442,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,17,5056,0.4997,23,0.78586,0.84273,0.1124,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,18,5080,0.502,23,0.78643,0.84284,0.11378,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,19,4892,0.4834,23,0.78657,0.84303,0.11411,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,20,4997,0.4938,23,0.78654,0.84281,0.11492,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,21,5032,0.4973,23,0.78642,0.84304,0.11364,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,22,5099,0.5039,23,0.7866,0.8431,0.11505,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,23,5061,0.5001,23,0.78643,0.84283,0.11182,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,24,5009,0.495,23,0.78679,0.843,0.11651,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,25,5024,0.4965,23,0.78572,0.84267,0.11218,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,26,5068,0.5008,23,0.78657,0.84301,0.11523,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,27,5120,0.506,23,0.78571,0.8424,0.11053,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,28,5029,0.497,23,0.78663,0.84302,0.11372,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,29,5068,0.5008,23,0.78619,0.84282,0.11283,966,DR_primary
+cimas_cold,7,C3,Cross-fitted DR uplift ranking,30,5113,0.5053,23,0.78602,0.84247,0.11394,966,DR_primary
+cimas_cold,11,C0,No incentive,1,4680,0.4625,23,0.78631,0.84291,0.11503,966,DR_primary
+cimas_cold,11,C0,No incentive,2,4672,0.4617,23,0.78642,0.84277,0.11525,966,DR_primary
+cimas_cold,11,C0,No incentive,3,4641,0.4586,23,0.78586,0.84207,0.11166,966,DR_primary
+cimas_cold,11,C0,No incentive,4,4562,0.4508,23,0.78655,0.84275,0.11247,966,DR_primary
+cimas_cold,11,C0,No incentive,5,4505,0.4452,23,0.78728,0.8437,0.11564,966,DR_primary
+cimas_cold,11,C0,No incentive,6,4593,0.4539,23,0.78581,0.84188,0.11176,966,DR_primary
+cimas_cold,11,C0,No incentive,7,4568,0.4514,23,0.78654,0.84303,0.11427,966,DR_primary
+cimas_cold,11,C0,No incentive,8,4567,0.4513,23,0.78655,0.84343,0.11331,966,DR_primary
+cimas_cold,11,C0,No incentive,9,4572,0.4518,23,0.78687,0.84317,0.11646,966,DR_primary
+cimas_cold,11,C0,No incentive,10,4616,0.4562,23,0.78717,0.84337,0.11478,966,DR_primary
+cimas_cold,11,C0,No incentive,11,4479,0.4426,23,0.78625,0.84263,0.11632,966,DR_primary
+cimas_cold,11,C0,No incentive,12,4581,0.4527,23,0.78651,0.84307,0.11526,966,DR_primary
+cimas_cold,11,C0,No incentive,13,4661,0.4606,23,0.78642,0.84315,0.11482,966,DR_primary
+cimas_cold,11,C0,No incentive,14,4548,0.4495,23,0.78618,0.84274,0.11576,966,DR_primary
+cimas_cold,11,C0,No incentive,15,4505,0.4452,23,0.78624,0.84283,0.1147,966,DR_primary
+cimas_cold,11,C0,No incentive,16,4699,0.4644,23,0.78623,0.84264,0.11337,966,DR_primary
+cimas_cold,11,C0,No incentive,17,4600,0.4546,23,0.78678,0.8433,0.11568,966,DR_primary
+cimas_cold,11,C0,No incentive,18,4647,0.4592,23,0.78677,0.84344,0.11828,966,DR_primary
+cimas_cold,11,C0,No incentive,19,4544,0.4491,23,0.78728,0.84335,0.11688,966,DR_primary
+cimas_cold,11,C0,No incentive,20,4530,0.4477,23,0.78643,0.84285,0.11493,966,DR_primary
+cimas_cold,11,C0,No incentive,21,4633,0.4579,23,0.78687,0.84359,0.11588,966,DR_primary
+cimas_cold,11,C0,No incentive,22,4633,0.4579,23,0.78654,0.84304,0.11711,966,DR_primary
+cimas_cold,11,C0,No incentive,23,4601,0.4547,23,0.78639,0.8427,0.1131,966,DR_primary
+cimas_cold,11,C0,No incentive,24,4550,0.4496,23,0.78616,0.84258,0.11454,966,DR_primary
+cimas_cold,11,C0,No incentive,25,4508,0.4455,23,0.78555,0.84266,0.11351,966,DR_primary
+cimas_cold,11,C0,No incentive,26,4475,0.4422,23,0.78638,0.84264,0.11379,966,DR_primary
+cimas_cold,11,C0,No incentive,27,4518,0.4465,23,0.78649,0.84278,0.11722,966,DR_primary
+cimas_cold,11,C0,No incentive,28,4542,0.4489,23,0.78634,0.84278,0.11601,966,DR_primary
+cimas_cold,11,C0,No incentive,29,4647,0.4592,23,0.78663,0.84304,0.11678,966,DR_primary
+cimas_cold,11,C0,No incentive,30,4568,0.4514,23,0.78621,0.84252,0.11322,966,DR_primary
+cimas_cold,11,C1,Random allocation,1,5129,0.5069,23,0.78659,0.843,0.11432,966,DR_primary
+cimas_cold,11,C1,Random allocation,2,5109,0.5049,23,0.78639,0.84267,0.1149,966,DR_primary
+cimas_cold,11,C1,Random allocation,3,5068,0.5008,23,0.78554,0.84187,0.1116,966,DR_primary
+cimas_cold,11,C1,Random allocation,4,4998,0.4939,23,0.78668,0.84269,0.11281,966,DR_primary
+cimas_cold,11,C1,Random allocation,5,4963,0.4905,23,0.78708,0.84347,0.11547,966,DR_primary
+cimas_cold,11,C1,Random allocation,6,5066,0.5006,23,0.78598,0.84213,0.11266,966,DR_primary
+cimas_cold,11,C1,Random allocation,7,5029,0.497,23,0.78655,0.84295,0.11571,966,DR_primary
+cimas_cold,11,C1,Random allocation,8,5036,0.4977,23,0.78676,0.84341,0.11232,966,DR_primary
+cimas_cold,11,C1,Random allocation,9,5069,0.5009,23,0.78677,0.84313,0.116,966,DR_primary
+cimas_cold,11,C1,Random allocation,10,5062,0.5002,23,0.78721,0.84339,0.11678,966,DR_primary
+cimas_cold,11,C1,Random allocation,11,4935,0.4877,23,0.78615,0.84255,0.11477,966,DR_primary
+cimas_cold,11,C1,Random allocation,12,5041,0.4982,23,0.78654,0.84316,0.11611,966,DR_primary
+cimas_cold,11,C1,Random allocation,13,5110,0.505,23,0.78615,0.84302,0.11561,966,DR_primary
+cimas_cold,11,C1,Random allocation,14,5041,0.4982,23,0.78611,0.84278,0.11465,966,DR_primary
+cimas_cold,11,C1,Random allocation,15,4983,0.4924,23,0.78638,0.84278,0.11492,966,DR_primary
+cimas_cold,11,C1,Random allocation,16,5157,0.5096,23,0.78632,0.84256,0.11391,966,DR_primary
+cimas_cold,11,C1,Random allocation,17,5075,0.5015,23,0.78645,0.84303,0.11524,966,DR_primary
+cimas_cold,11,C1,Random allocation,18,5083,0.5023,23,0.7867,0.84334,0.11884,966,DR_primary
+cimas_cold,11,C1,Random allocation,19,5024,0.4965,23,0.78713,0.84333,0.11599,966,DR_primary
+cimas_cold,11,C1,Random allocation,20,4936,0.4878,23,0.7864,0.84274,0.1147,966,DR_primary
+cimas_cold,11,C1,Random allocation,21,5093,0.5033,23,0.78659,0.84344,0.11464,966,DR_primary
+cimas_cold,11,C1,Random allocation,22,5069,0.5009,23,0.78659,0.84301,0.11742,966,DR_primary
+cimas_cold,11,C1,Random allocation,23,5047,0.4988,23,0.78641,0.84268,0.11256,966,DR_primary
+cimas_cold,11,C1,Random allocation,24,5027,0.4968,23,0.7862,0.84256,0.11436,966,DR_primary
+cimas_cold,11,C1,Random allocation,25,4973,0.4915,23,0.78569,0.84281,0.1148,966,DR_primary
+cimas_cold,11,C1,Random allocation,26,4961,0.4903,23,0.78603,0.84228,0.11356,966,DR_primary
+cimas_cold,11,C1,Random allocation,27,4962,0.4904,23,0.78663,0.84278,0.11612,966,DR_primary
+cimas_cold,11,C1,Random allocation,28,5028,0.4969,23,0.78649,0.8428,0.11629,966,DR_primary
+cimas_cold,11,C1,Random allocation,29,5138,0.5078,23,0.7869,0.8433,0.11616,966,DR_primary
+cimas_cold,11,C1,Random allocation,30,5031,0.4972,23,0.78658,0.84305,0.11498,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,1,5128,0.5068,23,0.78658,0.84284,0.11598,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,2,5119,0.5059,23,0.78644,0.84275,0.11474,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,3,5086,0.5026,23,0.7858,0.84216,0.11107,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,4,5030,0.4971,23,0.78655,0.8429,0.11244,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,5,4951,0.4893,23,0.78672,0.84333,0.11455,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,6,5074,0.5014,23,0.78579,0.84205,0.11183,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,7,5018,0.4959,23,0.78654,0.84301,0.11523,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,8,5019,0.496,23,0.7865,0.84331,0.11161,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,9,5068,0.5008,23,0.78662,0.84299,0.11418,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,10,5046,0.4987,23,0.78702,0.84332,0.11677,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,11,4946,0.4888,23,0.78593,0.84246,0.11455,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,12,5047,0.4988,23,0.78665,0.84319,0.1145,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,13,5103,0.5043,23,0.78634,0.84314,0.11503,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,14,5053,0.4994,23,0.78642,0.84297,0.11502,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,15,4972,0.4914,23,0.78615,0.84274,0.11238,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,16,5144,0.5084,23,0.78618,0.84253,0.11259,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,17,5047,0.4988,23,0.78641,0.84309,0.11476,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,18,5085,0.5025,23,0.7866,0.84354,0.11778,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,19,5004,0.4945,23,0.78726,0.84337,0.1155,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,20,4955,0.4897,23,0.78654,0.84305,0.11494,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,21,5076,0.5016,23,0.78661,0.84355,0.11558,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,22,5070,0.501,23,0.78637,0.843,0.11586,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,23,5054,0.4995,23,0.78661,0.84294,0.11357,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,24,5020,0.4961,23,0.78618,0.84272,0.11479,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,25,4955,0.4897,23,0.78566,0.84285,0.11334,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,26,4965,0.4907,23,0.7861,0.84238,0.11481,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,27,4942,0.4884,23,0.78628,0.84271,0.11581,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,28,4988,0.4929,23,0.78644,0.84279,0.11581,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,29,5124,0.5064,23,0.78655,0.84325,0.11627,966,DR_primary
+cimas_cold,11,C2,FL nonattendance-risk ranking,30,5050,0.4991,23,0.78646,0.84301,0.11464,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,1,5128,0.5068,23,0.78658,0.84284,0.11598,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,2,5119,0.5059,23,0.78644,0.84275,0.11474,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,3,5086,0.5026,23,0.7858,0.84216,0.11107,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,4,5030,0.4971,23,0.78655,0.8429,0.11244,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,5,4951,0.4893,23,0.78672,0.84333,0.11455,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,6,5074,0.5014,23,0.78579,0.84205,0.11183,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,7,5018,0.4959,23,0.78654,0.84301,0.11523,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,8,5019,0.496,23,0.7865,0.84331,0.11161,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,9,5068,0.5008,23,0.78662,0.84299,0.11418,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,10,5046,0.4987,23,0.78702,0.84332,0.11677,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,11,4946,0.4888,23,0.78593,0.84246,0.11455,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,12,5047,0.4988,23,0.78665,0.84319,0.1145,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,13,5103,0.5043,23,0.78634,0.84314,0.11503,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,14,5053,0.4994,23,0.78642,0.84297,0.11502,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,15,4972,0.4914,23,0.78615,0.84274,0.11238,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,16,5144,0.5084,23,0.78618,0.84253,0.11259,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,17,5047,0.4988,23,0.78641,0.84309,0.11476,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,18,5085,0.5025,23,0.7866,0.84354,0.11778,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,19,5004,0.4945,23,0.78726,0.84337,0.1155,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,20,4955,0.4897,23,0.78654,0.84305,0.11494,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,21,5076,0.5016,23,0.78661,0.84355,0.11558,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,22,5070,0.501,23,0.78637,0.843,0.11586,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,23,5054,0.4995,23,0.78661,0.84294,0.11357,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,24,5020,0.4961,23,0.78618,0.84272,0.11479,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,25,4955,0.4897,23,0.78566,0.84285,0.11334,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,26,4965,0.4907,23,0.7861,0.84238,0.11481,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,27,4942,0.4884,23,0.78628,0.84271,0.11581,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,28,4988,0.4929,23,0.78644,0.84279,0.11581,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,29,5124,0.5064,23,0.78655,0.84325,0.11627,966,DR_primary
+cimas_cold,11,C3,Cross-fitted DR uplift ranking,30,5050,0.4991,23,0.78646,0.84301,0.11464,966,DR_primary
+cimas_cold,19,C0,No incentive,1,4553,0.4499,23,0.7863,0.84262,0.11707,966,DR_primary
+cimas_cold,19,C0,No incentive,2,4524,0.4471,23,0.78623,0.84289,0.11382,966,DR_primary
+cimas_cold,19,C0,No incentive,3,4620,0.4566,23,0.78622,0.84238,0.10865,966,DR_primary
+cimas_cold,19,C0,No incentive,4,4605,0.4551,23,0.78657,0.84253,0.11507,966,DR_primary
+cimas_cold,19,C0,No incentive,5,4519,0.4466,23,0.78661,0.84287,0.11204,966,DR_primary
+cimas_cold,19,C0,No incentive,6,4567,0.4513,23,0.78668,0.84275,0.11408,966,DR_primary
+cimas_cold,19,C0,No incentive,7,4625,0.4571,23,0.78545,0.84232,0.10895,966,DR_primary
+cimas_cold,19,C0,No incentive,8,4608,0.4554,23,0.78668,0.84313,0.11569,966,DR_primary
+cimas_cold,19,C0,No incentive,9,4517,0.4464,23,0.78696,0.84319,0.11515,966,DR_primary
+cimas_cold,19,C0,No incentive,10,4551,0.4497,23,0.78731,0.84368,0.1168,966,DR_primary
+cimas_cold,19,C0,No incentive,11,4450,0.4398,23,0.78623,0.84284,0.11212,966,DR_primary
+cimas_cold,19,C0,No incentive,12,4597,0.4543,23,0.78651,0.84304,0.11275,966,DR_primary
+cimas_cold,19,C0,No incentive,13,4529,0.4476,23,0.78637,0.84291,0.11364,966,DR_primary
+cimas_cold,19,C0,No incentive,14,4620,0.4566,23,0.78672,0.84325,0.11717,966,DR_primary
+cimas_cold,19,C0,No incentive,15,4574,0.452,23,0.78693,0.84293,0.11447,966,DR_primary
+cimas_cold,19,C0,No incentive,16,4634,0.458,23,0.78684,0.84315,0.11502,966,DR_primary
+cimas_cold,19,C0,No incentive,17,4647,0.4592,23,0.78708,0.84331,0.11393,966,DR_primary
+cimas_cold,19,C0,No incentive,18,4569,0.4515,23,0.78608,0.8426,0.1145,966,DR_primary
+cimas_cold,19,C0,No incentive,19,4515,0.4462,23,0.78627,0.84263,0.11573,966,DR_primary
+cimas_cold,19,C0,No incentive,20,4538,0.4485,23,0.787,0.84308,0.11528,966,DR_primary
+cimas_cold,19,C0,No incentive,21,4638,0.4583,23,0.78571,0.84248,0.11212,966,DR_primary
+cimas_cold,19,C0,No incentive,22,4674,0.4619,23,0.78665,0.84297,0.11553,966,DR_primary
+cimas_cold,19,C0,No incentive,23,4580,0.4526,23,0.78606,0.84258,0.11554,966,DR_primary
+cimas_cold,19,C0,No incentive,24,4596,0.4542,23,0.78653,0.84317,0.11618,966,DR_primary
+cimas_cold,19,C0,No incentive,25,4618,0.4564,23,0.7874,0.84363,0.1184,966,DR_primary
+cimas_cold,19,C0,No incentive,26,4626,0.4572,23,0.78611,0.8431,0.11562,966,DR_primary
+cimas_cold,19,C0,No incentive,27,4581,0.4527,23,0.78612,0.8429,0.11792,966,DR_primary
+cimas_cold,19,C0,No incentive,28,4636,0.4581,23,0.78681,0.8433,0.11348,966,DR_primary
+cimas_cold,19,C0,No incentive,29,4612,0.4558,23,0.78676,0.84326,0.11583,966,DR_primary
+cimas_cold,19,C0,No incentive,30,4622,0.4568,23,0.78629,0.84282,0.1158,966,DR_primary
+cimas_cold,19,C1,Random allocation,1,5028,0.4969,23,0.78646,0.84283,0.11792,966,DR_primary
+cimas_cold,19,C1,Random allocation,2,5016,0.4957,23,0.78602,0.84283,0.11272,966,DR_primary
+cimas_cold,19,C1,Random allocation,3,5057,0.4998,23,0.78624,0.84237,0.10851,966,DR_primary
+cimas_cold,19,C1,Random allocation,4,5089,0.5029,23,0.78652,0.84264,0.11628,966,DR_primary
+cimas_cold,19,C1,Random allocation,5,4976,0.4917,23,0.78664,0.84288,0.1138,966,DR_primary
+cimas_cold,19,C1,Random allocation,6,5045,0.4986,23,0.7864,0.84264,0.11331,966,DR_primary
+cimas_cold,19,C1,Random allocation,7,5081,0.5021,23,0.78569,0.84245,0.111,966,DR_primary
+cimas_cold,19,C1,Random allocation,8,5068,0.5008,23,0.78677,0.84307,0.1145,966,DR_primary
+cimas_cold,19,C1,Random allocation,9,4974,0.4916,23,0.78677,0.84304,0.11462,966,DR_primary
+cimas_cold,19,C1,Random allocation,10,4996,0.4937,23,0.78702,0.8434,0.11624,966,DR_primary
+cimas_cold,19,C1,Random allocation,11,4924,0.4866,23,0.78655,0.84289,0.11291,966,DR_primary
+cimas_cold,19,C1,Random allocation,12,5041,0.4982,23,0.78632,0.84293,0.1123,966,DR_primary
+cimas_cold,19,C1,Random allocation,13,4995,0.4936,23,0.78637,0.84285,0.11251,966,DR_primary
+cimas_cold,19,C1,Random allocation,14,5095,0.5035,23,0.78635,0.84289,0.11556,966,DR_primary
+cimas_cold,19,C1,Random allocation,15,5092,0.5032,23,0.78675,0.84285,0.11593,966,DR_primary
+cimas_cold,19,C1,Random allocation,16,5100,0.504,23,0.78713,0.84335,0.11482,966,DR_primary
+cimas_cold,19,C1,Random allocation,17,5081,0.5021,23,0.78707,0.84332,0.11547,966,DR_primary
+cimas_cold,19,C1,Random allocation,18,5028,0.4969,23,0.78631,0.84281,0.11791,966,DR_primary
+cimas_cold,19,C1,Random allocation,19,4944,0.4886,23,0.78592,0.84227,0.11445,966,DR_primary
+cimas_cold,19,C1,Random allocation,20,5005,0.4946,23,0.78705,0.84329,0.11624,966,DR_primary
+cimas_cold,19,C1,Random allocation,21,5098,0.5038,23,0.78578,0.84243,0.11183,966,DR_primary
+cimas_cold,19,C1,Random allocation,22,5122,0.5062,23,0.78652,0.84288,0.11656,966,DR_primary
+cimas_cold,19,C1,Random allocation,23,5065,0.5005,23,0.78626,0.84273,0.11594,966,DR_primary
+cimas_cold,19,C1,Random allocation,24,5057,0.4998,23,0.78646,0.84311,0.11642,966,DR_primary
+cimas_cold,19,C1,Random allocation,25,5066,0.5006,23,0.78717,0.84329,0.117,966,DR_primary
+cimas_cold,19,C1,Random allocation,26,5114,0.5054,23,0.78617,0.84303,0.11585,966,DR_primary
+cimas_cold,19,C1,Random allocation,27,5037,0.4978,23,0.78654,0.84318,0.11805,966,DR_primary
+cimas_cold,19,C1,Random allocation,28,5080,0.502,23,0.78673,0.84324,0.1137,966,DR_primary
+cimas_cold,19,C1,Random allocation,29,5086,0.5026,23,0.78688,0.84319,0.11659,966,DR_primary
+cimas_cold,19,C1,Random allocation,30,5060,0.5,23,0.78633,0.84288,0.11421,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,1,5007,0.4948,23,0.78646,0.8427,0.11743,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,2,4981,0.4922,23,0.78617,0.84313,0.11279,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,3,5069,0.5009,23,0.78628,0.8425,0.11077,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,4,5104,0.5044,23,0.78655,0.84276,0.11494,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,5,5003,0.4944,23,0.78667,0.84303,0.11501,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,6,5044,0.4985,23,0.7866,0.84282,0.11262,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,7,5083,0.5023,23,0.78584,0.84274,0.10971,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,8,5062,0.5002,23,0.78654,0.84295,0.11382,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,9,5005,0.4946,23,0.78674,0.84306,0.11658,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,10,5029,0.497,23,0.78698,0.84337,0.11444,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,11,4911,0.4853,23,0.78643,0.84288,0.11285,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,12,5046,0.4987,23,0.7864,0.84287,0.11177,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,13,4990,0.4931,23,0.78616,0.84279,0.11059,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,14,5084,0.5024,23,0.78658,0.84305,0.11769,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,15,5050,0.4991,23,0.7867,0.84302,0.11378,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,16,5125,0.5065,23,0.78678,0.84321,0.11366,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,17,5076,0.5016,23,0.78715,0.84358,0.11519,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,18,5069,0.5009,23,0.786,0.84277,0.11466,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,19,4926,0.4868,23,0.78602,0.84246,0.11444,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,20,5008,0.4949,23,0.78686,0.84329,0.11534,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,21,5111,0.5051,23,0.78563,0.84248,0.11191,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,22,5140,0.508,23,0.78668,0.843,0.11559,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,23,5067,0.5007,23,0.78605,0.84263,0.11296,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,24,5072,0.5012,23,0.78617,0.84293,0.11417,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,25,5036,0.4977,23,0.78714,0.84332,0.11898,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,26,5121,0.5061,23,0.78606,0.84299,0.11491,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,27,5044,0.4985,23,0.78607,0.84288,0.1165,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,28,5103,0.5043,23,0.78671,0.84325,0.11328,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,29,5077,0.5017,23,0.78651,0.84298,0.11639,966,DR_primary
+cimas_cold,19,C2,FL nonattendance-risk ranking,30,5071,0.5011,23,0.78618,0.84283,0.11467,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,1,5007,0.4948,23,0.78646,0.8427,0.11743,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,2,4981,0.4922,23,0.78617,0.84313,0.11279,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,3,5069,0.5009,23,0.78628,0.8425,0.11077,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,4,5104,0.5044,23,0.78655,0.84276,0.11494,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,5,5003,0.4944,23,0.78667,0.84303,0.11501,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,6,5044,0.4985,23,0.7866,0.84282,0.11262,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,7,5083,0.5023,23,0.78584,0.84274,0.10971,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,8,5062,0.5002,23,0.78654,0.84295,0.11382,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,9,5005,0.4946,23,0.78674,0.84306,0.11658,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,10,5029,0.497,23,0.78698,0.84337,0.11444,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,11,4911,0.4853,23,0.78643,0.84288,0.11285,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,12,5046,0.4987,23,0.7864,0.84287,0.11177,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,13,4990,0.4931,23,0.78616,0.84279,0.11059,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,14,5084,0.5024,23,0.78658,0.84305,0.11769,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,15,5050,0.4991,23,0.7867,0.84302,0.11378,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,16,5125,0.5065,23,0.78678,0.84321,0.11366,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,17,5076,0.5016,23,0.78715,0.84358,0.11519,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,18,5069,0.5009,23,0.786,0.84277,0.11466,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,19,4926,0.4868,23,0.78602,0.84246,0.11444,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,20,5008,0.4949,23,0.78686,0.84329,0.11534,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,21,5111,0.5051,23,0.78563,0.84248,0.11191,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,22,5140,0.508,23,0.78668,0.843,0.11559,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,23,5067,0.5007,23,0.78605,0.84263,0.11296,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,24,5072,0.5012,23,0.78617,0.84293,0.11417,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,25,5036,0.4977,23,0.78714,0.84332,0.11898,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,26,5121,0.5061,23,0.78606,0.84299,0.11491,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,27,5044,0.4985,23,0.78607,0.84288,0.1165,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,28,5103,0.5043,23,0.78671,0.84325,0.11328,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,29,5077,0.5017,23,0.78651,0.84298,0.11639,966,DR_primary
+cimas_cold,19,C3,Cross-fitted DR uplift ranking,30,5071,0.5011,23,0.78618,0.84283,0.11467,966,DR_primary
+cimas_cold,23,C0,No incentive,1,4592,0.4538,23,0.78681,0.84323,0.11689,966,DR_primary
+cimas_cold,23,C0,No incentive,2,4671,0.4616,23,0.78653,0.84315,0.11591,966,DR_primary
+cimas_cold,23,C0,No incentive,3,4629,0.4575,23,0.78594,0.84262,0.11089,966,DR_primary
+cimas_cold,23,C0,No incentive,4,4654,0.4599,23,0.78708,0.84326,0.11597,966,DR_primary
+cimas_cold,23,C0,No incentive,5,4553,0.4499,23,0.78626,0.84246,0.11619,966,DR_primary
+cimas_cold,23,C0,No incentive,6,4574,0.452,23,0.78636,0.84273,0.11688,966,DR_primary
+cimas_cold,23,C0,No incentive,7,4589,0.4535,23,0.78664,0.8426,0.11054,966,DR_primary
+cimas_cold,23,C0,No incentive,8,4467,0.4414,23,0.78606,0.84285,0.11063,966,DR_primary
+cimas_cold,23,C0,No incentive,9,4662,0.4607,23,0.7858,0.84223,0.11044,966,DR_primary
+cimas_cold,23,C0,No incentive,10,4563,0.4509,23,0.78707,0.84344,0.1183,966,DR_primary
+cimas_cold,23,C0,No incentive,11,4623,0.4569,23,0.78735,0.84317,0.11988,966,DR_primary
+cimas_cold,23,C0,No incentive,12,4650,0.4595,23,0.78609,0.84244,0.11247,966,DR_primary
+cimas_cold,23,C0,No incentive,13,4685,0.463,23,0.786,0.84273,0.11278,966,DR_primary
+cimas_cold,23,C0,No incentive,14,4589,0.4535,23,0.78617,0.84285,0.11083,966,DR_primary
+cimas_cold,23,C0,No incentive,15,4639,0.4584,23,0.78669,0.84333,0.11776,966,DR_primary
+cimas_cold,23,C0,No incentive,16,4607,0.4553,23,0.78636,0.84241,0.10946,966,DR_primary
+cimas_cold,23,C0,No incentive,17,4575,0.4521,23,0.78677,0.84303,0.11334,966,DR_primary
+cimas_cold,23,C0,No incentive,18,4728,0.4672,23,0.78577,0.84238,0.11425,966,DR_primary
+cimas_cold,23,C0,No incentive,19,4570,0.4516,23,0.78591,0.84254,0.11324,966,DR_primary
+cimas_cold,23,C0,No incentive,20,4698,0.4643,23,0.78624,0.84288,0.11459,966,DR_primary
+cimas_cold,23,C0,No incentive,21,4648,0.4593,23,0.78598,0.84219,0.11414,966,DR_primary
+cimas_cold,23,C0,No incentive,22,4717,0.4662,23,0.78579,0.84265,0.11411,966,DR_primary
+cimas_cold,23,C0,No incentive,23,4532,0.4479,23,0.78556,0.84252,0.11099,966,DR_primary
+cimas_cold,23,C0,No incentive,24,4583,0.4529,23,0.78633,0.8427,0.11581,966,DR_primary
+cimas_cold,23,C0,No incentive,25,4562,0.4508,23,0.78678,0.84312,0.11557,966,DR_primary
+cimas_cold,23,C0,No incentive,26,4584,0.453,23,0.78583,0.84193,0.11155,966,DR_primary
+cimas_cold,23,C0,No incentive,27,4521,0.4468,23,0.78612,0.84244,0.11264,966,DR_primary
+cimas_cold,23,C0,No incentive,28,4608,0.4554,23,0.78686,0.84316,0.1156,966,DR_primary
+cimas_cold,23,C0,No incentive,29,4650,0.4595,23,0.78602,0.84263,0.11419,966,DR_primary
+cimas_cold,23,C0,No incentive,30,4649,0.4594,23,0.78667,0.84284,0.11376,966,DR_primary
+cimas_cold,23,C1,Random allocation,1,5052,0.4993,23,0.78657,0.84311,0.11557,966,DR_primary
+cimas_cold,23,C1,Random allocation,2,5087,0.5027,23,0.78664,0.84311,0.11594,966,DR_primary
+cimas_cold,23,C1,Random allocation,3,5118,0.5058,23,0.78624,0.84275,0.11216,966,DR_primary
+cimas_cold,23,C1,Random allocation,4,5117,0.5057,23,0.78753,0.84348,0.11764,966,DR_primary
+cimas_cold,23,C1,Random allocation,5,4989,0.493,23,0.78615,0.84247,0.11547,966,DR_primary
+cimas_cold,23,C1,Random allocation,6,5032,0.4973,23,0.78652,0.84283,0.11643,966,DR_primary
+cimas_cold,23,C1,Random allocation,7,5047,0.4988,23,0.78676,0.84267,0.11123,966,DR_primary
+cimas_cold,23,C1,Random allocation,8,4899,0.4841,23,0.7862,0.84281,0.11454,966,DR_primary
+cimas_cold,23,C1,Random allocation,9,5091,0.5031,23,0.78611,0.84242,0.11231,966,DR_primary
+cimas_cold,23,C1,Random allocation,10,5024,0.4965,23,0.78693,0.8432,0.11621,966,DR_primary
+cimas_cold,23,C1,Random allocation,11,5064,0.5004,23,0.78701,0.84306,0.11961,966,DR_primary
+cimas_cold,23,C1,Random allocation,12,5093,0.5033,23,0.78596,0.84234,0.11196,966,DR_primary
+cimas_cold,23,C1,Random allocation,13,5163,0.5102,23,0.78617,0.84295,0.11466,966,DR_primary
+cimas_cold,23,C1,Random allocation,14,5063,0.5003,23,0.7866,0.84309,0.11215,966,DR_primary
+cimas_cold,23,C1,Random allocation,15,5113,0.5053,23,0.78697,0.84345,0.1175,966,DR_primary
+cimas_cold,23,C1,Random allocation,16,5093,0.5033,23,0.7863,0.84252,0.11196,966,DR_primary
+cimas_cold,23,C1,Random allocation,17,5011,0.4952,23,0.78673,0.84305,0.11286,966,DR_primary
+cimas_cold,23,C1,Random allocation,18,5176,0.5115,23,0.78614,0.8427,0.11467,966,DR_primary
+cimas_cold,23,C1,Random allocation,19,5018,0.4959,23,0.78595,0.84262,0.11361,966,DR_primary
+cimas_cold,23,C1,Random allocation,20,5146,0.5085,23,0.78598,0.84264,0.11353,966,DR_primary
+cimas_cold,23,C1,Random allocation,21,5068,0.5008,23,0.78613,0.84217,0.11476,966,DR_primary
+cimas_cold,23,C1,Random allocation,22,5150,0.5089,23,0.78585,0.84265,0.1136,966,DR_primary
+cimas_cold,23,C1,Random allocation,23,4986,0.4927,23,0.78617,0.84286,0.11371,966,DR_primary
+cimas_cold,23,C1,Random allocation,24,5050,0.4991,23,0.78634,0.84268,0.11611,966,DR_primary
+cimas_cold,23,C1,Random allocation,25,5025,0.4966,23,0.78693,0.84333,0.11619,966,DR_primary
+cimas_cold,23,C1,Random allocation,26,5008,0.4949,23,0.78595,0.84207,0.11158,966,DR_primary
+cimas_cold,23,C1,Random allocation,27,4992,0.4933,23,0.78639,0.84261,0.11308,966,DR_primary
+cimas_cold,23,C1,Random allocation,28,5097,0.5037,23,0.7868,0.843,0.11445,966,DR_primary
+cimas_cold,23,C1,Random allocation,29,5128,0.5068,23,0.7859,0.84248,0.11531,966,DR_primary
+cimas_cold,23,C1,Random allocation,30,5129,0.5069,23,0.78647,0.84274,0.11326,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,1,5053,0.4994,23,0.78707,0.84343,0.11748,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,2,5079,0.5019,23,0.78645,0.84303,0.11509,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,3,5118,0.5058,23,0.78593,0.8427,0.11001,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,4,5113,0.5053,23,0.78717,0.8433,0.1167,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,5,5013,0.4954,23,0.7863,0.84265,0.11532,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,6,5023,0.4964,23,0.78629,0.84285,0.11687,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,7,5056,0.4997,23,0.78675,0.84278,0.11313,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,8,4899,0.4841,23,0.78615,0.84285,0.11265,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,9,5088,0.5028,23,0.78615,0.84264,0.11279,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,10,5024,0.4965,23,0.78661,0.84304,0.11612,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,11,5072,0.5012,23,0.7871,0.8433,0.11867,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,12,5088,0.5028,23,0.78591,0.84236,0.11186,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,13,5159,0.5098,23,0.78615,0.84313,0.11309,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,14,5024,0.4965,23,0.78611,0.84295,0.11075,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,15,5116,0.5056,23,0.7867,0.84339,0.11713,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,16,5083,0.5023,23,0.78632,0.84257,0.11097,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,17,5028,0.4969,23,0.78666,0.84298,0.11303,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,18,5189,0.5128,23,0.78588,0.84263,0.11323,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,19,5010,0.4951,23,0.78592,0.84265,0.11337,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,20,5130,0.507,23,0.78598,0.84274,0.11395,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,21,5080,0.502,23,0.7861,0.84233,0.11404,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,22,5151,0.509,23,0.78576,0.84258,0.11333,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,23,4971,0.4913,23,0.78589,0.84269,0.11256,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,24,5050,0.4991,23,0.78635,0.84271,0.11421,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,25,4999,0.494,23,0.78668,0.8433,0.11665,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,26,5052,0.4993,23,0.78605,0.84227,0.11226,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,27,4982,0.4923,23,0.7862,0.84259,0.1126,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,28,5072,0.5012,23,0.78669,0.843,0.11303,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,29,5132,0.5072,23,0.78593,0.8426,0.11396,966,DR_primary
+cimas_cold,23,C2,FL nonattendance-risk ranking,30,5125,0.5065,23,0.78645,0.84276,0.11189,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,1,5053,0.4994,23,0.78707,0.84343,0.11748,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,2,5079,0.5019,23,0.78645,0.84303,0.11509,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,3,5118,0.5058,23,0.78593,0.8427,0.11001,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,4,5113,0.5053,23,0.78717,0.8433,0.1167,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,5,5013,0.4954,23,0.7863,0.84265,0.11532,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,6,5023,0.4964,23,0.78629,0.84285,0.11687,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,7,5056,0.4997,23,0.78675,0.84278,0.11313,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,8,4899,0.4841,23,0.78615,0.84285,0.11265,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,9,5088,0.5028,23,0.78615,0.84264,0.11279,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,10,5024,0.4965,23,0.78661,0.84304,0.11612,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,11,5072,0.5012,23,0.7871,0.8433,0.11867,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,12,5088,0.5028,23,0.78591,0.84236,0.11186,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,13,5159,0.5098,23,0.78615,0.84313,0.11309,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,14,5024,0.4965,23,0.78611,0.84295,0.11075,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,15,5116,0.5056,23,0.7867,0.84339,0.11713,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,16,5083,0.5023,23,0.78632,0.84257,0.11097,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,17,5028,0.4969,23,0.78666,0.84298,0.11303,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,18,5189,0.5128,23,0.78588,0.84263,0.11323,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,19,5010,0.4951,23,0.78592,0.84265,0.11337,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,20,5130,0.507,23,0.78598,0.84274,0.11395,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,21,5080,0.502,23,0.7861,0.84233,0.11404,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,22,5151,0.509,23,0.78576,0.84258,0.11333,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,23,4971,0.4913,23,0.78589,0.84269,0.11256,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,24,5050,0.4991,23,0.78635,0.84271,0.11421,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,25,4999,0.494,23,0.78668,0.8433,0.11665,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,26,5052,0.4993,23,0.78605,0.84227,0.11226,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,27,4982,0.4923,23,0.7862,0.84259,0.1126,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,28,5072,0.5012,23,0.78669,0.843,0.11303,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,29,5132,0.5072,23,0.78593,0.8426,0.11396,966,DR_primary
+cimas_cold,23,C3,Cross-fitted DR uplift ranking,30,5125,0.5065,23,0.78645,0.84276,0.11189,966,DR_primary
+cimas_cold,37,C0,No incentive,1,4542,0.4489,23,0.78694,0.84323,0.11643,966,DR_primary
+cimas_cold,37,C0,No incentive,2,4618,0.4564,23,0.78662,0.84268,0.11299,966,DR_primary
+cimas_cold,37,C0,No incentive,3,4660,0.4605,23,0.78675,0.84276,0.11442,966,DR_primary
+cimas_cold,37,C0,No incentive,4,4609,0.4555,23,0.78596,0.84248,0.1125,966,DR_primary
+cimas_cold,37,C0,No incentive,5,4565,0.4511,23,0.78716,0.8433,0.11349,966,DR_primary
+cimas_cold,37,C0,No incentive,6,4548,0.4495,23,0.78633,0.84272,0.11286,966,DR_primary
+cimas_cold,37,C0,No incentive,7,4592,0.4538,23,0.78732,0.84354,0.11777,966,DR_primary
+cimas_cold,37,C0,No incentive,8,4633,0.4579,23,0.78713,0.84342,0.11633,966,DR_primary
+cimas_cold,37,C0,No incentive,9,4567,0.4513,23,0.78669,0.84298,0.11319,966,DR_primary
+cimas_cold,37,C0,No incentive,10,4572,0.4518,23,0.78648,0.84251,0.11517,966,DR_primary
+cimas_cold,37,C0,No incentive,11,4621,0.4567,23,0.78701,0.84329,0.11399,966,DR_primary
+cimas_cold,37,C0,No incentive,12,4549,0.4496,23,0.78631,0.84267,0.11379,966,DR_primary
+cimas_cold,37,C0,No incentive,13,4619,0.4565,23,0.7867,0.84303,0.11383,966,DR_primary
+cimas_cold,37,C0,No incentive,14,4619,0.4565,23,0.78631,0.84259,0.11347,966,DR_primary
+cimas_cold,37,C0,No incentive,15,4546,0.4493,23,0.78668,0.84311,0.11697,966,DR_primary
+cimas_cold,37,C0,No incentive,16,4554,0.45,23,0.78646,0.8429,0.11349,966,DR_primary
+cimas_cold,37,C0,No incentive,17,4536,0.4483,23,0.78659,0.84305,0.1145,966,DR_primary
+cimas_cold,37,C0,No incentive,18,4560,0.4506,23,0.78661,0.84323,0.11384,966,DR_primary
+cimas_cold,37,C0,No incentive,19,4548,0.4495,23,0.78606,0.84286,0.11337,966,DR_primary
+cimas_cold,37,C0,No incentive,20,4586,0.4532,23,0.7869,0.84318,0.11562,966,DR_primary
+cimas_cold,37,C0,No incentive,21,4527,0.4474,23,0.78658,0.84313,0.1156,966,DR_primary
+cimas_cold,37,C0,No incentive,22,4607,0.4553,23,0.78608,0.84257,0.11294,966,DR_primary
+cimas_cold,37,C0,No incentive,23,4498,0.4445,23,0.7869,0.84307,0.11732,966,DR_primary
+cimas_cold,37,C0,No incentive,24,4459,0.4407,23,0.78659,0.84336,0.11575,966,DR_primary
+cimas_cold,37,C0,No incentive,25,4530,0.4477,23,0.78681,0.84325,0.11673,966,DR_primary
+cimas_cold,37,C0,No incentive,26,4654,0.4599,23,0.78687,0.8434,0.11576,966,DR_primary
+cimas_cold,37,C0,No incentive,27,4587,0.4533,23,0.78697,0.84297,0.11894,966,DR_primary
+cimas_cold,37,C0,No incentive,28,4524,0.4471,23,0.78727,0.84322,0.11578,966,DR_primary
+cimas_cold,37,C0,No incentive,29,4591,0.4537,23,0.78672,0.84314,0.11844,966,DR_primary
+cimas_cold,37,C0,No incentive,30,4645,0.459,23,0.78651,0.84273,0.11424,966,DR_primary
+cimas_cold,37,C1,Random allocation,1,4984,0.4925,23,0.78678,0.84304,0.1151,966,DR_primary
+cimas_cold,37,C1,Random allocation,2,5121,0.5061,23,0.78662,0.84287,0.1143,966,DR_primary
+cimas_cold,37,C1,Random allocation,3,5145,0.5084,23,0.78662,0.84263,0.11482,966,DR_primary
+cimas_cold,37,C1,Random allocation,4,5060,0.5,23,0.7859,0.84224,0.11201,966,DR_primary
+cimas_cold,37,C1,Random allocation,5,5010,0.4951,23,0.78716,0.84324,0.11449,966,DR_primary
+cimas_cold,37,C1,Random allocation,6,5023,0.4964,23,0.78639,0.84267,0.11394,966,DR_primary
+cimas_cold,37,C1,Random allocation,7,5058,0.4999,23,0.78723,0.84334,0.1181,966,DR_primary
+cimas_cold,37,C1,Random allocation,8,5122,0.5062,23,0.78689,0.84328,0.11619,966,DR_primary
+cimas_cold,37,C1,Random allocation,9,5015,0.4956,23,0.78679,0.84308,0.1136,966,DR_primary
+cimas_cold,37,C1,Random allocation,10,5011,0.4952,23,0.78647,0.84259,0.11398,966,DR_primary
+cimas_cold,37,C1,Random allocation,11,5074,0.5014,23,0.78682,0.84309,0.11477,966,DR_primary
+cimas_cold,37,C1,Random allocation,12,5013,0.4954,23,0.78619,0.84254,0.11492,966,DR_primary
+cimas_cold,37,C1,Random allocation,13,5089,0.5029,23,0.78675,0.84324,0.11389,966,DR_primary
+cimas_cold,37,C1,Random allocation,14,5065,0.5005,23,0.7865,0.84271,0.11464,966,DR_primary
+cimas_cold,37,C1,Random allocation,15,5005,0.4946,23,0.78662,0.84317,0.11663,966,DR_primary
+cimas_cold,37,C1,Random allocation,16,5028,0.4969,23,0.78645,0.84285,0.11294,966,DR_primary
+cimas_cold,37,C1,Random allocation,17,5005,0.4946,23,0.78673,0.84323,0.11462,966,DR_primary
+cimas_cold,37,C1,Random allocation,18,5031,0.4972,23,0.78686,0.8433,0.11385,966,DR_primary
+cimas_cold,37,C1,Random allocation,19,5018,0.4959,23,0.78572,0.84267,0.11343,966,DR_primary
+cimas_cold,37,C1,Random allocation,20,5034,0.4975,23,0.78675,0.84301,0.11464,966,DR_primary
+cimas_cold,37,C1,Random allocation,21,4972,0.4914,23,0.78667,0.8431,0.11556,966,DR_primary
+cimas_cold,37,C1,Random allocation,22,5070,0.501,23,0.78627,0.84281,0.11421,966,DR_primary
+cimas_cold,37,C1,Random allocation,23,4965,0.4907,23,0.7868,0.8431,0.11744,966,DR_primary
+cimas_cold,37,C1,Random allocation,24,4943,0.4885,23,0.78673,0.84349,0.11754,966,DR_primary
+cimas_cold,37,C1,Random allocation,25,5009,0.495,23,0.78673,0.84316,0.11659,966,DR_primary
+cimas_cold,37,C1,Random allocation,26,5120,0.506,23,0.78674,0.84326,0.11598,966,DR_primary
+cimas_cold,37,C1,Random allocation,27,5061,0.5001,23,0.787,0.84291,0.11879,966,DR_primary
+cimas_cold,37,C1,Random allocation,28,4959,0.4901,23,0.78723,0.84333,0.11761,966,DR_primary
+cimas_cold,37,C1,Random allocation,29,5041,0.4982,23,0.78674,0.84328,0.11917,966,DR_primary
+cimas_cold,37,C1,Random allocation,30,5133,0.5073,23,0.78659,0.84273,0.11435,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,1,4970,0.4912,23,0.78688,0.84319,0.11304,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,2,5120,0.506,23,0.78661,0.84293,0.11457,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,3,5142,0.5082,23,0.78651,0.84269,0.1143,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,4,5056,0.4997,23,0.78569,0.84219,0.11123,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,5,5003,0.4944,23,0.78705,0.84322,0.11479,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,6,5017,0.4958,23,0.78651,0.84284,0.11404,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,7,5069,0.5009,23,0.78718,0.84334,0.11804,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,8,5111,0.5051,23,0.78664,0.84303,0.1157,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,9,5017,0.4958,23,0.78651,0.84289,0.11297,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,10,4995,0.4936,23,0.78654,0.84275,0.1141,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,11,5095,0.5035,23,0.78674,0.84287,0.11341,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,12,4987,0.4928,23,0.78615,0.84264,0.11307,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,13,5068,0.5008,23,0.78697,0.84341,0.11522,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,14,5072,0.5012,23,0.78635,0.84261,0.11282,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,15,5016,0.4957,23,0.78646,0.84303,0.11341,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,16,5034,0.4975,23,0.78632,0.84281,0.11476,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,17,5015,0.4956,23,0.78673,0.84325,0.11399,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,18,5009,0.495,23,0.78684,0.84342,0.11259,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,19,5031,0.4972,23,0.78574,0.84269,0.11095,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,20,5038,0.4979,23,0.78678,0.84302,0.11371,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,21,4965,0.4907,23,0.78672,0.84329,0.11745,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,22,5076,0.5016,23,0.78612,0.84271,0.11244,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,23,4979,0.492,23,0.78672,0.84315,0.11799,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,24,4950,0.4892,23,0.7865,0.8434,0.11596,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,25,4994,0.4935,23,0.78667,0.84338,0.11509,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,26,5098,0.5038,23,0.78651,0.84316,0.11497,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,27,5063,0.5003,23,0.7869,0.84311,0.11919,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,28,4974,0.4916,23,0.78704,0.84324,0.11701,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,29,5061,0.5001,23,0.78642,0.84305,0.11654,966,DR_primary
+cimas_cold,37,C2,FL nonattendance-risk ranking,30,5110,0.505,23,0.78638,0.84255,0.11263,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,1,4970,0.4912,23,0.78688,0.84319,0.11304,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,2,5120,0.506,23,0.78661,0.84293,0.11457,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,3,5142,0.5082,23,0.78651,0.84269,0.1143,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,4,5056,0.4997,23,0.78569,0.84219,0.11123,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,5,5003,0.4944,23,0.78705,0.84322,0.11479,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,6,5017,0.4958,23,0.78651,0.84284,0.11404,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,7,5069,0.5009,23,0.78718,0.84334,0.11804,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,8,5111,0.5051,23,0.78664,0.84303,0.1157,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,9,5017,0.4958,23,0.78651,0.84289,0.11297,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,10,4995,0.4936,23,0.78654,0.84275,0.1141,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,11,5095,0.5035,23,0.78674,0.84287,0.11341,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,12,4987,0.4928,23,0.78615,0.84264,0.11307,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,13,5068,0.5008,23,0.78697,0.84341,0.11522,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,14,5072,0.5012,23,0.78635,0.84261,0.11282,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,15,5016,0.4957,23,0.78646,0.84303,0.11341,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,16,5034,0.4975,23,0.78632,0.84281,0.11476,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,17,5015,0.4956,23,0.78673,0.84325,0.11399,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,18,5009,0.495,23,0.78684,0.84342,0.11259,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,19,5031,0.4972,23,0.78574,0.84269,0.11095,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,20,5038,0.4979,23,0.78678,0.84302,0.11371,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,21,4965,0.4907,23,0.78672,0.84329,0.11745,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,22,5076,0.5016,23,0.78612,0.84271,0.11244,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,23,4979,0.492,23,0.78672,0.84315,0.11799,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,24,4950,0.4892,23,0.7865,0.8434,0.11596,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,25,4994,0.4935,23,0.78667,0.84338,0.11509,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,26,5098,0.5038,23,0.78651,0.84316,0.11497,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,27,5063,0.5003,23,0.7869,0.84311,0.11919,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,28,4974,0.4916,23,0.78704,0.84324,0.11701,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,29,5061,0.5001,23,0.78642,0.84305,0.11654,966,DR_primary
+cimas_cold,37,C3,Cross-fitted DR uplift ranking,30,5110,0.505,23,0.78638,0.84255,0.11263,966,DR_primary

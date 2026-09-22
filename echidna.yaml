@@ -1,0 +1,3 @@
+testMode: assertion
+contract: TrustCTEchidna
+cryticArgs: ["--foundry-ignore-compile"]

@@ -1,0 +1,17 @@
+{
+  "N_planned_full_factorial": 1200,
+  "decomposition": {
+    "N_duplicate_clean_skips": 100,
+    "N_krum_not_applicable_fallback": 35,
+    "N_valid_primary": 1065,
+    "check": "100 + 35 + 1065 = 1200",
+    "equals_planned": true
+  },
+  "fallback_label": {
+    "aggregator_requested": "krum",
+    "aggregator_effective": "fedavg",
+    "status": "not_applicable_diagnostic_fallback",
+    "note": "Excluded from all Krum summaries; retained as diagnostic rows only."
+  },
+  "analysis_valid": 1065
+}

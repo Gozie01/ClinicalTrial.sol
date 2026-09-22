@@ -1,0 +1,100 @@
+{
+  "flow": {
+    "raw_2022_claims": 217693,
+    "raw_2022_pids": 19287,
+    "after_age_filter_claims": 217540,
+    "after_age_filter_pids": 19242,
+    "obs_window_claims": 110357,
+    "obs_window_pids": 16365,
+    "out_window_pids": 15947,
+    "y_adh_positive": 7113,
+    "y_adh_prevalence_out": 0.44604000752492634,
+    "landmark_n": 16365,
+    "y_adh_prevalence_landmark": 0.4243201955392606,
+    "n_primary_clients": 23,
+    "n_sensitivity_clients": 43
+  },
+  "checks": [
+    {
+      "check": "C1_leakage_free",
+      "passed": true,
+      "detail": "Leakage columns in landmark: none"
+    },
+    {
+      "check": "C2_no_out_window_dates",
+      "passed": true,
+      "detail": "No out_month column in landmark feature set"
+    },
+    {
+      "check": "C3_cohort_size",
+      "passed": true,
+      "detail": "N=16,365 (need >=10,000)"
+    },
+    {
+      "check": "C4_outcome_prevalence",
+      "passed": "True",
+      "detail": "Y_adh prevalence=0.424 (need 0.25-0.70)"
+    },
+    {
+      "check": "C5_outcome_complete",
+      "passed": true,
+      "detail": "Y_adh NaN=0, unique values=[0, 1]"
+    },
+    {
+      "check": "C6_client_count",
+      "passed": true,
+      "detail": "Primary clients (>=100 PIDs): 23 (need >=10)"
+    },
+    {
+      "check": "C7_client_coverage",
+      "passed": "True",
+      "detail": "12,649/16,365 = 77.3% assigned to named clients (need >=60%)"
+    },
+    {
+      "check": "C8_pid_unique",
+      "passed": "True",
+      "detail": "Duplicate PIDs=0"
+    },
+    {
+      "check": "C9_feature_missing_rate",
+      "passed": "True",
+      "detail": "Max missing rate=0.0% in 'age' (need <=60%)"
+    }
+  ],
+  "feature_columns": [
+    "age",
+    "sex_female",
+    "n_refill_months_obs",
+    "refill_recency_days",
+    "early_months",
+    "late_months",
+    "has_2m_gap",
+    "first_claim_month",
+    "n_claims",
+    "n_claim_dates",
+    "n_products",
+    "n_providers_vis",
+    "n_networks",
+    "obs_amount",
+    "obs_units",
+    "copay_sum",
+    "amount_per_claim",
+    "units_per_claim",
+    "scheme_type_ord",
+    "cover_type_bin",
+    "annual_contrib_log"
+  ],
+  "outcome": {
+    "name": "Y_adh",
+    "definition": ">=5 refill months in Jul-Dec 2022",
+    "NOT_PDC": true,
+    "NOT_ingestion_confirmed": true
+  },
+  "seeds": [
+    7,
+    11,
+    19,
+    23,
+    37
+  ]
+}

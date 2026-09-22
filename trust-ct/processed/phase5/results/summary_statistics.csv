@@ -1,0 +1,9 @@
+experiment,scenario,scenario_label,final_auroc,final_pr_auc,final_ece,final_participation,auc_learning_curve,rounds_to_target,target_auroc,mean_participation,mean_incentive_util,total_comm_cost_params,n_governance_events
+betterbp,C0,No incentive,0.55197,0.21545,0.35543,0.5498,0.54567,,0.65,0.5563,0.0,480,0
+betterbp,C1,Random allocation,0.53814,0.23261,0.35535,0.5249,0.54312,,0.65,0.5327,1.0,480,0
+betterbp,C2,FL nonattendance-risk ranking,0.53544,0.23268,0.35525,0.5597,0.54507,,0.65,0.5481,1.0,480,0
+betterbp,C3,DR uplift ranking,0.54581,0.22508,0.35539,0.5821,0.54804,,0.65,0.5903,1.0,480,0
+cimas,C0,No incentive,0.78496,0.83884,0.11569,0.4541,0.78484,1.0,0.78,0.4534,0.0,9660,0
+cimas,C1,Random allocation,0.78517,0.83911,0.11688,0.5386,0.78492,1.0,0.78,0.5363,1.0,9660,0
+cimas,C2,FL nonattendance-risk ranking,0.78492,0.83908,0.11558,0.5106,0.78476,1.0,0.78,0.5087,1.0,9660,0
+cimas,C3,DR uplift ranking,0.78492,0.83908,0.11558,0.5106,0.78476,1.0,0.78,0.5087,1.0,9660,0

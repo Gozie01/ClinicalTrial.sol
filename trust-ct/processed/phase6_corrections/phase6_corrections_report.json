@@ -1,0 +1,97 @@
+{
+  "status": "PHASE6_CORRECTIONS_COMPLETE_RERUN_REQUIRED",
+  "corrections": {
+    "C0_mi_selection": {
+      "issue": "MI feature selection in run_phase6.py was performed on the full dataset (before train/test split), introducing minor test-set leakage.",
+      "n_top60_overlap_with_trainonly_mi": 38,
+      "n_features_changed": 22,
+      "verdict": "",
+      "n_overlap": 38,
+      "n_changed": 22,
+      "rerun_required": true
+    },
+    "C1_reconstruction_canary": {
+      "canary_pass": "True",
+      "single_step_cosine_unclipped": 1.0,
+      "single_step_cosine_clipped": 1.0,
+      "multistep_delta_cosine": -0.5381,
+      "corrected_label": "Gradient inversion from fresh single-step gradient at global model (optimistic attacker scenario; batch sizes 1, 4, 16)",
+      "corrected_explanation": "Phase 6 recon_single computes the gradient of the loss at the global model w for each batch, clips and noises it, then reconstructs x. This models a threat where the attacker has direct access to the clipped gradient \u2014 an optimistic scenario. The actual FedAvg coordinator observes model deltas (w_local - w_global after 5 local epochs), for which the single-gradient inversion formula gives cosine -0.538. Single-step analytic canary confirms cosine = 1.000 for direct gradient access. The Phase 6 mixed-batch result (cosine 0.534) reflects batch-size averaging: batch=1 gives near-exact recovery; batch=4,16 dilute the signal.",
+      "key_finding": "cosine NEGATIVE for multi-step delta inversion, confirming the approximation breaks down. Phase 6 measured fresh-gradient inversion (optimistic attacker), NOT model-delta inversion (realistic coordinator threat).",
+      "implication": "Phase 6 leakage estimates are conservative \u2014 they reflect an optimistic attacker with direct gradient access, which overstates leakage risk relative to the actual model-delta observable."
+    },
+    "C2_run_manifest": {
+      "N_planned_full_factorial": 1200,
+      "decomposition": {
+        "N_duplicate_clean_skips": 100,
+        "N_krum_not_applicable_fallback": 35,
+        "N_valid_primary": 1065,
+        "check": "100 + 35 + 1065 = 1200",
+        "equals_planned": true
+      },
+      "fallback_label": {
+        "aggregator_requested": "krum",
+        "aggregator_effective": "fedavg",
+        "status": "not_applicable_diagnostic_fallback",
+        "note": "Excluded from all Krum summaries; retained as diagnostic rows only."
+      },
+      "analysis_valid": 1065
+    },
+    "C3_auroc_degradation": {
+      "worst_attack": "label_flip",
+      "worst_degradation": -0.123,
+      "previous_error": "Stated sign_flip -0.065 as worst; label_flip -0.123 is worst",
+      "corrected": "Worst unprotected FedAvg AUROC degradation (eICU, f=3): -0.123 (label_flip). Sign-flip: -0.065. With coordinate-median defense, worst degradation reduces to approximately -0.021. Small degradation is consistent with evaluated model (LR), aggregation weights, clipping, and attack configuration at f/K=37.5%; it is not definitively attributed to convexity or honest majority alone."
+    },
+    "C4_arithmetic": {
+      "sign_recovery": {
+        "alpha_0_value": 0.8031,
+        "alpha_001_value": 0.6793,
+        "absolute_difference_pp": 12.38,
+        "relative_difference_pct": 15.42,
+        "corrected_label": "12.4 percentage points (15.4% relative)",
+        "previous_error": "Incorrectly stated as 15.4 percentage points"
+      },
+      "cosine_similarity": {
+        "alpha_0_value": 0.5337,
+        "alpha_001_value": 0.4642,
+        "relative_reduction_pct": 13.02
+      },
+      "auroc_change_pp": -0.092,
+      "corrected_sentence": "At alpha=0.01, reconstruction cosine similarity decreased by 13.0% relative (0.534 to 0.464) and feature-sign recovery decreased by 12.4 percentage points (80.3% to 67.9%; 15.4% relative), while AUROC decreased by 0.1 percentage points.",
+      "mia_bootstrap": {
+        "eicu": {
+          "seeds": 5,
+          "values": [
+            0.49593,
+            0.49548,
+            0.49586,
+            0.49861,
+            0.4965
+          ],
+          "mean": 0.49648,
+          "ci95_lo": 0.49572,
+          "ci95_hi": 0.49756,
+          "ci_contains_0.5": false
+        },
+        "cimas": {
+          "seeds": 5,
+          "values": [
+            0.5069,
+            0.5062,
+            0.50665,
+            0.50697,
+            0.50704
+          ],
+          "mean": 0.50675,
+          "ci95_lo": 0.50644,
+          "ci95_hi": 0.50698,
+          "ci_contains_0.5": false
+        }
+      },
+      "mia_statement": "MIA AUROC was 0.496 (eICU; 95% CI [0.496, 0.498]) and 0.507 (Cimas; 95% CI [0.506, 0.507]). Point estimates are near 0.5; confidence intervals are narrow given N=5 seeds. No substantial membership-inference advantage was detected under the evaluated attack."
+    }
+  },
+  "phase6_lock_status": "REQUIRES_RERUN_MI_CORRECTION",
+  "next_action": "Re-run run_phase6.py with training-only MI feature selection (38/60 overlap; 22 features changed). Canary PASS; C2/C3/C4 numeric corrections are final regardless of re-run."
+}

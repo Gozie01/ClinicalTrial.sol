@@ -1,0 +1,19 @@
+{
+  "phase": "7",
+  "status": "LOCKED",
+  "n_components": 6,
+  "component_verdicts": {
+    "A1_FL_vs_Centralized": "NONINFERIOR",
+    "A2_Robust_Aggregation": "coord_median EFFECTIVE against label_flip (worst attack)",
+    "A3_Clipped_Gaussian_Perturbation": "COMPLETE",
+    "A4_Governance_Fault_Detection": "PERFECT_DETECTION",
+    "A5_DR_Policy": "NULL_UPLIFT",
+    "MIA_Membership_Inference": "COMPLETE"
+  },
+  "file_hashes": {
+    "ablation_table.csv": "3d3b8b2997b7587990926fc86c97579a937ce4312ba141c5baa9633a1d36145b",
+    "attack_defense_matrix.csv": "0a621e53d7d47bb9627cf3b00bf04813cca2e51730ff67c9bd39050777b4bbdf",
+    "stat_tests.csv": "4d7ac402b99c610a67ae22be01754a204f738206f33a59773794c3466ba4ead9",
+    "ablation_summary.json": "74fbae92a63c668cd9aa75d079009bc970138bf9b4c4a72d1da111390dc93be8"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "phase": "3-freeze",
+  "config_hash": "2c523748292475f6",
+  "seeds": [
+    7,
+    11,
+    19,
+    23,
+    37
+  ],
+  "n_boot": 2000,
+  "n_primary_clients": 23,
+  "n_patients_total": 16365,
+  "n_patients_longtail": 3716,
+  "n_providers_longtail": 264,
+  "n_rounds": 30,
+  "n_local_epochs": 10,
+  "fed_lr": 0.02,
+  "fedprox_mu": 0.1,
+  "cv_folds": 5,
+  "ni_margin": -0.02,
+  "features": [
+    "age",
+    "sex_female",
+    "scheme_type_ord",
+    "cover_type_bin",
+    "annual_contrib_log",
+    "n_refill_months_obs",
+    "refill_recency_days",
+    "early_months",
+    "late_months",
+    "has_2m_gap",
+    "first_claim_month",
+    "n_claims",
+    "n_claim_dates",
+    "n_products",
+    "n_providers_vis",
+    "obs_amount",
+    "obs_units",
+    "amount_per_claim",
+    "units_per_claim",
+    "n_networks"
+  ],
+  "fl_methods": [
+    "FedAvg",
+    "FedProx",
+    "FedAvg-equal",
+    "SCAFFOLD",
+    "FedAdam"
+  ]
+}

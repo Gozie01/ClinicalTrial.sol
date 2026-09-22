@@ -1,0 +1,525 @@
+{
+  "generation_script": "trust-ct/remediation/export_selected_features.py",
+  "c0_compliance": "MI computed on training set ONLY (C0 fix applied)",
+  "eicu_csv": "C:\\Users\\Gozie\\Desktop\\Blockchain in Clinical Trial\\Fedlearn\\evaluation\\prepared_datasets\\eicu_demo_prepared.csv",
+  "outcome_col": "Outcome",
+  "n_total": 2520,
+  "n_train": 2016,
+  "n_test": 504,
+  "test_frac": 0.2,
+  "split_seed": 7,
+  "n_top_features": 60,
+  "hash_note": "reconstruction_hash_sha256 is the MI-rank-order hash produced by this re-run under the current sklearn environment. It does NOT match the executed_run_hash from phase6_c0_lock.json because mutual_info_classif Monte Carlo scores differ across sklearn versions even with identical random_state, causing near-tied features to swap rank. The full ordered 60-feature list from the original run_phase6.py execution is NOT stored and cannot be recovered.",
+  "executed_run_hash_sha256": "4f4a66036e869328b354fb528e8dface5ff2981c9376f12fc517c594a2b91ded",
+  "executed_run_hash_source": "phase6_c0_lock.json feature_selection_provenance (original run_phase6.py execution)",
+  "reconstruction_hash_sha256": "2366a3ca471b07bbf919df859360c6777eadc419c9f536a5e4089a52edfc4873",
+  "reconstruction_hash_source": "this re-run; MI-rank order; current sklearn environment",
+  "col_order_hash_sha256": "d96e917af8e7c4783f8ba7daabccf641ea8b3a25a3beb3bf00493d39e5f37f92",
+  "col_order_hash_source": "this re-run; column-index sorted order",
+  "imputer": {
+    "strategy": "median",
+    "fit_on": "training_set_only"
+  },
+  "features_by_mi_rank": [
+    {
+      "rank": 1,
+      "name": "vital_heartrate_min",
+      "mi_score": 0.05527131063088597,
+      "orig_col_idx": 94
+    },
+    {
+      "rank": 2,
+      "name": "vital_sao2_min",
+      "mi_score": 0.04344551318412848,
+      "orig_col_idx": 90
+    },
+    {
+      "rank": 3,
+      "name": "vital_sao2_std",
+      "mi_score": 0.0401940207548086,
+      "orig_col_idx": 92
+    },
+    {
+      "rank": 4,
+      "name": "aps_verbal",
+      "mi_score": 0.030589115408912848,
+      "orig_col_idx": 13
+    },
+    {
+      "rank": 5,
+      "name": "pred_eyes",
+      "mi_score": 0.02675773353350941,
+      "orig_col_idx": 42
+    },
+    {
+      "rank": 6,
+      "name": "aps_motor",
+      "mi_score": 0.026094028888116405,
+      "orig_col_idx": 12
+    },
+    {
+      "rank": 7,
+      "name": "lab_mean_bun",
+      "mi_score": 0.025058800022860206,
+      "orig_col_idx": 67
+    },
+    {
+      "rank": 8,
+      "name": "aps_ph",
+      "mi_score": 0.023833813111040048,
+      "orig_col_idx": 22
+    },
+    {
+      "rank": 9,
+      "name": "vital_systemicsystolic_min",
+      "mi_score": 0.023185675112693538,
+      "orig_col_idx": 102
+    },
+    {
+      "rank": 10,
+      "name": "vital_respiration_min",
+      "mi_score": 0.022517440198832173,
+      "orig_col_idx": 98
+    },
+    {
+      "rank": 11,
+      "name": "vital_heartrate_std",
+      "mi_score": 0.022173222523891756,
+      "orig_col_idx": 96
+    },
+    {
+      "rank": 12,
+      "name": "pred_verbal",
+      "mi_score": 0.021152494792346266,
+      "orig_col_idx": 40
+    },
+    {
+      "rank": 13,
+      "name": "lab_max_hco3",
+      "mi_score": 0.020525001290507827,
+      "orig_col_idx": 61
+    },
+    {
+      "rank": 14,
+      "name": "vital_sao2_mean",
+      "mi_score": 0.020077970225096164,
+      "orig_col_idx": 89
+    },
+    {
+      "rank": 15,
+      "name": "vital_respiration_std",
+      "mi_score": 0.01953051224789215,
+      "orig_col_idx": 100
+    },
+    {
+      "rank": 16,
+      "name": "lab_min_hco3",
+      "mi_score": 0.019435784328017736,
+      "orig_col_idx": 79
+    },
+    {
+      "rank": 17,
+      "name": "pred_ventday1",
+      "mi_score": 0.01909005844585354,
+      "orig_col_idx": 55
+    },
+    {
+      "rank": 18,
+      "name": "apacheadmissiondx_Cardiac arrest (with or without respiratory arrest; for respiratory arrest see Respiratory System)",
+      "mi_score": 0.018707461718438845,
+      "orig_col_idx": 182
+    },
+    {
+      "rank": 19,
+      "name": "lab_min_bun",
+      "mi_score": 0.018527902501390248,
+      "orig_col_idx": 76
+    },
+    {
+      "rank": 20,
+      "name": "aps_vent",
+      "mi_score": 0.01805091289421501,
+      "orig_col_idx": 9
+    },
+    {
+      "rank": 21,
+      "name": "lab_mean_creatinine",
+      "mi_score": 0.017963103616343457,
+      "orig_col_idx": 68
+    },
+    {
+      "rank": 22,
+      "name": "aps_eyes",
+      "mi_score": 0.01626891911053785,
+      "orig_col_idx": 11
+    },
+    {
+      "rank": 23,
+      "name": "pred_motor",
+      "mi_score": 0.01568485397462749,
+      "orig_col_idx": 41
+    },
+    {
+      "rank": 24,
+      "name": "lab_max_creatinine",
+      "mi_score": 0.015017960461984226,
+      "orig_col_idx": 59
+    },
+    {
+      "rank": 25,
+      "name": "vital_systemicsystolic_mean",
+      "mi_score": 0.014874041353741818,
+      "orig_col_idx": 101
+    },
+    {
+      "rank": 26,
+      "name": "vital_systemicdiastolic_min",
+      "mi_score": 0.014492302793964074,
+      "orig_col_idx": 106
+    },
+    {
+      "rank": 27,
+      "name": "apacheadmissiondx_Anaphylaxis",
+      "mi_score": 0.014448548433680486,
+      "orig_col_idx": 144
+    },
+    {
+      "rank": 28,
+      "name": "aps_meanbp",
+      "mi_score": 0.013917147745500236,
+      "orig_col_idx": 21
+    },
+    {
+      "rank": 29,
+      "name": "lab_mean_hco3",
+      "mi_score": 0.013759498210919263,
+      "orig_col_idx": 70
+    },
+    {
+      "rank": 30,
+      "name": "vital_systemicmean_min",
+      "mi_score": 0.013265898849134095,
+      "orig_col_idx": 110
+    },
+    {
+      "rank": 31,
+      "name": "lab_max_bun",
+      "mi_score": 0.013153304298907598,
+      "orig_col_idx": 58
+    },
+    {
+      "rank": 32,
+      "name": "pred_creatinine",
+      "mi_score": 0.012943934543594438,
+      "orig_col_idx": 57
+    },
+    {
+      "rank": 33,
+      "name": "lab_min_creatinine",
+      "mi_score": 0.012108507473886254,
+      "orig_col_idx": 77
+    },
+    {
+      "rank": 34,
+      "name": "pred_bedcount",
+      "mi_score": 0.011958378060211272,
+      "orig_col_idx": 37
+    },
+    {
+      "rank": 35,
+      "name": "aps_pao2",
+      "mi_score": 0.011556147834850261,
+      "orig_col_idx": 26
+    },
+    {
+      "rank": 36,
+      "name": "lab_mean_wbc_x_1000",
+      "mi_score": 0.011429042278271018,
+      "orig_col_idx": 75
+    },
+    {
+      "rank": 37,
+      "name": "apacheadmissiondx_Hepatic failure, acute",
+      "mi_score": 0.011299885150872546,
+      "orig_col_idx": 269
+    },
+    {
+      "rank": 38,
+      "name": "aps_heartrate",
+      "mi_score": 0.011285753002056698,
+      "orig_col_idx": 20
+    },
+    {
+      "rank": 39,
+      "name": "aps_bilirubin",
+      "mi_score": 0.010934241400124556,
+      "orig_col_idx": 30
+    },
+    {
+      "rank": 40,
+      "name": "aps_albumin",
+      "mi_score": 0.010907551477302047,
+      "orig_col_idx": 25
+    },
+    {
+      "rank": 41,
+      "name": "apacheadmissiondx_Kidney transplant",
+      "mi_score": 0.010691164523167318,
+      "orig_col_idx": 281
+    },
+    {
+      "rank": 42,
+      "name": "apacheadmissiondx_Tamponade, pericardial",
+      "mi_score": 0.01032984789204261,
+      "orig_col_idx": 352
+    },
+    {
+      "rank": 43,
+      "name": "admissionweight",
+      "mi_score": 0.01019241306485208,
+      "orig_col_idx": 5
+    },
+    {
+      "rank": 44,
+      "name": "aps_fio2",
+      "mi_score": 0.010183767772046437,
+      "orig_col_idx": 31
+    },
+    {
+      "rank": 45,
+      "name": "apacheadmissiondx_Ablation or mapping of cardiac conduction pathway",
+      "mi_score": 0.0099708854449585,
+      "orig_col_idx": 139
+    },
+    {
+      "rank": 46,
+      "name": "aps_respiratoryrate",
+      "mi_score": 0.009869904773333271,
+      "orig_col_idx": 18
+    },
+    {
+      "rank": 47,
+      "name": "apacheadmissiondx_Cancer, esophageal",
+      "mi_score": 0.009747671388596224,
+      "orig_col_idx": 175
+    },
+    {
+      "rank": 48,
+      "name": "aps_temperature",
+      "mi_score": 0.00952660221715318,
+      "orig_col_idx": 17
+    },
+    {
+      "rank": 49,
+      "name": "apacheadmissiondx_Unknown",
+      "mi_score": 0.009367023579978095,
+      "orig_col_idx": 366
+    },
+    {
+      "rank": 50,
+      "name": "lab_min_potassium",
+      "mi_score": 0.009329391711455637,
+      "orig_col_idx": 82
+    },
+    {
+      "rank": 51,
+      "name": "vital_heartrate_max",
+      "mi_score": 0.009306066323979678,
+      "orig_col_idx": 95
+    },
+    {
+      "rank": 52,
+      "name": "lab_min_platelets_x_1000",
+      "mi_score": 0.009146341114308676,
+      "orig_col_idx": 81
+    },
+    {
+      "rank": 53,
+      "name": "apacheadmissiondx_Neuromuscular medical, other",
+      "mi_score": 0.009111346880059878,
+      "orig_col_idx": 297
+    },
+    {
+      "rank": 54,
+      "name": "lab_mean_glucose",
+      "mi_score": 0.0090859701032171,
+      "orig_col_idx": 69
+    },
+    {
+      "rank": 55,
+      "name": "apacheadmissiondx_Diabetic ketoacidosis",
+      "mi_score": 0.009009400094387221,
+      "orig_col_idx": 212
+    },
+    {
+      "rank": 56,
+      "name": "apacheadmissiondx_Complications of previous open-heart surgery, surgery for (i.e. bleeding, infection, mediastinal rewiring,leaking aortic graft etc.)",
+      "mi_score": 0.008999748089483228,
+      "orig_col_idx": 206
+    },
+    {
+      "rank": 57,
+      "name": "apacheadmissiondx_Respiratory - medical, other",
+      "mi_score": 0.008943911714939023,
+      "orig_col_idx": 328
+    },
+    {
+      "rank": 58,
+      "name": "apacheadmissiondx_Cancer-other GI tract, surgery for (i.e., hepatoma, gallbladder etc.)",
+      "mi_score": 0.008795727556234922,
+      "orig_col_idx": 180
+    },
+    {
+      "rank": 59,
+      "name": "aps_pco2",
+      "mi_score": 0.008715393088883028,
+      "orig_col_idx": 27
+    },
+    {
+      "rank": 60,
+      "name": "lab_mean_platelets_x_1000",
+      "mi_score": 0.008690326889869482,
+      "orig_col_idx": 72
+    }
+  ],
+  "features_col_order": [
+    "admissionweight",
+    "aps_vent",
+    "aps_eyes",
+    "aps_motor",
+    "aps_verbal",
+    "aps_temperature",
+    "aps_respiratoryrate",
+    "aps_heartrate",
+    "aps_meanbp",
+    "aps_ph",
+    "aps_albumin",
+    "aps_pao2",
+    "aps_pco2",
+    "aps_bilirubin",
+    "aps_fio2",
+    "pred_bedcount",
+    "pred_verbal",
+    "pred_motor",
+    "pred_eyes",
+    "pred_ventday1",
+    "pred_creatinine",
+    "lab_max_bun",
+    "lab_max_creatinine",
+    "lab_max_hco3",
+    "lab_mean_bun",
+    "lab_mean_creatinine",
+    "lab_mean_glucose",
+    "lab_mean_hco3",
+    "lab_mean_platelets_x_1000",
+    "lab_mean_wbc_x_1000",
+    "lab_min_bun",
+    "lab_min_creatinine",
+    "lab_min_hco3",
+    "lab_min_platelets_x_1000",
+    "lab_min_potassium",
+    "vital_sao2_mean",
+    "vital_sao2_min",
+    "vital_sao2_std",
+    "vital_heartrate_min",
+    "vital_heartrate_max",
+    "vital_heartrate_std",
+    "vital_respiration_min",
+    "vital_respiration_std",
+    "vital_systemicsystolic_mean",
+    "vital_systemicsystolic_min",
+    "vital_systemicdiastolic_min",
+    "vital_systemicmean_min",
+    "apacheadmissiondx_Ablation or mapping of cardiac conduction pathway",
+    "apacheadmissiondx_Anaphylaxis",
+    "apacheadmissiondx_Cancer, esophageal",
+    "apacheadmissiondx_Cancer-other GI tract, surgery for (i.e., hepatoma, gallbladder etc.)",
+    "apacheadmissiondx_Cardiac arrest (with or without respiratory arrest; for respiratory arrest see Respiratory System)",
+    "apacheadmissiondx_Complications of previous open-heart surgery, surgery for (i.e. bleeding, infection, mediastinal rewiring,leaking aortic graft etc.)",
+    "apacheadmissiondx_Diabetic ketoacidosis",
+    "apacheadmissiondx_Hepatic failure, acute",
+    "apacheadmissiondx_Kidney transplant",
+    "apacheadmissiondx_Neuromuscular medical, other",
+    "apacheadmissiondx_Respiratory - medical, other",
+    "apacheadmissiondx_Tamponade, pericardial",
+    "apacheadmissiondx_Unknown"
+  ],
+  "mi_scores_col_order": [
+    0.01019241306485208,
+    0.01805091289421501,
+    0.01626891911053785,
+    0.026094028888116405,
+    0.030589115408912848,
+    0.00952660221715318,
+    0.009869904773333271,
+    0.011285753002056698,
+    0.013917147745500236,
+    0.023833813111040048,
+    0.010907551477302047,
+    0.011556147834850261,
+    0.008715393088883028,
+    0.010934241400124556,
+    0.010183767772046437,
+    0.011958378060211272,
+    0.021152494792346266,
+    0.01568485397462749,
+    0.02675773353350941,
+    0.01909005844585354,
+    0.012943934543594438,
+    0.013153304298907598,
+    0.015017960461984226,
+    0.020525001290507827,
+    0.025058800022860206,
+    0.017963103616343457,
+    0.0090859701032171,
+    0.013759498210919263,
+    0.008690326889869482,
+    0.011429042278271018,
+    0.018527902501390248,
+    0.012108507473886254,
+    0.019435784328017736,
+    0.009146341114308676,
+    0.009329391711455637,
+    0.020077970225096164,
+    0.04344551318412848,
+    0.0401940207548086,
+    0.05527131063088597,
+    0.009306066323979678,
+    0.022173222523891756,
+    0.022517440198832173,
+    0.01953051224789215,
+    0.014874041353741818,
+    0.023185675112693538,
+    0.014492302793964074,
+    0.013265898849134095,
+    0.0099708854449585,
+    0.014448548433680486,
+    0.009747671388596224,
+    0.008795727556234922,
+    0.018707461718438845,
+    0.008999748089483228,
+    0.009009400094387221,
+    0.011299885150872546,
+    0.010691164523167318,
+    0.009111346880059878,
+    0.008943911714939023,
+    0.01032984789204261,
+    0.009367023579978095
+  ],
+  "train_idx_hash": "20ca130609cc9b57aa96105ddc9a2e21aaaf3128ef9028073dade55e4fa5abc6",
+  "test_idx_hash": "4e3f2db2b3c9ccaaca208255d07f0d0031884d7e2285cde21ebced260b8e66ca",
+  "benchmark_reconciliation": {
+    "executed_run_hash": "4f4a66036e869328b354fb528e8dface5ff2981c9376f12fc517c594a2b91ded",
+    "reconstruction_hash": "2366a3ca471b07bbf919df859360c6777eadc419c9f536a5e4089a52edfc4873",
+    "hash_matches": false,
+    "full_60_list_recoverable": false,
+    "full_60_list_recoverable_note": "phase6_c0_lock.json stores only the top-10 features, not the full ordered 60-feature list. The executed_run_hash cannot be independently verified because the complete ordered list from the original execution is not preserved.",
+    "top10_in_reconstruction": true,
+    "top10_verified_note": "All 10 lock top-10 features appear in the reconstruction. This verifies only that these 10 features were selected; it does not confirm that the same 60 features were selected in the same order.",
+    "near_tied_rank_swaps_in_top10": [
+      "apacheadmissiondx_Cardiac arrest (with or without respiratory arrest; for respiratory arrest see Respiratory System)",
+      "lab_min_hco3",
+      "pred_motor"
+    ]
+  }
+}

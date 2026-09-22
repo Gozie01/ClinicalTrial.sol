@@ -1,0 +1,28 @@
+canonical_name,source_col,sites,transformation,included
+participant_id,Record ID (prefixed by site),"A,B,C",site + '_' + Record ID,True
+site,_site (injected),"A,B,C",literal site letter,True
+randomized,Randomized?,"A,B",raw string Yes/No,True
+treatment_arm,Randomization,"A,B",raw string Intervention/Control,True
+sex,Sex ,"A,B",raw string,True
+age,Age,"A,B",numeric,True
+ethnicity,Ethnicity  ,"A,B",raw string,True
+sbp_baseline,Systolic Blood Pressure Avg,"A,B",numeric (Baseline event),True
+dbp_baseline,Diastolic Blood Pressure  Avg,"A,B",numeric (Baseline event),True
+mases_baseline,Calculated MASES Total score,"A,B",numeric (Baseline event),True
+visit_6m_attended,presence of 6-Month Follow-up main form row,"A,B",1 if row exists else 0,True
+visit_12m_attended,presence of 12-Month Follow-up main form row,"A,B",1 if row exists else 0,True
+study_completed,Did the patient/participant complete the study?,"A,B","1 if Yes, 0 if No, None if missing",True
+explicit_noncompletion,Did the patient/participant complete the study?,"A,B",1 if No else 0,True
+missing_eos_record,End of Study event presence,"A,B",1 if no EoS row found,True
+nonattendance_12m,derived,"A,B",1 - visit_12m_attended (primary outcome),True
+nonattendance_6m,derived,"A,B",1 - visit_6m_attended (treatment-response endpoint),True
+sbp_change_6m,Systolic Blood Pressure Avg at 6m minus baseline,"A,B",numeric difference,True
+sbp_change_12m,Systolic Blood Pressure Avg at 12m minus baseline,"A,B",numeric difference,True
+dbp_change_6m,Diastolic Blood Pressure  Avg at 6m minus baseline,"A,B",numeric difference,True
+dbp_change_12m,Diastolic Blood Pressure  Avg at 12m minus baseline,"A,B",numeric difference,True
+mases_change_6m,Calculated MASES Total score at 6m minus baseline,"A,B","numeric difference (self-efficacy, NOT objective adherence)",True
+mases_change_12m,Calculated MASES Total score at 12m minus baseline,"A,B",numeric difference,True
+daily_adherence_pct,NOT AVAILABLE,none,absent from public release,False
+lottery_outcome,NOT AVAILABLE,none,absent from public release,False
+incentive_payment_amount,NOT AVAILABLE,none,absent from public release,False
+adequate_adherence_pct_6m,NOT AVAILABLE,none,absent from public release — cannot reproduce 71% vs 34%,False

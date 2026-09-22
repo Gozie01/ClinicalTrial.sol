@@ -1,0 +1,100 @@
+
+======================================================================
+  P3 REPORT — BETTER-BP Nonattendance Prediction and FL
+======================================================================
+Dataset: 402 randomized participants (Site A=312, B=90)
+Features retained: 30
+
+
+======================================================================
+  Feature completeness (randomized participants)
+======================================================================
+  illicit                       :  96.3% complete (387 non-missing)
+  edu_less_hs                   :  98.0% complete (394 non-missing)
+  phq8                          :  98.0% complete (394 non-missing)
+  sf12_mcs                      :  98.3% complete (395 non-missing)
+  alcohol                       :  98.3% complete (395 non-missing)
+  sf12_pcs                      :  98.3% complete (395 non-missing)
+  tsrq_amotivation              :  98.8% complete (397 non-missing)
+  tsrq_controlled               :  98.8% complete (397 non-missing)
+  tsrq_autonomous               :  98.8% complete (397 non-missing)
+  mases                         :  98.8% complete (397 non-missing)
+  dbp_baseline                  :  99.8% complete (401 non-missing)
+  charlson                      :  99.8% complete (401 non-missing)
+  sbp_baseline                  :  99.8% complete (401 non-missing)
+  obese                         : 100.0% complete (402 non-missing)
+  sex_female                    : 100.0% complete (402 non-missing)
+  hispanic                      : 100.0% complete (402 non-missing)
+  gi_bleeding                   : 100.0% complete (402 non-missing)
+  afib                          : 100.0% complete (402 non-missing)
+  race_other                    : 100.0% complete (402 non-missing)
+  ins_medicaid                  : 100.0% complete (402 non-missing)
+  bmi                           : 100.0% complete (402 non-missing)
+  age_top_coded                 : 100.0% complete (402 non-missing)
+  race_black                    : 100.0% complete (402 non-missing)
+  tobacco                       : 100.0% complete (402 non-missing)
+  marital_partnered             : 100.0% complete (402 non-missing)
+  race_white                    : 100.0% complete (402 non-missing)
+  ins_uninsured                 : 100.0% complete (402 non-missing)
+  ins_private                   : 100.0% complete (402 non-missing)
+  ins_medicare                  : 100.0% complete (402 non-missing)
+  age                           : 100.0% complete (402 non-missing)
+
+======================================================================
+  Primary outcome: 6-month nonattendance
+======================================================================
+
+Model              PR-AUC   ±95%CI    AUROC     MCC   BalAcc   Brier
+-----------------------------------------------------------------
+  LR-A             0.1944 ±0.0182   0.5281 -0.0181   0.4959  0.1359
+  LR-B              0.179 ±0.0237   0.4785 -0.0169   0.4902  0.1982
+  LR-C             0.1986 ±0.0221   0.5172  -0.027   0.4948  0.1339
+  EN-C             0.1819 ±0.0176   0.5182     0.0      0.5  0.1257
+  GBM-C            0.2262 ±0.023    0.5469  0.0782   0.5238  0.1447
+  MLP-C            0.1861 ±0.0286    0.471     0.0   0.4984  0.1617
+  FL-FedAvg        0.1935 ±0.0184   0.5211 -0.0117    0.498  0.1406
+  FL-FedAvg-E      0.1918 ±0.0197   0.5036 -0.0148   0.4959  0.1473
+  FL-FedProx       0.1936 ±0.0184   0.5213 -0.0117    0.498  0.1408
+
+======================================================================
+  Secondary outcome: 12-month nonattendance
+======================================================================
+
+Model              PR-AUC   ±95%CI    AUROC   Brier
+--------------------------------------------------
+  LR-A             0.2937 ±0.0248   0.5427  0.1876
+  LR-B             0.2763 ±0.0258   0.4989  0.2429
+  LR-C             0.2841 ±0.0265   0.5238  0.1838
+  EN-C              0.284 ±0.0199   0.5419  0.1741
+  GBM-C            0.2583 ±0.0234   0.4921  0.2194
+  MLP-C            0.2639 ±0.0254   0.4794  0.1982
+  FL-FedAvg        0.2952 ±0.024    0.5319   0.184
+  FL-FedAvg-E      0.2827 ±0.0233   0.5243  0.1908
+  FL-FedProx       0.2954 ±0.0242    0.532  0.1841
+
+======================================================================
+  Cross-site transfer — PR-AUC (averaged across 5 seeds)
+======================================================================
+
+  A_train_B_test:
+    LR-local        : PR-AUC = 0.2517 (SD=0.0000)
+    EN-local        : PR-AUC = 0.2172 (SD=0.0000)
+    GBM-local       : PR-AUC = 0.2474 (SD=0.0000)
+    FL-local        : PR-AUC = 0.2386 (SD=0.0030)
+
+  B_train_A_test:
+    LR-local        : PR-AUC = 0.1331 (SD=0.0000)
+    EN-local        : PR-AUC = 0.1560 (SD=0.0000)
+    GBM-local       : PR-AUC = 0.1552 (SD=0.0000)
+    FL-local        : PR-AUC = 0.1489 (SD=0.0011)
+
+
+======================================================================
+  Interpretation notes
+======================================================================
+  - Primary metric is PR-AUC because 6m nonattendance is imbalanced (14.4%).
+  - LR-B (site B alone, n=90) is expected to be noisy; reported for transparency.
+  - FL models use no Byzantine-robustness mechanisms (only 2 clients; not applicable).
+  - Median, trimmed mean, and Krum are NOT reported here; see eICU P6 for those.
+  - Uplift estimation (P4) will be built from features_uplift.parquet.
+  - DQN policy is unsuitable here; BETTER-BP has no sequential action data.

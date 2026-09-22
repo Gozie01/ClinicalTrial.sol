@@ -1,0 +1,34 @@
+{
+  "N_planned_full_factorial": 1200,
+  "N_planned_formula": "8 attacks x 3 f-values x 5 defenses x 5 seeds x 2 datasets",
+  "N_completed": 1100,
+  "N_krum_not_applicable_flagged": 35,
+  "N_krum_na_note": "eICU K=8, defense=krum, f=3: condition K>2f+2 (8>8) is False. Ran with FedAvg fallback; flagged krum_applicable=False in output.",
+  "N_f_invariant_skipped": 100,
+  "N_f_invariant_note": "attack='none' with 0 malicious clients is identical for all f-values; ran once at f=0 per defense x seed x dataset.",
+  "N_failed": 0,
+  "accounting_check": "1100+100=1200 == 1200",
+  "analysis_valid": 1065,
+  "analysis_note": "1100 completed; 35 krum N/A excluded from krum analysis (fallback results retained as fedavg); 1065 fully valid.",
+  "per_dataset": {
+    "eicu": 550,
+    "cimas": 550
+  },
+  "per_attack": {
+    "alie": 150,
+    "backdoor": 150,
+    "label_flip": 150,
+    "model_replace": 150,
+    "none": 50,
+    "random_gauss": 150,
+    "scaled_poison": 150,
+    "sign_flip": 150
+  },
+  "per_defense": {
+    "clipping": 220,
+    "coord_median": 220,
+    "fedavg": 220,
+    "krum": 220,
+    "trimmed_mean": 220
+  }
+}

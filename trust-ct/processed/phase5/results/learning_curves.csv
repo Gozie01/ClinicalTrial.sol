@@ -1,0 +1,161 @@
+experiment,scenario,scenario_label,round,auroc,pr_auc,participation_rate,active_clients,cumulative_records,comm_cost_params,incentive_util,n_incentivized
+betterbp,C0,No incentive,1,0.52862,0.18821,0.5622,2,226,24,0.0,0
+betterbp,C0,No incentive,2,0.55608,0.20077,0.5597,2,451,24,0.0,0
+betterbp,C0,No incentive,3,0.55834,0.17928,0.5721,2,681,24,0.0,0
+betterbp,C0,No incentive,4,0.54842,0.19619,0.5423,2,899,24,0.0,0
+betterbp,C0,No incentive,5,0.52691,0.1889,0.5522,2,1121,24,0.0,0
+betterbp,C0,No incentive,6,0.55749,0.18807,0.5348,2,1336,24,0.0,0
+betterbp,C0,No incentive,7,0.51814,0.19268,0.5348,2,1551,24,0.0,0
+betterbp,C0,No incentive,8,0.53889,0.1768,0.5697,2,1780,24,0.0,0
+betterbp,C0,No incentive,9,0.54441,0.18397,0.5224,2,1990,24,0.0,0
+betterbp,C0,No incentive,10,0.55603,0.20836,0.6244,2,2241,24,0.0,0
+betterbp,C0,No incentive,11,0.55253,0.17248,0.6368,2,2497,24,0.0,0
+betterbp,C0,No incentive,12,0.55333,0.22555,0.5796,2,2730,24,0.0,0
+betterbp,C0,No incentive,13,0.50496,0.15831,0.5597,2,2955,24,0.0,0
+betterbp,C0,No incentive,14,0.55724,0.18736,0.5547,2,3178,24,0.0,0
+betterbp,C0,No incentive,15,0.56425,0.18572,0.5423,2,3396,24,0.0,0
+betterbp,C0,No incentive,16,0.55122,0.21652,0.5224,2,3606,24,0.0,0
+betterbp,C0,No incentive,17,0.51017,0.14568,0.4801,2,3799,24,0.0,0
+betterbp,C0,No incentive,18,0.5609,0.22014,0.5796,2,4032,24,0.0,0
+betterbp,C0,No incentive,19,0.56816,0.20674,0.5473,2,4252,24,0.0,0
+betterbp,C0,No incentive,20,0.55197,0.21545,0.5498,2,4473,24,0.0,0
+betterbp,C1,Random allocation,1,0.52777,0.20088,0.5025,2,202,24,1.0,268
+betterbp,C1,Random allocation,2,0.54466,0.20756,0.5498,2,423,24,1.0,268
+betterbp,C1,Random allocation,3,0.55839,0.18912,0.5473,2,643,24,1.0,268
+betterbp,C1,Random allocation,4,0.53954,0.21145,0.5323,2,857,24,1.0,268
+betterbp,C1,Random allocation,5,0.53338,0.181,0.5448,2,1076,24,1.0,268
+betterbp,C1,Random allocation,6,0.54882,0.20429,0.505,2,1279,24,1.0,268
+betterbp,C1,Random allocation,7,0.51874,0.19912,0.505,2,1482,24,1.0,268
+betterbp,C1,Random allocation,8,0.52952,0.19409,0.5323,2,1696,24,1.0,268
+betterbp,C1,Random allocation,9,0.54912,0.17333,0.51,2,1901,24,1.0,268
+betterbp,C1,Random allocation,10,0.55659,0.2108,0.602,2,2143,24,1.0,268
+betterbp,C1,Random allocation,11,0.5643,0.21148,0.6244,2,2394,24,1.0,268
+betterbp,C1,Random allocation,12,0.5606,0.21536,0.5697,2,2623,24,1.0,268
+betterbp,C1,Random allocation,13,0.50246,0.17219,0.5299,2,2836,24,1.0,268
+betterbp,C1,Random allocation,14,0.54436,0.17906,0.5199,2,3045,24,1.0,268
+betterbp,C1,Random allocation,15,0.55924,0.21031,0.5323,2,3259,24,1.0,268
+betterbp,C1,Random allocation,16,0.53208,0.19188,0.4826,2,3453,24,1.0,268
+betterbp,C1,Random allocation,17,0.51148,0.16778,0.4502,2,3634,24,1.0,268
+betterbp,C1,Random allocation,18,0.56045,0.21228,0.5522,2,3856,24,1.0,268
+betterbp,C1,Random allocation,19,0.57252,0.2351,0.5373,2,4072,24,1.0,268
+betterbp,C1,Random allocation,20,0.53814,0.23261,0.5249,2,4283,24,1.0,268
+betterbp,C2,FL nonattendance-risk ranking,1,0.51679,0.18443,0.5398,2,217,24,1.0,268
+betterbp,C2,FL nonattendance-risk ranking,2,0.55418,0.22057,0.5796,2,450,24,1.0,268
+betterbp,C2,FL nonattendance-risk ranking,3,0.55749,0.18929,0.5697,2,679,24,1.0,268
+betterbp,C2,FL nonattendance-risk ranking,4,0.54175,0.21427,0.5373,2,895,24,1.0,268
+betterbp,C2,FL nonattendance-risk ranking,5,0.53032,0.19297,0.5672,2,1123,24,1.0,268
+betterbp,C2,FL nonattendance-risk ranking,6,0.55042,0.19954,0.51,2,1328,24,1.0,268
+betterbp,C2,FL nonattendance-risk ranking,7,0.51624,0.19628,0.5373,2,1544,24,1.0,268
+betterbp,C2,FL nonattendance-risk ranking,8,0.55463,0.19998,0.5771,2,1776,24,1.0,268
+betterbp,C2,FL nonattendance-risk ranking,9,0.55634,0.1789,0.5373,2,1992,24,1.0,268
+betterbp,C2,FL nonattendance-risk ranking,10,0.55914,0.21041,0.5622,2,2218,24,1.0,268
+betterbp,C2,FL nonattendance-risk ranking,11,0.57182,0.20685,0.6169,2,2466,24,1.0,268
+betterbp,C2,FL nonattendance-risk ranking,12,0.55503,0.22908,0.5672,2,2694,24,1.0,268
+betterbp,C2,FL nonattendance-risk ranking,13,0.51188,0.14151,0.5473,2,2914,24,1.0,268
+betterbp,C2,FL nonattendance-risk ranking,14,0.54551,0.19409,0.5,2,3115,24,1.0,268
+betterbp,C2,FL nonattendance-risk ranking,15,0.56014,0.21507,0.5522,2,3337,24,1.0,268
+betterbp,C2,FL nonattendance-risk ranking,16,0.52491,0.18686,0.51,2,3542,24,1.0,268
+betterbp,C2,FL nonattendance-risk ranking,17,0.52391,0.17015,0.4876,2,3738,24,1.0,268
+betterbp,C2,FL nonattendance-risk ranking,18,0.55413,0.21756,0.5423,2,3956,24,1.0,268
+betterbp,C2,FL nonattendance-risk ranking,19,0.5623,0.24543,0.5622,2,4182,24,1.0,268
+betterbp,C2,FL nonattendance-risk ranking,20,0.53544,0.23268,0.5597,2,4407,24,1.0,268
+betterbp,C3,DR uplift ranking,1,0.53724,0.2049,0.5721,2,230,24,1.0,268
+betterbp,C3,DR uplift ranking,2,0.54972,0.20849,0.6045,2,473,24,1.0,268
+betterbp,C3,DR uplift ranking,3,0.55984,0.18525,0.602,2,715,24,1.0,268
+betterbp,C3,DR uplift ranking,4,0.5407,0.21466,0.5821,2,949,24,1.0,268
+betterbp,C3,DR uplift ranking,5,0.53579,0.18549,0.5995,2,1190,24,1.0,268
+betterbp,C3,DR uplift ranking,6,0.55493,0.2013,0.5597,2,1415,24,1.0,268
+betterbp,C3,DR uplift ranking,7,0.5212,0.20117,0.5697,2,1644,24,1.0,268
+betterbp,C3,DR uplift ranking,8,0.55994,0.19388,0.6045,2,1887,24,1.0,268
+betterbp,C3,DR uplift ranking,9,0.55172,0.17071,0.5697,2,2116,24,1.0,268
+betterbp,C3,DR uplift ranking,10,0.55684,0.22483,0.6542,2,2379,24,1.0,268
+betterbp,C3,DR uplift ranking,11,0.56796,0.20407,0.6617,2,2645,24,1.0,268
+betterbp,C3,DR uplift ranking,12,0.56125,0.22887,0.6294,2,2898,24,1.0,268
+betterbp,C3,DR uplift ranking,13,0.50887,0.13947,0.5896,2,3135,24,1.0,268
+betterbp,C3,DR uplift ranking,14,0.54285,0.2044,0.5821,2,3369,24,1.0,268
+betterbp,C3,DR uplift ranking,15,0.55779,0.21354,0.5771,2,3601,24,1.0,268
+betterbp,C3,DR uplift ranking,16,0.55298,0.21454,0.5498,2,3822,24,1.0,268
+betterbp,C3,DR uplift ranking,17,0.51834,0.17036,0.5199,2,4031,24,1.0,268
+betterbp,C3,DR uplift ranking,18,0.5634,0.21917,0.6045,2,4274,24,1.0,268
+betterbp,C3,DR uplift ranking,19,0.56716,0.24893,0.592,2,4512,24,1.0,268
+betterbp,C3,DR uplift ranking,20,0.54581,0.22508,0.5821,2,4746,24,1.0,268
+cimas,C0,No incentive,1,0.7848,0.83901,0.4535,23,5736,483,0.0,0
+cimas,C0,No incentive,2,0.78475,0.83898,0.4558,23,11501,483,0.0,0
+cimas,C0,No incentive,3,0.7854,0.8396,0.45,23,17193,483,0.0,0
+cimas,C0,No incentive,4,0.78396,0.83829,0.4532,23,22925,483,0.0,0
+cimas,C0,No incentive,5,0.78397,0.83774,0.4482,23,28594,483,0.0,0
+cimas,C0,No incentive,6,0.78434,0.83887,0.4526,23,34319,483,0.0,0
+cimas,C0,No incentive,7,0.78613,0.83999,0.4637,23,40184,483,0.0,0
+cimas,C0,No incentive,8,0.78467,0.83843,0.449,23,45863,483,0.0,0
+cimas,C0,No incentive,9,0.78471,0.83888,0.4532,23,51596,483,0.0,0
+cimas,C0,No incentive,10,0.7842,0.83873,0.4551,23,57353,483,0.0,0
+cimas,C0,No incentive,11,0.78505,0.83912,0.4532,23,63086,483,0.0,0
+cimas,C0,No incentive,12,0.78491,0.83945,0.4506,23,68786,483,0.0,0
+cimas,C0,No incentive,13,0.78477,0.83919,0.4496,23,74473,483,0.0,0
+cimas,C0,No incentive,14,0.78476,0.83894,0.4487,23,80148,483,0.0,0
+cimas,C0,No incentive,15,0.78497,0.83877,0.4545,23,85897,483,0.0,0
+cimas,C0,No incentive,16,0.78478,0.83903,0.4573,23,91681,483,0.0,0
+cimas,C0,No incentive,17,0.78524,0.83898,0.4531,23,97412,483,0.0,0
+cimas,C0,No incentive,18,0.78513,0.83896,0.4588,23,103215,483,0.0,0
+cimas,C0,No incentive,19,0.78542,0.83975,0.4539,23,108956,483,0.0,0
+cimas,C0,No incentive,20,0.78496,0.83884,0.4541,23,114700,483,0.0,0
+cimas,C1,Random allocation,1,0.7848,0.83896,0.5332,23,6745,483,1.0,8433
+cimas,C1,Random allocation,2,0.7849,0.83894,0.5322,23,13477,483,1.0,8433
+cimas,C1,Random allocation,3,0.78568,0.83971,0.535,23,20244,483,1.0,8433
+cimas,C1,Random allocation,4,0.78451,0.83859,0.5344,23,27004,483,1.0,8433
+cimas,C1,Random allocation,5,0.78443,0.83807,0.5324,23,33738,483,1.0,8433
+cimas,C1,Random allocation,6,0.78455,0.83894,0.5408,23,40579,483,1.0,8433
+cimas,C1,Random allocation,7,0.78607,0.84012,0.5438,23,47458,483,1.0,8433
+cimas,C1,Random allocation,8,0.78461,0.83854,0.5337,23,54209,483,1.0,8433
+cimas,C1,Random allocation,9,0.78485,0.83898,0.5376,23,61009,483,1.0,8433
+cimas,C1,Random allocation,10,0.78474,0.83919,0.5319,23,67737,483,1.0,8433
+cimas,C1,Random allocation,11,0.78469,0.83895,0.5359,23,74515,483,1.0,8433
+cimas,C1,Random allocation,12,0.78471,0.83938,0.5328,23,81254,483,1.0,8433
+cimas,C1,Random allocation,13,0.7851,0.8394,0.5328,23,87994,483,1.0,8433
+cimas,C1,Random allocation,14,0.78459,0.83889,0.5316,23,94718,483,1.0,8433
+cimas,C1,Random allocation,15,0.78484,0.83861,0.5385,23,101530,483,1.0,8433
+cimas,C1,Random allocation,16,0.78476,0.83916,0.5417,23,108382,483,1.0,8433
+cimas,C1,Random allocation,17,0.7849,0.83889,0.5408,23,115222,483,1.0,8433
+cimas,C1,Random allocation,18,0.78545,0.83926,0.5419,23,122076,483,1.0,8433
+cimas,C1,Random allocation,19,0.78513,0.83961,0.5373,23,128872,483,1.0,8433
+cimas,C1,Random allocation,20,0.78517,0.83911,0.5386,23,135685,483,1.0,8433
+cimas,C2,FL nonattendance-risk ranking,1,0.78474,0.83913,0.5073,23,6417,483,1.0,8433
+cimas,C2,FL nonattendance-risk ranking,2,0.78488,0.83909,0.5067,23,12826,483,1.0,8433
+cimas,C2,FL nonattendance-risk ranking,3,0.78537,0.8396,0.5057,23,19223,483,1.0,8433
+cimas,C2,FL nonattendance-risk ranking,4,0.78409,0.83847,0.5068,23,25633,483,1.0,8433
+cimas,C2,FL nonattendance-risk ranking,5,0.78387,0.83785,0.5036,23,32003,483,1.0,8433
+cimas,C2,FL nonattendance-risk ranking,6,0.78443,0.83898,0.5109,23,38466,483,1.0,8433
+cimas,C2,FL nonattendance-risk ranking,7,0.78599,0.84015,0.5177,23,45015,483,1.0,8433
+cimas,C2,FL nonattendance-risk ranking,8,0.78442,0.83848,0.5061,23,51417,483,1.0,8433
+cimas,C2,FL nonattendance-risk ranking,9,0.78467,0.839,0.5102,23,57870,483,1.0,8433
+cimas,C2,FL nonattendance-risk ranking,10,0.78428,0.839,0.5049,23,64256,483,1.0,8433
+cimas,C2,FL nonattendance-risk ranking,11,0.7846,0.83905,0.5095,23,70701,483,1.0,8433
+cimas,C2,FL nonattendance-risk ranking,12,0.78462,0.83944,0.5046,23,77084,483,1.0,8433
+cimas,C2,FL nonattendance-risk ranking,13,0.78483,0.83936,0.507,23,83497,483,1.0,8433
+cimas,C2,FL nonattendance-risk ranking,14,0.78451,0.839,0.5042,23,89875,483,1.0,8433
+cimas,C2,FL nonattendance-risk ranking,15,0.78472,0.83865,0.5098,23,96324,483,1.0,8433
+cimas,C2,FL nonattendance-risk ranking,16,0.78463,0.8392,0.5146,23,102833,483,1.0,8433
+cimas,C2,FL nonattendance-risk ranking,17,0.785,0.83905,0.5113,23,109300,483,1.0,8433
+cimas,C2,FL nonattendance-risk ranking,18,0.78527,0.83922,0.5133,23,115793,483,1.0,8433
+cimas,C2,FL nonattendance-risk ranking,19,0.78544,0.8399,0.5094,23,122236,483,1.0,8433
+cimas,C2,FL nonattendance-risk ranking,20,0.78492,0.83908,0.5106,23,128694,483,1.0,8433
+cimas,C3,DR uplift ranking,1,0.78474,0.83913,0.5073,23,6417,483,1.0,8433
+cimas,C3,DR uplift ranking,2,0.78488,0.83909,0.5067,23,12826,483,1.0,8433
+cimas,C3,DR uplift ranking,3,0.78537,0.8396,0.5057,23,19223,483,1.0,8433
+cimas,C3,DR uplift ranking,4,0.78409,0.83847,0.5068,23,25633,483,1.0,8433
+cimas,C3,DR uplift ranking,5,0.78387,0.83785,0.5036,23,32003,483,1.0,8433
+cimas,C3,DR uplift ranking,6,0.78443,0.83898,0.5109,23,38466,483,1.0,8433
+cimas,C3,DR uplift ranking,7,0.78599,0.84015,0.5177,23,45015,483,1.0,8433
+cimas,C3,DR uplift ranking,8,0.78442,0.83848,0.5061,23,51417,483,1.0,8433
+cimas,C3,DR uplift ranking,9,0.78467,0.839,0.5102,23,57870,483,1.0,8433
+cimas,C3,DR uplift ranking,10,0.78428,0.839,0.5049,23,64256,483,1.0,8433
+cimas,C3,DR uplift ranking,11,0.7846,0.83905,0.5095,23,70701,483,1.0,8433
+cimas,C3,DR uplift ranking,12,0.78462,0.83944,0.5046,23,77084,483,1.0,8433
+cimas,C3,DR uplift ranking,13,0.78483,0.83936,0.507,23,83497,483,1.0,8433
+cimas,C3,DR uplift ranking,14,0.78451,0.839,0.5042,23,89875,483,1.0,8433
+cimas,C3,DR uplift ranking,15,0.78472,0.83865,0.5098,23,96324,483,1.0,8433
+cimas,C3,DR uplift ranking,16,0.78463,0.8392,0.5146,23,102833,483,1.0,8433
+cimas,C3,DR uplift ranking,17,0.785,0.83905,0.5113,23,109300,483,1.0,8433
+cimas,C3,DR uplift ranking,18,0.78527,0.83922,0.5133,23,115793,483,1.0,8433
+cimas,C3,DR uplift ranking,19,0.78544,0.8399,0.5094,23,122236,483,1.0,8433
+cimas,C3,DR uplift ranking,20,0.78492,0.83908,0.5106,23,128694,483,1.0,8433

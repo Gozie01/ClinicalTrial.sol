@@ -1,0 +1,131 @@
+{
+  "per_site_counts": {
+    "A": {
+      "baseline_records": 381,
+      "randomized": 312,
+      "visit_6m": 273,
+      "visit_12m": 248
+    },
+    "B": {
+      "baseline_records": 111,
+      "randomized": 90,
+      "visit_6m": 71,
+      "visit_12m": 65
+    },
+    "C": {
+      "baseline_records": 1,
+      "randomized": 0
+    }
+  },
+  "primary_outcome_12m_nonattendance": {
+    "n_events": 89,
+    "pct": 22.1,
+    "n_total_randomized_ab": 402
+  },
+  "secondary_outcome_6m_nonattendance": {
+    "n_events": 58,
+    "pct": 14.4
+  },
+  "explicit_noncompletion_count": 65,
+  "missing_eos_count": 25,
+  "bp_baseline_missing_by_site": {
+    "A": 1,
+    "B": 0
+  },
+  "mandatory_checks": {
+    "C1_site_a_baseline": {
+      "description": "Site A: 381 baseline records",
+      "expected": 381,
+      "actual": 381,
+      "pass": true
+    },
+    "C2_site_a_randomized": {
+      "description": "Site A: 312 randomized participants",
+      "expected": 312,
+      "actual": 312,
+      "pass": true
+    },
+    "C3_site_b_baseline": {
+      "description": "Site B: 111 baseline records",
+      "expected": 111,
+      "actual": 111,
+      "pass": true
+    },
+    "C4_site_b_randomized": {
+      "description": "Site B: 90 randomized participants",
+      "expected": 90,
+      "actual": 90,
+      "pass": true
+    },
+    "C5_site_c_excluded": {
+      "description": "Site C: 1 baseline (screen failure), 0 randomized",
+      "expected_baseline": 1,
+      "expected_randomized": 0,
+      "actual_baseline": 1,
+      "actual_randomized": 0,
+      "pass": true
+    },
+    "C6_total_randomized": {
+      "description": "Total randomized across A+B = 402 (raw; published=400, discrepancy flagged)",
+      "expected": 402,
+      "actual": 402,
+      "pass": true,
+      "audit_flag": "402 vs published 400: two-record discrepancy unresolved; do not remove records"
+    },
+    "C7_arm_counts": {
+      "description": "Intervention=266, Control=136",
+      "expected_intervention": 266,
+      "expected_control": 136,
+      "actual_intervention": 266,
+      "actual_control": 136,
+      "pass": true
+    },
+    "C8_no_cross_site_pid_overlap": {
+      "description": "No participant ID occurs in both sites",
+      "overlap_count": 0,
+      "pass": true
+    },
+    "C9_one_row_per_participant": {
+      "description": "participants_baseline has exactly one row per participant_id",
+      "duplicate_pids": [],
+      "pass": true
+    },
+    "C10_no_leakage_in_baseline": {
+      "description": "participants_baseline contains no future-visit or completion columns",
+      "suspicious_columns": [],
+      "pass": true
+    },
+    "C1b_site_a_visit_6m": {
+      "description": "Site A: 273 attended 6-month visit",
+      "expected": 273,
+      "actual": 273,
+      "pass": true
+    },
+    "C1c_site_a_visit_12m": {
+      "description": "Site A: 248 attended 12-month visit",
+      "expected": 248,
+      "actual": 248,
+      "pass": true
+    },
+    "C2b_site_b_visit_6m": {
+      "description": "Site B: 71 attended 6-month visit",
+      "expected": 71,
+      "actual": 71,
+      "pass": true
+    },
+    "C2c_site_b_visit_12m": {
+      "description": "Site B: 65 attended 12-month visit",
+      "expected": 65,
+      "actual": 65,
+      "pass": true
+    }
+  },
+  "all_mandatory_checks_passed": true,
+  "audit_flags": [
+    "402-vs-400 randomized discrepancy: do not remove records without official exclusion rule",
+    "MASES is medication adherence SELF-EFFICACY, not objectively measured adherence",
+    "AdhereTech Bottle rows are setup/return records, not daily opening events",
+    "Formal DP cannot be claimed; clipping+noise mechanism is empirical leakage mitigation only",
+    "Site C excluded from modelling (1 non-randomized screen failure)"
+  ]
+}

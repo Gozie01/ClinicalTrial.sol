@@ -1,0 +1,104 @@
+{
+  "n_clients": 23,
+  "prev_risk_mean": 0.5646971110213067,
+  "prev_risk_std": 0.06997072320568533,
+  "prev_risk_min": 0.46203554119547663,
+  "prev_risk_q25": 0.5034510943601853,
+  "prev_risk_q75": 0.6100617828773168,
+  "prev_risk_max": 0.6929824561403508,
+  "prev_risk_iqr": 0.10661068851713151,
+  "per_client": {
+    "ASHBRITTLE   PHARMACY": {
+      "n": 110,
+      "prev_risk": 0.6181818181818182
+    },
+    "BALLANTYNE PARK PHARMACY": {
+      "n": 114,
+      "prev_risk": 0.6929824561403508
+    },
+    "CIMAS BORROWDALE OFFICE PARK PHARMACY": {
+      "n": 288,
+      "prev_risk": 0.47916666666666663
+    },
+    "CIMAS BULAWAYO PHARMACY": {
+      "n": 1073,
+      "prev_risk": 0.47996272134203166
+    },
+    "CIMAS CLINIC -MASVINGO PHARMACY": {
+      "n": 296,
+      "prev_risk": 0.5236486486486487
+    },
+    "CIMAS FIFE AVENUE PHARMACY": {
+      "n": 484,
+      "prev_risk": 0.5743801652892562
+    },
+    "CIMAS FOURTH STREET PHARMACY": {
+      "n": 2266,
+      "prev_risk": 0.6001765225066196
+    },
+    "CIMAS HCC  MUTARE PHARMACY": {
+      "n": 813,
+      "prev_risk": 0.48462484624846247
+    },
+    "CIMAS HCC CHINHOYI ST. PHARM": {
+      "n": 1347,
+      "prev_risk": 0.5560504825538233
+    },
+    "CIMAS HCC CHITUNGWIZA PHARMACY": {
+      "n": 619,
+      "prev_risk": 0.46203554119547663
+    },
+    "CIMAS HCC GWERU PHARMACY": {
+      "n": 406,
+      "prev_risk": 0.4655172413793104
+    },
+    "CIMAS HIGH GLEN PHARMACY": {
+      "n": 839,
+      "prev_risk": 0.5685339690107271
+    },
+    "CIMAS KWEKWE CLINIC- PHARMACY": {
+      "n": 378,
+      "prev_risk": 0.6693121693121693
+    },
+    "CIMAS MANRESA - PHARRMACY": {
+      "n": 439,
+      "prev_risk": 0.5489749430523918
+    },
+    "CLIQUE PHARMACY": {
+      "n": 118,
+      "prev_risk": 0.6016949152542372
+    },
+    "FAREPLAN ENTERPRISE P/L T/A CHINHOYI TOWN PHARMACY": {
+      "n": 103,
+      "prev_risk": 0.6019417475728155
+    },
+    "HEALTHLINK PHARMACY": {
+      "n": 273,
+      "prev_risk": 0.4945054945054945
+    },
+    "KENLINK KENSINGTON PHARMACY": {
+      "n": 153,
+      "prev_risk": 0.5751633986928104
+    },
+    "MEDICINE CHEST": {
+      "n": 118,
+      "prev_risk": 0.6610169491525424
+    },
+    "ROWLAND SQUARE PHARMACY": {
+      "n": 1981,
+      "prev_risk": 0.5164058556284705
+    },
+    "SOMMERDRIFT INV T/A KENLINK THE BRIDGE": {
+      "n": 121,
+      "prev_risk": 0.5123966942148761
+    },
+    "TRINITY PHARMACY -AVENUES": {
+      "n": 188,
+      "prev_risk": 0.6702127659574468
+    },
+    "WATERSHED PHARMACY": {
+      "n": 122,
+      "prev_risk": 0.6311475409836065
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "phase": "3",
+  "status": "LOCKED",
+  "config_hash": "2c523748292475f6",
+  "ni_verdicts": {
+    "FedAvg": "NONINFERIOR",
+    "FedProx": "NONINFERIOR",
+    "FedAvg-equal": "NONINFERIOR",
+    "SCAFFOLD": "NONINFERIOR",
+    "FedAdam": "NONINFERIOR"
+  },
+  "ni_lcb_values": {
+    "FedAvg": -0.0045,
+    "FedProx": -0.0047,
+    "FedAvg-equal": -0.004,
+    "SCAFFOLD": -0.004,
+    "FedAdam": -0.0095
+  },
+  "fl_vs_local_conclusion": "FL produced a numerically higher AUROC than local-only by approximately +0.0068 [95% CI -0.0031 to +0.0179], but the CI includes zero and the difference is not statistically supported at the 95% level.",
+  "fedprox_note": "At mu=0.1 the proximal gradient was 1.3% of the data gradient (median across non-initial local steps; IQR 0.8\u20131.7%). Conclude: the proximal correction was negligible under the evaluated configuration, consistent with limited optimisation heterogeneity across clients at the configured number of local steps. Dataset homogeneity is not definitively established by this observation alone.",
+  "file_hashes": {
+    "cohort_parquet_sha256": "10ff974a40af265598308fa76530714b832563419f0699b433626cb108adc62b",
+    "gate_table_corrected_csv_sha256": "bcc84f5c2224ca2478c3d3e5c88a9de6d945769d8781501400a8ed5a9e4a80d0",
+    "ni_client_level_csv_sha256": "ef46c3a13893b3ce8a21cc13f64933196d5ba6236adea64326c2c3ec52d35819",
+    "ni_sensitivity_participant_weighted_csv_sha256": "2a90359b3a5345c4e717e1a1acb398e9f4716cd2227b5ca096d540900e8a9231",
+    "longtail_corrected_csv_sha256": "e2098c510cfe96452ebf5ac6266b37c0f0fc22fd9403b7004f1b0d73ebf0e2a6",
+    "provenance_json_sha256": "f2a4e7df20f6379c978db7ace40fec3aff59d47e9c897d2cb97ae25cbf467609",
+    "fedprox_step_ratios_csv_sha256": "83b38022877d67cc4910f6c942f5a9ab352f5c17206cdef61c19769c42ec9096",
+    "fedprox_step_ratios_detail_csv_sha256": "2a855117c7342c637a9eeae98ceeb732643f25a54299a07341b9c03aa99785dc",
+    "heterogeneity_json_sha256": "bb59acd5c7211d91b599ffe90c0e6823bdffc4fa7a4d22e2070f83fa34770d7c",
+    "fedprox_diagnostic_note_txt_sha256": "c44e8ec03af4e7fe75b448a3420c514044fa22bd482eb2a1c47ceaf85d6217e6",
+    "fl_vs_local_conclusion_txt_sha256": "c68f9cdb9988d6f071c5bbf0142789030652f4bbd55b987f46a1aec5fa8f6e56"
+  },
+  "longtail_pr_auc_correction": {
+    "original_value": "0.515 (adherence-positive orientation \u2014 label error in freeze-script print block)",
+    "corrected_value": "0.900 [95% CI 0.882-0.917] (risk-positive: AP(Y_risk, P_risk))",
+    "source": "gate_table_corrected.csv row 'Best global (central) Long-tail external'",
+    "math_check": "0.900 / 0.677 = 1.329 = PR_lift (consistent)"
+  },
+  "manuscript_conclusions": {
+    "ni_primary": "FedAvg (primary NI analysis); FedProx, FedAvg-equal, SCAFFOLD, FedAdam are secondary",
+    "ni_result": "All five FL methods were non-inferior to centralized training (one-sided 95% LCB > -0.02 AUROC) across 23 LOCO clients",
+    "fl_vs_local": "FedAvg produced a numerically higher AUROC than local-only training, with a paired difference of +0.007 [95% CI: -0.003, 0.018]; the interval included zero.",
+    "longtail": "The centralized logistic model trained on 23 primary providers achieved AUROC 0.807 [0.785, 0.829] and risk-positive PR-AUC 0.900 [0.882, 0.917], corresponding to a 1.33x lift over the long-tail cohort's nonadherence prevalence of 0.677. This evaluates within-source provider transportability, not external generalization."
+  },
+  "code_provenance": {
+    "trust_ct_git": "not a git repository \u2014 code integrity covered by file_hashes above",
+    "fedlearn_repo_commit_sha": "75fcbd93ad539d7d6513616c18cd25cb26a5c00a",
+    "fedlearn_repo_worktree_clean": false,
+    "fedlearn_repo_modified_files": [
+      "federated_mlp_run.py"
+    ],
+    "fedlearn_repo_note": "trust-ct/ is a subdirectory of the Blockchain in Clinical Trial workspace. The Fedlearn repo HEAD above tracks the parent project; trust-ct files are individually hashed in file_hashes and are the authoritative Phase 3 artefacts."
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "experiment": "trust_ct_phase5_v2",
+  "correction_from": "run_phase5_closed_loop.py (v1)",
+  "issues_corrected": [
+    "Issue1: BETTER-BP participation calibration (shift_0=+0.250, shift_1=+0.361)",
+    "Issue2: Cimas cold-start convergence experiment added (T=30, 5 seeds, holdout)",
+    "Issue3: Governance renamed to signed hash-linked log; 7-attack fault injection",
+    "Issue4: Bidirectional comm cost 2Kd; bootstrap CIs; 3-quantity BP participation"
+  ],
+  "betterbp_calibration": {
+    "obs_control_attend": 0.8015,
+    "obs_interv_attend": 0.8835,
+    "shift_0": 0.2498,
+    "shift_1": 0.3612,
+    "e_p0_cal": 0.7977,
+    "e_p1_cal": 0.8724,
+    "tau_cal_mean": 0.0747
+  },
+  "cimas_calibration": {
+    "primary_delta_dr": 0.068,
+    "sensitivity_delta_naive": 0.082,
+    "base_rate_source": "per_provider_Y_adh_mean",
+    "note": "C3 for Cimas is trial-calibrated proxy sensitivity analysis; individual BETTER-BP CATE scores NOT applied across populations."
+  },
+  "governance_audit": {
+    "type": "signed_hash_linked_governance_log",
+    "anchoring": "none_local_only",
+    "n_attacks_tested": 7,
+    "detection_rate": 1.0,
+    "false_alert_rate": 0.0,
+    "note": "Log establishes integrity, ordering, authorisation, and non-repudiation of submitted records; cannot independently verify clinical correctness."
+  },
+  "feature_counts": {
+    "feat_bp_n": 11,
+    "d_bp": 12,
+    "feat_cimas_n": 20,
+    "d_cim": 21,
+    "note": "20 Cimas features + 1 intercept = 21 parameters (not 30)"
+  },
+  "cold_start_stats": {
+    "C0": {
+      "auc_lc_mean_ci95": [
+        0.7864811379310345,
+        0.7863779310344827,
+        0.7865948620689657
+      ],
+      "final_auroc_mean_ci95": [
+        0.786318,
+        0.78609,
+        0.7865460000000001
+      ],
+      "participation_mean_ci95": [
+        0.45337533333333335,
+        0.4524679999999999,
+        0.4546553333333333
+      ]
+    },
+    "C1": {
+      "auc_lc_mean_ci95": [
+        0.7864981034482759,
+        0.7864357577586206,
+        0.7865791379310346
+      ],
+      "final_auroc_mean_ci95": [
+        0.7864319999999999,
+        0.786298,
+        0.7865630499999999
+      ],
+      "participation_mean_ci95": [
+        0.498762,
+        0.49804466666666664,
+        0.4998406666666666
+      ]
+    },
+    "C2": {
+      "auc_lc_mean_ci95": [
+        0.7864120689655172,
+        0.7863382068965518,
+        0.7865048965517242
+      ],
+      "final_auroc_mean_ci95": [
+        0.7862979999999999,
+        0.7861400000000001,
+        0.786438
+      ],
+      "participation_mean_ci95": [
+        0.49873599999999996,
+        0.49793066666666663,
+        0.4997753333333333
+      ]
+    },
+    "C3": {
+      "auc_lc_mean_ci95": [
+        0.7864120689655172,
+        0.7863382068965518,
+        0.7865048965517242
+      ],
+      "final_auroc_mean_ci95": [
+        0.7862979999999999,
+        0.7861400000000001,
+        0.786438
+      ],
+      "participation_mean_ci95": [
+        0.49873599999999996,
+        0.49793066666666663,
+        0.4997753333333333
+      ]
+    }
+  },
+  "gate_checks": {
+    "g1_bp_participation_c0_in_range": true,
+    "g2_bp_c1_gt_c0": true,
+    "g3_bp_c3_ge_c2": true,
+    "g4_cimas_cold_n_seeds": true,
+    "g5_cimas_cold_holdout_fixed": true,
+    "g6_governance_detection_100pct": true,
+    "g7_false_alert_zero": true,
+    "g8_bidir_comm_gt_unidir": true,
+    "g9_vm_c1c2c3_same_attend": true,
+    "g10_cold_sensitivity_dr_vs_naive": true
+  }
+}

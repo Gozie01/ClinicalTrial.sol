@@ -1,0 +1,8 @@
+attack,n_violations_detected,detected,detection_rate
+model_hash_tamper,1,True,1.0
+alloc_tamper,1,True,1.0
+replay_round,1,True,1.0
+reorder_rounds,3,True,1.0
+stale_attendance,1,True,1.0
+client_substitution,1,True,1.0
+client_dropout_inject,1,True,1.0

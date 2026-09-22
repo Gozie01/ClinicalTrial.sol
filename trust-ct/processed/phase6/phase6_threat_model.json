@@ -1,0 +1,103 @@
+{
+  "adversaries": [
+    {
+      "actor": "malicious_clinical_site",
+      "capability": "Alters local data, labels, training code, or model update",
+      "trust": "Up to f clients compromised (f specified per experiment)",
+      "modelled": true,
+      "attacks": [
+        "label_flip",
+        "backdoor",
+        "scaled_poison",
+        "sign_flip",
+        "random_gauss",
+        "model_replace",
+        "alie"
+      ]
+    },
+    {
+      "actor": "honest_but_curious_coordinator",
+      "capability": "Observes individual client updates; attempts reconstruction",
+      "trust": "Follows aggregation protocol; does not modify updates",
+      "modelled": true,
+      "threat": "gradient_reconstruction"
+    },
+    {
+      "actor": "malicious_coordinator",
+      "capability": "Modifies or suppresses updates",
+      "trust": "Out of scope unless specifically defended",
+      "modelled": false
+    },
+    {
+      "actor": "colluding_clients",
+      "capability": "Coordinate poisoning or model-replacement updates",
+      "trust": "Included via ALIE attack (colluding gradient statistics)",
+      "modelled": true,
+      "attacks": [
+        "alie"
+      ]
+    },
+    {
+      "actor": "attendance_oracle",
+      "capability": "Signs attendance assertions",
+      "trust": "Signature proves origin, not clinical truth",
+      "modelled": "governance_phase5"
+    },
+    {
+      "actor": "validators_auditors",
+      "capability": "Verify signatures, ordering, and hashes",
+      "trust": "Cannot validate physical attendance",
+      "modelled": "governance_phase5"
+    },
+    {
+      "actor": "external_attacker",
+      "capability": "Replays or tampers with recorded artifacts",
+      "trust": "Addressed by signed hash-linked log",
+      "modelled": "governance_phase5"
+    }
+  ],
+  "secure_aggregation": {
+    "implemented": false,
+    "note": "Secure aggregation is NOT implemented in this system. The coordinator observes individual client updates in plaintext. This is reflected in the architecture figure and all claims."
+  },
+  "privacy_mechanism": {
+    "type": "empirical_update_perturbation",
+    "formula": "delta_tilde_k = clip(delta_k, C) + N(0, (alpha*C)^2 I)",
+    "alpha_values": [
+      0.0,
+      0.01,
+      0.05,
+      0.1,
+      0.2
+    ],
+    "clip_norm_C": 1.0,
+    "formal_dp": false,
+    "language": "Utility-oriented clipped Gaussian update perturbation providing empirical leakage mitigation. NOT differential privacy or formally privacy-preserving FL."
+  },
+  "governance_log": {
+    "type": "signed_hash_linked_log",
+    "provides": [
+      "integrity",
+      "ordering",
+      "authorization",
+      "non_repudiation"
+    ],
+    "cannot_provide": [
+      "physical_attendance_truth",
+      "oracle_correctness"
+    ]
+  },
+  "krum_feasibility": {
+    "condition": "K > 2f + 2",
+    "eicu_K8": {
+      "1": "applicable",
+      "2": "applicable",
+      "3": "NOT_APPLICABLE"
+    },
+    "cimas_K23": {
+      "2": "applicable",
+      "5": "applicable",
+      "7": "applicable"
+    }
+  }
+}

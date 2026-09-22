@@ -1,0 +1,46 @@
+{
+  "preprocessing_version": "P1.1",
+  "source_files": {
+    "A": {
+      "path": "C:\\Users\\Gozie\\Desktop\\Blockchain in Clinical Trial\\Fedlearn\\New\\BETTER-BP\\BETTERBP_De-identification-DATA_LABELS_SiteA.xlsx",
+      "md5": "5c4d0fd99c79b93826c76f5f3d8fce62"
+    },
+    "B": {
+      "path": "C:\\Users\\Gozie\\Desktop\\Blockchain in Clinical Trial\\Fedlearn\\New\\BETTER-BP\\BETTERBP_De-identification-DATA_LABELS_SiteB.xlsx",
+      "md5": "711070851e84ecf2c84a29926f53ed67"
+    },
+    "C": {
+      "path": "C:\\Users\\Gozie\\Desktop\\Blockchain in Clinical Trial\\Fedlearn\\New\\BETTER-BP\\BETTERBP_De-identification-DATA_LABELS_SiteC.xlsx",
+      "md5": "eafb180ab266d003d1ecc9c9e74d5e07"
+    }
+  },
+  "output_directory": "C:\\Users\\Gozie\\Desktop\\Blockchain in Clinical Trial\\Fedlearn\\processed\\better_bp",
+  "canonical_tables": {
+    "participants_baseline": "one row per participant from Baseline main form",
+    "visits": "one row per participant \u00d7 visit (6m, 12m) for those who attended",
+    "trial_outcomes": "one row per randomized participant with all endpoints",
+    "bottle_setup": "AdhereTech bottle setup/return records per participant",
+    "medications": "Medication List repeated instrument rows (Baseline event)",
+    "laboratory_results": "Lab Values repeated instrument rows per visit",
+    "hospitalizations": "Hospital Admissions repeated instrument rows per visit"
+  },
+  "primary_outcome": "nonattendance_12m = 1 if participant has no 12-month visit main form row",
+  "treatment_response_endpoint": "nonattendance_6m = 1 if participant has no 6-month visit main form row",
+  "fl_clients": {
+    "A": "n=312 randomized",
+    "B": "n=90 randomized"
+  },
+  "excluded_sites": {
+    "C": "1 non-randomized screen failure"
+  },
+  "unavailable_data": [
+    "daily_adherence_pct",
+    "adequate_adherence_pct_6m",
+    "lottery_outcomes",
+    "incentive_payment_amounts",
+    "daily_bottle_opening_timestamps"
+  ],
+  "unresolved_flags": [
+    "402 randomized in files vs 400 published; 2-record discrepancy pending official clarification"
+  ]
+}

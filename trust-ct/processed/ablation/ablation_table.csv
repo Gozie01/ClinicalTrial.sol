@@ -1,0 +1,6 @@
+component,metric,condition_a,condition_b,value_a,ci_lo_a,ci_hi_a,value_b,ci_lo_b,ci_hi_b,delta,ni_lcb,ni_margin,verdict,note
+A1_FL_vs_Centralized,AUROC_LOCO,FedAvg_FL,Centralized,0.795,0.773,0.811,0.799,0.778,0.814,-0.0040000000000000036,-0.0045,-0.02,NONINFERIOR,"LOCO evaluation; 23 clients; N=12,649"
+A2_Robust_Aggregation,AUROC_eICU_f3_label_flip,coord_median,FedAvg,0.8823040000000001,0.8754240000000001,0.891824,0.77087,0.733274,0.81035,0.11143399999999996,,,EFFECTIVE,"eICU K=8, f=3 (37.5% malicious), worst attack=label_flip, 5 seeds"
+A3_Clipped_Gaussian_Perturbation,AUROC_cost_alpha0_vs_alpha001,alpha=0.01 (operating_point),alpha=0.00 (no_noise),0.885226,0.8756539999999999,0.89458,0.8903719999999999,0.889202,0.8914099999999999,-0.0051460000000000065,,,WITHIN_MATERIALITY,5 seeds; materiality threshold |delta AUROC|<0.02; analytic canary PASS
+A4_Governance_Fault_Detection,Detection_rate_350_injections,With_audit_log,Without_audit_log,1.0,,,0.0,,,1.0,,,PERFECT_DETECTION,7 attack types x 5 seeds x 10 positions = 350; signed hash-linked audit log
+A5_DR_Policy,Policy_value_uplift_vs_random_B2_3,uplift_targeting,random_budget,0.891863,,,0.860304,,,0.031559,-0.01126,,NULL_UPLIFT,BETTER-BP N=402; B=2/3; 5-fold x 5-seed OOF DR; primary contrast

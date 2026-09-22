@@ -1,0 +1,71 @@
+claim,value,ci_lo,ci_hi,p_value,effect_size,artifact_path,artifact_type,table_figure,notes
+FedAvg AUROC (Cimas LOCO),0.795,0.773,0.811,,,"processed/cimas/results_phase3_freeze/gate_table_corrected.csv",CSV,Table2/Fig2,Method=LOCO; N=12649; K=23
+Centralized AUROC (Cimas LOCO),0.799,0.778,0.814,,,"processed/cimas/results_phase3_freeze/gate_table_corrected.csv",CSV,Table2/Fig2,
+FedAvg delta AUROC (FL-Central),-0.002,-0.005,0.001,,,"processed/cimas/results_phase3_freeze/ni_client_level.csv",CSV,Table2/Fig2,W03b correction: bootstrap NI obs=-0.002135; CI from formatted_2sided unchanged
+FedAvg NI LCB,-0.0045,,,,,"processed/cimas/results_phase3_freeze/ni_client_level.csv",CSV,Table2/Fig2,NI margin=-0.02; verdict=NONINFERIOR
+FedAdam NI LCB,-0.0095,,,,,"processed/cimas/results_phase3_freeze/ni_client_level.csv",CSV,Table2/Fig2,Worst LCB; still NONINFERIOR
+Central PR-AUC (long-tail),0.9,0.882,0.917,,,"processed/cimas/results_phase3_freeze/gate_table_corrected.csv",CSV,Table2,Risk-positive; prevalence=0.677
+FedAvg PR-AUC (long-tail),0.899,0.88,0.916,,,"processed/cimas/results_phase3_freeze/gate_table_corrected.csv",CSV,Table2,
+PR-lift central,1.329,,,,,"processed/cimas/results_phase3_freeze/phase3_lock.json",JSON,Table2,0.900/0.677
+DR ATE (BETTER-BP),0.0678,,,,,"processed/better_bp/results_phase4/phase4_lock.json",JSON,S,naive_ATE=0.082
+Policy value pi_up (B=2/3),0.892,,,,,"processed/better_bp/results_phase4/policy_values.csv",CSV,Table2/Fig3A,
+Policy value pi_rand (B=2/3),0.860,,,,,"processed/better_bp/results_phase4/policy_values.csv",CSV,Table2/Fig3A,
+Policy value pi_0 (B=2/3),0.815,,,,,"processed/better_bp/results_phase4/policy_values.csv",CSV,Table2/Fig3A,
+Policy contrast delta_V pi_up vs pi_rand,0.0316,-0.011,0.077,,"CI_includes_zero=True","processed/better_bp/results_phase4/policy_contrasts.csv",CSV,Table2,"Primary contrast; budget=0.6667; null uplift"
+BETTER-BP C0 simulated participation,0.8137,0.8125,0.8152,,,"processed/phase5/results_v3/phase5_v3_lock.json",JSON,S,target=0.815
+BETTER-BP C1 simulated participation,0.8588,0.8574,0.8602,,,"processed/phase5/results_v3/phase5_v3_lock.json",JSON,S,target=0.860
+BETTER-BP C2 simulated participation,0.8721,0.8709,0.8733,,,"processed/phase5/results_v3/phase5_v3_lock.json",JSON,S,target=0.885
+BETTER-BP C3 simulated participation,0.89,0.8888,0.8913,,,"processed/phase5/results_v3/phase5_v3_lock.json",JSON,S,target=0.892
+V(C1 B=2/3) reproduced,0.8603,,,,,"processed/phase5/results_v3/phase5_v3_provenance.json",JSON,S,
+Cimas cold C2-C1 nAULC (standard),-0.000078,-0.000085,-0.000070,,,"processed/phase5/results_v3/phase5_v3_lock.json",JSON,S,operationally negligible; |delta|<0.001
+Cimas cold C3-C1 nAULC (standard),-0.000078,-0.000085,-0.000070,,,"processed/phase5/results_v3/phase5_v3_lock.json",JSON,S,operationally negligible; |delta|<0.001
+Governance detection rate,1.0,,,,,"processed/phase5/results_v3/fault_injection_results.csv",CSV,Table4,350/350; 0 false alerts
+Clean FedAvg eICU AUROC (Phase6 v2),0.8904,0.8892,0.8913,,,"processed/phase6/phase6b_adversarial.csv",CSV,Table3,f=0; no attack; 5 seeds; 15 rounds; training-only MI
+label_flip FedAvg delta AUROC (f=3),-0.1195,-0.1776,-0.0614,0.005,,"processed/phase6/phase6b_adversarial.csv",CSV,Table3,Paired t-test; n=5 seeds
+coord_median recovery vs FedAvg under label_flip (f=3),0.1114,0.058,0.165,0.005,,"processed/phase6/phase6b_adversarial.csv",CSV,Table3,Paired t-test; n=5 seeds
+sign_flip FedAvg delta AUROC (f=3),-0.0593,-0.103,-0.016,0.020,,"processed/phase6/phase6b_adversarial.csv",CSV,Table3,
+model_replace FedAvg delta AUROC (f=3),-0.0201,-0.024,-0.017,0.0001,,"processed/phase6/phase6b_adversarial.csv",CSV,Table3,
+alie FedAvg delta AUROC (f=3),-0.0042,-0.013,0.004,0.24,,"processed/phase6/phase6b_adversarial.csv",CSV,Table3,Not significant
+backdoor delta AUROC (f=3),0.0010,-0.001,0.003,0.22,,"processed/phase6/phase6b_adversarial.csv",CSV,Table3,AUROC insensitive to backdoor
+backdoor BSR (f=3),0.9218,,,,,"processed/phase6/phase6b_adversarial.csv",CSV,Table3,
+krum_na_fallback_rows,35,,,,,"processed/phase6/phase6b_adversarial.csv",CSV,S,eICU f=3 adversarial attacks; aggregator_effective=fedavg
+alpha_0_01 utility cost delta AUROC,-0.0051,-0.020,0.010,0.39,,"processed/phase6/phase6c_leakage_fl.csv",CSV,Table3,Paired t-test leakfl alpha=0 vs 0.01; n=5 seeds
+alpha_0_05 utility cost delta AUROC,-0.074,,,,,"processed/phase6/phase6d_frontier.csv",CSV,Table3,Exceeds materiality 0.02
+recon_cosine_alpha_0 (batch=1 C4 corrected),0.5337,,,,,"processed/phase6_corrections/c4_leakage_corrected.json",JSON,Table3/Fig5,Batch=1; optimistic single-step gradient
+recon_cosine_alpha_001 (batch=1 C4 corrected),0.4642,,,,,"processed/phase6_corrections/c4_leakage_corrected.json",JSON,Table3/Fig5,
+recon_cosine_relative_reduction_pct,13.02,,,,,"processed/phase6_corrections/c4_leakage_corrected.json",JSON,Table3,
+sign_recovery_alpha_0,0.8031,,,,,"processed/phase6_corrections/c4_leakage_corrected.json",JSON,Table3/Fig5,
+sign_recovery_alpha_001,0.6793,,,,,"processed/phase6_corrections/c4_leakage_corrected.json",JSON,Table3/Fig5,
+sign_recovery_abs_diff_pp,12.38,,,,,"processed/phase6_corrections/c4_leakage_corrected.json",JSON,Table3,"12.4 pp absolute; 15.4% relative"
+MIA AUROC eICU,0.4970,0.4957,0.4976,,Cohen_h=-0.006,"processed/phase6/phase6c_mia.csv + c4_leakage_corrected.json",CSV+JSON,Table3,Below chance; CI entirely ≤0.5
+MIA AUROC Cimas,0.5068,0.5064,0.5070,,Cohen_h=+0.014,"processed/phase6/phase6c_mia.csv + c4_leakage_corrected.json",CSV+JSON,Table3,Negligible advantage
+canary_cosine_single_step,1.0,,,,,"processed/phase6_corrections/c1_canary.json",JSON,S,Exact recovery; batch=1; clipping-invariant
+canary_cosine_multistep,-0.5381,,,,,"processed/phase6_corrections/c1_canary.json",JSON,S,Approximation invalid for N_local=5 delta
+feature_list_sha256,4f4a66036e869328b354fb528e8dface,,,,,"processed/phase6/phase6_c0_lock.json",JSON,S,Training-only MI; 60 features
+script_sha256,93200b7d30039a9d,,,,,"processed/phase6/phase6_c0_lock.json",JSON,S,run_phase6.py
+Phase6_run_manifest_total,1200,,,,,"processed/phase6/phase6_c0_lock.json",JSON,S,1065+35+100=1200
+Phase6_valid_primary,1065,,,,,"processed/phase6/phase6_c0_lock.json",JSON,S,
+Phase6_krum_na_fallback,35,,,,,"processed/phase6/phase6_c0_lock.json",JSON,S,
+Phase6_f_invariant_skips,100,,,,,"processed/phase6/phase6_c0_lock.json",JSON,S,
+Phase6_convergence_failures,0,,,,,"processed/phase6/phase6_c0_lock.json",JSON,S,
+governance_350_detected,350,,,,,"processed/phase5/results_v3/fault_injection_results.csv",CSV,Table4,All 350 of 350
+governance_false_alerts,0,,,,,"processed/phase5/results_v3/fault_injection_results.csv",CSV,Table4,
+calibration_delta0,1.3691,,,,,"processed/phase5/results_v3/phase5_v3_provenance.json",JSON,S,Logit-scale intercept C0
+calibration_delta1,1.9835,,,,,"processed/phase5/results_v3/phase5_v3_provenance.json",JSON,S,Logit-scale intercept C1
+E6_cold_fed_mean_auroc_late,0.761,,,,,"processed/e6_fairness/e6_disparity_stats.csv",CSV,Table5,Cimas K=23; rounds 51-60; 5 seeds
+E6_cold_local_mean_auroc_late,0.758,,,,,"processed/e6_fairness/e6_disparity_stats.csv",CSV,Table5,Cimas K=23; rounds 51-60; 5 seeds
+E6_warm_local_mean_auroc_late,0.763,,,,,"processed/e6_fairness/e6_disparity_stats.csv",CSV,Table5,Cimas K=23; rounds 51-60; 5 seeds
+E6_cold_fed_IQR,0.092,0.073,0.109,,,"processed/e6_fairness/e6_disparity_stats.csv",CSV,Table5,Provider AUROC IQR; 5000-resample seed-cluster bootstrap CI
+E6_cold_local_IQR,0.094,0.073,0.116,,,"processed/e6_fairness/e6_disparity_stats.csv",CSV,Table5,Provider AUROC IQR; 5000-resample seed-cluster bootstrap CI
+E6_warm_local_IQR,0.091,0.075,0.105,,,"processed/e6_fairness/e6_disparity_stats.csv",CSV,Table5,Provider AUROC IQR; 5000-resample seed-cluster bootstrap CI
+E6_cold_fed_worst_provider_auroc,0.518,0.444,0.578,,,"processed/e6_fairness/e6_disparity_stats.csv",CSV,Table5,Min provider AUROC; seed-cluster bootstrap CI
+E6_cold_local_worst_provider_auroc,0.509,0.466,0.566,,,"processed/e6_fairness/e6_disparity_stats.csv",CSV,Table5,Min provider AUROC; seed-cluster bootstrap CI
+E6_warm_local_worst_provider_auroc,0.525,0.487,0.565,,,"processed/e6_fairness/e6_disparity_stats.csv",CSV,Table5,Min provider AUROC; seed-cluster bootstrap CI
+E6_cf_vs_cl_macro_delta,0.003,-0.003,0.008,0.39,,"processed/e6_fairness/e6_paired_analysis.csv",CSV,Table5,cold_fed vs cold_local; seed-level t-test n=5 df=4; CI=seed-cluster bootstrap
+E6_cf_vs_cl_worst_delta,-0.114,-0.141,-0.089,0.001,,"processed/e6_fairness/e6_paired_analysis.csv",CSV,Table5,cold_fed vs cold_local worst-provider delta (negative=FedAvg worse at tail)
+E6_wl_vs_cl_macro_delta,0.005,0.002,0.009,0.07,,"processed/e6_fairness/e6_paired_analysis.csv",CSV,Table5,warm_local vs cold_local; seed-level t-test n=5 df=4
+E6_wl_vs_cl_worst_delta,-0.031,-0.044,-0.022,0.01,,"processed/e6_fairness/e6_paired_analysis.csv",CSV,Table5,warm_local vs cold_local worst-provider delta
+E6_wl_vs_wf_macro_delta,0.002,0.000,0.006,0.21,,"processed/e6_fairness/e6_paired_analysis.csv",CSV,Table5,warm_local vs warm_fed; federation cost of independence
+E6_communication_reduction_pct,98.3,,,,,"processed/e6_fairness/e6_metadata.json",JSON,S,warm_local vs continued FedAvg; 529 vs 31740 floats; 1 vs 1358 messages
+E6_warm_fed_identity_gate_pairs_checked,3450,,,,,"processed/e6_fairness/e6_analysis_report.txt",TXT,S,All 3450 pairs identical; max|delta|=0; confirms reproducibility
+E6_n_systematic_providers,0,,,,,"processed/e6_fairness/e6_provider_fixed_effects.csv",CSV,S,|mean_delta|/SD_delta > 2; 0/23 providers meet criterion

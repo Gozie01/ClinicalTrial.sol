@@ -1,0 +1,601 @@
+experiment,seed,scenario,scenario_label,round,n_min_attend,n_attend_vm,active_clients,auroc_holdout,comm_cost_bidir
+cimas_cold_vm,7,C0,No incentive,1,5017,4599,23,0.78684,966
+cimas_cold_vm,7,C1,Random allocation,1,5017,5017,23,0.787,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,1,5017,5017,23,0.78726,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,1,5017,5017,23,0.78726,966
+cimas_cold_vm,7,C0,No incentive,2,5010,4560,23,0.78633,966
+cimas_cold_vm,7,C1,Random allocation,2,5010,5010,23,0.78626,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,2,5010,5010,23,0.7861,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,2,5010,5010,23,0.7861,966
+cimas_cold_vm,7,C0,No incentive,3,5002,4549,23,0.78628,966
+cimas_cold_vm,7,C1,Random allocation,3,5002,5002,23,0.78653,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,3,5002,5002,23,0.78618,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,3,5002,5002,23,0.78611,966
+cimas_cold_vm,7,C0,No incentive,4,5036,4585,23,0.78589,966
+cimas_cold_vm,7,C1,Random allocation,4,5036,5036,23,0.78583,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,4,5036,5036,23,0.78577,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,4,5036,5036,23,0.78577,966
+cimas_cold_vm,7,C0,No incentive,5,5100,4657,23,0.78643,966
+cimas_cold_vm,7,C1,Random allocation,5,5100,5100,23,0.78648,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,5,5100,5100,23,0.78613,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,5,5100,5100,23,0.78619,966
+cimas_cold_vm,7,C0,No incentive,6,5093,4654,23,0.78782,966
+cimas_cold_vm,7,C1,Random allocation,6,5093,5093,23,0.78771,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,6,5093,5093,23,0.78743,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,6,5093,5093,23,0.78747,966
+cimas_cold_vm,7,C0,No incentive,7,5095,4638,23,0.78587,966
+cimas_cold_vm,7,C1,Random allocation,7,5095,5095,23,0.78609,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,7,5095,5095,23,0.78608,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,7,5095,5095,23,0.78608,966
+cimas_cold_vm,7,C0,No incentive,8,4993,4527,23,0.78633,966
+cimas_cold_vm,7,C1,Random allocation,8,4993,4993,23,0.78664,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,8,4993,4993,23,0.78637,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,8,4993,4993,23,0.78637,966
+cimas_cold_vm,7,C0,No incentive,9,4988,4525,23,0.78655,966
+cimas_cold_vm,7,C1,Random allocation,9,4988,4988,23,0.78639,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,9,4988,4988,23,0.78627,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,9,4988,4988,23,0.78627,966
+cimas_cold_vm,7,C0,No incentive,10,5040,4541,23,0.78586,966
+cimas_cold_vm,7,C1,Random allocation,10,5040,5040,23,0.78591,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,10,5040,5040,23,0.78596,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,10,5040,5040,23,0.78596,966
+cimas_cold_vm,7,C0,No incentive,11,5047,4626,23,0.78615,966
+cimas_cold_vm,7,C1,Random allocation,11,5047,5047,23,0.78605,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,11,5047,5047,23,0.78605,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,11,5047,5047,23,0.78605,966
+cimas_cold_vm,7,C0,No incentive,12,4996,4560,23,0.78597,966
+cimas_cold_vm,7,C1,Random allocation,12,4996,4996,23,0.78612,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,12,4996,4996,23,0.78599,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,12,4996,4996,23,0.78598,966
+cimas_cold_vm,7,C0,No incentive,13,5090,4628,23,0.7868,966
+cimas_cold_vm,7,C1,Random allocation,13,5090,5090,23,0.78701,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,13,5090,5090,23,0.78668,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,13,5090,5090,23,0.78668,966
+cimas_cold_vm,7,C0,No incentive,14,5033,4615,23,0.78651,966
+cimas_cold_vm,7,C1,Random allocation,14,5033,5033,23,0.78626,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,14,5033,5033,23,0.78623,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,14,5033,5033,23,0.7862,966
+cimas_cold_vm,7,C0,No incentive,15,4955,4492,23,0.78647,966
+cimas_cold_vm,7,C1,Random allocation,15,4955,4955,23,0.78656,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,15,4955,4955,23,0.78667,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,15,4955,4955,23,0.78667,966
+cimas_cold_vm,7,C0,No incentive,16,5034,4606,23,0.78683,966
+cimas_cold_vm,7,C1,Random allocation,16,5034,5034,23,0.78656,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,16,5034,5034,23,0.78661,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,16,5034,5034,23,0.78666,966
+cimas_cold_vm,7,C0,No incentive,17,5054,4651,23,0.78618,966
+cimas_cold_vm,7,C1,Random allocation,17,5054,5054,23,0.78627,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,17,5054,5054,23,0.78589,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,17,5054,5054,23,0.78585,966
+cimas_cold_vm,7,C0,No incentive,18,5080,4618,23,0.78651,966
+cimas_cold_vm,7,C1,Random allocation,18,5080,5080,23,0.7865,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,18,5080,5080,23,0.78643,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,18,5080,5080,23,0.78643,966
+cimas_cold_vm,7,C0,No incentive,19,4892,4464,23,0.78662,966
+cimas_cold_vm,7,C1,Random allocation,19,4892,4892,23,0.78662,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,19,4892,4892,23,0.78657,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,19,4892,4892,23,0.78657,966
+cimas_cold_vm,7,C0,No incentive,20,4977,4502,23,0.78626,966
+cimas_cold_vm,7,C1,Random allocation,20,4977,4977,23,0.78639,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,20,4977,4977,23,0.78649,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,20,4977,4977,23,0.7865,966
+cimas_cold_vm,7,C0,No incentive,21,5027,4574,23,0.78661,966
+cimas_cold_vm,7,C1,Random allocation,21,5027,5027,23,0.78654,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,21,5027,5027,23,0.78646,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,21,5027,5027,23,0.78644,966
+cimas_cold_vm,7,C0,No incentive,22,5083,4641,23,0.78668,966
+cimas_cold_vm,7,C1,Random allocation,22,5083,5083,23,0.78671,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,22,5083,5083,23,0.78663,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,22,5083,5083,23,0.78653,966
+cimas_cold_vm,7,C0,No incentive,23,5031,4562,23,0.7867,966
+cimas_cold_vm,7,C1,Random allocation,23,5031,5031,23,0.78665,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,23,5031,5031,23,0.78641,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,23,5031,5031,23,0.78643,966
+cimas_cold_vm,7,C0,No incentive,24,4995,4538,23,0.78685,966
+cimas_cold_vm,7,C1,Random allocation,24,4995,4995,23,0.78682,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,24,4995,4995,23,0.78675,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,24,4995,4995,23,0.78681,966
+cimas_cold_vm,7,C0,No incentive,25,5019,4586,23,0.786,966
+cimas_cold_vm,7,C1,Random allocation,25,5019,5019,23,0.78613,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,25,5019,5019,23,0.78572,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,25,5019,5019,23,0.78571,966
+cimas_cold_vm,7,C0,No incentive,26,5050,4609,23,0.78665,966
+cimas_cold_vm,7,C1,Random allocation,26,5050,5050,23,0.78659,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,26,5050,5050,23,0.78651,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,26,5050,5050,23,0.78658,966
+cimas_cold_vm,7,C0,No incentive,27,5120,4626,23,0.78589,966
+cimas_cold_vm,7,C1,Random allocation,27,5120,5120,23,0.78591,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,27,5120,5120,23,0.78571,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,27,5120,5120,23,0.78571,966
+cimas_cold_vm,7,C0,No incentive,28,5021,4568,23,0.7864,966
+cimas_cold_vm,7,C1,Random allocation,28,5021,5021,23,0.78655,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,28,5021,5021,23,0.78661,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,28,5021,5021,23,0.78662,966
+cimas_cold_vm,7,C0,No incentive,29,5047,4593,23,0.78633,966
+cimas_cold_vm,7,C1,Random allocation,29,5047,5047,23,0.78637,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,29,5047,5047,23,0.7862,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,29,5047,5047,23,0.78618,966
+cimas_cold_vm,7,C0,No incentive,30,5091,4631,23,0.78591,966
+cimas_cold_vm,7,C1,Random allocation,30,5091,5091,23,0.78619,966
+cimas_cold_vm,7,C2,FL nonattendance-risk ranking,30,5091,5091,23,0.78599,966
+cimas_cold_vm,7,C3,Cross-fitted DR uplift ranking,30,5091,5091,23,0.786,966
+cimas_cold_vm,11,C0,No incentive,1,5128,4680,23,0.78631,966
+cimas_cold_vm,11,C1,Random allocation,1,5128,5128,23,0.78659,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,1,5128,5128,23,0.78658,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,1,5128,5128,23,0.78658,966
+cimas_cold_vm,11,C0,No incentive,2,5109,4672,23,0.78642,966
+cimas_cold_vm,11,C1,Random allocation,2,5109,5109,23,0.78639,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,2,5109,5109,23,0.78641,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,2,5109,5109,23,0.78644,966
+cimas_cold_vm,11,C0,No incentive,3,5068,4641,23,0.78586,966
+cimas_cold_vm,11,C1,Random allocation,3,5068,5068,23,0.78554,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,3,5068,5068,23,0.78576,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,3,5068,5068,23,0.78578,966
+cimas_cold_vm,11,C0,No incentive,4,4998,4562,23,0.78655,966
+cimas_cold_vm,11,C1,Random allocation,4,4998,4998,23,0.78668,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,4,4998,4998,23,0.7865,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,4,4998,4998,23,0.78654,966
+cimas_cold_vm,11,C0,No incentive,5,4950,4505,23,0.78728,966
+cimas_cold_vm,11,C1,Random allocation,5,4950,4950,23,0.78702,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,5,4950,4950,23,0.78672,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,5,4950,4950,23,0.78672,966
+cimas_cold_vm,11,C0,No incentive,6,5066,4593,23,0.78581,966
+cimas_cold_vm,11,C1,Random allocation,6,5066,5066,23,0.78598,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,6,5066,5066,23,0.7858,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,6,5066,5066,23,0.78577,966
+cimas_cold_vm,11,C0,No incentive,7,5018,4568,23,0.78654,966
+cimas_cold_vm,11,C1,Random allocation,7,5018,5018,23,0.78656,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,7,5018,5018,23,0.78654,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,7,5018,5018,23,0.78654,966
+cimas_cold_vm,11,C0,No incentive,8,5019,4567,23,0.78655,966
+cimas_cold_vm,11,C1,Random allocation,8,5019,5019,23,0.78673,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,8,5019,5019,23,0.7865,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,8,5019,5019,23,0.7865,966
+cimas_cold_vm,11,C0,No incentive,9,5068,4572,23,0.78687,966
+cimas_cold_vm,11,C1,Random allocation,9,5068,5068,23,0.78678,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,9,5068,5068,23,0.78662,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,9,5068,5068,23,0.78662,966
+cimas_cold_vm,11,C0,No incentive,10,5046,4616,23,0.78717,966
+cimas_cold_vm,11,C1,Random allocation,10,5046,5046,23,0.78719,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,10,5046,5046,23,0.78702,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,10,5046,5046,23,0.78702,966
+cimas_cold_vm,11,C0,No incentive,11,4935,4479,23,0.78625,966
+cimas_cold_vm,11,C1,Random allocation,11,4935,4935,23,0.78615,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,11,4935,4935,23,0.78589,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,11,4935,4935,23,0.78599,966
+cimas_cold_vm,11,C0,No incentive,12,5041,4581,23,0.78651,966
+cimas_cold_vm,11,C1,Random allocation,12,5041,5041,23,0.78654,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,12,5041,5041,23,0.78665,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,12,5041,5041,23,0.78663,966
+cimas_cold_vm,11,C0,No incentive,13,5103,4661,23,0.78642,966
+cimas_cold_vm,11,C1,Random allocation,13,5103,5103,23,0.78613,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,13,5103,5103,23,0.78634,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,13,5103,5103,23,0.78634,966
+cimas_cold_vm,11,C0,No incentive,14,5041,4548,23,0.78618,966
+cimas_cold_vm,11,C1,Random allocation,14,5041,5041,23,0.78611,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,14,5041,5041,23,0.78642,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,14,5041,5041,23,0.78643,966
+cimas_cold_vm,11,C0,No incentive,15,4972,4505,23,0.78624,966
+cimas_cold_vm,11,C1,Random allocation,15,4972,4972,23,0.78637,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,15,4972,4972,23,0.78615,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,15,4972,4972,23,0.78615,966
+cimas_cold_vm,11,C0,No incentive,16,5144,4699,23,0.78623,966
+cimas_cold_vm,11,C1,Random allocation,16,5144,5144,23,0.78629,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,16,5144,5144,23,0.78618,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,16,5144,5144,23,0.78618,966
+cimas_cold_vm,11,C0,No incentive,17,5047,4600,23,0.78678,966
+cimas_cold_vm,11,C1,Random allocation,17,5047,5047,23,0.78647,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,17,5047,5047,23,0.78641,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,17,5047,5047,23,0.78641,966
+cimas_cold_vm,11,C0,No incentive,18,5083,4647,23,0.78677,966
+cimas_cold_vm,11,C1,Random allocation,18,5083,5083,23,0.7867,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,18,5083,5083,23,0.78659,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,18,5083,5083,23,0.78659,966
+cimas_cold_vm,11,C0,No incentive,19,5004,4544,23,0.78728,966
+cimas_cold_vm,11,C1,Random allocation,19,5004,5004,23,0.78714,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,19,5004,5004,23,0.78726,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,19,5004,5004,23,0.78726,966
+cimas_cold_vm,11,C0,No incentive,20,4936,4530,23,0.78643,966
+cimas_cold_vm,11,C1,Random allocation,20,4936,4936,23,0.7864,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,20,4936,4936,23,0.78655,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,20,4936,4936,23,0.78648,966
+cimas_cold_vm,11,C0,No incentive,21,5076,4633,23,0.78687,966
+cimas_cold_vm,11,C1,Random allocation,21,5076,5076,23,0.78659,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,21,5076,5076,23,0.78661,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,21,5076,5076,23,0.78661,966
+cimas_cold_vm,11,C0,No incentive,22,5069,4633,23,0.78654,966
+cimas_cold_vm,11,C1,Random allocation,22,5069,5069,23,0.78659,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,22,5069,5069,23,0.78635,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,22,5069,5069,23,0.78636,966
+cimas_cold_vm,11,C0,No incentive,23,5047,4601,23,0.78639,966
+cimas_cold_vm,11,C1,Random allocation,23,5047,5047,23,0.78641,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,23,5047,5047,23,0.78661,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,23,5047,5047,23,0.78661,966
+cimas_cold_vm,11,C0,No incentive,24,5020,4550,23,0.78616,966
+cimas_cold_vm,11,C1,Random allocation,24,5020,5020,23,0.78623,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,24,5020,5020,23,0.78618,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,24,5020,5020,23,0.78618,966
+cimas_cold_vm,11,C0,No incentive,25,4955,4508,23,0.78555,966
+cimas_cold_vm,11,C1,Random allocation,25,4955,4955,23,0.78562,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,25,4955,4955,23,0.78566,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,25,4955,4955,23,0.78566,966
+cimas_cold_vm,11,C0,No incentive,26,4961,4475,23,0.78638,966
+cimas_cold_vm,11,C1,Random allocation,26,4961,4961,23,0.78603,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,26,4961,4961,23,0.78611,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,26,4961,4961,23,0.7861,966
+cimas_cold_vm,11,C0,No incentive,27,4942,4518,23,0.78649,966
+cimas_cold_vm,11,C1,Random allocation,27,4942,4942,23,0.7866,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,27,4942,4942,23,0.78628,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,27,4942,4942,23,0.78628,966
+cimas_cold_vm,11,C0,No incentive,28,4988,4542,23,0.78634,966
+cimas_cold_vm,11,C1,Random allocation,28,4988,4988,23,0.78657,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,28,4988,4988,23,0.78644,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,28,4988,4988,23,0.78644,966
+cimas_cold_vm,11,C0,No incentive,29,5124,4647,23,0.78663,966
+cimas_cold_vm,11,C1,Random allocation,29,5124,5124,23,0.78694,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,29,5124,5124,23,0.78655,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,29,5124,5124,23,0.78655,966
+cimas_cold_vm,11,C0,No incentive,30,5031,4568,23,0.78621,966
+cimas_cold_vm,11,C1,Random allocation,30,5031,5031,23,0.78658,966
+cimas_cold_vm,11,C2,FL nonattendance-risk ranking,30,5031,5031,23,0.78652,966
+cimas_cold_vm,11,C3,Cross-fitted DR uplift ranking,30,5031,5031,23,0.78652,966
+cimas_cold_vm,19,C0,No incentive,1,5007,4553,23,0.7863,966
+cimas_cold_vm,19,C1,Random allocation,1,5007,5007,23,0.78651,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,1,5007,5007,23,0.78646,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,1,5007,5007,23,0.78646,966
+cimas_cold_vm,19,C0,No incentive,2,4981,4524,23,0.78623,966
+cimas_cold_vm,19,C1,Random allocation,2,4981,4981,23,0.78606,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,2,4981,4981,23,0.78617,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,2,4981,4981,23,0.78617,966
+cimas_cold_vm,19,C0,No incentive,3,5057,4620,23,0.78622,966
+cimas_cold_vm,19,C1,Random allocation,3,5057,5057,23,0.78624,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,3,5057,5057,23,0.78625,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,3,5057,5057,23,0.7863,966
+cimas_cold_vm,19,C0,No incentive,4,5089,4605,23,0.78657,966
+cimas_cold_vm,19,C1,Random allocation,4,5089,5089,23,0.78652,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,4,5089,5089,23,0.78652,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,4,5089,5089,23,0.7865,966
+cimas_cold_vm,19,C0,No incentive,5,4976,4519,23,0.78661,966
+cimas_cold_vm,19,C1,Random allocation,5,4976,4976,23,0.78664,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,5,4976,4976,23,0.78675,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,5,4976,4976,23,0.78662,966
+cimas_cold_vm,19,C0,No incentive,6,5042,4567,23,0.78668,966
+cimas_cold_vm,19,C1,Random allocation,6,5042,5042,23,0.7864,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,6,5042,5042,23,0.78659,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,6,5042,5042,23,0.78659,966
+cimas_cold_vm,19,C0,No incentive,7,5081,4625,23,0.78545,966
+cimas_cold_vm,19,C1,Random allocation,7,5081,5081,23,0.78569,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,7,5081,5081,23,0.78582,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,7,5081,5081,23,0.78584,966
+cimas_cold_vm,19,C0,No incentive,8,5062,4608,23,0.78668,966
+cimas_cold_vm,19,C1,Random allocation,8,5062,5062,23,0.78676,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,8,5062,5062,23,0.78654,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,8,5062,5062,23,0.78654,966
+cimas_cold_vm,19,C0,No incentive,9,4974,4517,23,0.78696,966
+cimas_cold_vm,19,C1,Random allocation,9,4974,4974,23,0.78677,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,9,4974,4974,23,0.78683,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,9,4974,4974,23,0.7867,966
+cimas_cold_vm,19,C0,No incentive,10,4996,4551,23,0.78731,966
+cimas_cold_vm,19,C1,Random allocation,10,4996,4996,23,0.78702,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,10,4996,4996,23,0.78693,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,10,4996,4996,23,0.78694,966
+cimas_cold_vm,19,C0,No incentive,11,4910,4450,23,0.78623,966
+cimas_cold_vm,19,C1,Random allocation,11,4910,4910,23,0.78658,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,11,4910,4910,23,0.78642,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,11,4910,4910,23,0.78643,966
+cimas_cold_vm,19,C0,No incentive,12,5041,4597,23,0.78651,966
+cimas_cold_vm,19,C1,Random allocation,12,5041,5041,23,0.78632,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,12,5041,5041,23,0.78638,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,12,5041,5041,23,0.78639,966
+cimas_cold_vm,19,C0,No incentive,13,4989,4529,23,0.78637,966
+cimas_cold_vm,19,C1,Random allocation,13,4989,4989,23,0.78635,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,13,4989,4989,23,0.78617,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,13,4989,4989,23,0.78615,966
+cimas_cold_vm,19,C0,No incentive,14,5084,4620,23,0.78672,966
+cimas_cold_vm,19,C1,Random allocation,14,5084,5084,23,0.78632,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,14,5084,5084,23,0.78658,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,14,5084,5084,23,0.78658,966
+cimas_cold_vm,19,C0,No incentive,15,5050,4574,23,0.78693,966
+cimas_cold_vm,19,C1,Random allocation,15,5050,5050,23,0.78676,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,15,5050,5050,23,0.7867,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,15,5050,5050,23,0.7867,966
+cimas_cold_vm,19,C0,No incentive,16,5100,4634,23,0.78684,966
+cimas_cold_vm,19,C1,Random allocation,16,5100,5100,23,0.78713,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,16,5100,5100,23,0.78679,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,16,5100,5100,23,0.78673,966
+cimas_cold_vm,19,C0,No incentive,17,5076,4647,23,0.78708,966
+cimas_cold_vm,19,C1,Random allocation,17,5076,5076,23,0.78706,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,17,5076,5076,23,0.78715,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,17,5076,5076,23,0.78715,966
+cimas_cold_vm,19,C0,No incentive,18,5028,4569,23,0.78608,966
+cimas_cold_vm,19,C1,Random allocation,18,5028,5028,23,0.78631,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,18,5028,5028,23,0.78582,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,18,5028,5028,23,0.78601,966
+cimas_cold_vm,19,C0,No incentive,19,4925,4515,23,0.78627,966
+cimas_cold_vm,19,C1,Random allocation,19,4925,4925,23,0.786,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,19,4925,4925,23,0.78606,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,19,4925,4925,23,0.78606,966
+cimas_cold_vm,19,C0,No incentive,20,5005,4538,23,0.787,966
+cimas_cold_vm,19,C1,Random allocation,20,5005,5005,23,0.78705,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,20,5005,5005,23,0.78685,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,20,5005,5005,23,0.78682,966
+cimas_cold_vm,19,C0,No incentive,21,5098,4638,23,0.78571,966
+cimas_cold_vm,19,C1,Random allocation,21,5098,5098,23,0.78578,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,21,5098,5098,23,0.78561,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,21,5098,5098,23,0.78556,966
+cimas_cold_vm,19,C0,No incentive,22,5122,4674,23,0.78665,966
+cimas_cold_vm,19,C1,Random allocation,22,5122,5122,23,0.78652,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,22,5122,5122,23,0.78672,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,22,5122,5122,23,0.78669,966
+cimas_cold_vm,19,C0,No incentive,23,5065,4580,23,0.78606,966
+cimas_cold_vm,19,C1,Random allocation,23,5065,5065,23,0.78626,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,23,5065,5065,23,0.7861,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,23,5065,5065,23,0.78604,966
+cimas_cold_vm,19,C0,No incentive,24,5057,4596,23,0.78653,966
+cimas_cold_vm,19,C1,Random allocation,24,5057,5057,23,0.78646,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,24,5057,5057,23,0.78625,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,24,5057,5057,23,0.78619,966
+cimas_cold_vm,19,C0,No incentive,25,5036,4618,23,0.7874,966
+cimas_cold_vm,19,C1,Random allocation,25,5036,5036,23,0.78705,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,25,5036,5036,23,0.78714,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,25,5036,5036,23,0.78714,966
+cimas_cold_vm,19,C0,No incentive,26,5114,4626,23,0.78611,966
+cimas_cold_vm,19,C1,Random allocation,26,5114,5114,23,0.78617,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,26,5114,5114,23,0.78606,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,26,5114,5114,23,0.78607,966
+cimas_cold_vm,19,C0,No incentive,27,5037,4581,23,0.78612,966
+cimas_cold_vm,19,C1,Random allocation,27,5037,5037,23,0.78654,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,27,5037,5037,23,0.78604,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,27,5037,5037,23,0.78608,966
+cimas_cold_vm,19,C0,No incentive,28,5080,4636,23,0.78681,966
+cimas_cold_vm,19,C1,Random allocation,28,5080,5080,23,0.78673,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,28,5080,5080,23,0.78675,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,28,5080,5080,23,0.78671,966
+cimas_cold_vm,19,C0,No incentive,29,5078,4612,23,0.78676,966
+cimas_cold_vm,19,C1,Random allocation,29,5078,5078,23,0.78688,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,29,5078,5078,23,0.7865,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,29,5078,5078,23,0.78653,966
+cimas_cold_vm,19,C0,No incentive,30,5060,4622,23,0.78629,966
+cimas_cold_vm,19,C1,Random allocation,30,5060,5060,23,0.78633,966
+cimas_cold_vm,19,C2,FL nonattendance-risk ranking,30,5060,5060,23,0.78623,966
+cimas_cold_vm,19,C3,Cross-fitted DR uplift ranking,30,5060,5060,23,0.78623,966
+cimas_cold_vm,23,C0,No incentive,1,5052,4592,23,0.78681,966
+cimas_cold_vm,23,C1,Random allocation,1,5052,5052,23,0.78657,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,1,5052,5052,23,0.78707,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,1,5052,5052,23,0.78708,966
+cimas_cold_vm,23,C0,No incentive,2,5079,4671,23,0.78653,966
+cimas_cold_vm,23,C1,Random allocation,2,5079,5079,23,0.78663,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,2,5079,5079,23,0.78645,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,2,5079,5079,23,0.78645,966
+cimas_cold_vm,23,C0,No incentive,3,5118,4629,23,0.78594,966
+cimas_cold_vm,23,C1,Random allocation,3,5118,5118,23,0.78624,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,3,5118,5118,23,0.78593,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,3,5118,5118,23,0.78593,966
+cimas_cold_vm,23,C0,No incentive,4,5113,4654,23,0.78708,966
+cimas_cold_vm,23,C1,Random allocation,4,5113,5113,23,0.78753,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,4,5113,5113,23,0.78717,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,4,5113,5113,23,0.78717,966
+cimas_cold_vm,23,C0,No incentive,5,4989,4553,23,0.78626,966
+cimas_cold_vm,23,C1,Random allocation,5,4989,4989,23,0.78615,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,5,4989,4989,23,0.78633,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,5,4989,4989,23,0.78624,966
+cimas_cold_vm,23,C0,No incentive,6,5023,4574,23,0.78636,966
+cimas_cold_vm,23,C1,Random allocation,6,5023,5023,23,0.78656,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,6,5023,5023,23,0.7863,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,6,5023,5023,23,0.7863,966
+cimas_cold_vm,23,C0,No incentive,7,5047,4589,23,0.78664,966
+cimas_cold_vm,23,C1,Random allocation,7,5047,5047,23,0.78676,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,7,5047,5047,23,0.78672,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,7,5047,5047,23,0.78679,966
+cimas_cold_vm,23,C0,No incentive,8,4899,4467,23,0.78606,966
+cimas_cold_vm,23,C1,Random allocation,8,4899,4899,23,0.7862,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,8,4899,4899,23,0.78615,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,8,4899,4899,23,0.78615,966
+cimas_cold_vm,23,C0,No incentive,9,5088,4662,23,0.7858,966
+cimas_cold_vm,23,C1,Random allocation,9,5088,5088,23,0.78611,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,9,5088,5088,23,0.78615,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,9,5088,5088,23,0.78615,966
+cimas_cold_vm,23,C0,No incentive,10,5024,4563,23,0.78707,966
+cimas_cold_vm,23,C1,Random allocation,10,5024,5024,23,0.78693,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,10,5024,5024,23,0.78661,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,10,5024,5024,23,0.78661,966
+cimas_cold_vm,23,C0,No incentive,11,5064,4623,23,0.78735,966
+cimas_cold_vm,23,C1,Random allocation,11,5064,5064,23,0.78701,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,11,5064,5064,23,0.78706,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,11,5064,5064,23,0.78704,966
+cimas_cold_vm,23,C0,No incentive,12,5088,4650,23,0.78609,966
+cimas_cold_vm,23,C1,Random allocation,12,5088,5088,23,0.78597,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,12,5088,5088,23,0.78591,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,12,5088,5088,23,0.78591,966
+cimas_cold_vm,23,C0,No incentive,13,5159,4685,23,0.786,966
+cimas_cold_vm,23,C1,Random allocation,13,5159,5159,23,0.78621,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,13,5159,5159,23,0.78615,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,13,5159,5159,23,0.78615,966
+cimas_cold_vm,23,C0,No incentive,14,5024,4589,23,0.78617,966
+cimas_cold_vm,23,C1,Random allocation,14,5024,5024,23,0.78655,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,14,5024,5024,23,0.78611,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,14,5024,5024,23,0.78611,966
+cimas_cold_vm,23,C0,No incentive,15,5113,4639,23,0.78669,966
+cimas_cold_vm,23,C1,Random allocation,15,5113,5113,23,0.78697,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,15,5113,5113,23,0.7867,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,15,5113,5113,23,0.78671,966
+cimas_cold_vm,23,C0,No incentive,16,5083,4607,23,0.78636,966
+cimas_cold_vm,23,C1,Random allocation,16,5083,5083,23,0.78633,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,16,5083,5083,23,0.78632,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,16,5083,5083,23,0.78632,966
+cimas_cold_vm,23,C0,No incentive,17,5011,4575,23,0.78677,966
+cimas_cold_vm,23,C1,Random allocation,17,5011,5011,23,0.78673,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,17,5011,5011,23,0.78663,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,17,5011,5011,23,0.7866,966
+cimas_cold_vm,23,C0,No incentive,18,5176,4728,23,0.78577,966
+cimas_cold_vm,23,C1,Random allocation,18,5176,5176,23,0.78614,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,18,5176,5176,23,0.78589,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,18,5176,5176,23,0.78593,966
+cimas_cold_vm,23,C0,No incentive,19,5010,4570,23,0.78591,966
+cimas_cold_vm,23,C1,Random allocation,19,5010,5010,23,0.78595,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,19,5010,5010,23,0.78589,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,19,5010,5010,23,0.78592,966
+cimas_cold_vm,23,C0,No incentive,20,5130,4698,23,0.78624,966
+cimas_cold_vm,23,C1,Random allocation,20,5130,5130,23,0.78595,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,20,5130,5130,23,0.78599,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,20,5130,5130,23,0.78598,966
+cimas_cold_vm,23,C0,No incentive,21,5068,4648,23,0.78598,966
+cimas_cold_vm,23,C1,Random allocation,21,5068,5068,23,0.78613,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,21,5068,5068,23,0.7861,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,21,5068,5068,23,0.7861,966
+cimas_cold_vm,23,C0,No incentive,22,5150,4717,23,0.78579,966
+cimas_cold_vm,23,C1,Random allocation,22,5150,5150,23,0.78585,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,22,5150,5150,23,0.78575,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,22,5150,5150,23,0.78573,966
+cimas_cold_vm,23,C0,No incentive,23,4971,4532,23,0.78556,966
+cimas_cold_vm,23,C1,Random allocation,23,4971,4971,23,0.78619,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,23,4971,4971,23,0.78589,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,23,4971,4971,23,0.78589,966
+cimas_cold_vm,23,C0,No incentive,24,5050,4583,23,0.78633,966
+cimas_cold_vm,23,C1,Random allocation,24,5050,5050,23,0.78634,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,24,5050,5050,23,0.78635,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,24,5050,5050,23,0.78635,966
+cimas_cold_vm,23,C0,No incentive,25,4999,4562,23,0.78678,966
+cimas_cold_vm,23,C1,Random allocation,25,4999,4999,23,0.78695,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,25,4999,4999,23,0.78668,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,25,4999,4999,23,0.78668,966
+cimas_cold_vm,23,C0,No incentive,26,5008,4584,23,0.78583,966
+cimas_cold_vm,23,C1,Random allocation,26,5008,5008,23,0.78595,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,26,5008,5008,23,0.78604,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,26,5008,5008,23,0.78603,966
+cimas_cold_vm,23,C0,No incentive,27,4982,4521,23,0.78612,966
+cimas_cold_vm,23,C1,Random allocation,27,4982,4982,23,0.78639,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,27,4982,4982,23,0.78621,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,27,4982,4982,23,0.78621,966
+cimas_cold_vm,23,C0,No incentive,28,5072,4608,23,0.78686,966
+cimas_cold_vm,23,C1,Random allocation,28,5072,5072,23,0.78677,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,28,5072,5072,23,0.78669,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,28,5072,5072,23,0.78669,966
+cimas_cold_vm,23,C0,No incentive,29,5128,4650,23,0.78602,966
+cimas_cold_vm,23,C1,Random allocation,29,5128,5128,23,0.7859,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,29,5128,5128,23,0.78593,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,29,5128,5128,23,0.78592,966
+cimas_cold_vm,23,C0,No incentive,30,5125,4649,23,0.78667,966
+cimas_cold_vm,23,C1,Random allocation,30,5125,5125,23,0.78647,966
+cimas_cold_vm,23,C2,FL nonattendance-risk ranking,30,5125,5125,23,0.78645,966
+cimas_cold_vm,23,C3,Cross-fitted DR uplift ranking,30,5125,5125,23,0.78645,966
+cimas_cold_vm,37,C0,No incentive,1,4970,4542,23,0.78694,966
+cimas_cold_vm,37,C1,Random allocation,1,4970,4970,23,0.78677,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,1,4970,4970,23,0.78688,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,1,4970,4970,23,0.78688,966
+cimas_cold_vm,37,C0,No incentive,2,5120,4618,23,0.78662,966
+cimas_cold_vm,37,C1,Random allocation,2,5120,5120,23,0.78665,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,2,5120,5120,23,0.78661,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,2,5120,5120,23,0.78661,966
+cimas_cold_vm,37,C0,No incentive,3,5142,4660,23,0.78675,966
+cimas_cold_vm,37,C1,Random allocation,3,5142,5142,23,0.78662,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,3,5142,5142,23,0.78651,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,3,5142,5142,23,0.78651,966
+cimas_cold_vm,37,C0,No incentive,4,5056,4609,23,0.78596,966
+cimas_cold_vm,37,C1,Random allocation,4,5056,5056,23,0.78592,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,4,5056,5056,23,0.78569,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,4,5056,5056,23,0.78569,966
+cimas_cold_vm,37,C0,No incentive,5,5003,4565,23,0.78716,966
+cimas_cold_vm,37,C1,Random allocation,5,5003,5003,23,0.7871,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,5,5003,5003,23,0.78705,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,5,5003,5003,23,0.78705,966
+cimas_cold_vm,37,C0,No incentive,6,5017,4548,23,0.78633,966
+cimas_cold_vm,37,C1,Random allocation,6,5017,5017,23,0.78635,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,6,5017,5017,23,0.78651,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,6,5017,5017,23,0.78651,966
+cimas_cold_vm,37,C0,No incentive,7,5058,4592,23,0.78732,966
+cimas_cold_vm,37,C1,Random allocation,7,5058,5058,23,0.78723,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,7,5058,5058,23,0.78714,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,7,5058,5058,23,0.78715,966
+cimas_cold_vm,37,C0,No incentive,8,5111,4633,23,0.78713,966
+cimas_cold_vm,37,C1,Random allocation,8,5111,5111,23,0.78692,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,8,5111,5111,23,0.78664,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,8,5111,5111,23,0.78664,966
+cimas_cold_vm,37,C0,No incentive,9,5015,4567,23,0.78669,966
+cimas_cold_vm,37,C1,Random allocation,9,5015,5015,23,0.78679,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,9,5015,5015,23,0.78651,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,9,5015,5015,23,0.78652,966
+cimas_cold_vm,37,C0,No incentive,10,4995,4572,23,0.78648,966
+cimas_cold_vm,37,C1,Random allocation,10,4995,4995,23,0.78643,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,10,4995,4995,23,0.78654,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,10,4995,4995,23,0.78654,966
+cimas_cold_vm,37,C0,No incentive,11,5074,4621,23,0.78701,966
+cimas_cold_vm,37,C1,Random allocation,11,5074,5074,23,0.78682,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,11,5074,5074,23,0.78668,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,11,5074,5074,23,0.78677,966
+cimas_cold_vm,37,C0,No incentive,12,4986,4549,23,0.78631,966
+cimas_cold_vm,37,C1,Random allocation,12,4986,4986,23,0.78624,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,12,4986,4986,23,0.78615,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,12,4986,4986,23,0.78616,966
+cimas_cold_vm,37,C0,No incentive,13,5068,4619,23,0.7867,966
+cimas_cold_vm,37,C1,Random allocation,13,5068,5068,23,0.7867,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,13,5068,5068,23,0.78697,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,13,5068,5068,23,0.78697,966
+cimas_cold_vm,37,C0,No incentive,14,5065,4619,23,0.78631,966
+cimas_cold_vm,37,C1,Random allocation,14,5065,5065,23,0.7865,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,14,5065,5065,23,0.78633,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,14,5065,5065,23,0.78631,966
+cimas_cold_vm,37,C0,No incentive,15,5005,4546,23,0.78668,966
+cimas_cold_vm,37,C1,Random allocation,15,5005,5005,23,0.78662,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,15,5005,5005,23,0.78643,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,15,5005,5005,23,0.78647,966
+cimas_cold_vm,37,C0,No incentive,16,5028,4554,23,0.78646,966
+cimas_cold_vm,37,C1,Random allocation,16,5028,5028,23,0.78645,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,16,5028,5028,23,0.78633,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,16,5028,5028,23,0.78635,966
+cimas_cold_vm,37,C0,No incentive,17,5005,4536,23,0.78659,966
+cimas_cold_vm,37,C1,Random allocation,17,5005,5005,23,0.78673,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,17,5005,5005,23,0.78675,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,17,5005,5005,23,0.78676,966
+cimas_cold_vm,37,C0,No incentive,18,5009,4560,23,0.78661,966
+cimas_cold_vm,37,C1,Random allocation,18,5009,5009,23,0.78688,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,18,5009,5009,23,0.78684,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,18,5009,5009,23,0.78684,966
+cimas_cold_vm,37,C0,No incentive,19,5018,4548,23,0.78606,966
+cimas_cold_vm,37,C1,Random allocation,19,5018,5018,23,0.78572,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,19,5018,5018,23,0.7857,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,19,5018,5018,23,0.78575,966
+cimas_cold_vm,37,C0,No incentive,20,5034,4586,23,0.7869,966
+cimas_cold_vm,37,C1,Random allocation,20,5034,5034,23,0.78675,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,20,5034,5034,23,0.78677,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,20,5034,5034,23,0.78678,966
+cimas_cold_vm,37,C0,No incentive,21,4965,4527,23,0.78658,966
+cimas_cold_vm,37,C1,Random allocation,21,4965,4965,23,0.78666,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,21,4965,4965,23,0.78672,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,21,4965,4965,23,0.78672,966
+cimas_cold_vm,37,C0,No incentive,22,5070,4607,23,0.78608,966
+cimas_cold_vm,37,C1,Random allocation,22,5070,5070,23,0.78627,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,22,5070,5070,23,0.78613,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,22,5070,5070,23,0.78607,966
+cimas_cold_vm,37,C0,No incentive,23,4965,4498,23,0.7869,966
+cimas_cold_vm,37,C1,Random allocation,23,4965,4965,23,0.7868,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,23,4965,4965,23,0.78671,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,23,4965,4965,23,0.78674,966
+cimas_cold_vm,37,C0,No incentive,24,4943,4459,23,0.78659,966
+cimas_cold_vm,37,C1,Random allocation,24,4943,4943,23,0.78673,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,24,4943,4943,23,0.7865,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,24,4943,4943,23,0.78649,966
+cimas_cold_vm,37,C0,No incentive,25,4994,4530,23,0.78681,966
+cimas_cold_vm,37,C1,Random allocation,25,4994,4994,23,0.78674,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,25,4994,4994,23,0.78667,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,25,4994,4994,23,0.78667,966
+cimas_cold_vm,37,C0,No incentive,26,5098,4654,23,0.78687,966
+cimas_cold_vm,37,C1,Random allocation,26,5098,5098,23,0.78681,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,26,5098,5098,23,0.78651,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,26,5098,5098,23,0.78651,966
+cimas_cold_vm,37,C0,No incentive,27,5061,4587,23,0.78697,966
+cimas_cold_vm,37,C1,Random allocation,27,5061,5061,23,0.787,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,27,5061,5061,23,0.78688,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,27,5061,5061,23,0.78686,966
+cimas_cold_vm,37,C0,No incentive,28,4959,4524,23,0.78727,966
+cimas_cold_vm,37,C1,Random allocation,28,4959,4959,23,0.78723,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,28,4959,4959,23,0.78703,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,28,4959,4959,23,0.78707,966
+cimas_cold_vm,37,C0,No incentive,29,5041,4591,23,0.78672,966
+cimas_cold_vm,37,C1,Random allocation,29,5041,5041,23,0.78674,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,29,5041,5041,23,0.7864,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,29,5041,5041,23,0.78648,966
+cimas_cold_vm,37,C0,No incentive,30,5109,4645,23,0.78651,966
+cimas_cold_vm,37,C1,Random allocation,30,5109,5109,23,0.7866,966
+cimas_cold_vm,37,C2,FL nonattendance-risk ranking,30,5109,5109,23,0.78638,966
+cimas_cold_vm,37,C3,Cross-fitted DR uplift ranking,30,5109,5109,23,0.7864,966

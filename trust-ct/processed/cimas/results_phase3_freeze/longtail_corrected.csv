@@ -1,0 +1,3 @@
+model,AUROC,PR_AUC,PR_AUC_orientation,PR_AUC_formula,PR_lift,lift_formula,prev_denom,n_patients,n_providers,interval_width_auroc,interval_width_prauc
+Central,0.807 [95% CI 0.785-0.829],0.900 [95% CI 0.882-0.917],risk_positive,"AP(Y_risk=1-Y_adh, P_risk=1-P_adh)",1.329,PR_AUC_risk / Pr(Y_risk=1),0.677,3716,264,0.044,0.035
+FedAvg,0.803 [95% CI 0.781-0.826],0.899 [95% CI 0.880-0.916],risk_positive,"AP(Y_risk=1-Y_adh, P_risk=1-P_adh)",1.327,PR_AUC_risk / Pr(Y_risk=1),0.677,3716,264,0.045,0.036

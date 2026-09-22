@@ -1,0 +1,43 @@
+{
+  "clean_auroc_fedavg": 0.8811,
+  "clean_prauc_fedavg": 0.4589,
+  "worst_unprotected_fedavg": {
+    "attack": "label_flip",
+    "auroc": 0.7581,
+    "auroc_degradation": -0.123,
+    "note": "label_flip is the worst unprotected attack by AUROC; NOT sign_flip."
+  },
+  "sign_flip_degradation": -0.0647,
+  "robust_defense_coord_median_worst": -0.021,
+  "corrected_statement": "Worst unprotected FedAvg AUROC degradation (eICU, f=3): -0.123 (label_flip). Sign-flip: -0.065. With coordinate-median defense, worst degradation reduces to approximately -0.021. Small degradation is consistent with evaluated model (LR), aggregation weights, clipping, and attack configuration at f/K=37.5%; it is not definitively attributed to convexity or honest majority alone.",
+  "all_attacks": {
+    "final_auroc": {
+      "label_flip": 0.7581,
+      "sign_flip": 0.8164,
+      "model_replace": 0.8639,
+      "alie": 0.8741,
+      "backdoor": 0.8798
+    },
+    "auroc_degradation": {
+      "label_flip": -0.123,
+      "sign_flip": -0.0647,
+      "model_replace": -0.0172,
+      "alie": -0.007,
+      "backdoor": -0.0013
+    },
+    "final_pr_auc": {
+      "label_flip": 0.2163,
+      "sign_flip": 0.2756,
+      "model_replace": 0.3797,
+      "alie": 0.4274,
+      "backdoor": 0.4884
+    },
+    "prauc_degradation": {
+      "label_flip": -0.2426,
+      "sign_flip": -0.1833,
+      "model_replace": -0.0792,
+      "alie": -0.0315,
+      "backdoor": 0.0295
+    }
+  }
+}

@@ -1,0 +1,115 @@
+# Phase 4: BETTER-BP Attendance-Targeting Policy
+# Locked design — do not modify without regenerating phase4_lock.json
+
+data:
+  trial_outcomes: "../Fedlearn/processed/better_bp/trial_outcomes.parquet"
+  participants_baseline: "../Fedlearn/processed/better_bp/participants_baseline.parquet"
+  outcome_col: "visit_6m_attended"          # Y=1 attended; higher is better
+  treatment_col: "treatment_arm"
+  treatment_value: "Intervention"
+  propensity: 0.6667                         # e(X)=2/3, known from randomization
+  site_col: "site"
+
+cohort:
+  # Cannot identify 2 excluded participants from public data; use N=402 (public cohort)
+  # Published ITT N=400; if exclusions become identifiable, relock with N=400
+  analysis_n: 402
+  sites: ["A", "B"]
+
+features:
+  # All features must be pre-randomization. Validated 2026-08-25.
+  baseline_only: true
+  cols:
+    - age
+    - race_white
+    - race_black_or_african_american
+    - race_asian
+    - race_american_indian_or_alaska_native
+    - race_native_hawaiian_or_other_pacific_islander
+    - race_other_specify
+    - sbp_baseline
+    - dbp_baseline
+    - mases_baseline
+    - site_A                                 # derived: 1 if site==A, 0 if site==B
+  # Rejected — null in public data release (sex, ethnicity, insurance, BMI, TSRQ, Charlson, PHQ-8, SF-12)
+  rejected_null:
+    - sex_female
+    - hispanic
+    - ins_medicaid
+    - ins_medicare
+    - ins_private
+    - bmi
+    - tsrq_autonomous
+    - tsrq_controlled
+    - charlson
+    - phq8
+    - sf12_mcs
+    - sf12_pcs
+  # Rejected — post-randomization (outcome horizon variables; process variables arm-dependent)
+  rejected_postrandomization:
+    - visit_12m_attended
+    - study_completed
+    - explicit_noncompletion
+    - missing_eos_record
+    - nonattendance_12m
+    - sbp_change_6m
+    - dbp_change_6m
+    - mases_change_6m
+    - sbp_change_12m
+    - dbp_change_12m
+    - mases_change_12m
+    - bottle_received       # arm-dependent process variable
+    - bottle_able_open      # arm-dependent process variable
+
+cross_fitting:
+  n_folds: 5
+  seeds: [7, 11, 19, 23, 37]
+  nuisance_model:
+    type: LogisticRegression
+    C: 0.1
+    class_weight: "balanced"
+    max_iter: 1000
+
+budget:
+  primary: 0.6667
+  sensitivity: [0.25, 0.50, 0.6667]
+
+policies:
+  - no_incentive
+  - incentive_all
+  - random_budget              # stochastic at budget B; value estimated analytically
+  - risk_targeting             # target highest P(nonattend | A=0, X) = 1-mu0
+  - uplift_targeting           # target highest tau(X) = mu1(X) - mu0(X)
+  - fairness_constrained_uplift
+
+fairness:
+  protected_attributes:
+    - name: race_white
+      label: "White vs non-White"
+    - name: site_A
+      label: "Site A vs Site B"
+  min_coverage_ratio: 0.8      # each group's coverage >= 0.8 * overall coverage rate
+  n_bootstrap: 2000
+  alpha: 0.05
+
+primary_contrast:
+  policy_a: uplift_targeting
+  policy_b: random_budget
+  budget: 0.6667
+  description: "Delta_V = V(pi_uplift) - V(pi_random) at incentive budget = 2/3"
+
+bootstrap:
+  n_boot: 2000
+  seed: 7
+  alpha: 0.05
+
+output_dir: "processed/better_bp/results_phase4"
+
+manuscript:
+  policy_label: "attendance-targeting policy"
+  outcome_label: "six-month visit attendance"
+  cohort_label: "semi-synthetic closed-loop replay calibrated from BETTER-BP RCT"
+  not_allowed:
+    - "prospective clinical validation"
+    - "medication adherence policy"
+    - "EMD adherence"

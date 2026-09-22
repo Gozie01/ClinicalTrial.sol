@@ -1,0 +1,34 @@
+{
+  "run_id": "w09",
+  "script": "trust-ct/run_phase6_w09_rerun.py",
+  "remediation_issues": [
+    "W09a",
+    "W09b",
+    "W09c"
+  ],
+  "attacks_rerun": [
+    "random_gauss",
+    "backdoor"
+  ],
+  "datasets": [
+    "eicu",
+    "cimas"
+  ],
+  "seeds": [
+    7,
+    11,
+    19,
+    23,
+    37
+  ],
+  "n_rows_w09_adversarial": 300,
+  "n_rows_w09_leakage_fl": 25,
+  "outputs": {
+    "adversarial": "trust-ct/processed/phase6/phase6b_adversarial_w09.csv",
+    "leakage_fl": "trust-ct/processed/phase6/phase6c_leakage_fl_w09.csv"
+  },
+  "originals_preserved": [
+    "trust-ct/processed/phase6/phase6b_adversarial.csv",
+    "trust-ct/processed/phase6/phase6c_leakage_fl.csv"
+  ]
+}

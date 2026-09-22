@@ -1,0 +1,118 @@
+{
+  "status": "LOCKED",
+  "version": "v3",
+  "all_gate_checks_pass": true,
+  "gate_checks": {
+    "g1_bp_c0_participation_in_range": true,
+    "g2_bp_c1_gt_c0": true,
+    "g3_bp_c3_ge_c2": true,
+    "g4_governance_350_injections": true,
+    "g5_governance_detection_100pct": true,
+    "g6_false_alert_zero": true,
+    "g7_cold_seeds_count": true,
+    "g8_cold_crn_draws_count": true,
+    "g9_vm_within_provider": true,
+    "g10_cold_comm_cost_correct": true
+  },
+  "corrections": [
+    "Fix1: logit-scale intercept recalibration (brentq) replacing linear probability shift",
+    "Fix2: within-provider volume matching (client mixture preserved)",
+    "Fix3: multi-CRN uncertainty (5 seeds x N_CRN draws; seed/CRN variance separated)",
+    "Fix4: 350 governance fault-injection tests (7 attacks x 5 seeds x 10 positions)",
+    "Fix5: byte-level comm; cold-start 2x23x21x30=28,980 params; warm 19,320 params"
+  ],
+  "governance_note": "Signatures and hash linkage authenticate the recorded source and detect subsequent alteration but cannot establish the truth of an incorrect event submitted by an authorized source.",
+  "betterbp_participation_ci": {
+    "C0": {
+      "mean": 0.8137,
+      "lcb95": 0.8125,
+      "ucb95": 0.8152,
+      "phase4_dr_target": 0.815
+    },
+    "C1": {
+      "mean": 0.8588,
+      "lcb95": 0.8574,
+      "ucb95": 0.8602,
+      "phase4_dr_target": 0.86
+    },
+    "C2": {
+      "mean": 0.8721,
+      "lcb95": 0.8709,
+      "ucb95": 0.8733,
+      "phase4_dr_target": 0.885
+    },
+    "C3": {
+      "mean": 0.89,
+      "lcb95": 0.8888,
+      "ucb95": 0.8913,
+      "phase4_dr_target": 0.892
+    }
+  },
+  "cold_start_contrasts": {
+    "C2-C1": {
+      "standard_auc_lc": [
+        -7.794482758623822e-05,
+        -8.475922413795518e-05,
+        -7.004646551728001e-05
+      ],
+      "vm_auc_lc": [
+        -7.051034482759233e-05,
+        -7.901931034479891e-05,
+        -6.221896551723223e-05
+      ],
+      "standard_final_auroc": [
+        -8.45999999999969e-05,
+        -0.00012941999999999067,
+        -4.258999999999841e-05
+      ],
+      "vm_final_auroc": [
+        -7.760000000000433e-05,
+        -0.00012460000000000254,
+        -3.17500000000021e-05
+      ],
+      "materiality_threshold": 0.001,
+      "interpretation": "The difference was statistically detectable under paired simulation but remained below the prespecified operational materiality threshold (|delta| < 0.001)."
+    },
+    "C3-C1": {
+      "standard_auc_lc": [
+        -7.794482758623822e-05,
+        -8.475922413795518e-05,
+        -7.004646551728001e-05
+      ],
+      "vm_auc_lc": [
+        -6.819655172414007e-05,
+        -7.659896551721784e-05,
+        -5.862000000001249e-05
+      ],
+      "standard_final_auroc": [
+        -8.45999999999969e-05,
+        -0.00012941999999999067,
+        -4.258999999999841e-05
+      ],
+      "vm_final_auroc": [
+        -6.580000000000474e-05,
+        -0.00011221000000000648,
+        -1.9285000000005505e-05
+      ],
+      "materiality_threshold": 0.001,
+      "interpretation": "The difference was statistically detectable under paired simulation but remained below the prespecified operational materiality threshold (|delta| < 0.001)."
+    }
+  },
+  "communication_cost": {
+    "formula": "bidirectional = sum_t 2 * K_t * d (upload + broadcast)",
+    "unit": "FP32 parameters (x4 bytes each)",
+    "betterbp_params_per_run": 960,
+    "betterbp_bytes_per_run": 3840,
+    "cimas_warm_params_per_run": 19320,
+    "cimas_warm_bytes_per_run": 77280,
+    "cimas_cold_params_per_run": 28980,
+    "cimas_cold_bytes_per_run": 115920,
+    "note": "Excludes serialization overhead, digital signatures, and protocol headers."
+  },
+  "framing": [
+    "Semi-synthetic closed-loop replay calibrated from real randomised-trial and longitudinal-claims data. NOT prospective clinical validation.",
+    "Attendance-targeting policy, not medication-adherence policy.",
+    "Cimas C3: trial-calibrated proxy sensitivity analysis; individual BETTER-BP CATE scores NOT applied across populations.",
+    "Under the trial-calibrated replay, C3 generated the highest simulated availability; this does not independently confirm an attendance benefit because the replay is constructed using Phase 4 estimates."
+  ]
+}

@@ -1,0 +1,144 @@
+========================================================================
+E6 PAIRED STATISTICAL ANALYSIS — PROVIDER-LEVEL AUROC DISPARITY
+Late-round window: rounds 51–60  (10 rounds per provider per seed)
+Matched unit: (provider, seed)  |  K=23 providers  |  S=5 seeds
+Provider x seed pairs: 115
+Primary test: seed-level paired t-test (n=5, df=4)
+Bootstrap CI: 5000 cluster resamples (resample seeds), 95% CI
+========================================================================
+
+------------------------------------------------------------------------
+CONTRAST: FedAvg (cold) - Local-only (cold)
+  Matched providers: 23  |  Seeds: 5  |  Evaluations (provider x seed): 115
+  Test-set sizes identical across conditions: True
+
+  Metric (A - B, late rounds 51-60)         Mean delta    95% CI                 p (seed t, df=4)
+  --------------------------------------------------------------------
+  Macro-average AUROC delta              +0.00282   [-0.00264, +0.00791]   p=0.3935
+  Provider-weighted AUROC delta          +0.00213   [+0.00005, +0.00382]   p=0.1367  (weighted by provider n_test)
+  Worst-provider AUROC delta             -0.11446   [-0.14069, -0.08903]   p=0.0015  (min over providers, per seed)
+  10th-pctile provider AUROC delta       -0.02823   [-0.03440, -0.02304]   p=0.0012  (10th pctile over providers, per seed)
+  IQR of provider AUROC deltas           +0.01942   [+0.01547, +0.02338]   (scale; no t-test)
+
+  Provider x seed t-test (n=115, df=114; **within-seed correlation inflates n**): t=0.607, p=0.5449
+
+------------------------------------------------------------------------
+CONTRAST: Warm-local (fed init) - Local-only (cold)
+  Matched providers: 23  |  Seeds: 5  |  Evaluations (provider x seed): 115
+  Test-set sizes identical across conditions: True
+
+  Metric (A - B, late rounds 51-60)         Mean delta    95% CI                 p (seed t, df=4)
+  --------------------------------------------------------------------
+  Macro-average AUROC delta              +0.00519   [+0.00206, +0.00895]   p=0.0656
+  Provider-weighted AUROC delta          +0.00226   [+0.00137, +0.00321]   p=0.0122  (weighted by provider n_test)
+  Worst-provider AUROC delta             -0.03072   [-0.04438, -0.02179]   p=0.0117  (min over providers, per seed)
+  10th-pctile provider AUROC delta       -0.00852   [-0.01380, -0.00324]   p=0.0490  (10th pctile over providers, per seed)
+  IQR of provider AUROC deltas           +0.01174   [+0.01028, +0.01310]   (scale; no t-test)
+
+  Provider x seed t-test (n=115, df=114; **within-seed correlation inflates n**): t=2.769, p=0.0066
+
+------------------------------------------------------------------------
+CONTRAST: Warm-local (fed init) - Continued FedAvg (warm)
+  Matched providers: 23  |  Seeds: 5  |  Evaluations (provider x seed): 115
+  Test-set sizes identical across conditions: True
+
+  Metric (A - B, late rounds 51-60)         Mean delta    95% CI                 p (seed t, df=4)
+  --------------------------------------------------------------------
+  Macro-average AUROC delta              +0.00236   [+0.00022, +0.00564]   p=0.2126
+  Provider-weighted AUROC delta          +0.00014   [-0.00090, +0.00153]   p=0.8577  (weighted by provider n_test)
+  Worst-provider AUROC delta             -0.08669   [-0.14415, -0.04118]   p=0.0457  (min over providers, per seed)
+  10th-pctile provider AUROC delta       -0.02281   [-0.03307, -0.01254]   p=0.0165  (10th pctile over providers, per seed)
+  IQR of provider AUROC deltas           +0.01641   [+0.01128, +0.02137]   (scale; no t-test)
+
+  Provider x seed t-test (n=115, df=114; **within-seed correlation inflates n**): t=0.721, p=0.4723
+
+========================================================================
+EXPERIMENT INTEGRITY VERIFICATION
+========================================================================
+
+[1] Identical provider-specific test sets across conditions:
+    All provider x seed cells have unique n_test value: True
+    -> CONFIRMED. The same stratified split (fixed by seed) was used
+       for all four conditions. provider_split() was called once per
+       seed and the resulting X_test / y_test arrays were shared.
+
+[2] Training/test separation:
+    LogisticClient.__init__ fits imputer + scaler on X_train only.
+    client_auroc() calls client._preprocess(X_test) which applies the
+    already-fitted (train-only) transforms. X_test is never seen during
+    imputer.fit() or scaler.fit(). -> CONFIRMED (by code inspection of
+    federated/fedavg.py lines 52-53 and run_e6_fairness.py).
+
+[3] Identical preprocessing and feature sets:
+    Feature set: 22 numeric columns from cimas_htn_landmark_6m.parquet
+    (same EXCLUDE_COLS applied to all conditions).
+    Per-provider imputer (median) + StandardScaler fitted on each provider's
+    own training rows. Same split -> same fit -> identical preprocessing
+    across conditions for any given (provider, seed). -> CONFIRMED.
+
+[4] Equal local epochs and optimisation budgets:
+    n_local_epochs = 5 for all conditions.
+    lr = 0.02 for all conditions.
+    class_weight = 'balanced' for all conditions.
+    mu = 0.0 (FedAvg, no proximal term) for all conditions.
+    -> CONFIRMED. make_clients() uses identical hyperparameters.
+
+[5] warm_local / warm_fed initialised from cold_fed round-30 checkpoint:
+    warm_local entries begin at round 31 (confirmed in data).
+    Initialisation code: c.set_global_weights(snapshot_weights) for all
+    warm-condition clients before round 31.
+    snapshot_weights = cold_fed clients[0].get_weights() after round 30.
+    At round 30 cold_fed all clients share the same global W_30
+    (FedAvg broadcasts after each round). -> CONFIRMED.
+
+[6] warm_fed IDENTITY GATE — rows 31-60 reproduce cold_fed rows 31-60:
+    cold_fed rows 31-60 joined to warm_fed rows 31-60 on (seed, client, round).
+    Total matched pairs: 3450  |  Max |delta|: 0.00e+00
+    Pairs with |delta| < 1e-12 (numerically identical): 3450/3450
+    -> CONFIRMED: warm_fed is an exact reproduction of cold_fed rounds 31-60.
+       It is treated as a REPRODUCIBILITY GATE, not an independent arm.
+
+========================================================================
+COMMUNICATION COST: warm_local vs continued FedAvg (rounds 31-60)
+========================================================================
+
+  Parameter dimension: 23 floats (22 coef + 1 intercept)
+  Rounds in window 31-60: 30
+  Providers: 23
+
+  continued FedAvg (warm_fed):
+    Aggregation rounds: 30
+    Total messages (uplink + downlink): 1380
+    Total floats transferred: 31,740
+    = 30 rounds x 23 providers x 2 directions x 23 floats
+
+  warm_local (one checkpoint broadcast then local-only):
+    Aggregation rounds: 0
+    Checkpoint broadcast messages: 23 (downlink only)
+    Total floats transferred: 529
+    = 1 broadcast x 23 providers x 23 floats
+
+  Communication avoided: 1357 messages, 31,211 floats
+  Parameter-transfer reduction: 98.3%
+  (warm_local uses 1.7% of continued-FedAvg communication)
+
+  AUROC cost of this reduction (macro-average, rounds 51-60):
+    warm_local - warm_fed macro AUROC: +0.00236  95% CI [+0.00022, +0.00564]  p=0.2126
+    -> 98% fewer parameter transfers at the cost of +0.0024 mean AUROC.
+
+========================================================================
+TERMINOLOGY NOTE
+========================================================================
+  This experiment measures provider-level AUROC disparity (macro-
+  average, worst-provider, 10th-percentile, IQR across K=23 pharmacy
+  providers). It does not measure individual fairness, demographic
+  fairness, or equitable outcomes for patient subgroups. The term
+  'fairness' in the figure/script names refers to performance equity
+  across data contributors (provider-level), not to protected-attribute
+  fairness. Language in any manuscript section should be scoped
+  accordingly.
+
+========================================================================
+Outputs: C:\Users\Gozie\Desktop\Blockchain in Clinical Trial\Fedlearn\trust-ct\processed\e6_fairness\e6_paired_analysis.csv
+         C:\Users\Gozie\Desktop\Blockchain in Clinical Trial\Fedlearn\trust-ct\processed\e6_fairness\e6_analysis_report.txt
+========================================================================
