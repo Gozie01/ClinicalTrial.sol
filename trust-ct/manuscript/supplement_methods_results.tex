@@ -210,6 +210,12 @@ warm-local vs warm-FedAvg & Macro AUROC      & $+0.002$ & [$+0.000$, $+0.006$]  
 seed-cluster resamples.
 Provider~$\times$~seed $t$-test ($n=115$) also computed; within-seed
 correlation inflates the effective sample size and is not primary.
+\textbf{Worst-provider} $\Delta$ is the mean across seeds of the
+\emph{minimum} per-provider paired difference (condition~A minus condition~B)
+over $K=23$ providers; it is not the difference between the marginal
+absolute minimum AUROCs reported for each condition separately (those may
+refer to different providers and their difference is $+0.009$ for
+cold-FedAvg vs cold-local).
 
 \paragraph{Contrast heterogeneity.}
 Zero of 23 providers showed a systematic directional effect

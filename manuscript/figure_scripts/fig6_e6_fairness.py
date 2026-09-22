@@ -189,12 +189,13 @@ fig.text(
     0.5, -0.03,
     "Panel A/B: shading = ±1 seed-SD (5 seeds, K=23 Cimas providers); "
     "warm conditions initialised from cold_fed round-30 checkpoint. "
-    "The identity of the worst-off provider (Panel B) may vary across conditions and seeds. "
-    "Panel C: contrasts are warm-local minus warm-FedAvg (positive = warm-local higher); "
-    "error bars are 95% seed-level bootstrap confidence intervals; "
-    r"$p$-values are from paired seed-level $t$-tests across five seeds (exploratory, unadjusted). "
-    "Warm initialization explained most aggregate AUROC parity; "
-    "continued federation retained advantages for lower-performing providers.",
+    "Panel B shows the seed-averaged absolute minimum AUROC across providers "
+    "(marginal, not paired; the lowest-performing provider may differ across conditions and seeds). "
+    "Panel C: contrasts are warm-local minus warm-FedAvg; "
+    "Worst-provider entry is the mean across seeds of the minimum paired per-provider "
+    "AUROC difference — not the difference between the Panel B absolute minima. "
+    "Error bars are 95% seed-level bootstrap CIs; "
+    r"$p$-values are exploratory, unadjusted paired seed-level $t$-tests.",
     ha="center", va="top", fontsize=8.5, color="#555555",
 )
 

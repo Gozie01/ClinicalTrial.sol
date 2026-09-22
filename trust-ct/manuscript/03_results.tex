@@ -224,17 +224,26 @@ Under cold FedAvg the provider AUROC interquartile range (IQR) was
 0.092 [0.073, 0.109] versus 0.094 [0.073, 0.116] under cold local;
 the distributions were comparable.
 Warm-local achieved a slightly narrower IQR (0.091 [0.075, 0.105]).
-Worst-provider absolute AUROC was 0.518 [0.444, 0.578] (cold FedAvg),
-0.509 [0.466, 0.566] (cold local), and 0.525 [0.487, 0.565] (warm-local).
+The seed-averaged absolute minimum provider AUROC (lowest-performing provider
+in each condition, marginal, not paired) was 0.518 [0.444, 0.578] under cold
+FedAvg, 0.509 [0.466, 0.566] under cold local, and 0.525 [0.487, 0.565] under
+warm-local (Figure~6B).
+The identity of the lowest-performing provider varied across conditions and seeds;
+these marginal minima do not constitute a paired contrast and their difference
+($+0.009$) is not the worst-provider delta reported below.
 
 \paragraph{Paired contrasts (macro-average, late rounds 51--60).}
 Cold FedAvg versus cold local:
 macro-average $\Delta=+0.003$ [$-0.003$, $+0.008$]; $p=0.39$;
 provider-weighted $\Delta=+0.002$; $p=0.14$.
 No significant bulk AUROC benefit was established.
-The worst-provider contrast delta was $-0.114$ [$-0.141$, $-0.089$]; $p=0.001$:
-the single most data-heterogeneous provider was materially harmed by
-global aggregation.
+The worst-provider \emph{paired} contrast---defined as the mean across five seeds of
+the minimum per-provider AUROC difference (cold-FedAvg minus cold-local) across
+$K=23$ providers---was $-0.114$ [$-0.141$, $-0.089$]; $p=0.001$.
+This quantity identifies, within each seed, the provider most harmed by global
+aggregation relative to local-only training; it is not the arithmetic difference
+between the marginal absolute minima above, which may refer to different providers
+under each condition.
 Zero of 23~providers showed systematic directional effects
 (signal-to-noise ratio $|\bar{\delta}|/\mathrm{SD}_\delta > 2$);
 the effect was highly heterogeneous (SD of provider mean deltas: 0.032~AUROC).
