@@ -116,7 +116,7 @@ where $\ell$ is logistic loss and $n_k$ is the local sample size.
 The global objective is $F(\mathbf{w}) = \sum_k \tfrac{n_k}{N}F_k(\mathbf{w})$.
 
 Local updates used mini-batch stochastic gradient descent
-($N_\text{local}=5$ epochs, learning rate $\eta=0.02$,
+($N_\text{local}=10$ epochs, learning rate $\eta=0.02$,
 balanced class weights).
 Five aggregation strategies were evaluated:
 (i)~\emph{FedAvg} (weighted average~\cite{TODO:mcmahan2017fedavg});
@@ -191,7 +191,7 @@ reproducing $\hat{V}(C1, B=\tfrac{2}{3})=0.8603$ from Phase~4.
 The Cimas cold-start experiment ran for $T=30$ outer replay rounds with a
 fixed 20\% stratified holdout, $5$~model seeds, and $10$~CRN draws per seed.
 At each outer round, FL was refitted on the attending participant subset
-($N_\text{local}=5$ inner aggregation rounds); performance was measured on
+($T_\text{inner}=5$ FL aggregation rounds, $E=5$ local epochs each); performance was measured on
 the fixed holdout.
 Provider volume was matched within-provider across scenarios.
 Performance was summarised by normalized area under the learning
