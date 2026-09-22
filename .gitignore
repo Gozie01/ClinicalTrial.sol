@@ -51,10 +51,11 @@ document.pdf
 # Personal/junk images
 Gemini_Generated_Image_*.png
 3d59bc35-cbfa-4f09-9831-bd23296eb983.png
-"RL closs loop.png"
-"System framework.png"
-"System framework1.png"
-"System framework2.png"
+RL closs loop.png
+System framework.png
+System framework1.png
+System framework2.png
+secure_flow.png
 
 # Archive files at root (datasets, not code)
 *.zip
